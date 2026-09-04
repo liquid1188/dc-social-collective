@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: Team
+permalink: /team/
+description: "The people behind DC Social Collective."
+---
+<div class="wrap page-head">
+  <h1>The team</h1>
+  <p class="lede">A founder, a director, and the ambassadors who make sure nobody stands alone at the wall.</p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap team">
+  {%- for m in team %}
+    <article>
+      <img src="{{ m.photo }}" alt="{{ m.name }}" width="1000" height="1000" loading="lazy">
+      <h2>{{ m.name }}</h2>
+      <p class="role">{{ m.role }}</p>
+      <p>{{ m.bio }}</p>
+    </article>
+  {%- endfor %}
+  </div>
+</section>
+<section class="band paper">
+  <div class="wrap">
+    <h2>Want to be part of it?</h2>
+    <p class="lede">We take on brand ambassadors and volunteers a few times a year.</p>
+    <a class="btn" href="/get-involved/">Get involved</a>
+  </div>
+</section>

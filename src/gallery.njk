@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: Photos
+permalink: /gallery/
+description: "Photos from DC Social Collective nights."
+---
+<div class="wrap page-head">
+  <h1>Photos</h1>
+  <p class="lede">From the barns, wineries, ballrooms, and docks. More on <a href="{{ site.instagram }}">Instagram</a>.</p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap gallery">
+  {%- for g in gallery %}
+    <a href="{{ g.src }}"><img src="{{ g.src }}" alt="{{ g.alt }}" width="{{ g.w }}" height="{{ g.h }}" loading="lazy"></a>
+  {%- endfor %}
+  </div>
+</section>

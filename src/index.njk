@@ -1,0 +1,108 @@
+---
+layout: base.njk
+permalink: /
+description: "Swing, salsa, country nights, and black-tie balls for young adults in DC, Maryland, and Virginia. Over 4,000 members. Find the next night out."
+---
+{%- set nxt = collections.upcoming[0] %}
+<section class="hero on-dark">
+  <img class="bg" src="/images/gallery/17.jpg" alt="" width="2500" height="1667" fetchpriority="high">
+  <div class="wrap">
+    <div>
+      <h1>Where DC's young adults go <em>to dance.</em></h1>
+      <p class="lede">Salsa in a winery, swing in a barn, black tie in a hotel ballroom. Nights that fill up, in the best rooms in the region, with {{ site.members }} people who came to meet you.</p>
+      <div class="hero-actions">
+        <a class="btn" href="/events/">See what's coming up</a>
+        <a class="btn ghost" href="/about/">Who we are</a>
+      </div>
+    </div>
+    {% if nxt %}
+    <a class="next" href="{{ nxt.url }}">
+      <img src="{{ nxt.data.image }}" alt="" width="1500" height="750">
+      <div class="body">
+        <p class="kicker">Next up · {{ nxt | iso | longDate }}</p>
+        <h2>{{ nxt.data.title }}</h2>
+        <p class="meta">{{ nxt.data.venue }} · {{ nxt.data.time }}{% if nxt.data.end %} to {{ nxt.data.end }}{% endif %}</p>
+        <span class="btn">Get tickets</span>
+      </div>
+    </a>
+    {% endif %}
+  </div>
+</section>
+
+<section class="band navy on-dark">
+  <div class="wrap">
+    <div class="band-head"><h2>Coming up</h2><a href="/events/">All events</a></div>
+    <ul class="events">
+    {%- for e in collections.upcoming %}
+      <li><a href="{{ e.url }}">
+        <span class="date">{{ e | iso | shortDate }}<small>{{ e | iso | weekday }} · {{ e.data.time }}</small></span>
+        <span><h3>{{ e.data.title }}</h3><p class="venue">{{ e.data.venue }}</p></span>
+        <img class="thumb" src="{{ e.data.image }}" alt="" loading="lazy" width="1500" height="750">
+      </a></li>
+    {%- endfor %}
+    </ul>
+    <p style="margin-top:1.5rem">More dates are announced on <a href="{{ site.instagram }}" style="color:var(--amber)">Instagram</a> first. <a href="#signup" style="color:var(--amber)">Join the list</a> to get them by email.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="band-head"><h2>Our regular nights</h2></div>
+    <div class="series">
+      <article><img src="/images/gallery/03.jpg" alt="" loading="lazy"><div class="txt"><h3>Sangria y Salsa</h3><p>The DMV's largest Latin dance series. Salsa, bachata, beginner lessons, live music and DJs, every other month at The Winery at Bull Run.</p></div></article>
+      <article><img src="/images/gallery/12.jpg" alt="" loading="lazy"><div class="txt"><h3>All-American Country Nights</h3><p>Country swing, two-step, and line dancing in a barn or a winery, with a 45-minute lesson so nobody stands at the wall.</p></div></article>
+      <article><img src="/images/gallery/13.jpg" alt="" loading="lazy"><div class="txt"><h3>The balls</h3><p>Black tie a few times a year. The Crooner Christmas Ball, St. Joseph's Ball, the Valentine's ball, and a Gatsby night at a winery.</p></div></article>
+      <article><img src="/images/gallery/23.jpg" alt="" loading="lazy"><div class="txt"><h3>Soirees and summer nights</h3><p>Strawberries at President Lincoln's Cottage, a rooftop in Old Town, disco on the docks of the Potomac.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="band paper">
+  <div class="wrap two-col">
+    <img src="/images/gallery/09.jpg" alt="Hundreds of guests at a DSC ball" loading="lazy" width="2500" height="1668">
+    <div>
+      <h2>Built for people who moved here and don't know anyone yet.</h2>
+      <p class="lede">DC Social Collective started in 2021, when the pandemic had emptied out the young adult social life of the city. It is now the largest young adult community in the region, and its nights sell out.</p>
+      <p>Most of the room is in their twenties and early thirties. You don't need a date and you don't need to be Catholic, though that is where our roots are. You come, you take the lesson, and you leave knowing people.</p>
+      <a class="btn" href="/about/">Read our story</a>
+    </div>
+  </div>
+</section>
+
+<section class="band navy on-dark">
+  <div class="wrap">
+    <div class="band-head"><h2>What a night looks like</h2><a href="/gallery/">All photos</a></div>
+    <div class="mosaic">
+      <a href="/gallery/"><img src="/images/gallery/04.jpg" alt="A packed dance floor at The Winery at Bull Run" loading="lazy"></a>
+      <a href="/gallery/"><img src="/images/gallery/07.jpg" alt="Guests in 1920s dress" loading="lazy"></a>
+      <a href="/gallery/"><img src="/images/gallery/21.jpg" alt="Friends at a ball" loading="lazy"></a>
+      <a href="/gallery/"><img src="/images/gallery/14.jpg" alt="A dance under stage fog" loading="lazy"></a>
+      <a href="/gallery/"><img src="/images/gallery/11.jpg" alt="Country dancing" loading="lazy"></a>
+    </div>
+    <blockquote class="quote" style="margin-top:4rem">“I'm not exactly confident in social situations, but thanks to you guys I was able to expand my comfort zone and meet some nice people.”<cite>A member, in the DSC Facebook group</cite></blockquote>
+  </div>
+</section>
+
+<section class="band" id="signup">
+  <div class="wrap signup">
+    <div>
+      <h2>Hear about the next one first.</h2>
+      <p>One email when a date is announced and one when it's about to sell out. Nothing else.</p>
+    </div>
+    <form action="https://formsubmit.co/{{ site.email }}" method="POST">
+      <input type="hidden" name="_subject" value="New mailing list signup from the website">
+      <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
+      <input type="text" name="first" placeholder="First name" required aria-label="First name">
+      <input type="text" name="last" placeholder="Last name" aria-label="Last name">
+      <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
+      <button class="btn" type="submit">Sign me up</button>
+    </form>
+  </div>
+</section>
+
+<section class="band paper">
+  <div class="wrap sponsors">
+    <img src="/images/redline.png" alt="Red Line Rentals" loading="lazy">
+    <div class="txt"><p><strong>Our nights are powered by Red Line Rentals</strong>, live sound and lighting for the DMV.</p><p><a href="/get-involved/#sponsor">Sponsor an event</a> and put your name in front of a few hundred young professionals at a time.</p></div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+---
+layout: base.njk
+title: Events
+permalink: /events/
+description: "Upcoming DC Social Collective events, with tickets, and the archive of past nights."
+---
+<div class="wrap page-head">
+  <h1>Events</h1>
+  <p class="lede">Every night has a beginner lesson, a live band or DJ, and a bar. Tickets go up in price as the date gets close, so early is cheaper.</p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap">
+    {%- if collections.upcoming.length %}
+    <div class="posters">
+    {%- for e in collections.upcoming %}
+      <article class="poster">
+        <a href="{{ e.url }}"><img src="{{ e.data.image }}" alt="" width="1500" height="750" loading="{% if loop.first %}eager{% else %}lazy{% endif %}"></a>
+        <div class="body">
+          <p class="when">{{ e | iso | longDate }} · {{ e.data.time }}{% if e.data.end %} to {{ e.data.end }}{% endif %}</p>
+          <h3><a href="{{ e.url }}" style="text-decoration:none">{{ e.data.title }}</a></h3>
+          <p class="venue">{{ e.data.venue }}{% if e.data.address %}, {{ e.data.address }}{% endif %}</p>
+          <p class="desc">{{ e.templateContent | striptags | truncate(220) }}</p>
+          <div class="actions">
+            {% if e.data.tickets %}<a class="btn" href="{{ e.data.tickets }}">Get tickets</a>{% endif %}
+            <a class="btn ghost" href="{{ e.url }}">Details</a>
+          </div>
+        </div>
+      </article>
+    {%- endfor %}
+    </div>
+    {%- else %}
+    <p class="lede">Nothing on the calendar right now. The next dates land on <a href="{{ site.instagram }}">Instagram</a> first.</p>
+    {%- endif %}
+  </div>
+</section>
+<section class="band navy on-dark" id="past">
+  <div class="wrap">
+    <div class="band-head"><h2>Past nights</h2><a href="/gallery/">Photos</a></div>
+    <ul class="events">
+    {%- for e in collections.past %}
+      <li><a href="{{ e.url }}">
+        <span class="date">{{ e | iso | shortDate }}<small>{{ e | iso | year }}</small></span>
+        <span><h3>{{ e.data.title }}</h3><p class="venue">{{ e.data.venue }}</p></span>
+        {% if e.data.image %}<img class="thumb" src="{{ e.data.image }}" alt="" loading="lazy" width="1500" height="750">{% endif %}
+      </a></li>
+    {%- endfor %}
+    </ul>
+  </div>
+</section>

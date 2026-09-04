@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or site.tagline }}">
+  {% if site.setupMode %}<meta name="robots" content="noindex, nofollow">{% endif %}
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v={{ buildId }}">
+  <meta property="og:title" content="{{ title or site.name }}">
+  <meta property="og:description" content="{{ description or site.tagline }}">
+  <meta property="og:image" content="{{ site.url }}/images/gallery/17.jpg">
+</head>
+<body{% if page.url == "/" %} class="home"{% endif %}>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="DC Social Collective home"><img src="/images/logo.png" alt="DC Social Collective" width="600" height="600"></a>
+    <input type="checkbox" id="menu" class="menu-toggle" aria-label="Open menu">
+    <label for="menu" class="menu-btn"><span></span><span></span></label>
+    <nav class="nav" aria-label="Main">
+      <a href="/events/"{% if '/events' in page.url %} aria-current="page"{% endif %}>Events</a>
+      <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+      <a href="/gallery/"{% if page.url == '/gallery/' %} aria-current="page"{% endif %}>Photos</a>
+      <a href="/team/"{% if page.url == '/team/' %} aria-current="page"{% endif %}>Team</a>
+      <a href="/get-involved/"{% if page.url == '/get-involved/' %} aria-current="page"{% endif %}>Get involved</a>
+      <a class="btn small" href="/events/">Tickets</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{{ content | safe }}
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="/images/logo.png" alt="" width="600" height="600">
+      <p>Premier social events for young adults in DC, Maryland, and Virginia. Over {{ site.members }} members.</p>
+    </div>
+    <div>
+      <h3>Come along</h3>
+      <a href="/events/">Upcoming events</a>
+      <a href="/events/#past">Past events</a>
+      <a href="/gallery/">Photos</a>
+      <a href="/about/#faq">Questions</a>
+    </div>
+    <div>
+      <h3>Work with us</h3>
+      <a href="/get-involved/#volunteer">Volunteer</a>
+      <a href="/get-involved/#ambassador">Be an ambassador</a>
+      <a href="/get-involved/#sponsor">Sponsor an event</a>
+      <a href="/get-involved/#music">Play our events</a>
+    </div>
+    <div>
+      <h3>Find us</h3>
+      <a href="{{ site.instagram }}">Instagram</a>
+      <a href="{{ site.facebook }}">Facebook group</a>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      <a href="tel:{{ site.phone | replace(' ', '') | replace('(', '') | replace(')', '') | replace('-', '') }}">{{ site.phone }}</a>
+    </div>
+  </div>
+  <div class="wrap foot-small">
+    <span>&copy; {{ today | year }} DC Social Collective. Washington, DC.</span>
+    <span><a href="{{ site.merch }}">Merch</a> · <a href="/donate/">Donate</a> · <a href="/admin/">Sign in</a></span>
+  </div>
+</footer>
+</body>
+</html>

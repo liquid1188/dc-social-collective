@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: liquid1188/dc-social-collective
+  branch: main
+media_folder: src/images/events
+public_folder: /images/events
+collections:
+  - name: events
+    label: Events
+    label_singular: Event
+    description: "Press Add to announce a night. When the date passes it moves to Past nights on its own."
+    folder: src/events
+    create: true
+    slug: "{{fields.date}}-{{slug}}"
+    summary: "{{date}} · {{title}} · {{venue}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Event name, hint: "For example: Sangria y Salsa" }
+      - { name: date, label: Date, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", default: "{{now}}" }
+      - { name: time, label: Start time, hint: "For example: 7:30 pm" }
+      - { name: end, label: End time, required: false, hint: "For example: 11 pm" }
+      - { name: venue, label: Venue }
+      - { name: address, label: Address, required: false }
+      - { name: series, label: Series, widget: select, options: ["Sangria y Salsa", "Country Nights", "Balls and galas", "Soirees and mixers", "Special events"], default: "Special events" }
+      - { name: image, label: Cover image, widget: image, hint: "The 2:1 event graphic. About 1500 by 750 pixels." }
+      - { name: tickets, label: Ticket link, required: false, hint: "The RSVPify link. Leave empty once the night is over." }
+      - { name: body, label: Description, widget: markdown }
+      - { name: tags, widget: hidden, default: event }
