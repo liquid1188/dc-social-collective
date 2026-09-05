@@ -37,8 +37,8 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
     {%- for e in collections.upcoming %}
       <li><a href="{{ e.url }}">
         <span class="date">{{ e | iso | shortDate }}<small>{{ e | iso | weekday }} · {{ e.data.time }}</small></span>
-        <span><h3>{{ e.data.title }}</h3><p class="venue">{{ e.data.venue }}</p></span>
         <img class="thumb" src="{{ e.data.image }}" alt="" loading="lazy" width="1500" height="750">
+        <span><h3>{{ e.data.title }}</h3><p class="venue">{{ e.data.venue }}</p></span>
       </a></li>
     {%- endfor %}
     </ul>
@@ -106,12 +106,5 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
       <button class="btn" type="submit">Sign me up</button>
     </form>
-  </div>
-</section>
-
-<section class="band paper">
-  <div class="wrap sponsors">
-    <img src="/images/redline.png" alt="Red Line Rentals" loading="lazy">
-    <div class="txt"><p><strong>Our nights are powered by Red Line Rentals</strong>, live sound and lighting for the DMV.</p><p><a href="/get-involved/#sponsor">Sponsor an event</a> and put your name in front of a few hundred young professionals at a time.</p></div>
   </div>
 </section>

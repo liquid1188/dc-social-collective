@@ -40,8 +40,8 @@ description: "Upcoming DC Social Collective events, with tickets, and the archiv
     {%- for e in collections.past %}
       <li><a href="{{ e.url }}">
         <span class="date">{{ e | iso | shortDate }}<small>{{ e | iso | year }}</small></span>
+        {% if e.data.image %}<img class="thumb" src="{{ e.data.image }}" alt="" loading="lazy" width="1500" height="750">{% else %}<span class="thumb"></span>{% endif %}
         <span><h3>{{ e.data.title }}</h3><p class="venue">{{ e.data.venue }}</p></span>
-        {% if e.data.image %}<img class="thumb" src="{{ e.data.image }}" alt="" loading="lazy" width="1500" height="750">{% endif %}
       </a></li>
     {%- endfor %}
     </ul>
