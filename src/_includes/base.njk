@@ -28,6 +28,7 @@
       <a href="/gallery/"{% if page.url == '/gallery/' %} aria-current="page"{% endif %}>Photos</a>
       <a href="/team/"{% if page.url == '/team/' %} aria-current="page"{% endif %}>Team</a>
       <a href="/get-involved/"{% if page.url == '/get-involved/' %} aria-current="page"{% endif %}>Get involved</a>
+      <a href="{{ site.merch }}">Merch</a>
       <a class="btn small" href="/events/">Tickets</a>
     </nav>
   </div>
@@ -49,11 +50,11 @@
       <a href="/about/#faq">Questions</a>
     </div>
     <div>
-      <h3>Work with us</h3>
-      <a href="/get-involved/#volunteer">Volunteer</a>
-      <a href="/get-involved/#ambassador">Be an ambassador</a>
-      <a href="/get-involved/#sponsor">Sponsor an event</a>
-      <a href="/get-involved/#music">Play our events</a>
+      <h3>More</h3>
+      <a href="/get-involved/">Get involved</a>
+      <a href="{{ site.merch }}">Shop merch</a>
+      <a href="/team/">The team</a>
+      <a href="/about/">About DSC</a>
     </div>
     <div>
       <h3>Find us</h3>
@@ -66,8 +67,9 @@
   <div class="wrap"><p class="foot-credit">Live sound and lighting at our events by <a href="https://www.redlinerentalsva.com/" style="display:inline">Red Line Rentals</a>. <a href="/get-involved/#sponsor" style="display:inline">Sponsor a night.</a></p></div>
   <div class="wrap foot-small">
     <span>&copy; {{ today | year }} DC Social Collective. Washington, DC.</span>
-    <span><a href="{{ site.merch }}">Merch</a> · <a href="/donate/">Donate</a> · <a href="/admin/">Sign in</a></span>
+    <span><a href="/donate/">Donate</a> · <a href="/admin/">Sign in</a></span>
   </div>
+  <div class="wrap"><p class="foot-credit" style="margin-top:.6rem">Site by <a href="https://lickitysplitweb.com" style="display:inline">Lickity Split Web Design</a>.</p></div>
 </footer>
 </body>
 </html>

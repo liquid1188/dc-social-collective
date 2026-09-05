@@ -94,7 +94,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
 
 <section class="band paper">
   <div class="wrap">
-    <div class="band-head"><h2>The people who make sure you meet someone</h2><a href="/team/">Meet the team</a></div>
+    <div class="band-head"><h2>Our brand ambassadors</h2><a href="/team/">Meet the whole team</a></div>
     <div class="ambassadors">
       {%- for m in team %}{% if m.role == "Brand Ambassador" %}
       <a class="amb" href="/team/">
@@ -103,9 +103,20 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       </a>
       {% endif %}{% endfor %}
       <div class="amb join">
-        <div><h3>Ambassadors come from the dance floor.</h3><p>Ours started as regulars. If you're the one at every night who pulls strangers into the lesson, we should talk.</p><a class="btn" href="/get-involved/#ambassador">Become an ambassador</a></div>
+        <div><h3>Ambassadors started as regulars.</h3><p>They represent DSC at events and online, welcome the people who came alone, and help set the tone of the room. We add a few a year.</p><a class="btn" href="/get-involved/#ambassador">Become an ambassador</a></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="band dusk-merch">
+  <div class="wrap merch">
+    <div>
+      <h2>Wear the collective.</h2>
+      <p class="lede">Tees, hats, and hoodies with the DSC mark. Printed to order, shipped to you.</p>
+      <a class="btn" href="{{ site.merch }}">Shop the merch</a>
+    </div>
+    <img src="/images/gallery/08.jpg" alt="DSC regulars at a country night" loading="lazy" width="2500" height="1667">
   </div>
 </section>
 

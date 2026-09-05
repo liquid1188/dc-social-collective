@@ -1,0 +1,23 @@
+---
+layout: base.njk
+pagination:
+  data: albums
+  size: 1
+  alias: album
+permalink: "/photos/{{ album.slug }}/"
+eleventyComputed:
+  title: "{{ album.title }}"
+  description: "Photos from {{ album.title }}, a DC Social Collective night."
+---
+<div class="wrap page-head">
+  <p style="margin:0 0 .5rem"><a href="/gallery/" style="color:var(--coral-dark);text-decoration:none;font-weight:600">All albums</a></p>
+  <h1>{{ album.title }}</h1>
+  <p class="lede">{{ album.date | longDate }} · {{ album.count }} photos</p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap gallery">
+  {%- for im in album.images %}
+    <a href="{{ im.u }}?format=2500w"><img src="{{ im.u }}?format=1000w" alt="" width="{{ im.w }}" height="{{ im.h }}" loading="{% if loop.index0 < 6 %}eager{% else %}lazy{% endif %}" decoding="async"></a>
+  {%- endfor %}
+  </div>
+</section>

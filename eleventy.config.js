@@ -17,6 +17,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("weekday", (iso) => d(iso).toLocaleDateString("en-US", { weekday: "long", ...opts }));
   eleventyConfig.addFilter("isoDate", (x) => new Date(x).toISOString());
   eleventyConfig.addGlobalData("today", () => new Date().toISOString().slice(0, 10));
+  eleventyConfig.addGlobalData("totalPhotos", async () => { const fs = await import("node:fs"); const a = JSON.parse(fs.readFileSync("src/_data/albums.json", "utf8")); return a.reduce((n, x) => n + x.count, 0).toLocaleString("en-US"); });
   eleventyConfig.addGlobalData("buildId", () => Date.now().toString(36));
   const iso = (e) => e.date.toISOString().slice(0, 10);
   eleventyConfig.addCollection("upcoming", (api) => api.getFilteredByTag("event").filter((e) => iso(e) >= new Date().toISOString().slice(0, 10)).sort((a, b) => a.date - b.date));

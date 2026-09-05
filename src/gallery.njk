@@ -2,16 +2,19 @@
 layout: base.njk
 title: Photos
 permalink: /gallery/
-description: "Photos from DC Social Collective nights."
+description: "Every DC Social Collective night in photos, from the first picnic in 2021 to the latest ball."
 ---
 <div class="wrap page-head">
   <h1>Photos</h1>
-  <p class="lede">From the barns, wineries, ballrooms, and docks. More on <a href="{{ site.instagram }}">Instagram</a>.</p>
+  <p class="lede">{{ albums.length }} albums and {{ totalPhotos }} photos, from the first picnic in 2021 to the latest ball. More on <a href="{{ site.instagram }}">Instagram</a>.</p>
 </div>
 <section class="band" style="padding-top:1.5rem">
-  <div class="wrap gallery">
-  {%- for g in gallery %}
-    <a href="{{ g.src }}"><img src="{{ g.src }}" alt="{{ g.alt }}" width="{{ g.w }}" height="{{ g.h }}" loading="lazy"></a>
+  <div class="wrap albums">
+  {%- for a in albums %}
+    <a class="album" href="/photos/{{ a.slug }}/">
+      <img src="{{ a.cover }}?format=1000w" alt="" loading="{% if loop.index0 < 6 %}eager{% else %}lazy{% endif %}">
+      <div><h2>{{ a.title }}</h2><p>{{ a.date | longDate }} · {{ a.count }} photos</p></div>
+    </a>
   {%- endfor %}
   </div>
 </section>
