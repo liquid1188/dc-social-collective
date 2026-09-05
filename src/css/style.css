@@ -318,3 +318,5 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .site-foot.v2 .fcol a.crow, .site-foot.v2 .fcol span.crow { display: flex; align-items: center; gap: .75rem; }
 .site-foot.v2 .fcol a.soc { display: inline-flex; align-items: center; justify-content: center; padding: 0; width: 38px; height: 38px; }
 .site-foot.v2 .fcol a.soc svg { width: 18px; height: 18px; display: block; }
+.site-foot.v2 .util a.totop { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; }
+.site-foot.v2 .util a.totop svg { width: 16px; height: 16px; display: block; }
