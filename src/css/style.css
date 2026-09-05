@@ -238,3 +238,14 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .videos figcaption { margin-top: .6rem; font-size: .95rem; color: rgba(255,255,255,.8); }
 .videos figcaption strong { color: #fff; }
 @media (prefers-reduced-motion: reduce) { .hero video.bg { display: none; } }
+
+.two-col img.fill { width: 100%; height: 100%; object-fit: cover; }
+.story-side { position: sticky; top: 2rem; }
+.story-side img { border-radius: 14px; margin-bottom: 1rem; }
+.story-side p { font-size: .98rem; color: var(--ink-2); }
+.faq { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; align-items: start; }
+.faq details:last-child { border-bottom: 0; }
+.faq details:nth-last-child(-n+2) { border-bottom: 1px solid rgba(18,32,58,.15); }
+@media (max-width: 860px) { .faq { grid-template-columns: 1fr; } .faq details:nth-last-child(2) { border-bottom: 0; } .story-side { position: static; } }
+.videos video, .feature { aspect-ratio: 16 / 9; object-fit: cover; }
+.letter { max-width: none; }
