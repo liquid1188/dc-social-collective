@@ -92,6 +92,23 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
   </div>
 </section>
 
+<section class="band paper">
+  <div class="wrap">
+    <div class="band-head"><h2>The people who make sure you meet someone</h2><a href="/team/">Meet the team</a></div>
+    <div class="ambassadors">
+      {%- for m in team %}{% if m.role == "Brand Ambassador" %}
+      <a class="amb" href="/team/">
+        <img src="{{ m.photo }}" alt="{{ m.name }}" width="1000" height="1000" loading="lazy">
+        <div><h3>{{ m.name }}</h3><p class="role">Brand Ambassador</p><p>{{ m.bio | truncate(160) }}</p></div>
+      </a>
+      {% endif %}{% endfor %}
+      <div class="amb join">
+        <div><h3>Ambassadors come from the dance floor.</h3><p>Ours started as regulars. If you're the one at every night who pulls strangers into the lesson, we should talk.</p><a class="btn" href="/get-involved/#ambassador">Become an ambassador</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="band" id="signup">
   <div class="wrap signup">
     <div>
