@@ -14,4 +14,10 @@ videoPoster: "/video/strawberry.jpg"
 videoCredit: "Saint Clair Media"
 tags: event
 ---
+This summer, join us for a uniquely delightful evening inspired by Mary Lincoln’s legendary love of strawberries, elegance, and entertainment. Join DC Social Collective and President Lincoln’s Cottage for the Strawberry Soirée , a garden party celebrating charm, connection, and one of the First Lady’s favorite summer traditions.
 
+Held on the historic grounds where the Lincolns escaped the city heat, this soirée invites Washington’s young professionals to relive history, enjoy the breeze (yes, it’s four degrees cooler here!), and party like presidents.
+
+🍓 A Nod to Mary Lincoln Known for her love of French culture, wit, and summer parties, Mary Lincoln once hosted strawberry-themed gatherings that delighted DC society. This soirée is our way of keeping her tradition alive, with flair.
+
+🎶 Live Music Under the Trees From 7:30 PM to 10:00 PM, enjoy live swing and jazz by locally famous vocalist Daniel Murray and his band as you sip, dance, and mingle under the golden hour sky.

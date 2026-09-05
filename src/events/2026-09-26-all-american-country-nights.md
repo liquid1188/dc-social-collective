@@ -10,4 +10,10 @@ image: "/images/events/2026-09-26-all-american-country-nights.jpg"
 tickets: "https://dsccountrynightssep26.rsvpify.com/"
 tags: event
 ---
-DC Social Collective presents All-American Country Nights at Whiffletree Farm. Country swing, 2-step, line dancing, a 45-minute beginner lesson, and a live DJ with dancing all night. These barn dances draw hundreds and sell out fast. Prices rise soon.
+Country swing, 2-step, line dancing, horseback riding, and open-air dancing under the stars set against the rolling countryside of Whiffletree Farm in Warrenton, VA.
+
+DC Social Collective invites you back to one of our most iconic venues for All-American Country Nights, bringing together hundreds of young professionals from across DC, Northern Virginia, and Maryland for a high-energy night of dancing, music, connection, and unforgettable countryside experiences.
+
+This is one of our most widely attended event styles for a reason: welcoming lessons, nonstop dancing, horseback riding throughout the evening, and a crowd that shows up ready to meet people, move, and fully lean into the night.
+
+Whether you’re coming solo, bringing a date, or showing up with friends, expect a packed dance floor, amazing fall weather, and a night that feels both effortless and electric under the stars in rural Virginia.

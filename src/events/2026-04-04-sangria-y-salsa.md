@@ -10,4 +10,10 @@ image: "/images/events/2026-04-04-sangria-y-salsa.jpg"
 tickets: "https://sangriaysalsaapril4.rsvpify.com/"
 tags: event
 ---
-DC Social Collective presents ¡Sangria y Salsa! at The Winery at Bull Run. Live Latin music, beginner salsa and bachata lessons, sangria, wine, and open dancing across the vineyard. These nights draw hundreds and sell out fast. Prices rise March 21st.
+Salsa, bachata, live Latin music, sangria, and bold flavors, set against the entire historic vineyard grounds and campus of The Winery at Bull Run.
+
+DC Social Collective and The Winery at Bull Run invite you to the launch of Sangria & Salsa, a new bimonthly Latin dance series bringing hundreds of young professionals together from across DC, Northern Virginia, and Maryland.
+
+This is one of our most electric event formats for a reason: welcoming lessons, nonstop dancing, incredible live music, and a crowd that shows up ready to connect and move.
+
+Saturday, April 4 | 7:30 – 11:00 PM The Winery at Bull Run 15950 Lee Hwy, Centreville, VA 20120
