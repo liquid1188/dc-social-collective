@@ -10,7 +10,7 @@ image: "/images/events/2025-04-26-swing-into-spring.jpg"
 tickets: "https://dscswingintospring2025.rsvpify.com/"
 video: "/video/swing.mp4"
 videoPoster: "/video/swing.jpg"
-videoCredit: "Chris Byrne and Saint Clair Media"
+videoCredit: "Josh Levitas"
 tags: event
 ---
 Escape the city for a night and embrace the rustic charm of Whiffletree Farm with our "Swing into Spring Barn Dance." It's an ideal blend of fantastic music, dance lessons, and a vibrant young adult social atmosphere that sets this event apart from any other!

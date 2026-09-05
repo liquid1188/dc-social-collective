@@ -10,7 +10,7 @@ image: "/images/events/2025-03-21-the-4th-annual-st-joseph-s-ball.jpg"
 tickets: "https://stjosephsball2025.rsvpify.com/"
 video: "/video/stjoseph.mp4"
 videoPoster: "/video/stjoseph.jpg"
-videoCredit: "Josh Levitas"
+videoCredit: "Christopher Saint Clair"
 tags: event
 ---
 Gather at the prestigious "St. Joseph's Ball," hosted in the Father O'Connell Hall at The Catholic University of America. Celebrate the betrothal of Mary and St. Joseph in an evening filled with elegance and connection. This gala, perfect for both singles and couples, serves as an excellent opportunity to forge new relationships within the Catholic community.
