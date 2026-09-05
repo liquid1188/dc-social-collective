@@ -19,6 +19,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+html, body { overflow-x: clip; }
 body { margin: 0; font-family: var(--body); font-size: 1.05rem; line-height: 1.6; color: var(--ink); background: var(--cream); }
 img, video { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
@@ -159,10 +160,11 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 /* newsletter */
 .signup { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .signup form { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
-.signup input { font: inherit; padding: .9rem 1rem; border-radius: 8px; border: 1px solid rgba(18,32,58,.25); background: #fff; }
+.signup input { min-width: 0; width: 100%; font: inherit; padding: .9rem 1rem; border-radius: 8px; border: 1px solid rgba(18,32,58,.25); background: #fff; }
 .signup input[type=email] { grid-column: 1 / -1; }
 .signup button { grid-column: 1 / -1; font: inherit; }
 @media (max-width: 860px) { .signup { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .signup form { grid-template-columns: 1fr; } .hero h1 { font-size: 2.9rem; } .hero .lede { font-size: 1.05rem; } .events .date { font-size: 1.25rem; } .band-head { flex-direction: column; gap: .4rem; align-items: flex-start; } }
 
 /* sponsors */
 .sponsors { display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap; }
@@ -209,7 +211,7 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .card .btn { align-self: flex-start; }
 .form { display: grid; gap: .8rem; max-width: 34rem; }
 .form label { display: grid; gap: .3rem; font-weight: 500; font-size: .95rem; }
-.form input, .form textarea, .form select { font: inherit; padding: .8rem .9rem; border-radius: 8px; border: 1px solid rgba(18,32,58,.25); background: #fff; }
+.form input, .form textarea, .form select { min-width: 0; width: 100%; font: inherit; padding: .8rem .9rem; border-radius: 8px; border: 1px solid rgba(18,32,58,.25); background: #fff; }
 .form button { font: inherit; justify-self: start; cursor: pointer; }
 
 /* footer */
