@@ -12,7 +12,7 @@ eleventyComputed:
 <div class="wrap page-head">
   <p style="margin:0 0 .5rem"><a href="/gallery/" style="color:var(--coral-dark);text-decoration:none;font-weight:600">All albums</a></p>
   <h1>{{ album.title }}</h1>
-  <p class="lede">{{ album.date | longDate }} · {{ album.count }} photos</p>
+  <p class="lede">{{ album.date | longDate }}, {{ album.date | year }} · {{ album.count }} photos</p>
 </div>
 <section class="band" style="padding-top:1.5rem">
   <div class="wrap gallery">
