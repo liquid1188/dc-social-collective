@@ -315,3 +315,4 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .site-foot.v2 .crow svg { width: 20px; height: 20px; min-width: 20px; margin-top: 0; }
 .site-foot.v2 .crow span { overflow-wrap: break-word; word-break: normal; }
 .site-foot.v2 .soc { flex: none; }
+.site-foot.v2 .fcol a.crow, .site-foot.v2 .fcol span.crow { display: flex; align-items: center; gap: .75rem; }
