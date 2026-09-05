@@ -32,6 +32,20 @@ description: "DC Social Collective is a young adult events company and a communi
       <p>If you know someone who is struggling the way I did after college, please send them our way at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
       <p>With gratitude,<br><strong>Christopher Byrne</strong><br>President and Founder</p>
     </div>
+    <p style="margin-top:2rem;max-width:60ch">The National Catholic Register wrote about how DSC started and what it has become: <a href="https://www.ncregister.com/features/catholic-young-adults-dc-social-collective">"Building Catholic Community in Washington, One Dance at a Time"</a>.</p>
+  </div>
+</section>
+<section class="band navy on-dark" id="watch">
+  <div class="wrap">
+    <div class="band-head"><h2>Watch</h2></div>
+    <div class="videos">
+    {%- for v in videos %}
+      <figure>
+        <video controls preload="none" poster="/video/{{ v.slug }}.jpg" width="1280" height="720"><source src="/video/{{ v.slug }}.mp4" type="video/mp4"></video>
+        <figcaption><strong>{{ v.title }}</strong><br>{{ v.where }}. Video by {{ v.credit }}.</figcaption>
+      </figure>
+    {%- endfor %}
+    </div>
   </div>
 </section>
 <section class="band" id="faq">

@@ -1,0 +1,37 @@
+[
+ {
+  "slug": "swing",
+  "title": "Swing into Spring",
+  "where": "Whiffletree Farm, April 2025",
+  "credit": "Chris Byrne and Saint Clair Media",
+  "event": "2025-04-26-swing-into-spring"
+ },
+ {
+  "slug": "strawberry",
+  "title": "The Strawberry Soiree",
+  "where": "President Lincoln's Cottage, August 2025",
+  "credit": "Saint Clair Media",
+  "event": "2025-08-09-strawberry-soir-e-at-president-lincoln-s-cottage"
+ },
+ {
+  "slug": "gatsby",
+  "title": "The Grape Gatsby",
+  "where": "Old Farm Winery at Hartland, November 2025",
+  "credit": "DWAI Creations",
+  "event": "2025-11-08-the-grape-gatsby"
+ },
+ {
+  "slug": "soiree",
+  "title": "Summer Soiree Under the Stars",
+  "where": "The Alexandrian Hotel, June 2025",
+  "credit": "Saint Clair Media",
+  "event": "2025-06-12-summer-soir-e-under-the-stars"
+ },
+ {
+  "slug": "stjoseph",
+  "title": "The 4th Annual St. Joseph's Ball",
+  "where": "The Catholic University of America, March 2025",
+  "credit": "Josh Levitas",
+  "event": "2025-03-21-the-4th-annual-st-joseph-s-ball"
+ }
+]

@@ -1,7 +1,13 @@
 import { HtmlBasePlugin } from "@11ty/eleventy";
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
-  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images" });
+  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images", "src/video": "video" });
+  eleventyConfig.addFilter("icsDate", (iso, time) => {
+    const m = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i.exec(time || "");
+    let h = m ? parseInt(m[1], 10) % 12 + (m[3].toLowerCase() === "pm" ? 12 : 0) : 19; const mi = m && m[2] ? m[2] : "00";
+    return iso.replace(/-/g, "") + "T" + String(h).padStart(2, "0") + mi + "00";
+  });
+  eleventyConfig.addFilter("mapUrl", (venue, addr) => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent([venue, addr].filter(Boolean).join(", ")));
   const opts = { timeZone: "UTC" };
   const d = (iso) => new Date(iso + "T12:00:00Z");
   eleventyConfig.addFilter("longDate", (iso) => d(iso).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", ...opts }));

@@ -20,7 +20,7 @@
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
 body { margin: 0; font-family: var(--body); font-size: 1.05rem; line-height: 1.6; color: var(--ink); background: var(--cream); }
-img { max-width: 100%; height: auto; display: block; }
+img, video { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.05; margin: 0 0 .6em; letter-spacing: -.01em; font-variation-settings: "opsz" 144; }
 h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); }
@@ -61,7 +61,7 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 
 /* hero */
 .hero { position: relative; min-height: 92vh; display: grid; align-items: end; color: #fff; background: var(--navy); isolation: isolate; }
-.hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; z-index: -2; }
+.hero video.bg, .hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; z-index: -2; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(7,26,58,.55) 0%, rgba(7,26,58,.15) 35%, rgba(7,26,58,.75) 75%, var(--navy) 100%); }
 .hero .wrap { padding-top: 9rem; padding-bottom: 3.5rem; display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: end; }
 .hero h1 { font-size: clamp(3rem, 7.2vw, 6.2rem); margin-bottom: 1rem; text-wrap: balance; }
@@ -224,3 +224,11 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .foot-small a { display: inline; }
 @media (max-width: 860px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .foot-grid { grid-template-columns: 1fr; } }
+
+.feature { width: 100%; border-radius: 14px; background: #000; }
+.videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; }
+.videos figure { margin: 0; }
+.videos video { width: 100%; border-radius: 12px; background: #000; }
+.videos figcaption { margin-top: .6rem; font-size: .95rem; color: rgba(255,255,255,.8); }
+.videos figcaption strong { color: #fff; }
+@media (prefers-reduced-motion: reduce) { .hero video.bg { display: none; } }

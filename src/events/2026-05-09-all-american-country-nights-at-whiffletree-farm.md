@@ -2,7 +2,7 @@
 title: "All-American Country Nights at Whiffletree Farm"
 date: 2026-05-09
 time: "7:30 pm"
-end: "11:59 pm"
+end: ""
 venue: "Whiffletree Farm"
 address: "8717 Springs Road Warrenton, VA, 20186"
 series: "Country Nights"

@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 ---
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"{{ title }}","startDate":"{{ page.date | isoDate | truncate(10, true, '') }}","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"{{ venue }}","address":"{{ address }}"},"organizer":{"@type":"Organization","name":"DC Social Collective","url":"{{ site.url }}"},"image":"{{ site.url }}{{ image }}"{% if tickets %},"offers":{"@type":"Offer","url":"{{ tickets }}"}{% endif %}}</script>
 <div class="wrap page-head">
   <p style="margin:0 0 .5rem"><a href="/events/" style="color:var(--coral-dark);text-decoration:none;font-weight:600">All events</a></p>
   <h1>{{ title }}</h1>
@@ -9,18 +10,20 @@ layout: base.njk
 <section class="band" style="padding-top:1.5rem">
   <div class="wrap event-page">
     <div>
-      {% if image %}<img class="cover" src="{{ image }}" alt="" width="1500" height="750">{% endif %}
+      {% if video %}<video class="cover" controls preload="none" poster="{{ videoPoster or image }}" width="1280" height="720"><source src="{{ video }}" type="video/mp4"></video>{% if videoCredit %}<p style="font-size:.9rem;color:var(--ink-2);margin:.5rem 0 0">Video by {{ videoCredit }}.</p>{% endif %}
+      {% elif image %}<img class="cover" src="{{ image }}" alt="" width="1500" height="750">{% endif %}
       <div class="prose" style="margin-top:1.5rem">{{ content | safe }}</div>
     </div>
     <aside class="facts">
       <dl>
-        <dt>Where</dt><dd>{{ venue }}{% if address %}<br><span style="color:var(--ink-2)">{{ address }}</span>{% endif %}</dd>
+        <dt>Where</dt><dd>{{ venue }}{% if address %}<br><span style="color:var(--ink-2)">{{ address }}</span>{% endif %}<br><a href="{{ venue | mapUrl(address) }}" style="font-size:.9rem">Open in Maps</a></dd>
         {% if time %}<dt>When</dt><dd>{{ time }}{% if end %} to {{ end }}{% endif %}</dd>{% endif %}
         {% if series %}<dt>Series</dt><dd>{{ series }}</dd>{% endif %}
       </dl>
       {% set today_s = today %}
       {% set d = page.date | isoDate | truncate(10, true, '') %}
       {% if tickets and d >= today_s %}<a class="btn" href="{{ tickets }}" style="width:100%;text-align:center">Get tickets</a>
+      <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0APRODID:-//DC Social Collective//EN%0ABEGIN:VEVENT%0ADTSTART;TZID=America/New_York:{{ d | icsDate(time) }}%0ASUMMARY:{{ title | urlencode }}%0ALOCATION:{{ (venue ~ ', ' ~ address) | urlencode }}%0AURL:{{ site.url }}{{ page.url }}%0AEND:VEVENT%0AEND:VCALENDAR" download="{{ page.fileSlug }}.ics" style="display:block;text-align:center;margin-top:.8rem;font-size:.95rem">Add to calendar</a>
       {% elif d < today_s %}<p style="margin:0;color:var(--ink-2)">This night has happened. <a href="/gallery/">See the photos</a> or <a href="/events/">find the next one</a>.</p>{% endif %}
     </aside>
   </div>

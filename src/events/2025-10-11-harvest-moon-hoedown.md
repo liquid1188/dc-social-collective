@@ -2,7 +2,7 @@
 title: "Harvest Moon Hoedown"
 date: 2025-10-11
 time: "7 pm"
-end: "11:59 pm"
+end: ""
 venue: ""
 address: ""
 series: "Country Nights"
