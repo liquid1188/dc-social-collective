@@ -311,3 +311,7 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .site-foot.v2 .copy a { display: inline; color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.3); }
 .site-foot.v2 .crow span { overflow-wrap: anywhere; }
 .site-foot.v2 .fcontact { min-width: 0; }
+.site-foot.v2 .crow { gap: .75rem; align-items: center; }
+.site-foot.v2 .crow svg { width: 20px; height: 20px; min-width: 20px; margin-top: 0; }
+.site-foot.v2 .crow span { overflow-wrap: break-word; word-break: normal; }
+.site-foot.v2 .soc { flex: none; }
