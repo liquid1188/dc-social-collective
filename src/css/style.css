@@ -271,3 +271,43 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .merch { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .merch img { border-radius: 14px; }
 @media (max-width: 860px) { .merch { grid-template-columns: 1fr; } }
+
+/* Footer v2 */
+.site-foot.v2 { padding: 0; border-top: 3px solid var(--foot-accent); }
+.site-foot.v2 .foot-top { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.25fr; gap: 2.5rem 3rem; padding-top: 3.25rem; padding-bottom: 2.5rem; }
+.site-foot.v2 .fbrand .foot-brand { margin: 0 0 .4rem; }
+.site-foot.v2 .foot-tag { max-width: 38ch; line-height: 1.55; margin: 0 0 1.2rem; }
+.site-foot.v2 .foot-ctas { display: flex; gap: .6rem; flex-wrap: wrap; }
+.site-foot.v2 .foot-ctas .btn { display: inline-block; padding: .6rem 1rem; font-size: .9rem; background: var(--foot-accent); color: var(--foot-bg); border: 1px solid var(--foot-accent); }
+.site-foot.v2 .foot-ctas .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.35); }
+.site-foot.v2 .foot-ctas .btn:hover { filter: brightness(1.08); }
+.site-foot.v2 .fcol h3 { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.55); margin: .3rem 0 .9rem; font-weight: 600; font-family: var(--body); }
+.site-foot.v2 .fcol a { display: block; padding: .28rem 0; color: rgba(255,255,255,.85); font-size: .97rem; text-decoration: none; }
+.site-foot.v2 .fcol a:hover { color: var(--foot-accent); }
+.site-foot.v2 .crow { display: flex; align-items: flex-start; gap: .6rem; padding: .28rem 0; color: rgba(255,255,255,.85); font-size: .97rem; text-decoration: none; }
+.site-foot.v2 .crow svg { width: 18px; height: 18px; flex: none; margin-top: .15rem; color: var(--foot-accent); }
+.site-foot.v2 .socials { display: flex; gap: .5rem; margin-top: 1rem; }
+.site-foot.v2 .soc { display: inline-flex; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; color: rgba(255,255,255,.85); padding: 0; }
+.site-foot.v2 .soc svg { width: 18px; height: 18px; }
+.site-foot.v2 .soc:hover { border-color: var(--foot-accent); color: var(--foot-accent); }
+.site-foot.v2 .foot-news { border-top: 1px solid rgba(255,255,255,.12); margin: 0; padding-top: 1.8rem; padding-bottom: 1.8rem; display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem; align-items: center; }
+.site-foot.v2 .foot-news .foot-brand { font-size: 1.25rem; margin: 0 0 .3rem; }
+.site-foot.v2 .foot-news .foot-tag { margin: 0; }
+.site-foot.v2 .news-form { display: flex; gap: .6rem; }
+.site-foot.v2 .news-form input { flex: 1; min-width: 0; font: inherit; padding: .8rem .9rem; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.06); color: #fff; }
+.site-foot.v2 .news-form .btn { background: var(--foot-accent); color: var(--foot-bg); border: 1px solid var(--foot-accent); padding: .8rem 1.1rem; }
+.site-foot.v2 .foot-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.12); margin: 0; padding-top: 1.1rem; padding-bottom: 1.3rem; font-size: .88rem; color: rgba(255,255,255,.6); }
+.site-foot.v2 .util { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+.site-foot.v2 .util a { display: inline; color: rgba(255,255,255,.7); text-decoration: none; }
+.site-foot.v2 .util a:hover { color: var(--foot-accent); }
+.site-foot.v2 .totop { display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; }
+.site-foot.v2 .totop svg { width: 16px; height: 16px; }
+@media (max-width: 900px) { .site-foot.v2 .foot-top { grid-template-columns: 1fr 1fr; } .site-foot.v2 .fbrand { grid-column: 1 / -1; } .site-foot.v2 .foot-news { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .site-foot.v2 .foot-top { grid-template-columns: 1fr; } }
+
+.site-foot.v2 { --foot-accent: var(--amber); --foot-bg: var(--navy); }
+.site-foot.v2 .fmark { height: 56px; width: auto; margin-bottom: .8rem; }
+.site-foot.v2 .copy a { color: inherit; }
+.site-foot.v2 .copy a { display: inline; color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.3); }
+.site-foot.v2 .crow span { overflow-wrap: anywhere; }
+.site-foot.v2 .fcontact { min-width: 0; }
