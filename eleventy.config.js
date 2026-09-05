@@ -11,6 +11,7 @@ export default function (eleventyConfig) {
   const opts = { timeZone: "UTC" };
   const d = (iso) => new Date(iso + "T12:00:00Z");
   eleventyConfig.addFilter("longDate", (iso) => d(iso).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", ...opts }));
+  eleventyConfig.addFilter("fullDate", (iso) => d(iso).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", ...opts }));
   eleventyConfig.addFilter("shortDate", (iso) => d(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", ...opts }));
   eleventyConfig.addFilter("monthDay", (iso) => d(iso).toLocaleDateString("en-US", { month: "long", day: "numeric", ...opts }));
   eleventyConfig.addFilter("year", (iso) => iso.slice(0, 4));
