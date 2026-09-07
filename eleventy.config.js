@@ -1,5 +1,8 @@
 import { HtmlBasePlugin } from "@11ty/eleventy";
+import markdownIt from "markdown-it";
+const mdlib = markdownIt({ html: true, typographer: true });
 export default function (eleventyConfig) {
+  eleventyConfig.addFilter("md", (t) => mdlib.render(t || ""));
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images", "src/video": "video" });
   eleventyConfig.addFilter("icsDate", (iso, time) => {

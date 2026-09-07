@@ -1,8 +1,13 @@
 name: Deploy to GitHub Pages
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
   schedule:
     - cron: "15 9 * * *"
+concurrency:
+  group: pages
+  cancel-in-progress: true
 permissions:
   contents: read
   pages: write

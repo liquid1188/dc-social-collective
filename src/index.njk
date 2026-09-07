@@ -9,11 +9,11 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
   <video class="bg" autoplay muted loop playsinline poster="/images/gallery/17.jpg" aria-hidden="true"><source src="/video/hero.mp4" type="video/mp4"></video>
   <div class="wrap">
     <div>
-      <h1>The DMV's biggest nights out for <em>young professionals.</em></h1>
-      <p class="lede">Salsa on the vineyard lawn at The Winery at Bull Run. Two-step under the string lights at Whiffletree Farm. Black tie and a big band at Hotel Heron. Hundreds of young adults a night, out to dance, make friends, and be part of something.</p>
+      <h1>{{ home.hero.headline | replace(home.hero.emphasis, "<em>" + home.hero.emphasis + "</em>") | safe }}</h1>
+      <p class="lede">{{ home.hero.lede }}</p>
       <div class="hero-actions">
-        <a class="btn" href="/events/">Get tickets</a>
-        <a class="btn ghost" href="/about/">Who we are</a>
+        <a class="btn" href="/events/">{{ home.hero.primary }}</a>
+        <a class="btn ghost" href="/about/">{{ home.hero.secondary }}</a>
       </div>
     </div>
     {% if nxt %}
@@ -70,9 +70,9 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
   <div class="wrap two-col">
     <img src="/images/gallery/09.jpg" alt="Hundreds of guests at a DSC ball" loading="lazy" width="2500" height="1668">
     <div>
-      <h2>Started for people who moved here and didn't know anyone yet.</h2>
-      <p class="lede">DC Social Collective launched in 2021, when the pandemic had emptied out the young adult scene. Five years on it is one of the largest young adult communities in the DMV, 4,000 members strong, and its nights sell out.</p>
-      <p>Most of the room is in their twenties and early thirties. You don't need a date and you don't need to be Catholic, though that is where our roots are. You come, you take the lesson, and you leave knowing people.</p>
+      <h2>{{ home.story.heading }}</h2>
+      <p class="lede">{{ home.story.lede }}</p>
+      <p>{{ home.story.body }}</p>
       <a class="btn" href="/about/">Read our story</a>
     </div>
   </div>

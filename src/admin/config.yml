@@ -26,3 +26,106 @@ collections:
       - { name: tickets, label: Ticket link, required: false, hint: "The RSVPify link. Leave empty once the night is over." }
       - { name: body, label: Description, widget: markdown }
       - { name: tags, widget: hidden, default: event }
+
+  - name: pages
+    label: Page text
+    description: "The words on the homepage and About page. Made a mistake? Open Site history (yoursite/admin/history/) to restore any earlier version, or text Andrew."
+    files:
+      - name: home
+        label: Homepage
+        file: src/_data/home.json
+        fields:
+          - name: hero
+            label: Top of page
+            widget: object
+            fields:
+              - { name: headline, label: Headline }
+              - { name: emphasis, label: Words in the headline to set in italics, hint: "Must match part of the headline exactly." }
+              - { name: lede, label: Paragraph under the headline, widget: text }
+              - { name: primary, label: Main button }
+              - { name: secondary, label: Second button }
+          - name: story
+            label: Our story block
+            widget: object
+            fields:
+              - { name: heading, label: Heading }
+              - { name: lede, label: First paragraph, widget: text }
+              - { name: body, label: Second paragraph, widget: text }
+      - name: about
+        label: About page
+        file: src/_data/about.json
+        fields:
+          - { name: lede, label: Line under the heading, widget: text }
+          - name: pillars
+            label: The three pillars
+            widget: list
+            summary: "{{fields.heading}}"
+            fields:
+              - { name: heading, label: Heading }
+              - { name: text, label: Paragraph, widget: text }
+          - name: letter
+            label: Christopher's letter
+            widget: object
+            fields:
+              - { name: greeting, label: Greeting }
+              - { name: body, label: Letter, widget: markdown, hint: Blank line between paragraphs. }
+              - { name: closing, label: Closing line, widget: text, hint: "The email address is added automatically after 'send them our way'." }
+              - { name: signoff, label: Sign-off }
+              - { name: name, label: Name }
+              - { name: role, label: Title }
+          - { name: sideCaption, label: Photo caption beside the letter, widget: text }
+
+  - name: people
+    label: Team and videos
+    files:
+      - name: team
+        label: Team
+        file: src/_data/team.json
+        media_folder: /src/images/team
+        public_folder: /images/team
+        fields:
+          - name: items
+            label: Team members
+            widget: list
+            root: true
+            summary: "{{fields.name}} · {{fields.role}}"
+            fields:
+              - { name: name, label: Name }
+              - { name: role, label: Role }
+              - { name: photo, label: Photo, widget: image }
+              - { name: bio, label: Bio, widget: text }
+      - name: videos
+        label: Videos
+        file: src/_data/videos.json
+        description: "Each video needs two files uploaded to the video folder by Andrew: slug.mp4 and slug.jpg (the poster frame)."
+        fields:
+          - name: items
+            label: Videos
+            widget: list
+            root: true
+            summary: "{{fields.title}} · {{fields.where}}"
+            fields:
+              - { name: slug, label: File name (without .mp4) }
+              - { name: title, label: Title }
+              - { name: where, label: Venue and date }
+              - { name: credit, label: Video credit, required: false }
+              - { name: event, label: Event slug it belongs to, required: false }
+
+  - name: settings
+    label: Settings
+    files:
+      - name: site
+        label: Site settings
+        file: src/_data/site.json
+        fields:
+          - { name: name, label: Organization name }
+          - { name: short, label: Short name }
+          - { name: tagline, label: Tagline, widget: text }
+          - { name: email, label: Email }
+          - { name: phone, label: Phone }
+          - { name: instagram, label: Instagram link }
+          - { name: facebook, label: Facebook group link }
+          - { name: merch, label: Merch store link }
+          - { name: members, label: Member count as shown (e.g. 4,000) }
+          - { name: url, widget: hidden }
+          - { name: setupMode, widget: hidden }
