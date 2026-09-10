@@ -4,7 +4,7 @@ const mdlib = markdownIt({ html: true, typographer: true });
 export default function (eleventyConfig) {
   eleventyConfig.addFilter("md", (t) => mdlib.render(t || ""));
   eleventyConfig.addPlugin(HtmlBasePlugin);
-  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images", "src/video": "video" });
+  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images", "src/video": "video", "src/CNAME": "CNAME" });
   // Photos uploaded to an album folder ship next to the album page.
   eleventyConfig.addPassthroughCopy("src/albums/**/*.{jpg,jpeg,png,webp,gif,avif}");
   // "Add to calendar" hands the night straight to Google Calendar, already

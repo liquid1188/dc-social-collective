@@ -2,7 +2,7 @@
   "name": "DC Social Collective",
   "short": "DSC",
   "url": "https://www.dcsocialcollective.com",
-  "setupMode": true,
+  "setupMode": false,
   "tagline": "Premier social events for young adults in DC, Maryland, and Virginia",
   "email": "info@dcsocialcollective.com",
   "phone": "(571) 383-5995",

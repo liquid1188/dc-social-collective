@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: npm ci
-      - run: npx @11ty/eleventy --pathprefix=/dc-social-collective/
+      - run: npx @11ty/eleventy
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: { path: _site }
