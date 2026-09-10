@@ -132,6 +132,8 @@ collections:
               - { name: name, label: Name, hint: "Write it the way the venue writes it." }
               - { name: url, label: Link to the venue, required: false, hint: "Optional. The name becomes a link." }
               - { name: logo, label: Logo, widget: image, required: false, hint: "Optional. A wide logo on a plain background works best. The name is used when there is no logo." }
+              - { name: tone, label: Darken the logo, widget: select, options: ["", "darken"], required: false, hint: "Pick darken when a venue only gives you a pale logo, which would otherwise disappear on the white tile." }
+              - { name: font, label: Typeface for the name, widget: select, options: ["", "script"], required: false, hint: "Only used when there is no logo. Script suits a marina or a resort." }
       - name: about
         label: About page
         file: src/_data/about.json

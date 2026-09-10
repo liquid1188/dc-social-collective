@@ -6,55 +6,64 @@
       "name": "The Winery at Bull Run",
       "url": "",
       "logo": "/images/venues/bull-run.png",
-      "font": ""
+      "font": "",
+      "tone": ""
     },
     {
       "name": "Whiffletree Farm",
       "url": "",
       "logo": "/images/venues/whiffletree.png",
-      "font": ""
+      "font": "",
+      "tone": ""
     },
     {
       "name": "Old Farm Winery at Hartland",
       "url": "",
       "logo": "/images/venues/old-farm.png",
-      "font": ""
+      "font": "",
+      "tone": ""
     },
     {
       "name": "Blue Valley Vineyard and Winery",
       "url": "",
       "logo": "/images/venues/blue-valley.png",
-      "font": ""
+      "font": "",
+      "tone": ""
     },
     {
       "name": "Hotel Heron",
       "url": "",
-      "logo": "",
-      "font": ""
+      "logo": "/images/venues/hotel-heron.png",
+      "font": "",
+      "tone": "darken"
     },
     {
       "name": "The Alexandrian Hotel",
       "url": "",
       "logo": "/images/venues/the-alexandrian.svg",
-      "font": ""
+      "font": "",
+      "tone": ""
     },
     {
       "name": "The Catholic University of America",
       "url": "",
       "logo": "/images/venues/catholic-university.png",
-      "font": ""
+      "font": "",
+      "tone": ""
     },
     {
       "name": "President Lincoln's Cottage",
       "url": "",
       "logo": "/images/venues/lincoln-cottage.svg",
-      "font": ""
+      "font": "",
+      "tone": ""
     },
     {
       "name": "Columbia Island Marina",
       "url": "",
       "logo": "",
-      "font": "script"
+      "font": "script",
+      "tone": ""
     }
   ]
 }

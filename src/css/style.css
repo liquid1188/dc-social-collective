@@ -403,8 +403,10 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .pubstrip ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; }
 .pubstrip li { font-family: var(--display); font-weight: 700; font-size: 1.05rem; color: var(--ink-2); }
 /* This strip sits on the light band, so the marks keep their own colours. */
-.pubstrip ul { align-items: center; gap: 1rem 2rem; }
-.pubstrip li img { height: 30px; width: auto; max-width: 160px; object-fit: contain; display: block; opacity: .8; transition: opacity .15s; }
+.pubstrip ul { align-items: center; gap: 1.1rem 2.4rem; }
+/* The Register artwork sits one unit from its own edges, so at 30px it read as
+   shaved. Bigger, with room around it. */
+.pubstrip li img { height: 42px; width: auto; max-width: 210px; object-fit: contain; display: block; opacity: .85; transition: opacity .15s; }
 .pubstrip a { text-decoration: none; color: inherit; }
 .pubstrip a:hover img { opacity: 1; }
 
@@ -417,7 +419,10 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .logos-band .eyebrow { color: rgba(255,255,255,.55); text-align: center; margin-bottom: 1rem; }
 .logos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.2rem 3.2rem; }
 .logos li { font-family: var(--display); font-weight: 700; font-size: clamp(1.15rem, 1.8vw, 1.5rem); color: rgba(255,255,255,.9); }
-.logos li img { height: 52px; width: auto; max-width: 230px; object-fit: contain; }
+.logos li { display: flex; align-items: center; justify-content: center; height: 56px; }
+/* These SVGs carry a viewBox but no width or height, so they need a definite
+   height or they collapse to nothing. max-width keeps the wide ones in line. */
+.logos li img { height: 46px; width: auto; max-width: 240px; object-fit: contain; display: block; }
 .logos a { color: inherit; text-decoration: none; }
 .logos a:hover { color: var(--amber); }
 
@@ -430,3 +435,6 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .venues li .vname { position: absolute; left: 0; right: 0; bottom: 0; padding: .3rem .4rem .35rem; font-family: var(--body); font-weight: 600; font-size: .72rem; line-height: 1.2; letter-spacing: .01em; color: #fff; background: rgba(7,26,58,.88); opacity: 0; transform: translateY(100%); transition: opacity .15s, transform .15s; }
 .venues li:hover .vname, .venues li:focus-within .vname { opacity: 1; transform: none; }
 @media (hover: none) { .venues li .vname { opacity: 1; transform: none; background: rgba(7,26,58,.72); } }
+
+.venues li.darken img { filter: brightness(0); opacity: .82; }
+.venues li.darken:hover img { opacity: 1; }
