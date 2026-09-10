@@ -27,11 +27,12 @@ description: "Apply to join the DC Social Collective ambassador team."
       {%- endfor %}
       </ul>
     </div>
-    <img src="/images/ambassador.jpg" alt="A DSC ambassador at the Strawberry Soiree" loading="lazy" width="1067" height="1600">
+    {% if ambassador.heroPhoto %}<img src="{{ ambassador.heroPhoto }}" alt="{{ ambassador.heroAlt }}" loading="lazy" width="934" height="1400">{% endif %}
   </div>
 </section>
 <section class="band paper" id="apply">
-  <div class="wrap">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
   {%- if ambassador.accepting %}
     <h2>{{ ambassador.formHeading }}</h2>
     <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST" enctype="multipart/form-data">
@@ -53,5 +54,7 @@ description: "Apply to join the DC Social Collective ambassador team."
       <p style="margin:0">{{ ambassador.closedBody }}</p>
     </div>
   {%- endif %}
+    </div>
+    {% if ambassador.applyPhoto %}<img src="{{ ambassador.applyPhoto }}" alt="{{ ambassador.applyAlt }}" loading="lazy" width="1700" height="1134">{% endif %}
   </div>
 </section>

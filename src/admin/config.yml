@@ -273,6 +273,10 @@ collections:
             widget: list
             field: { name: item, label: Perk, widget: string }
             hint: "One line each."
+          - { name: heroPhoto, label: Photo at the top, widget: image, required: false, hint: "Stands beside the two opening paragraphs. A tall photo suits that column." }
+          - { name: heroAlt, label: What is in the top photo, required: false }
+          - { name: applyPhoto, label: Photo beside the form, widget: image, required: false, hint: "A wide photo suits this one. Leave it empty and the form runs full width." }
+          - { name: applyAlt, label: What is in the form photo, required: false }
           - { name: accepting, label: Accepting applications, widget: boolean, default: true, hint: "On shows the application form. Off hides it and shows the closed message below instead." }
           - { name: formHeading, label: Heading above the form }
           - { name: button, label: Send button }

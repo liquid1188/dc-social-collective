@@ -21,6 +21,10 @@
     "Exclusive invites and ambassador-only perks",
     "A front-facing role in one of the region's most vibrant young adult communities"
   ],
+  "heroPhoto": "/images/ambassador.jpg",
+  "heroAlt": "A DSC ambassador at the Strawberry Soiree",
+  "applyPhoto": "/images/gallery/21.jpg",
+  "applyAlt": "Four friends at a DSC ball",
   "accepting": true,
   "formHeading": "Apply below!",
   "button": "Send application",
