@@ -372,6 +372,7 @@ collections:
               - { name: where, label: Venue and date }
               - { name: credit, label: Video credit, required: false }
               - { name: event, label: Event slug it belongs to, required: false }
+              - { name: portrait, label: Filmed upright on a phone, widget: boolean, default: false, hint: "Turn this on for a tall video so the grid shows all of it instead of cropping the sides." }
 
   - name: settings
     label: Settings

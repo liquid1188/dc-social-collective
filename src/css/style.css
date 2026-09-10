@@ -469,3 +469,5 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .trio img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 14px; }
 .trio p { margin: .8rem 0 0; font-size: .98rem; color: var(--ink-2); max-width: none; }
 @media (max-width: 860px) { .trio { grid-template-columns: 1fr; } }
+/* a video shot upright keeps its shape instead of being cropped to 16:9 */
+.videos video.portrait { aspect-ratio: 9 / 16; object-fit: contain; background: #000; max-height: 70vh; margin: 0 auto; }
