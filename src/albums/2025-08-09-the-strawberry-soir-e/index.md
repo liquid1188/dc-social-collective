@@ -1,9 +1,8 @@
 ---
 title: "The Strawberry Soir\u00e9e"
 date: "2025-08-09"
-cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/5e0380d6-c252-48cc-b872-574a5dc4632e/Eventbrite+Headers++%282%29.png"
+cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/3cfc22d1-0a0e-4e72-8937-38dc500c1b7d/DSCStrawberry-3485.jpg"
 photos:
-  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/5e0380d6-c252-48cc-b872-574a5dc4632e/Eventbrite+Headers++%282%29.png#2160x1080"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/3cfc22d1-0a0e-4e72-8937-38dc500c1b7d/DSCStrawberry-3485.jpg#4000x2668"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/418a5283-2bb0-404c-9620-8f3fd433b4c4/DSCStrawberry-1498.jpg#4000x2668"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/4725d869-494d-4c1e-9c83-0e712f57a103/DSCStrawberry-1499.jpg#4000x2668"

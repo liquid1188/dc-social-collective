@@ -3,7 +3,6 @@ title: "All-American Country Nights"
 date: "2026-01-17"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/38bc399a-51d2-4012-9ecc-d39229a72eb4/A7404683.jpg"
 photos:
-  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/1765926887685-WBOXUY3DVB7IXIOVQ8K4/Country+Nights+Web+Cover.png#2700x1350"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/38bc399a-51d2-4012-9ecc-d39229a72eb4/A7404683.jpg#7008x4672"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/e05fc913-c90a-4930-97d5-07792d86b426/A7404690-standard.jpg#7008x4672"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/7edcd445-9fba-4e4b-bed5-30dc12b46075/A7404691.jpg#4672x7008"

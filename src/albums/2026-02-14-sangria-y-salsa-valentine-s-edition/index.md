@@ -3,7 +3,6 @@ title: "Sangria y Salsa - Valentine's Edition"
 date: "2026-02-14"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/f4fc84e4-2448-4a27-a36e-b73b504da317/1W4A6479.jpg"
 photos:
-  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/1771719466083-771J59R9NDD6KOTYYMIR/SS+April+4+Web+Cover+Final.png#4320x2160"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/f4fc84e4-2448-4a27-a36e-b73b504da317/1W4A6479.jpg#5662x3775"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/bb8879d9-8a47-49d3-92ef-4c1f3da3e469/1W4A6480.jpg#6635x4423"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/cc2dfb5b-fc5c-4df7-b0dc-d122a5515947/1W4A6481.jpg#6431x4287"

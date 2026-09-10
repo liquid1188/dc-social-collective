@@ -3,7 +3,6 @@ title: "All-American Country Nights at Old Farm Winery"
 date: "2026-03-14"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/28295467-d111-4bbd-b924-b72e5226094f/CTZ_3390.jpg"
 photos:
-  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/1770303753015-Z84A15ZAG3Y2Y23ACT8F/ACN+Web+Cover+Final.png#3510x1755"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/28295467-d111-4bbd-b924-b72e5226094f/CTZ_3390.jpg#4898x3265"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/98b0eb63-37ec-49b7-b814-01787ba48ae0/CTZ_3415.jpg#2003x3005"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/e6c2a5f9-d1ea-4f83-8f71-610639b14bb2/CTZ_3428.jpg#4898x3265"

@@ -3,7 +3,6 @@ title: "Sangria y Salsa, Valentine's Weekend"
 date: "2025-10-04"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/b1773375-ad28-4746-94fd-a38bcd78f231/A7407542.jpg"
 photos:
-  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/1768337369545-UUAYFX3O07X713QW3ZM8/SS+Web+Cover+Final.png#3780x1890"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/b1773375-ad28-4746-94fd-a38bcd78f231/A7407542.jpg#7008x4672"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/534044d8-aac0-4b75-a981-adac6e96980d/A7407543.jpg#4672x7008"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/269b2ec4-46ff-47af-a16c-d107fbc26554/A7407554.jpg#4522x6783"

@@ -3,7 +3,6 @@ title: "Sangria y Salsa"
 date: "2025-10-04"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/544b7e40-0c63-4b30-a32f-3d9b10537578/DSCSangria-0028.jpg"
 photos:
-  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/2697b941-f9da-43d2-8b7b-cb2a00aa6948/sep+6+web+cover+%282160+x+1080+px%29.png#2160x1080"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/544b7e40-0c63-4b30-a32f-3d9b10537578/DSCSangria-0028.jpg#4000x2668"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/bee6b8a3-b495-45af-971a-61803a53906a/DSCSangria-0031.jpg#4000x2668"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/40cb2522-26fe-4308-894c-e7350405a108/DSCSangria-0037.jpg#4000x2668"
