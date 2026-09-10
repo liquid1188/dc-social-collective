@@ -35,7 +35,10 @@ description: "Apply to join the DC Social Collective ambassador team."
     <div>
   {%- if ambassador.accepting %}
     <h2>{{ ambassador.formHeading }}</h2>
-    <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST" enctype="multipart/form-data">
+    {%- if ambassador.formEmbed %}
+      <div class="embedded-form">{{ ambassador.formEmbed | safe }}</div>
+      {%- else %}
+<form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="Brand ambassador application">
       <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
       <input type="text" name="_honey" style="display:none">
@@ -48,6 +51,7 @@ description: "Apply to join the DC Social Collective ambassador team."
       <label>Upload cover letter (optional) <input type="file" name="attachment" accept=".pdf,.doc,.docx,image/*"></label>
       <button class="btn" type="submit">{{ ambassador.button }}</button>
     </form>
+      {%- endif %}
   {%- else %}
     <div class="notice">
       <h2>{{ ambassador.closedHeading }}</h2>

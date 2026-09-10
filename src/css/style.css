@@ -471,3 +471,8 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 @media (max-width: 860px) { .trio { grid-template-columns: 1fr; } }
 /* a video shot upright keeps its shape instead of being cropped to 16:9 */
 .videos video.portrait { aspect-ratio: 9 / 16; object-fit: contain; background: #000; max-height: 70vh; margin: 0 auto; }
+
+/* A form embedded from Squarespace, in place of ours */
+.embedded-form { max-width: 34rem; }
+.embedded-form iframe { width: 100%; border: 0; }
+.signup .embedded-form { max-width: none; }

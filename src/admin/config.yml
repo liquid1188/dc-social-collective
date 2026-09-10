@@ -252,6 +252,7 @@ collections:
             field: { name: option, label: Answer, widget: string }
             hint: "One line each. They show up in the drop-down in this order."
           - { name: button, label: Send button }
+          - { name: formEmbed, label: Squarespace form code, widget: text, required: false, hint: "Paste the Embed form code from Squarespace here and it replaces the form on this page, so submissions land in Squarespace instead of arriving by email. Leave it empty to keep the built in form. On the Squarespace form block, press the three dots and choose Embed form." }
       - name: ambassador
         label: Brand ambassador page
         file: src/_data/ambassador.json
@@ -282,6 +283,7 @@ collections:
           - { name: button, label: Send button }
           - { name: closedHeading, label: Heading when applications are closed }
           - { name: closedBody, label: Message when applications are closed, widget: text }
+          - { name: formEmbed, label: Squarespace form code, widget: text, required: false, hint: "Paste the Embed form code from Squarespace here and it replaces the form on this page, so submissions land in Squarespace instead of arriving by email. Leave it empty to keep the built in form. On the Squarespace form block, press the three dots and choose Embed form. One warning for this page: Squarespace forms cannot take file uploads, so swapping this one loses the resume and cover letter fields." }
       - name: livemusic
         label: Live music page
         file: src/_data/livemusic.json
@@ -291,6 +293,7 @@ collections:
           - { name: body, label: Paragraph above the form, widget: text }
           - { name: formHeading, label: Heading above the form }
           - { name: button, label: Send button }
+          - { name: formEmbed, label: Squarespace form code, widget: text, required: false, hint: "Paste the Embed form code from Squarespace here and it replaces the form on this page, so submissions land in Squarespace instead of arriving by email. Leave it empty to keep the built in form. On the Squarespace form block, press the three dots and choose Embed form." }
 
   - name: press
     label: Press

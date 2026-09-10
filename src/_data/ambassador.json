@@ -29,5 +29,6 @@
   "formHeading": "Apply below!",
   "button": "Send application",
   "closedHeading": "Applications are closed right now",
-  "closedBody": "We are not taking ambassador applications at the moment. Follow us on Instagram and we will announce the next round there."
+  "closedBody": "We are not taking ambassador applications at the moment. Follow us on Instagram and we will announce the next round there.",
+  "formEmbed": ""
 }

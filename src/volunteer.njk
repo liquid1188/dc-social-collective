@@ -13,7 +13,10 @@ description: "Volunteer with DC Social Collective. No professional experience ne
     <div>
       <p class="lede" style="margin-bottom:2rem">{{ volunteer.body }}</p>
       <h2>{{ volunteer.formHeading }}</h2>
-      <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+      {%- if volunteer.formEmbed %}
+      <div class="embedded-form">{{ volunteer.formEmbed | safe }}</div>
+      {%- else %}
+<form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
         <input type="hidden" name="_subject" value="Volunteer form">
         <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
         <input type="text" name="_honey" style="display:none">
@@ -29,6 +32,7 @@ description: "Volunteer with DC Social Collective. No professional experience ne
         </label>
         <button class="btn" type="submit">{{ volunteer.button }}</button>
       </form>
+      {%- endif %}
     </div>
     <img src="/images/gallery/06.jpg" alt="Volunteers welcoming guests at a DSC night" loading="lazy">
   </div>

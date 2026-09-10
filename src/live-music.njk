@@ -13,7 +13,10 @@ description: "Bands and DJs, play a DC Social Collective night. Swing, country, 
     <div>
       <p class="lede" style="margin-bottom:2rem">{{ livemusic.body }}</p>
       <h2>{{ livemusic.formHeading }}</h2>
-      <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+      {%- if livemusic.formEmbed %}
+      <div class="embedded-form">{{ livemusic.formEmbed | safe }}</div>
+      {%- else %}
+<form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
         <input type="hidden" name="_subject" value="Live music form">
         <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
         <input type="text" name="_honey" style="display:none">
@@ -22,6 +25,7 @@ description: "Bands and DJs, play a DC Social Collective night. Swing, country, 
         <label>Message <textarea name="message" rows="6" required></textarea></label>
         <button class="btn" type="submit">{{ livemusic.button }}</button>
       </form>
+      {%- endif %}
       <ul class="contact-lines">
         <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
         <li><a href="tel:{{ site.phone | replace(' ', '') | replace('(', '') | replace(')', '') | replace('-', '') }}">{{ site.phone }}</a></li>
