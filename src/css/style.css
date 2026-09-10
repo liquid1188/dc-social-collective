@@ -327,6 +327,7 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .callout { text-align: center; }
 .callout h1, .callout h2 { max-width: 30ch; margin-left: auto; margin-right: auto; }
 .callout p { margin-left: auto; margin-right: auto; }
+.page-head.callout .lede { margin-left: auto; margin-right: auto; }
 .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .82rem; font-weight: 600; color: var(--coral-dark); margin: 0 0 .7rem; }
 .contact-lines { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; gap: .45rem; font-size: 1.05rem; }
 .contact-lines a { color: var(--coral-dark); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
