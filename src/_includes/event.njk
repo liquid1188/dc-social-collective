@@ -23,7 +23,7 @@ layout: base.njk
       {% set today_s = today %}
       {% set d = page.date | isoDate | truncate(10, true, '') %}
       {% if tickets and d >= today_s %}<a class="btn" href="{{ tickets }}" style="width:100%;text-align:center">Get tickets</a>
-      <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0APRODID:-//DC Social Collective//EN%0ABEGIN:VEVENT%0ADTSTART;TZID=America/New_York:{{ d | icsDate(time) }}%0ASUMMARY:{{ title | urlencode }}%0ALOCATION:{{ (venue ~ ', ' ~ address) | urlencode }}%0AURL:{{ site.url }}{{ page.url }}%0AEND:VEVENT%0AEND:VCALENDAR" download="{{ page.fileSlug }}.ics" style="display:block;text-align:center;margin-top:.8rem;font-size:.95rem">Add to calendar</a>
+      <a href="{{ { date: d, title: title, venue: venue, address: address, time: time, end: end, url: site.url ~ page.url } | gcalUrl }}" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:.8rem;font-size:.95rem">Add to Google Calendar</a>
       {% elif d < today_s %}<p style="margin:0;color:var(--ink-2)">This night has happened. <a href="/gallery/">See the photos</a> or <a href="/events/">find the next one</a>.</p>{% endif %}
     </aside>
   </div>

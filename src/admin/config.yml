@@ -250,6 +250,7 @@ collections:
               - { name: publication, label: Publication, hint: "For example, National Catholic Register." }
               - { name: date, label: Date published, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Optional. Leave it empty and no date is shown." }
               - { name: url, label: Link to the article }
+              - { name: image, label: Preview photo, widget: image, required: false, hint: "Optional. The photo shown beside the headline. A wide shot works best. Leave it empty and only the words show." }
               - { name: byline, label: Written by, required: false, hint: "Optional." }
               - { name: summary, label: One line about the article, widget: text, required: false, hint: "Optional. Your own words, not a quote from the article." }
           - { name: contactHeading, label: Heading on the press inquiries block }

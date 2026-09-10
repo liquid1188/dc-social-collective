@@ -7,10 +7,39 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images", "src/video": "video" });
   // Photos uploaded to an album folder ship next to the album page.
   eleventyConfig.addPassthroughCopy("src/albums/**/*.{jpg,jpeg,png,webp,gif,avif}");
-  eleventyConfig.addFilter("icsDate", (iso, time) => {
+  // "Add to calendar" hands the night straight to Google Calendar, already
+  // filled in, rather than downloading a file nobody knows what to do with.
+  const clock = (time) => {
     const m = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i.exec(time || "");
-    let h = m ? parseInt(m[1], 10) % 12 + (m[3].toLowerCase() === "pm" ? 12 : 0) : 19; const mi = m && m[2] ? m[2] : "00";
-    return iso.replace(/-/g, "") + "T" + String(h).padStart(2, "0") + mi + "00";
+    if (!m) return null;
+    return { h: (parseInt(m[1], 10) % 12) + (m[3].toLowerCase() === "pm" ? 12 : 0), mi: m[2] ? parseInt(m[2], 10) : 0 };
+  };
+  const stamp = (isoDay, c, addDays) => {
+    const day = new Date(isoDay + "T12:00:00Z");
+    day.setUTCDate(day.getUTCDate() + addDays);
+    return day.toISOString().slice(0, 10).replace(/-/g, "") + "T" + String(c.h).padStart(2, "0") + String(c.mi).padStart(2, "0") + "00";
+  };
+  eleventyConfig.addFilter("gcalUrl", (e) => {
+    const start = clock(e.time) || { h: 19, mi: 0 };
+    let end = clock(e.end);
+    let nextDay = 0;
+    if (!end) {
+      // No end time on the night, so hold three hours.
+      nextDay = start.h + 3 >= 24 ? 1 : 0;
+      end = { h: (start.h + 3) % 24, mi: start.mi };
+    } else if (end.h < start.h || (end.h === start.h && end.mi <= start.mi)) {
+      nextDay = 1;
+    }
+    const params = new URLSearchParams({
+      action: "TEMPLATE",
+      text: e.title || "",
+      dates: stamp(e.date, start, 0) + "/" + stamp(e.date, end, nextDay),
+      ctz: "America/New_York",
+      location: [e.venue, e.address].filter(Boolean).join(", "),
+      details: e.url || ""
+    });
+    // Google reads the date range with a literal slash between the two stamps.
+    return "https://calendar.google.com/calendar/render?" + params.toString().replace("%2F", "/");
   });
   eleventyConfig.addFilter("mapUrl", (venue, addr) => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent([venue, addr].filter(Boolean).join(", ")));
   const opts = { timeZone: "UTC" };

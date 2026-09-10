@@ -15,12 +15,15 @@ description: "Articles about DC Social Collective, and how to reach us if you ar
     <ul class="news">
     {%- for a in press.items %}
       <li>
-        <a href="{{ a.url }}" rel="noopener">
+        <a href="{{ a.url }}" rel="noopener"{% if a.image %} class="withpic"{% endif %}>
+          {% if a.image %}<img src="{{ a.image }}" alt="" loading="lazy">{% endif %}
+          <div>
           <p class="pub">{{ a.publication }}{% if a.date %} · {{ a.date | fullDate }}{% endif %}</p>
           <h3>{{ a.title }}</h3>
           {% if a.summary %}<p class="sum">{{ a.summary }}</p>{% endif %}
           {% if a.byline %}<p class="by">By {{ a.byline }}</p>{% endif %}
           <span class="read">Read the article</span>
+          </div>
         </a>
       </li>
     {%- endfor %}
