@@ -372,7 +372,7 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .venues.top { margin-top: 2rem; }
 .venues.top li { width: 232px; height: 112px; padding: 1rem 1.3rem; }
 .venues.top li:not(:has(img)) { font-size: 1.15rem; }
-.venues li { display: flex; align-items: center; justify-content: center; width: 200px; height: 96px; padding: .9rem 1.1rem; background: #fff; border-radius: 12px; box-shadow: 0 10px 24px -20px rgba(7,26,58,.5); font-family: var(--display); font-weight: 700; font-size: 1.02rem; line-height: 1.15; text-align: center; color: var(--ink-2); letter-spacing: -.01em; }
+.venues li { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; width: 200px; height: 96px; padding: .9rem 1.1rem; background: #fff; border-radius: 12px; box-shadow: 0 10px 24px -20px rgba(7,26,58,.5); font-family: var(--display); font-weight: 700; font-size: 1.02rem; line-height: 1.15; text-align: center; color: var(--ink-2); letter-spacing: -.01em; }
 /* Venue marks keep their own colours on the light band. Only the press strip
    on the dark homepage band is flattened to white, and those are flat
    wordmarks that survive it. */
@@ -425,3 +425,8 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .signature { display: flex; align-items: center; gap: 1.1rem; margin-top: 1.6rem; }
 .signature img { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; flex: none; }
 .signature p { margin: 0; }
+
+/* Hover a mark and it says whose it is, so a monogram is never a guess. */
+.venues li .vname { position: absolute; left: 0; right: 0; bottom: 0; padding: .3rem .4rem .35rem; font-family: var(--body); font-weight: 600; font-size: .72rem; line-height: 1.2; letter-spacing: .01em; color: #fff; background: rgba(7,26,58,.88); opacity: 0; transform: translateY(100%); transition: opacity .15s, transform .15s; }
+.venues li:hover .vname, .venues li:focus-within .vname { opacity: 1; transform: none; }
+@media (hover: none) { .venues li .vname { opacity: 1; transform: none; background: rgba(7,26,58,.72); } }
