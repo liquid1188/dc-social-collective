@@ -98,6 +98,40 @@ collections:
               - { name: heading, label: Heading }
               - { name: lede, label: First paragraph, widget: text }
               - { name: body, label: Second paragraph, widget: text }
+      - name: quotes
+        label: Quotes on the homepage
+        file: src/_data/quotes.json
+        description: "The three pull quotes under the homepage photos. Only use words someone actually said, and say where they said them. If a quote comes from a Facebook post, ask the member before putting their name on the site."
+        fields:
+          - { name: heading, label: Heading, hint: "Not shown on the page yet. Kept for later." }
+          - name: items
+            label: Quotes
+            widget: list
+            summary: "{{fields.who}}"
+            hint: "Three fit the row neatly."
+            fields:
+              - { name: quote, label: The quote, widget: text, hint: "Their words, exactly. No quote marks needed, the page adds them." }
+              - { name: who, label: Who said it }
+              - { name: role, label: Their role or the date, required: false, hint: "Optional. For example, DSC brand ambassador." }
+              - { name: source, label: Where it was published, required: false, hint: "Optional. For example, National Catholic Register. Leave empty for a quote said straight to us." }
+              - { name: url, label: Link to the source, required: false, hint: "Optional. Turns the publication name into a link." }
+      - name: venues
+        label: Venues on the homepage
+        file: src/_data/venues.json
+        media_folder: /src/images/venues
+        public_folder: /images/venues
+        description: "The band of places that host our nights. A name is enough. Add a logo only for the venues that have given you permission to use theirs."
+        fields:
+          - { name: heading, label: Heading }
+          - { name: lede, label: Line under the heading, widget: text }
+          - name: items
+            label: Venues
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: Name, hint: "Write it the way the venue writes it." }
+              - { name: url, label: Link to the venue, required: false, hint: "Optional. The name becomes a link." }
+              - { name: logo, label: Logo, widget: image, required: false, hint: "Optional. A wide logo on a plain background works best. The name is used when there is no logo." }
       - name: about
         label: About page
         file: src/_data/about.json
@@ -147,6 +181,13 @@ collections:
               - { name: heading, label: Heading }
               - { name: body, label: Paragraph, widget: text }
               - { name: button, label: Button, hint: "It opens a new email about hosting a DSC night at a venue." }
+          - name: ambassadorCard
+            label: Become a brand ambassador card
+            widget: object
+            fields:
+              - { name: heading, label: Heading }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: button, label: Button, hint: "It sends people to the Brand ambassador page." }
           - name: music
             label: Play our events card
             widget: object
@@ -155,7 +196,7 @@ collections:
               - { name: body, label: Paragraph, widget: text }
               - { name: button, label: Button, hint: "It sends people to the Live music page." }
           - name: sponsor
-            label: Sponsor an event card
+            label: Sponsor an event card, including underwriting
             widget: object
             fields:
               - { name: heading, label: Heading }
@@ -168,6 +209,15 @@ collections:
               - { name: heading, label: Heading }
               - { name: body, label: Paragraph, widget: text }
               - { name: button, label: Button, hint: "It sends people to the Donate page." }
+          - name: social
+            label: Tag us and post with us band
+            widget: object
+            fields:
+              - { name: heading, label: Heading }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: hashtag, label: Hashtag, required: false, hint: "Optional. For example #dcsocialcollective. Leave it empty and no hashtag line shows." }
+              - { name: button, label: First button, hint: "It goes to the Instagram link in Site settings." }
+              - { name: collabButton, label: Second button, hint: "It opens a new email about planning a post together." }
           - name: contact
             label: Contact us block
             widget: object

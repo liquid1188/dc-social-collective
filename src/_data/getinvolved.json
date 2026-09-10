@@ -12,6 +12,11 @@
     "body": "We sell out venues. Wineries, barns, hotel ballrooms, marinas, a few hundred young professionals a night, on a weeknight or a Saturday. If you run a venue, a bar, or a restaurant with room to dance and you want a full house, we bring the crowd, the band, the lesson, and the promotion. You bring the room.",
     "button": "Book DSC"
   },
+  "ambassadorCard": {
+    "heading": "Become a brand ambassador",
+    "body": "Ambassadors are the face of DSC at events and online. Free entry to every night with a plus-one, first look at ticket links, a bio and photo on this site, and ambassador-only gatherings. We add one or two a year.",
+    "button": "Apply now"
+  },
   "music": {
     "heading": "Play our events",
     "body": "Live bands and DJs are the center of every night. If you play swing, country, Latin, jazz, or big band, we'd like to hear you.",
@@ -19,13 +24,20 @@
   },
   "sponsor": {
     "heading": "Sponsor an event",
-    "body": "Our nights put a few hundred young professionals in one room. Sponsors get their name on the night, on the site, and in front of a crowd that goes out, spends, and talks. Venues, restaurants, and local businesses do well here.",
+    "body": "Our nights put a few hundred young professionals in one room. Sponsors get their name on the night, on the site, and in front of a crowd that goes out, spends, and talks. Venues, restaurants, and local businesses do well here. A business can also underwrite a whole night, or one piece of it like the band, the bar, or the lesson, and have it introduced as theirs from the stage.",
     "button": "Talk to us"
   },
   "donate": {
     "heading": "Donate",
     "body": "Ticket sales cover the nights. Gifts cover everything between them, the free lessons, the outreach, and the new venues we try.",
     "button": "Donate"
+  },
+  "social": {
+    "heading": "Tag us and post with us",
+    "body": "Everything good that happens at a DSC night ends up on somebody phone. Tag us in your photos, reels, and stories and we will share them with the whole list. If you make things for a living, a photographer, a videographer, a creator, or a brand with something to say to a few hundred young professionals, send us a note and we will plan a post together.",
+    "hashtag": "",
+    "button": "Follow on Instagram",
+    "collabButton": "Plan a post with us"
   },
   "contact": {
     "heading": "Contact Us",

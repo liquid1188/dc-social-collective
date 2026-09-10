@@ -209,6 +209,7 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 @media (max-width: 860px) { .event-page { grid-template-columns: 1fr; gap: 1.5rem; } .event-page .facts { position: static; order: -1; } }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.cards.wide { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 .card { background: var(--paper); border-radius: 14px; padding: 1.6rem; display: flex; flex-direction: column; }
 .card h2 { font-size: 1.6rem; margin-bottom: .4rem; }
 .card p { font-size: .98rem; flex: 1; }
@@ -361,3 +362,19 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .gallery .dl:hover { background: var(--coral); }
 .gallery figure:hover .dl, .gallery .dl:focus-visible { opacity: 1; }
 @media (hover: none) { .gallery .dl { opacity: .92; } }
+
+/* Venues and partners */
+.venues { list-style: none; margin: 2rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2.2rem; }
+.venues li { font-family: var(--display); font-weight: 700; font-size: clamp(1.05rem, 1.6vw, 1.35rem); color: var(--ink-2); letter-spacing: -.01em; }
+.venues li img { height: 48px; width: auto; max-width: 190px; object-fit: contain; }
+.venues a { text-decoration: none; color: inherit; }
+.venues a:hover { color: var(--coral-dark); }
+
+/* Pull quotes */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 2.5rem; margin-top: 3.5rem; }
+.quotes blockquote { margin: 0; }
+.quotes p { font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(1.15rem, 1.7vw, 1.45rem); line-height: 1.3; margin: 0 0 .8rem; max-width: none; }
+.quotes cite { font-style: normal; font-size: .92rem; color: rgba(255,255,255,.7); }
+.quotes cite a { color: var(--amber); text-decoration: none; }
+.quotes cite a:hover { text-decoration: underline; }
+@media (max-width: 900px) { .quotes { grid-template-columns: 1fr; gap: 1.8rem; } }

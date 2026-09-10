@@ -108,6 +108,14 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       <a href="/gallery/"><img src="/images/gallery/14.jpg" alt="A dance under stage fog" loading="lazy"></a>
       <a href="/gallery/"><img src="/images/gallery/11.jpg" alt="Country dancing" loading="lazy"></a>
     </div>
+    <div class="quotes">
+    {%- for q in quotes.items %}
+      <blockquote>
+        <p>“{{ q.quote }}”</p>
+        <cite>{{ q.who }}{% if q.role %}, {{ q.role }}{% endif %}{% if q.source %}, in {% if q.url %}<a href="{{ q.url }}" rel="noopener">{{ q.source }}</a>{% else %}{{ q.source }}{% endif %}{% endif %}</cite>
+      </blockquote>
+    {%- endfor %}
+    </div>
   </div>
 </section>
 
@@ -136,6 +144,18 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       <a class="btn" href="{{ site.merch }}">Shop the merch</a>
     </div>
     <img src="/images/gallery/08.jpg" alt="DSC regulars at a country night" loading="lazy" width="2500" height="1667">
+  </div>
+</section>
+
+<section class="band paper" id="venues">
+  <div class="wrap">
+    <div class="band-head"><h2>{{ venues.heading }}</h2></div>
+    <p class="lede" style="margin-top:-1rem">{{ venues.lede }}</p>
+    <ul class="venues">
+    {%- for v in venues.items %}
+      <li>{% if v.url %}<a href="{{ v.url }}" rel="noopener">{% endif %}{% if v.logo %}<img src="{{ v.logo }}" alt="{{ v.name }}" loading="lazy">{% else %}{{ v.name }}{% endif %}{% if v.url %}</a>{% endif %}</li>
+    {%- endfor %}
+    </ul>
   </div>
 </section>
 

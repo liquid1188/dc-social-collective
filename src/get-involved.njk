@@ -17,11 +17,16 @@ description: "Plan events with us. Volunteer, become a brand ambassador, play ou
   </div>
 </section>
 <section class="band">
-  <div class="wrap cards">
+  <div class="wrap cards wide">
     <article class="card" id="work">
       <h2>{{ getinvolved.work.heading }}</h2>
       <p>{{ getinvolved.work.body }}</p>
       <a class="btn" href="mailto:{{ site.email }}?subject=Hosting%20DSC%20at%20my%20venue">{{ getinvolved.work.button }}</a>
+    </article>
+    <article class="card">
+      <h2>{{ getinvolved.ambassadorCard.heading }}</h2>
+      <p>{{ getinvolved.ambassadorCard.body }}</p>
+      <a class="btn" href="/brand-ambassador/">{{ getinvolved.ambassadorCard.button }}</a>
     </article>
     <article class="card">
       <h2>{{ getinvolved.music.heading }}</h2>
@@ -38,6 +43,16 @@ description: "Plan events with us. Volunteer, become a brand ambassador, play ou
       <p>{{ getinvolved.donate.body }}</p>
       <a class="btn" href="/donate/">{{ getinvolved.donate.button }}</a>
     </article>
+  </div>
+</section>
+<section class="band navy" id="social">
+  <div class="wrap">
+    <h2>{{ getinvolved.social.heading }}</h2>
+    <p class="lede" style="margin-bottom:1.6rem">{{ getinvolved.social.body }}</p>
+    {%- if getinvolved.social.hashtag %}
+    <p class="lede" style="margin-bottom:1.6rem"><strong>{{ getinvolved.social.hashtag }}</strong></p>
+    {%- endif %}
+    <p style="margin:0"><a class="btn" href="{{ site.instagram }}" rel="noopener">{{ getinvolved.social.button }}</a> <a class="btn ghost" href="mailto:{{ site.email }}?subject=Collaborating%20on%20a%20post">{{ getinvolved.social.collabButton }}</a></p>
   </div>
 </section>
 <section class="band paper" id="contactus">
