@@ -32,7 +32,6 @@ layout: base.njk
 <section class="band paper" id="book">
   <div class="wrap">
     <h2>Get your tickets</h2>
-    <p>Book right here. Nothing to download and no other site to go to. If the form does not load, <a href="{{ tickets }}" target="_blank" rel="noopener">open it in a new tab</a>.</p>
     <iframe class="booking" src="{{ tickets | embedUrl }}" title="Tickets for {{ title }}" loading="lazy" allow="payment"></iframe>
   </div>
 </section>
