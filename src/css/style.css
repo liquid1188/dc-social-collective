@@ -409,12 +409,12 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 /* Where we have been published */
 .pubstrip { margin-top: 2rem; padding-top: 1.4rem; border-top: 1px solid rgba(18,32,58,.15); }
 .pubstrip ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; }
-.pubstrip li { display: flex; align-items: center; min-height: 44px; font-family: var(--display); font-weight: 700; font-size: 1.15rem; line-height: 1.15; color: var(--ink-2); }
+.pubstrip li { display: flex; align-items: center; min-height: 54px; font-family: var(--display); font-weight: 700; font-size: 1.15rem; line-height: 1.15; color: var(--ink-2); }
 /* This strip sits on the light band, so the marks keep their own colours. */
 .pubstrip ul { align-items: center; gap: .9rem 2rem; }
 /* The Register artwork sits one unit from its own edges, so at 30px it read as
    shaved. Bigger, with room around it. */
-.pubstrip li img { height: 40px; width: auto; max-width: 190px; object-fit: contain; display: block; opacity: .85; transition: opacity .15s; }
+.pubstrip li img { max-height: 54px; max-width: 200px; width: auto; height: auto; object-fit: contain; display: block; opacity: .9; transition: opacity .15s; }
 .pubstrip a { text-decoration: none; color: inherit; }
 .pubstrip a:hover img { opacity: 1; }
 
@@ -458,3 +458,4 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 
 /* Early bird, which takes itself down the day after it ends */
 .poster .earlybird { color: var(--coral-dark); font-weight: 600; font-size: .92rem; margin: -.5rem 0 .6rem; }
+.gallery .dl[data-busy] { opacity: 1; background: var(--coral); }

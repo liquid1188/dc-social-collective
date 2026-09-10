@@ -14,8 +14,44 @@ layout: base.njk
   {%- for im in images %}
     <figure>
       <a href="{{ im.full }}"><img src="{{ im.thumb }}" alt=""{% if im.w %} width="{{ im.w }}" height="{{ im.h }}"{% endif %} loading="{% if loop.index0 < 6 %}eager{% else %}lazy{% endif %}" decoding="async"></a>
-      <a class="dl" href="{{ im.full }}"{% if not im.remote %} download="{{ im.name }}"{% endif %} title="{% if im.remote %}Open the full size photo{% else %}Download this photo{% endif %}" aria-label="{% if im.remote %}Open the full size photo{% else %}Download this photo{% endif %}"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></svg></a>
+      <a class="dl" href="{{ im.full }}" download="{{ im.name }}" title="Download this photo" aria-label="Download this photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></svg></a>
     </figure>
   {%- endfor %}
   </div>
 </section>
+<script>
+// A plain download attribute is ignored across domains, and the imported albums
+// still sit on the Squarespace CDN. That CDN sends access-control-allow-origin,
+// so fetch the file and hand the browser a blob instead. If anything fails, the
+// link opens the photo as it did before.
+(function () {
+  var gallery = document.querySelector(".gallery");
+  if (!gallery || !window.fetch || !("download" in document.createElement("a"))) return;
+  var exts = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "image/gif": "gif", "image/avif": "avif" };
+  gallery.addEventListener("click", function (event) {
+    var chip = event.target.closest && event.target.closest("a.dl");
+    if (!chip || chip.dataset.busy) return;
+    event.preventDefault();
+    var url = chip.getAttribute("href");
+    var base = (url.split("?")[0].split("/").pop() || "photo").replace(/\.[a-z0-9]+$/i, "");
+    chip.dataset.busy = "1";
+    fetch(url).then(function (response) {
+      if (!response.ok) throw new Error(response.status);
+      return response.blob();
+    }).then(function (blob) {
+      var href = URL.createObjectURL(blob);
+      var link = document.createElement("a");
+      link.href = href;
+      link.download = decodeURIComponent(base) + "." + (exts[blob.type] || "jpg");
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(function () { URL.revokeObjectURL(href); }, 2000);
+    }).catch(function () {
+      window.open(url, "_blank", "noopener");
+    }).then(function () {
+      delete chip.dataset.busy;
+    });
+  });
+})();
+</script>
