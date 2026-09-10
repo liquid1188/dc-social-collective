@@ -4,7 +4,7 @@ backend:
   branch: main
 
 # Used for the "View on site" links next to an event or an album.
-site_url: https://liquid1188.github.io/dc-social-collective
+site_url: https://www.dcsocialcollective.com
 
 media_folder: src/images/events
 public_folder: /images/events

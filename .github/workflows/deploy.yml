@@ -1,27 +1,26 @@
-name: Deploy to GitHub Pages
+# Cloudflare Pages builds and deploys the site itself on every push to main,
+# so this workflow only covers the one thing it cannot do on its own: a daily
+# rebuild, which is what retires the early bird line once its date passes.
+#
+# Set CLOUDFLARE_DEPLOY_HOOK in the repository secrets to the deploy hook URL
+# from the Pages project (Settings, Builds and deployments, Deploy hooks).
+name: Daily rebuild
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:
   schedule:
     - cron: "15 9 * * *"
-concurrency:
-  group: pages
-  cancel-in-progress: true
+  workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 jobs:
-  build-deploy:
+  rebuild:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 20 }
-      - run: npm ci
-      - run: npx @11ty/eleventy --pathprefix=/dc-social-collective/
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with: { path: _site }
-      - uses: actions/deploy-pages@v4
+      - name: Ask Cloudflare Pages for a fresh build
+        env:
+          HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "CLOUDFLARE_DEPLOY_HOOK is not set, nothing to do."
+            exit 0
+          fi
+          curl --fail --silent --show-error -X POST "$HOOK"
