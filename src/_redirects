@@ -1,0 +1,4 @@
+# Cloudflare Pages serves every custom domain attached to the project, so
+# without this the site would answer on the bare domain as well as on www
+# and search engines would see two copies. www is the canonical address.
+https://dcsocialcollective.com/* https://www.dcsocialcollective.com/:splat 301
