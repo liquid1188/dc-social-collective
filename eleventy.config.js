@@ -54,6 +54,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("rfc822", (x) => new Date(typeof x === "string" ? x + "T12:00:00Z" : x).toUTCString());
   eleventyConfig.addFilter("eventBlurb", (data) => [data.venue, data.address].filter(Boolean).join(", ") + (data.time ? ", " + data.time : "") + ".");
   eleventyConfig.addGlobalData("today", () => new Date().toISOString().slice(0, 10));
+  eleventyConfig.addFilter("publications", (items) => [...new Set((items || []).map((i) => (i.publication || "").trim()).filter(Boolean))]);
   eleventyConfig.addFilter("photoCount", (albums) => (albums || []).reduce((n, a) => n + ((a.data.photos || []).length), 0).toLocaleString("en-US"));
   eleventyConfig.addGlobalData("buildId", () => Date.now().toString(36));
   const iso = (e) => e.date.toISOString().slice(0, 10);

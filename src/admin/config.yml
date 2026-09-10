@@ -305,6 +305,10 @@ collections:
               - { name: summary, label: One line about the article, widget: text, required: false, hint: "Optional. Your own words, not a quote from the article." }
           - { name: contactHeading, label: Heading on the press inquiries block }
           - { name: contactBody, label: Paragraph on the press inquiries block, widget: text }
+          - { name: pressStripHeading, label: Line above the list of publications, hint: "The publications are pulled from the articles above, so the list is never out of date." }
+          - { name: contactName, label: Second contact name, required: false, hint: "Optional. A person reporters can write to directly." }
+          - { name: contactRole, label: Second contact role, required: false, hint: "Optional. For example, reporter, for anything editorial." }
+          - { name: contactEmail, label: Second contact email, required: false, hint: "Optional. Leave empty and this line disappears." }
 
   - name: people
     label: Team and videos

@@ -39,7 +39,17 @@ description: "Articles about DC Social Collective, and how to reach us if you ar
         <li><a href="mailto:{{ site.email }}?subject=Press%20inquiry">{{ site.email }}</a></li>
         <li><a href="tel:{{ site.phone | replace(' ', '') | replace('(', '') | replace(')', '') | replace('-', '') }}">{{ site.phone }}</a></li>
         <li>{{ site.instagram | replace('https://www.instagram.com/', '@') | replace('/', '') }} on Instagram</li>
+        {%- if press.contactEmail %}
+        <li><a href="mailto:{{ press.contactEmail }}?subject=Press%20inquiry">{{ press.contactEmail }}</a>{% if press.contactName %} · {{ press.contactName }}{% endif %}{% if press.contactRole %}, {{ press.contactRole }}{% endif %}</li>
+        {%- endif %}
       </ul>
+      {%- set pubs = press.items | publications %}
+      {%- if pubs.length %}
+      <div class="pubstrip">
+        <p class="eyebrow">{{ press.pressStripHeading }}</p>
+        <ul>{% for p in pubs %}<li>{{ p }}</li>{% endfor %}</ul>
+      </div>
+      {%- endif %}
     </div>
     <img src="/images/gallery/09.jpg" alt="Hundreds of guests at a DSC ball" loading="lazy" width="2500" height="1668">
   </div>
