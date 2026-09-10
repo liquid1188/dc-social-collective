@@ -1,0 +1,44 @@
+{
+  "heading": "Press",
+  "lede": "What writers and editors have said about DC Social Collective, and how to reach us if you are working on a story.",
+  "sectionHeading": "In the news",
+  "sectionLede": "Every article written about the collective, newest first.",
+  "homeHeading": "In the news",
+  "homeLink": "All coverage",
+  "items": [
+    {
+      "title": "From Cloudburst to Country Two-Step: DC Social Collective's Biggest Night Yet",
+      "publication": "National Catholic Register",
+      "date": "2025-07-18",
+      "url": "https://www.ncregister.com/blog/dc-social-collective-creates-community",
+      "byline": "",
+      "summary": "A summer storm rolls through the winery an hour before doors, and the fifth All-American Country Summer Nights goes on to be the biggest night the collective has run."
+    },
+    {
+      "title": "'Faith Through Friendship': How DC Social Collective Is Building Young-Adult Community in the Nation's Capital",
+      "publication": "National Catholic Register",
+      "date": "2025-07-05",
+      "url": "https://www.ncregister.com/features/dc-social-collective-builds-young-adult-community",
+      "byline": "Andrew Likoudis",
+      "summary": "A feature on how a pandemic-era idea grew into a community of more than 4,000 young adults across DC, Maryland, and Virginia."
+    },
+    {
+      "title": "'Faith Through Friendship': How DC Social Collective Is Building Young-Adult Community in the Nation's Capital",
+      "publication": "EWTN Great Britain",
+      "date": "",
+      "url": "https://ewtn.co.uk/article-faith-through-friendship-how-dc-social-collective-is-building-young-adult-community-in-the-nations-capital/",
+      "byline": "Andrew Likoudis",
+      "summary": "The Register feature, carried to readers in the United Kingdom."
+    },
+    {
+      "title": "DC Social Collective case study",
+      "publication": "RSVPify",
+      "date": "",
+      "url": "https://rsvpify.com/case-studies/dc-social/",
+      "byline": "",
+      "summary": "How the collective fills rooms of a few hundred young professionals, month after month, from the ticketing side of the night."
+    }
+  ],
+  "contactHeading": "Working on a story",
+  "contactBody": "Write to us and we will send photos, numbers, and anyone you would like to talk to. We answer quickly."
+}

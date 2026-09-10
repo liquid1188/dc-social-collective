@@ -1,0 +1,20 @@
+---
+title: "Marina Mixer - August 2024"
+date: "2024-07-24"
+cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/c7bd13d6-a44e-405e-8ce8-36dab6941537/image00001.jpeg"
+photos:
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/c7bd13d6-a44e-405e-8ce8-36dab6941537/image00001.jpeg#5184x3456"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/5e78500b-f78e-4ea2-9bab-7eee3fe0cdd0/image00002.jpeg#1440x963"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/78d5d7c8-d42c-4aea-9fae-6b16b42688b3/image00003.jpeg#5184x3456"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/e69448b7-15ee-481b-9f7d-e89c7cbcb845/image00004.jpeg#5184x3456"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/32213bdd-6e6c-42fb-aba6-aa9aefef1b5c/image00005.jpeg#3456x5184"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/69b3597f-c24f-4b96-b483-560626fb555d/image00006.jpeg#5184x3456"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/85f390ca-d3fd-4c86-acfe-dc1649fc96a8/image00007.jpeg#5184x3456"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/7dadb455-6aa3-4c0b-8d01-2dd1275ee3d5/image00008.jpeg#5184x3456"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/7a380f58-4948-4524-81ba-898ea4ab42c4/image00009.jpeg#5184x3456"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/c1923fae-08bd-4585-82b8-06068f87dcb3/image00010.jpeg#5184x3456"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/0f31da71-553c-4539-af46-2878ac308bbc/image00011.jpeg#5184x3456"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/2fcff295-87bf-49ac-bf59-97c53bd6b78a/image00012.jpeg#5184x3456"
+  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/f41708e0-28fa-4812-8d46-f21929ccd846/image00073.jpeg#1440x961"
+source: "https://www.dcsocialcollective.com/gallery/dsc-marinamixeraug2024-n6z86"
+---

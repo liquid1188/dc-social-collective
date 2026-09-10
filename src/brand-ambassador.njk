@@ -1,0 +1,57 @@
+---
+layout: base.njk
+title: Brand ambassador application
+permalink: /brand-ambassador/
+description: "Apply to join the DC Social Collective ambassador team."
+---
+<div class="wrap page-head">
+  <p class="eyebrow">{{ ambassador.eyebrow }}</p>
+  <h1>{{ ambassador.heading }}</h1>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
+      <p class="lede">{{ ambassador.intro }}</p>
+      <p>{{ ambassador.intro2 }}</p>
+      <h2 style="margin-top:2.5rem">{{ ambassador.lookingHeading }}</h2>
+      <h3>{{ ambassador.listHeading }}</h3>
+      <ul class="ticks">
+      {%- for item in ambassador.list %}
+        <li>{{ item }}</li>
+      {%- endfor %}
+      </ul>
+      <h2 style="margin-top:2.5rem">{{ ambassador.perksHeading }}</h2>
+      <ul class="ticks">
+      {%- for item in ambassador.perks %}
+        <li>{{ item }}</li>
+      {%- endfor %}
+      </ul>
+    </div>
+    <img src="/images/ambassador.jpg" alt="A DSC ambassador at the Strawberry Soiree" loading="lazy" width="1067" height="1600">
+  </div>
+</section>
+<section class="band paper" id="apply">
+  <div class="wrap">
+  {%- if ambassador.accepting %}
+    <h2>{{ ambassador.formHeading }}</h2>
+    <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="Brand ambassador application">
+      <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
+      <input type="text" name="_honey" style="display:none">
+      <label>Name <input type="text" name="name" required></label>
+      <label>Email <input type="email" name="email" required></label>
+      <label>Phone <input type="tel" name="phone" required></label>
+      <label>What interests you in becoming one of our brand ambassadors? <textarea name="What interests you in becoming one of our brand ambassadors" rows="6" required></textarea></label>
+      <label>Social media URLs (Instagram, TikTok, Facebook, and so on) <textarea name="Social media URLs" rows="3" required></textarea></label>
+      <label>Upload resume (optional) <input type="file" name="attachment" accept=".pdf,.doc,.docx,image/*"></label>
+      <label>Upload cover letter (optional) <input type="file" name="attachment" accept=".pdf,.doc,.docx,image/*"></label>
+      <button class="btn" type="submit">{{ ambassador.button }}</button>
+    </form>
+  {%- else %}
+    <div class="notice">
+      <h2>{{ ambassador.closedHeading }}</h2>
+      <p style="margin:0">{{ ambassador.closedBody }}</p>
+    </div>
+  {%- endif %}
+  </div>
+</section>

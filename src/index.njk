@@ -78,6 +78,23 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
   </div>
 </section>
 
+<section class="band">
+  <div class="wrap">
+    <div class="band-head"><h2>{{ press.homeHeading }}</h2><a href="/press/">{{ press.homeLink }}</a></div>
+    <ul class="news three">
+    {%- for a in press.items %}{% if loop.index0 < 3 %}
+      <li>
+        <a href="{{ a.url }}" rel="noopener">
+          <p class="pub">{{ a.publication }}{% if a.date %} · {{ a.date | fullDate }}{% endif %}</p>
+          <h3>{{ a.title }}</h3>
+          <span class="read">Read the article</span>
+        </a>
+      </li>
+    {%- endif %}{% endfor %}
+    </ul>
+  </div>
+</section>
+
 <section class="band navy on-dark">
   <div class="wrap">
     <div class="band-head"><h2>From the dance floor</h2><a href="/gallery/">All photos</a></div>
@@ -103,7 +120,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       </a>
       {% endif %}{% endfor %}
       <div class="amb join">
-        <div><h3>Ambassadors started as regulars.</h3><p>They represent DSC at events and online, welcome the people who came alone, and help set the tone of the room. We add a few a year.</p><a class="btn" href="/get-involved/#ambassador">Become an ambassador</a></div>
+        <div><h3>Ambassadors started as regulars.</h3><p>They represent DSC at events and online, welcome the people who came alone, and help set the tone of the room. We add a few a year.</p><a class="btn" href="/brand-ambassador/">Become an ambassador</a></div>
       </div>
     </div>
   </div>

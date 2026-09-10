@@ -5,6 +5,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("md", (t) => mdlib.render(t || ""));
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images", "src/video": "video" });
+  // Photos uploaded to an album folder ship next to the album page.
+  eleventyConfig.addPassthroughCopy("src/albums/**/*.{jpg,jpeg,png,webp,gif,avif}");
   eleventyConfig.addFilter("icsDate", (iso, time) => {
     const m = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i.exec(time || "");
     let h = m ? parseInt(m[1], 10) % 12 + (m[3].toLowerCase() === "pm" ? 12 : 0) : 19; const mi = m && m[2] ? m[2] : "00";
@@ -21,11 +23,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("weekday", (iso) => d(iso).toLocaleDateString("en-US", { weekday: "long", ...opts }));
   eleventyConfig.addFilter("isoDate", (x) => new Date(x).toISOString());
   eleventyConfig.addGlobalData("today", () => new Date().toISOString().slice(0, 10));
-  eleventyConfig.addGlobalData("totalPhotos", async () => { const fs = await import("node:fs"); const a = JSON.parse(fs.readFileSync("src/_data/albums.json", "utf8")); return a.reduce((n, x) => n + x.count, 0).toLocaleString("en-US"); });
+  eleventyConfig.addFilter("photoCount", (albums) => (albums || []).reduce((n, a) => n + ((a.data.photos || []).length), 0).toLocaleString("en-US"));
   eleventyConfig.addGlobalData("buildId", () => Date.now().toString(36));
   const iso = (e) => e.date.toISOString().slice(0, 10);
   eleventyConfig.addCollection("upcoming", (api) => api.getFilteredByTag("event").filter((e) => iso(e) >= new Date().toISOString().slice(0, 10)).sort((a, b) => a.date - b.date));
   eleventyConfig.addCollection("past", (api) => api.getFilteredByTag("event").filter((e) => iso(e) < new Date().toISOString().slice(0, 10)).sort((a, b) => b.date - a.date));
+  eleventyConfig.addCollection("albums", (api) => api.getFilteredByTag("album").sort((a, b) => b.date - a.date));
   eleventyConfig.addFilter("iso", iso);
   return { dir: { input: "src", includes: "_includes", output: "_site" } };
 }

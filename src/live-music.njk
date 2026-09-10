@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: Live music
+permalink: /live-music/
+description: "Bands and DJs, play a DC Social Collective night. Swing, country, Latin, jazz, and big band."
+---
+<div class="wrap page-head">
+  <h1>{{ livemusic.heading }}</h1>
+  <p class="lede">{{ livemusic.subheading }}</p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
+      <p class="lede" style="margin-bottom:2rem">{{ livemusic.body }}</p>
+      <h2>{{ livemusic.formHeading }}</h2>
+      <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+        <input type="hidden" name="_subject" value="Live music form">
+        <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
+        <input type="text" name="_honey" style="display:none">
+        <label>Name <input type="text" name="name" required></label>
+        <label>Email <input type="email" name="email" required></label>
+        <label>Message <textarea name="message" rows="6" required></textarea></label>
+        <button class="btn" type="submit">{{ livemusic.button }}</button>
+      </form>
+      <ul class="contact-lines">
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li><a href="tel:{{ site.phone | replace(' ', '') | replace('(', '') | replace(')', '') | replace('-', '') }}">{{ site.phone }}</a></li>
+      </ul>
+    </div>
+    <img src="/images/gallery/22.jpg" alt="A live band on stage at a DSC night" loading="lazy" width="2500" height="1667">
+  </div>
+</section>

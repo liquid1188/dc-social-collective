@@ -1,0 +1,35 @@
+{
+  "heading": "Plan events with us!",
+  "body": "Are you interested in event hosting, planning, hospitality, venue relations/promotion, or marketing? Regardless of experience, we'd love to hear from you!",
+  "button": "Volunteer!",
+  "ambassador": {
+    "heading": "Become a DSC Brand Ambassador",
+    "body": "Ambassadors represent DSC at events and online. They welcome the people who came alone, share the nights with their networks, and help set the tone of the room.",
+    "button": "Apply Now"
+  },
+  "work": {
+    "heading": "Work with us",
+    "body": "We sell out venues. Wineries, barns, hotel ballrooms, marinas, a few hundred young professionals a night, on a weeknight or a Saturday. If you run a venue, a bar, or a restaurant with room to dance and you want a full house, we bring the crowd, the band, the lesson, and the promotion. You bring the room.",
+    "button": "Book DSC"
+  },
+  "music": {
+    "heading": "Play our events",
+    "body": "Live bands and DJs are the center of every night. If you play swing, country, Latin, jazz, or big band, we'd like to hear you.",
+    "button": "Book your band"
+  },
+  "sponsor": {
+    "heading": "Sponsor an event",
+    "body": "Our nights put a few hundred young professionals in one room. Sponsors get their name on the night, on the site, and in front of a crowd that goes out, spends, and talks. Venues, restaurants, and local businesses do well here.",
+    "button": "Talk to us"
+  },
+  "donate": {
+    "heading": "Donate",
+    "body": "Ticket sales cover the nights. Gifts cover everything between them, the free lessons, the outreach, and the new venues we try.",
+    "button": "Donate"
+  },
+  "contact": {
+    "heading": "Contact Us",
+    "body": "We are growing the young adult scene in DC, MD, and VA one event at a time. Contact us to learn more about our mission and work, or to become involved yourself.",
+    "place": "Washington D.C."
+  }
+}

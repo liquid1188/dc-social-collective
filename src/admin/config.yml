@@ -2,8 +2,31 @@ backend:
   name: github
   repo: liquid1188/dc-social-collective
   branch: main
+
+# Used for the "View on site" links next to an event or an album.
+site_url: https://liquid1188.github.io/dc-social-collective
+
 media_folder: src/images/events
 public_folder: /images/events
+
+# Every picture you upload, anywhere in this editor, is shrunk to 2048 pixels on
+# its longest side and saved as WebP before it leaves your browser. Files larger
+# than 25 MB are refused.
+media_libraries:
+  all:
+    transformations:
+      raster_image:
+        format: webp
+        quality: 85
+        width: 2048
+        height: 2048
+      svg:
+        optimize: true
+  default:
+    config:
+      max_file_size: 26214400
+      slugify_filename: true
+
 collections:
   - name: events
     label: Events
@@ -12,20 +35,42 @@ collections:
     folder: src/events
     create: true
     slug: "{{fields.date}}-{{slug}}"
+    preview_path: "/events/{{slug}}/"
     summary: "{{date}} · {{title}} · {{venue}}"
     sortable_fields: [date, title]
     fields:
-      - { name: title, label: Event name, hint: "For example: Sangria y Salsa" }
-      - { name: date, label: Date, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", default: "{{now}}" }
-      - { name: time, label: Start time, hint: "For example: 7:30 pm" }
-      - { name: end, label: End time, required: false, hint: "For example: 11 pm" }
-      - { name: venue, label: Venue }
-      - { name: address, label: Address, required: false }
-      - { name: series, label: Series, widget: select, options: ["Sangria y Salsa", "Country Nights", "Balls and galas", "Soirees and mixers", "Special events"], default: "Special events" }
-      - { name: image, label: Cover image, widget: image, hint: "The 2:1 event graphic. About 1500 by 750 pixels." }
-      - { name: tickets, label: Ticket link, required: false, hint: "The RSVPify link. Leave empty once the night is over." }
-      - { name: body, label: Description, widget: markdown }
+      - { name: title, label: Event name, hint: "The name people will see, for example Sangria y Salsa." }
+      - { name: date, label: Date of the night, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", default: "{{now}}", hint: "Once this date is past, the night moves itself down to Past nights." }
+      - { name: time, label: Start time, hint: "Write it the way you would say it, for example 7:30 pm." }
+      - { name: end, label: End time, required: false, hint: "Optional, for example 11 pm." }
+      - { name: venue, label: Venue, hint: "The place, for example Whiffletree Farm." }
+      - { name: address, label: Address, required: false, hint: "Optional. Street, city, state, and zip. This is what the Open in Maps link uses." }
+      - { name: series, label: Series, widget: select, options: ["Sangria y Salsa", "Country Nights", "Balls and galas", "Soirees and mixers", "Special events"], default: "Special events", hint: "Which kind of night this is. It groups the event with the others like it." }
+      - { name: image, label: Cover image, widget: image, hint: "The wide event graphic, about 1500 by 750 pixels. It is resized and saved as WebP for you." }
+      - { name: tickets, label: Ticket link, required: false, hint: "Paste the RSVPify link. Clear it once the night is over and the page stops asking for tickets." }
+      - { name: body, label: Description, widget: markdown, hint: "A few short paragraphs. Leave a blank line between them." }
       - { name: tags, widget: hidden, default: event }
+
+  - name: albums
+    label: Photo albums
+    label_singular: Album
+    description: "Press Add, type the name of the night and its date, drop all the photos into the one box, and save. Each album gets its own folder with its photos inside it."
+    folder: src/albums
+    create: true
+    path: "{{fields.date}}-{{slug}}/index"
+    extension: md
+    format: yaml-frontmatter
+    media_folder: ""
+    public_folder: ""
+    preview_path: "/photos/{{dirname}}/"
+    summary: "{{fields.date}} · {{title}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Album name, hint: "The name of the night, for example Sangria y Salsa." }
+      - { name: date, label: Date of the night, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", default: "{{now}}", hint: "The album folder is named after this date, so set it before you save." }
+      - { name: photos, label: Photos, widget: image, multiple: true, hint: "Drop the whole night in here at once. Drag a photo to move it. The first one is used on the Photos page unless you set a cover below." }
+      - { name: cover, label: Cover photo, widget: image, required: false, hint: "Optional. The one photo shown on the Photos page. Leave it empty to use the first photo." }
+      - { name: source, label: Imported from, widget: hidden, required: false }
 
   - name: pages
     label: Page text
@@ -75,6 +120,139 @@ collections:
               - { name: role, label: Title }
           - { name: sideCaption, label: Photo caption beside the letter, widget: text }
 
+  - name: involved
+    label: Get involved pages
+    description: "Every word on the four pages people land on when they want to work with DSC. The email address and phone number come from Site settings, so change them there once and they change everywhere."
+    files:
+      - name: getinvolved
+        label: Get involved page
+        file: src/_data/getinvolved.json
+        fields:
+          - { name: heading, label: Heading at the top }
+          - { name: body, label: Paragraph under the heading, widget: text }
+          - { name: button, label: Button under the paragraph, hint: "It sends people to the Volunteer page." }
+          - name: ambassador
+            label: Brand ambassador band
+            widget: object
+            fields:
+              - { name: heading, label: Heading }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: button, label: Button, hint: "It sends people to the Brand ambassador page." }
+          - name: work
+            label: Work with us card
+            widget: object
+            fields:
+              - { name: heading, label: Heading }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: button, label: Button, hint: "It opens a new email about hosting a DSC night at a venue." }
+          - name: music
+            label: Play our events card
+            widget: object
+            fields:
+              - { name: heading, label: Heading }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: button, label: Button, hint: "It sends people to the Live music page." }
+          - name: sponsor
+            label: Sponsor an event card
+            widget: object
+            fields:
+              - { name: heading, label: Heading }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: button, label: Button, hint: "It opens a new email to the DSC address, because there is no sponsor page yet." }
+          - name: donate
+            label: Donate card
+            widget: object
+            fields:
+              - { name: heading, label: Heading }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: button, label: Button, hint: "It sends people to the Donate page." }
+          - name: contact
+            label: Contact us block
+            widget: object
+            fields:
+              - { name: heading, label: Heading }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: place, label: Place }
+      - name: volunteer
+        label: Volunteer page
+        file: src/_data/volunteer.json
+        fields:
+          - { name: heading, label: Heading at the top }
+          - { name: subheading, label: Line under the heading, widget: text }
+          - { name: body, label: Paragraph above the form, widget: text }
+          - { name: formHeading, label: Heading above the form }
+          - { name: helpLabel, label: Label on the last question }
+          - name: options
+            label: Answers people can pick from
+            widget: list
+            field: { name: option, label: Answer, widget: string }
+            hint: "One line each. They show up in the drop-down in this order."
+          - { name: button, label: Send button }
+      - name: ambassador
+        label: Brand ambassador page
+        file: src/_data/ambassador.json
+        fields:
+          - { name: eyebrow, label: Small line above the heading }
+          - { name: heading, label: Heading }
+          - { name: intro, label: First paragraph, widget: text }
+          - { name: intro2, label: Second paragraph, widget: text }
+          - { name: lookingHeading, label: Heading above the list }
+          - { name: listHeading, label: Line above the list }
+          - name: list
+            label: You might be her if
+            widget: list
+            field: { name: item, label: Line, widget: string }
+            hint: "One line each."
+          - { name: perksHeading, label: Heading above the perks }
+          - name: perks
+            label: Perks
+            widget: list
+            field: { name: item, label: Perk, widget: string }
+            hint: "One line each."
+          - { name: accepting, label: Accepting applications, widget: boolean, default: true, hint: "On shows the application form. Off hides it and shows the closed message below instead." }
+          - { name: formHeading, label: Heading above the form }
+          - { name: button, label: Send button }
+          - { name: closedHeading, label: Heading when applications are closed }
+          - { name: closedBody, label: Message when applications are closed, widget: text }
+      - name: livemusic
+        label: Live music page
+        file: src/_data/livemusic.json
+        fields:
+          - { name: heading, label: Heading at the top }
+          - { name: subheading, label: Line under the heading, widget: text }
+          - { name: body, label: Paragraph above the form, widget: text }
+          - { name: formHeading, label: Heading above the form }
+          - { name: button, label: Send button }
+
+  - name: press
+    label: Press
+    description: "Articles written about DSC. The newest three also show up on the homepage, so add a new one at the top of the list."
+    files:
+      - name: press
+        label: Press page
+        file: src/_data/press.json
+        fields:
+          - { name: heading, label: Heading at the top }
+          - { name: lede, label: Paragraph under the heading, widget: text }
+          - { name: sectionHeading, label: Heading above the articles }
+          - { name: sectionLede, label: Line under that heading, widget: text }
+          - { name: homeHeading, label: Heading on the homepage band }
+          - { name: homeLink, label: Link on the homepage band, hint: "It sends people to this page." }
+          - name: items
+            label: Articles
+            widget: list
+            summary: "{{fields.publication}} · {{fields.title}}"
+            hint: "Newest at the top. The first three are the ones on the homepage."
+            fields:
+              - { name: title, label: Headline, hint: "Copy the headline the way the article writes it." }
+              - { name: publication, label: Publication, hint: "For example, National Catholic Register." }
+              - { name: date, label: Date published, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Optional. Leave it empty and no date is shown." }
+              - { name: url, label: Link to the article }
+              - { name: byline, label: Written by, required: false, hint: "Optional." }
+              - { name: summary, label: One line about the article, widget: text, required: false, hint: "Optional. Your own words, not a quote from the article." }
+          - { name: contactHeading, label: Heading on the press inquiries block }
+          - { name: contactBody, label: Paragraph on the press inquiries block, widget: text }
+
   - name: people
     label: Team and videos
     files:
@@ -121,7 +299,7 @@ collections:
           - { name: name, label: Organization name }
           - { name: short, label: Short name }
           - { name: tagline, label: Tagline, widget: text }
-          - { name: email, label: Email }
+          - { name: email, label: Email, hint: "Every form on the site sends to this address, and every email link on the site uses it." }
           - { name: phone, label: Phone }
           - { name: instagram, label: Instagram link }
           - { name: facebook, label: Facebook group link }

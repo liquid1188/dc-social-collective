@@ -1,0 +1,43 @@
+---
+layout: base.njk
+title: Press
+permalink: /press/
+description: "Articles about DC Social Collective, and how to reach us if you are working on a story."
+---
+<div class="wrap page-head">
+  <h1>{{ press.heading }}</h1>
+  <p class="lede">{{ press.lede }}</p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap">
+    <div class="band-head"><h2>{{ press.sectionHeading }}</h2></div>
+    <p class="lede" style="margin-top:-1rem">{{ press.sectionLede }}</p>
+    <ul class="news">
+    {%- for a in press.items %}
+      <li>
+        <a href="{{ a.url }}" rel="noopener">
+          <p class="pub">{{ a.publication }}{% if a.date %} · {{ a.date | fullDate }}{% endif %}</p>
+          <h3>{{ a.title }}</h3>
+          {% if a.summary %}<p class="sum">{{ a.summary }}</p>{% endif %}
+          {% if a.byline %}<p class="by">By {{ a.byline }}</p>{% endif %}
+          <span class="read">Read the article</span>
+        </a>
+      </li>
+    {%- endfor %}
+    </ul>
+  </div>
+</section>
+<section class="band paper" id="inquiries">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
+      <h2>{{ press.contactHeading }}</h2>
+      <p>{{ press.contactBody }}</p>
+      <ul class="contact-lines">
+        <li><a href="mailto:{{ site.email }}?subject=Press%20inquiry">{{ site.email }}</a></li>
+        <li><a href="tel:{{ site.phone | replace(' ', '') | replace('(', '') | replace(')', '') | replace('-', '') }}">{{ site.phone }}</a></li>
+        <li>{{ site.instagram | replace('https://www.instagram.com/', '@') | replace('/', '') }} on Instagram</li>
+      </ul>
+    </div>
+    <img src="/images/gallery/09.jpg" alt="Hundreds of guests at a DSC ball" loading="lazy" width="2500" height="1668">
+  </div>
+</section>

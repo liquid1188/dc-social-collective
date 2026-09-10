@@ -1,0 +1,35 @@
+---
+layout: base.njk
+title: Volunteer
+permalink: /volunteer/
+description: "Volunteer with DC Social Collective. No professional experience needed."
+---
+<div class="wrap page-head">
+  <h1>{{ volunteer.heading }}</h1>
+  <p class="lede">{{ volunteer.subheading }}</p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
+      <p class="lede" style="margin-bottom:2rem">{{ volunteer.body }}</p>
+      <h2>{{ volunteer.formHeading }}</h2>
+      <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+        <input type="hidden" name="_subject" value="Volunteer form">
+        <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
+        <input type="text" name="_honey" style="display:none">
+        <label>Name <input type="text" name="name" required></label>
+        <label>Email <input type="email" name="email" required></label>
+        <label>Phone <input type="tel" name="phone" required></label>
+        <label>{{ volunteer.helpLabel }}
+          <select name="How would you like to help" required>
+          {%- for o in volunteer.options %}
+            <option>{{ o }}</option>
+          {%- endfor %}
+          </select>
+        </label>
+        <button class="btn" type="submit">{{ volunteer.button }}</button>
+      </form>
+    </div>
+    <img src="/images/gallery/06.jpg" alt="Volunteers welcoming guests at a DSC night" loading="lazy">
+  </div>
+</section>

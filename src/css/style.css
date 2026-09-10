@@ -320,3 +320,32 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .site-foot.v2 .fcol a.soc svg { width: 18px; height: 18px; display: block; }
 .site-foot.v2 .util a.totop { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; }
 .site-foot.v2 .util a.totop svg { width: 16px; height: 16px; display: block; }
+
+/* Get involved pages */
+.callout { text-align: center; }
+.callout h1, .callout h2 { max-width: 30ch; margin-left: auto; margin-right: auto; }
+.callout p { margin-left: auto; margin-right: auto; }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .82rem; font-weight: 600; color: var(--coral-dark); margin: 0 0 .7rem; }
+.contact-lines { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; gap: .45rem; font-size: 1.05rem; }
+.contact-lines a { color: var(--coral-dark); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+.contact-lines a:hover { text-decoration: underline; }
+.ticks { list-style: none; margin: 0 0 1.2rem; padding: 0; display: grid; gap: .55rem; max-width: 60ch; }
+.ticks li { display: grid; grid-template-columns: 1rem 1fr; gap: .7rem; }
+.ticks li::before { content: "•"; color: var(--coral); font-weight: 700; line-height: 1.4; }
+.notice { background: #fff; border-radius: 14px; padding: clamp(1.5rem, 4vw, 2.5rem); max-width: 44rem; }
+.notice h2 { font-size: 1.9rem; }
+.form input[type="file"] { padding: .6rem .5rem; background: #fff; }
+
+/* Press */
+.news { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.2rem; }
+.news.three { grid-template-columns: repeat(3, 1fr); }
+.news a { display: block; background: var(--paper); border-radius: 14px; padding: 1.5rem 1.6rem; text-decoration: none; color: inherit; height: 100%; box-shadow: 0 18px 40px -30px rgba(7,26,58,.5); }
+.news a:hover h3 { color: var(--coral-dark); }
+.news .pub { font-size: .85rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--coral-dark); margin: 0 0 .5rem; }
+.news h3 { font-size: 1.45rem; margin: 0 0 .5rem; }
+.news .sum { font-size: .98rem; margin: 0 0 .5rem; }
+.news .by { font-size: .9rem; color: var(--ink-2); margin: 0 0 .6rem; }
+.news .read { font-weight: 600; color: var(--coral-dark); font-size: .95rem; }
+.news .read::after { content: " →"; }
+.band.navy .news a { background: rgba(255,255,255,.06); }
+@media (max-width: 900px) { .news.three { grid-template-columns: 1fr; } }
