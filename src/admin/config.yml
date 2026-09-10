@@ -371,6 +371,6 @@ collections:
           - { name: instagram, label: Instagram link }
           - { name: facebook, label: Facebook group link }
           - { name: merch, label: Merch store link }
-          - { name: members, label: Member count as shown (e.g. 4,000) }
+          - { name: attendees, label: Annual attendees as shown (e.g. 6,000), hint: "Used in the footer and in the About copy." }
           - { name: url, widget: hidden }
           - { name: setupMode, widget: hidden }

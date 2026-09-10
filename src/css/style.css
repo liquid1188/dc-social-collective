@@ -407,9 +407,9 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 /* As seen in */
 .logos-band { padding: 2rem 0 2.2rem; }
 .logos-band .eyebrow { color: rgba(255,255,255,.55); text-align: center; margin-bottom: 1rem; }
-.logos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 2.6rem; }
-.logos li { font-family: var(--display); font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.25rem); color: rgba(255,255,255,.9); }
-.logos li img { height: 34px; width: auto; max-width: 170px; object-fit: contain; }
+.logos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.2rem 3.2rem; }
+.logos li { font-family: var(--display); font-weight: 700; font-size: clamp(1.15rem, 1.8vw, 1.5rem); color: rgba(255,255,255,.9); }
+.logos li img { height: 52px; width: auto; max-width: 230px; object-fit: contain; }
 .logos a { color: inherit; text-decoration: none; }
 .logos a:hover { color: var(--amber); }
 
