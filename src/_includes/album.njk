@@ -5,11 +5,17 @@ layout: base.njk
   <p style="margin:0 0 .5rem"><a href="/gallery/" style="color:var(--coral-dark);text-decoration:none;font-weight:600">All albums</a></p>
   <h1>{{ title }}</h1>
   <p class="lede">{{ day | longDate }}, {{ day | year }} · {{ images.length }} photos</p>
+  {%- if downloadUrl %}
+  <p style="margin-top:1.2rem"><a class="btn" href="{{ downloadUrl }}" rel="noopener">Download the originals</a></p>
+  {%- endif %}
 </div>
 <section class="band" style="padding-top:1.5rem">
   <div class="wrap gallery">
   {%- for im in images %}
-    <a href="{{ im.full }}"><img src="{{ im.thumb }}" alt=""{% if im.w %} width="{{ im.w }}" height="{{ im.h }}"{% endif %} loading="{% if loop.index0 < 6 %}eager{% else %}lazy{% endif %}" decoding="async"></a>
+    <figure>
+      <a href="{{ im.full }}"><img src="{{ im.thumb }}" alt=""{% if im.w %} width="{{ im.w }}" height="{{ im.h }}"{% endif %} loading="{% if loop.index0 < 6 %}eager{% else %}lazy{% endif %}" decoding="async"></a>
+      <a class="dl" href="{{ im.full }}"{% if not im.remote %} download="{{ im.name }}"{% endif %} title="{% if im.remote %}Open the full size photo{% else %}Download this photo{% endif %}" aria-label="{% if im.remote %}Open the full size photo{% else %}Download this photo{% endif %}"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></svg></a>
+    </figure>
   {%- endfor %}
   </div>
 </section>

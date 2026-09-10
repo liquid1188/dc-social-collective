@@ -71,6 +71,7 @@ collections:
       - { name: date, label: Date of the night, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", default: "{{now}}", hint: "The album folder is named after this date, so set it before you save." }
       - { name: photos, label: Photos, widget: image, multiple: true, hint: "Drop the whole night in here at once. Drag a photo to move it. The first one is used on the Photos page unless you set a cover below." }
       - { name: cover, label: Cover photo, widget: image, required: false, hint: "Optional. The one photo shown on the Photos page. Leave it empty to use the first photo." }
+      - { name: downloadUrl, label: Link to the originals, required: false, hint: "Optional. Paste the share link to this night's folder in Google Drive and a Download the originals button appears on the album. Set the folder to Anyone with the link can view." }
       - { name: source, label: Imported from, widget: hidden, required: false }
 
   - name: pages

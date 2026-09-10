@@ -11,7 +11,14 @@ const photo = (value, folder) => {
   const [w, h] = (dims || "").split("x");
   const remote = /^https?:\/\//.test(path);
   const url = remote ? path : "/albums/" + folder + "/" + path.split("/").pop();
-  return { thumb: remote ? url + "?format=1000w" : url, full: remote ? url + "?format=2500w" : url, w, h };
+  return {
+    thumb: remote ? url + "?format=1000w" : url,
+    full: remote ? url + "?format=2500w" : url,
+    name: url.split("/").pop(),
+    remote,
+    w,
+    h
+  };
 };
 
 export default {
