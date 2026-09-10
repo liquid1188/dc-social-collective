@@ -13,7 +13,7 @@ description: "Every DC Social Collective night in photos, from the first picnic 
   {%- for a in collections.albums %}
     <a class="album" href="{{ a.url }}">
       {% if a.data.coverImage %}<img src="{{ a.data.coverImage }}" alt="" loading="{% if loop.index0 < 6 %}eager{% else %}lazy{% endif %}">{% endif %}
-      <div><h2>{{ a.data.title }}</h2><p>{{ a.data.day | fullDate }} · {{ a.data.images.length }} photos</p></div>
+      <div><h2>{{ a.data.title }}</h2><p>{{ a.data.day | fullDate }}</p></div>
     </a>
   {%- endfor %}
   </div>
