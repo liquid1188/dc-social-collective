@@ -22,9 +22,18 @@ layout: base.njk
       </dl>
       {% set today_s = today %}
       {% set d = page.date | isoDate | truncate(10, true, '') %}
-      {% if tickets and d >= today_s %}<a class="btn" href="{{ tickets }}" style="width:100%;text-align:center">Get tickets</a>
+      {% if tickets and d >= today_s %}<a class="btn" href="#book" style="width:100%;text-align:center">Get tickets</a>
       <a href="{{ { date: d, title: title, venue: venue, address: address, time: time, end: end, url: site.url ~ page.url } | gcalUrl }}" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:.8rem;font-size:.95rem">Add to Google Calendar</a>
       {% elif d < today_s %}<p style="margin:0;color:var(--ink-2)">This night has happened. <a href="/gallery/">See the photos</a> or <a href="/events/">find the next one</a>.</p>{% endif %}
     </aside>
   </div>
 </section>
+{%- if tickets and d >= today_s %}
+<section class="band paper" id="book">
+  <div class="wrap">
+    <h2>Get your tickets</h2>
+    <p>Book right here. Nothing to download and no other site to go to. If the form does not load, <a href="{{ tickets }}" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    <iframe class="booking" src="{{ tickets | embedUrl }}" title="Tickets for {{ title }}" loading="lazy" allow="payment"></iframe>
+  </div>
+</section>
+{%- endif %}

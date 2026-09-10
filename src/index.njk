@@ -30,6 +30,17 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
   </div>
 </section>
 
+<section class="band navy on-dark logos-band" id="featured">
+  <div class="wrap">
+    <p class="eyebrow">{{ press.logosHeading }}</p>
+    <ul class="logos">
+    {%- for l in press.logos %}
+      <li>{% if l.url %}<a href="{{ l.url }}" rel="noopener">{% endif %}{% if l.logo %}<img src="{{ l.logo }}" alt="{{ l.name }}" loading="lazy">{% else %}{{ l.name }}{% endif %}{% if l.url %}</a>{% endif %}</li>
+    {%- endfor %}
+    </ul>
+  </div>
+</section>
+
 <section class="band navy on-dark">
   <div class="wrap">
     <div class="band-head"><h2>On the calendar</h2><a href="/events/">All events</a></div>

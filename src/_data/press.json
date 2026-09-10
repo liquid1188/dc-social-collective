@@ -5,6 +5,29 @@
   "sectionLede": "Every article written about the collective, newest first.",
   "homeHeading": "In the news",
   "homeLink": "All coverage",
+  "logosHeading": "As seen in",
+  "logos": [
+    {
+      "name": "The Washington Post",
+      "logo": "",
+      "url": "https://www.washingtonpost.com/style/power/2025/10/28/maga-dating-scene-washington/"
+    },
+    {
+      "name": "National Catholic Register",
+      "logo": "",
+      "url": "https://www.ncregister.com/features/dc-social-collective-builds-young-adult-community"
+    },
+    {
+      "name": "EWTN",
+      "logo": "",
+      "url": "https://ewtn.co.uk/article-faith-through-friendship-how-dc-social-collective-is-building-young-adult-community-in-the-nations-capital/"
+    },
+    {
+      "name": "RSVPify",
+      "logo": "",
+      "url": "https://rsvpify.com/case-studies/dc-social/"
+    }
+  ],
   "items": [
     {
       "title": "MAGA singles are looking for love in Washington. It's a challenge.",
@@ -13,7 +36,7 @@
       "url": "https://www.washingtonpost.com/style/power/2025/10/28/maga-dating-scene-washington/",
       "image": "/images/gallery/17.jpg",
       "byline": "Jesús Rodríguez",
-      "summary": "The Post on the social scene young conservatives in Washington are building, where our founder explains why the vetting happens face to face and why the nights keep selling out."
+      "summary": "The Post on the social scene young conservatives in Washington are building. Our founder explains why he would rather people size each other up in a room than through a phone screen, and why the nights keep selling out."
     },
     {
       "title": "From Cloudburst to Country Two-Step: DC Social Collective's Biggest Night Yet",
