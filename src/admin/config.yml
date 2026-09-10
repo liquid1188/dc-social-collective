@@ -219,7 +219,6 @@ collections:
               - { name: body, label: Paragraph, widget: text }
               - { name: hashtag, label: Hashtag, required: false, hint: "Optional. For example #dcsocialcollective. Leave it empty and no hashtag line shows." }
               - { name: button, label: First button, hint: "It goes to the Instagram link in Site settings." }
-              - { name: collabButton, label: Second button, hint: "It opens a new email about planning a post together." }
           - name: contact
             label: Contact us block
             widget: object
