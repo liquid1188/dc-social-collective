@@ -43,11 +43,14 @@ description: "Articles about DC Social Collective, and how to reach us if you ar
         <li><a href="mailto:{{ press.contactEmail }}?subject=Press%20inquiry">{{ press.contactEmail }}</a>{% if press.contactName %} · {{ press.contactName }}{% endif %}{% if press.contactRole %}, {{ press.contactRole }}{% endif %}</li>
         {%- endif %}
       </ul>
-      {%- set pubs = press.items | publications %}
-      {%- if pubs.length %}
+      {%- if press.logos.length %}
       <div class="pubstrip">
         <p class="eyebrow">{{ press.pressStripHeading }}</p>
-        <ul>{% for p in pubs %}<li>{{ p }}</li>{% endfor %}</ul>
+        <ul>
+        {%- for l in press.logos %}
+          <li>{% if l.url %}<a href="{{ l.url }}" rel="noopener">{% endif %}{% if l.logo %}<img src="{{ l.logo }}" alt="{{ l.name }}" loading="lazy">{% else %}{{ l.name }}{% endif %}{% if l.url %}</a>{% endif %}</li>
+        {%- endfor %}
+        </ul>
       </div>
       {%- endif %}
     </div>
