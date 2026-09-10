@@ -220,6 +220,16 @@ collections:
               - { name: body, label: Paragraph, widget: text }
               - { name: hashtag, label: Hashtag, required: false, hint: "Optional. For example #dcsocialcollective. Leave it empty and no hashtag line shows." }
               - { name: button, label: First button, hint: "It goes to the Instagram link in Site settings." }
+          - name: photos
+            label: Three photos above the tag us band
+            widget: list
+            summary: "{{fields.alt}}"
+            max: 3
+            description: "A band, a DJ, and a room. Leave a photo empty and its slot disappears."
+            fields:
+              - { name: image, label: Photo, widget: image }
+              - { name: alt, label: What is in the photo, hint: "Read out to anyone using a screen reader, so describe it plainly." }
+              - { name: caption, label: Caption, required: false, widget: text }
           - name: contact
             label: Contact us block
             widget: object

@@ -463,3 +463,9 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .poster .earlybird { color: var(--coral-dark); font-weight: 600; font-size: .92rem; margin: -.5rem 0 .6rem; }
 .gallery .dl[data-busy] { opacity: 1; background: var(--coral); }
 .booking-start p { max-width: 46ch; }
+
+/* Three rooms on Get involved */
+.trio { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.trio img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 14px; }
+.trio p { margin: .8rem 0 0; font-size: .98rem; color: var(--ink-2); max-width: none; }
+@media (max-width: 860px) { .trio { grid-template-columns: 1fr; } }

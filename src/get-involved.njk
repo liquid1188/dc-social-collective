@@ -40,6 +40,20 @@ description: "Plan events with us. Volunteer, become a brand ambassador, play ou
     </article>
   </div>
 </section>
+{%- if getinvolved.photos.length %}
+<section class="band" id="rooms">
+  <div class="wrap">
+    <ul class="trio">
+    {%- for ph in getinvolved.photos %}{% if ph.image %}
+      <li>
+        <img src="{{ ph.image }}" alt="{{ ph.alt }}" loading="lazy">
+        {% if ph.caption %}<p>{{ ph.caption }}</p>{% endif %}
+      </li>
+    {%- endif %}{% endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
 <section class="band navy" id="social">
   <div class="wrap">
     <h2>{{ getinvolved.social.heading }}</h2>
