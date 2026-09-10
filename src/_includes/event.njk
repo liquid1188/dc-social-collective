@@ -44,16 +44,26 @@ layout: base.njk
     // a third party frame it may never need.
     (function () {
       var start = document.currentScript.previousElementSibling;
-      var button = start.querySelector("button");
+      var button = start && start.querySelector("button");
       if (!button) return;
-      button.addEventListener("click", function () {
+      var opened = false;
+      function open(behavior) {
+        if (opened) return;
+        opened = true;
         var frame = document.createElement("iframe");
         frame.className = "booking";
         frame.src = button.dataset.src;
         frame.title = button.dataset.title;
         frame.setAttribute("allow", "payment");
         start.replaceWith(frame);
-        frame.scrollIntoView({ block: "start", behavior: "smooth" });
+        frame.scrollIntoView({ block: "start", behavior: behavior });
+      }
+      button.addEventListener("click", function () { open("smooth"); });
+      // Landing on #book means Get tickets was already pressed somewhere else,
+      // on the events list or in the sidebar, so do not ask for a second press.
+      if (location.hash === "#book") open("auto");
+      window.addEventListener("hashchange", function () {
+        if (location.hash === "#book") open("smooth");
       });
     })();
     </script>
