@@ -7,6 +7,7 @@ venue: "Whiffletree Farm"
 address: "8717 Springs Road Warrenton, VA, 20186"
 series: "Country Nights"
 image: "/images/events/2026-09-26-all-american-country-nights.jpg"
+earlyBird: "2026-09-12"
 tickets: "https://dsccountrynightssep26.rsvpify.com/"
 tags: event
 ---

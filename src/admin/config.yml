@@ -47,6 +47,7 @@ collections:
       - { name: address, label: Address, required: false, hint: "Optional. Street, city, state, and zip. This is what the Open in Maps link uses." }
       - { name: series, label: Series, widget: select, options: ["Sangria y Salsa", "Country Nights", "Balls and galas", "Soirees and mixers", "Special events"], default: "Special events", hint: "Which kind of night this is. It groups the event with the others like it." }
       - { name: image, label: Cover image, widget: image, hint: "The wide event graphic, about 1500 by 750 pixels. It is resized and saved as WebP for you." }
+      - { name: earlyBird, label: Early bird pricing ends, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Optional. Set the same date you set in RSVPify. The early bird line shows on the site until that day and then disappears on its own, so nobody has to remember to take it down. Leave it empty and no line shows." }
       - { name: tickets, label: Ticket link, required: false, hint: "Paste the RSVPify link. The booking form on the event page comes from this link, so people never leave the site. Clear it once the night is over and both the form and the button go away." }
       - { name: body, label: Description, widget: markdown, hint: "A few short paragraphs. Leave a blank line between them." }
       - { name: draft, label: Draft, widget: boolean, default: false, hint: "On keeps the night off the site while you finish it. Turn it off to publish. Nights that arrive from RSVPify start as drafts." }
@@ -340,6 +341,7 @@ collections:
               - { name: role, label: Role }
               - { name: photo, label: Photo, widget: image }
               - { name: bio, label: Bio, widget: text }
+              - { name: instagram, label: Instagram link, required: false, hint: "Optional. Their photo and name become a link to it. Paste the plain profile link, without the tracking bits after the question mark." }
       - name: videos
         label: Videos
         file: src/_data/videos.json

@@ -446,3 +446,15 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 
 .venues li.darken img { filter: brightness(0); opacity: .82; }
 .venues li.darken:hover img { opacity: 1; }
+
+/* Headshots link out to the person */
+.team .headshot { position: relative; display: block; }
+.team .headshot .ig { position: absolute; right: .6rem; bottom: 1.6rem; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(7,26,58,.72); color: #fff; opacity: 0; transition: opacity .15s; }
+.team .headshot .ig svg { width: 18px; height: 18px; }
+.team .headshot:hover .ig, .team .headshot:focus-visible .ig { opacity: 1; }
+@media (hover: none) { .team .headshot .ig { opacity: .9; } }
+.team h2 a { text-decoration: none; color: inherit; }
+.team h2 a:hover { color: var(--coral-dark); }
+
+/* Early bird, which takes itself down the day after it ends */
+.poster .earlybird { color: var(--coral-dark); font-weight: 600; font-size: .92rem; margin: -.5rem 0 .6rem; }

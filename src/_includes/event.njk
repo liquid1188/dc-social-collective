@@ -19,6 +19,7 @@ layout: base.njk
         <dt>Where</dt><dd>{{ venue }}{% if address %}<br><span style="color:var(--ink-2)">{{ address }}</span>{% endif %}<br><a href="{{ venue | mapUrl(address) }}" style="font-size:.9rem">Open in Maps</a></dd>
         {% if time %}<dt>When</dt><dd>{{ time }}{% if end %} to {{ end }}{% endif %}</dd>{% endif %}
         {% if series %}<dt>Series</dt><dd>{{ series }}</dd>{% endif %}
+        {% if earlyBirdDay and earlyBirdDay >= today %}<dt>Early bird</dt><dd>Until {{ earlyBirdDay | fullDate }}</dd>{% endif %}
       </dl>
       {% set today_s = today %}
       {% set d = page.date | isoDate | truncate(10, true, '') %}
