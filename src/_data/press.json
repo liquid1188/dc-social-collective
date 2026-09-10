@@ -9,17 +9,17 @@
   "logos": [
     {
       "name": "The Washington Post",
-      "logo": "",
+      "logo": "/images/press/logos/washington-post.svg",
       "url": "https://www.washingtonpost.com/style/power/2025/10/28/maga-dating-scene-washington/"
     },
     {
       "name": "National Catholic Register",
-      "logo": "",
+      "logo": "/images/press/logos/ncregister.svg",
       "url": "https://www.ncregister.com/features/dc-social-collective-builds-young-adult-community"
     },
     {
       "name": "EWTN",
-      "logo": "",
+      "logo": "/images/press/logos/ewtn.svg",
       "url": "https://ewtn.co.uk/article-faith-through-friendship-how-dc-social-collective-is-building-young-adult-community-in-the-nations-capital/"
     },
     {

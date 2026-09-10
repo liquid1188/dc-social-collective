@@ -2,14 +2,50 @@
   "heading": "Where we throw our nights",
   "lede": "The wineries, farms, hotels, and halls that host us across DC, Maryland, and Virginia.",
   "items": [
-    { "name": "The Winery at Bull Run", "url": "", "logo": "" },
-    { "name": "Whiffletree Farm", "url": "", "logo": "" },
-    { "name": "Old Farm Winery at Hartland", "url": "", "logo": "" },
-    { "name": "Blue Valley Vineyard and Winery", "url": "", "logo": "" },
-    { "name": "Hotel Heron", "url": "", "logo": "" },
-    { "name": "The Alexandrian Hotel", "url": "", "logo": "" },
-    { "name": "The Catholic University of America", "url": "", "logo": "" },
-    { "name": "President Lincoln's Cottage", "url": "", "logo": "" },
-    { "name": "Columbia Island Marina", "url": "", "logo": "" }
+    {
+      "name": "The Winery at Bull Run",
+      "url": "",
+      "logo": "/images/venues/bull-run.png"
+    },
+    {
+      "name": "Whiffletree Farm",
+      "url": "",
+      "logo": "/images/venues/whiffletree.png"
+    },
+    {
+      "name": "Old Farm Winery at Hartland",
+      "url": "",
+      "logo": "/images/venues/old-farm.png"
+    },
+    {
+      "name": "Blue Valley Vineyard and Winery",
+      "url": "",
+      "logo": "/images/venues/blue-valley.png"
+    },
+    {
+      "name": "Hotel Heron",
+      "url": "",
+      "logo": ""
+    },
+    {
+      "name": "The Alexandrian Hotel",
+      "url": "",
+      "logo": "/images/venues/alexandrian.svg"
+    },
+    {
+      "name": "The Catholic University of America",
+      "url": "",
+      "logo": "/images/venues/catholic-university.svg"
+    },
+    {
+      "name": "President Lincoln's Cottage",
+      "url": "",
+      "logo": ""
+    },
+    {
+      "name": "Columbia Island Marina",
+      "url": "",
+      "logo": "/images/venues/columbia-island.png"
+    }
   ]
 }
