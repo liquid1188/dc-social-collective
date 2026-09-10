@@ -33,7 +33,30 @@ layout: base.njk
 <section class="band paper" id="book">
   <div class="wrap">
     <h2>Get your tickets</h2>
-    <iframe class="booking" src="{{ tickets | embedUrl }}" title="Tickets for {{ title }}" loading="lazy" allow="payment"></iframe>
+    <div class="booking-start">
+      <p>{{ page.date | isoDate | truncate(10, true, '') | longDate }} at {{ venue }}{% if time %}, {{ time }}{% endif %}. Tickets are handled on this page.</p>
+      <button class="btn" type="button" data-src="{{ tickets | embedUrl }}" data-title="Tickets for {{ title }}">Get tickets for this night</button>
+      <noscript><a class="btn" href="{{ tickets }}" target="_blank" rel="noopener">Get tickets</a></noscript>
+    </div>
+    <script>
+    // The form only loads once somebody asks for it, so nobody lands on a
+    // ticket form for a night they have not chosen, and the page does not pull
+    // a third party frame it may never need.
+    (function () {
+      var start = document.currentScript.previousElementSibling;
+      var button = start.querySelector("button");
+      if (!button) return;
+      button.addEventListener("click", function () {
+        var frame = document.createElement("iframe");
+        frame.className = "booking";
+        frame.src = button.dataset.src;
+        frame.title = button.dataset.title;
+        frame.setAttribute("allow", "payment");
+        start.replaceWith(frame);
+        frame.scrollIntoView({ block: "start", behavior: "smooth" });
+      });
+    })();
+    </script>
   </div>
 </section>
 {%- endif %}

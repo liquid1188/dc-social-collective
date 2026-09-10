@@ -462,3 +462,4 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 /* Early bird, which takes itself down the day after it ends */
 .poster .earlybird { color: var(--coral-dark); font-weight: 600; font-size: .92rem; margin: -.5rem 0 .6rem; }
 .gallery .dl[data-busy] { opacity: 1; background: var(--coral); }
+.booking-start p { max-width: 46ch; }
