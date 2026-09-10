@@ -365,11 +365,14 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 
 /* Venues and partners */
 .venues { list-style: none; margin: 2rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2.2rem; }
-.venues li { font-family: var(--display); font-weight: 700; font-size: clamp(1.05rem, 1.6vw, 1.35rem); color: rgba(255,255,255,.9); letter-spacing: -.01em; }
-/* Every logo is flattened to white so a strip of marks from nine different
-   places reads as one row, and so a name with no logo sits beside them. */
-.venues li img, .logos li img { filter: brightness(0) invert(1); opacity: .85; transition: opacity .15s; }
-.venues li a:hover img, .logos li a:hover img { opacity: 1; }
+.venues li { font-family: var(--display); font-weight: 700; font-size: clamp(1.05rem, 1.6vw, 1.35rem); color: var(--ink-2); letter-spacing: -.01em; }
+/* Venue marks keep their own colours on the light band. Only the press strip
+   on the dark homepage band is flattened to white, and those are flat
+   wordmarks that survive it. */
+.venues li img { opacity: .9; transition: opacity .15s; }
+.venues li a:hover img { opacity: 1; }
+.logos li img { filter: brightness(0) invert(1); opacity: .85; transition: opacity .15s; }
+.logos li a:hover img { opacity: 1; }
 .venues-band .venues { justify-content: center; gap: 1.4rem 2.8rem; }
 .venues-band .lede { margin-left: auto; margin-right: auto; text-align: center; }
 .venues-band .band-head { justify-content: center; }
