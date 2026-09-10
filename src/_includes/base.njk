@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css?v={{ buildId }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} events" href="/feed.xml">
   <meta property="og:title" content="{{ title or site.name }}">
   <meta property="og:description" content="{{ description or site.tagline }}">
   <meta property="og:image" content="{{ site.url }}/images/gallery/17.jpg">
@@ -23,7 +24,7 @@
     <input type="checkbox" id="menu" class="menu-toggle" aria-label="Open menu">
     <label for="menu" class="menu-btn"><span></span><span></span></label>
     <nav class="nav" aria-label="Main">
-      <a href="/events/"{% if '/events' in page.url %} aria-current="page"{% endif %}>Events</a>
+      <a href="/events/"{% if page.url and '/events' in page.url %} aria-current="page"{% endif %}>Events</a>
       <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
       <a href="/gallery/"{% if page.url == '/gallery/' %} aria-current="page"{% endif %}>Photos</a>
       <a href="/team/"{% if page.url == '/team/' %} aria-current="page"{% endif %}>Team</a>
@@ -55,7 +56,7 @@
   
   <div class="wrap foot-bottom">
     <span class="copy">&copy; {{ today | year }} DC Social Collective. Live sound and lighting by <a href="https://www.redlinerentalsva.com/">Red Line Rentals</a>.</span>
-    <span class="util"><a href="/admin/">Sign in</a><a href="https://lickitysplitweb.com">Site by Lickity Split Web Design</a><a class="totop" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="m6 14 6-6 6 6"/></svg></a></span>
+    <span class="util"><a href="/feed.xml">Events feed</a><a href="/admin/">Sign in</a><a href="https://lickitysplitweb.com">Site by Lickity Split Web Design</a><a class="totop" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="m6 14 6-6 6 6"/></svg></a></span>
   </div>
 </footer>
 <!-- View desktop version toggle (Lickity Split) -->

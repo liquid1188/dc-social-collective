@@ -22,12 +22,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("year", (iso) => iso.slice(0, 4));
   eleventyConfig.addFilter("weekday", (iso) => d(iso).toLocaleDateString("en-US", { weekday: "long", ...opts }));
   eleventyConfig.addFilter("isoDate", (x) => new Date(x).toISOString());
+  eleventyConfig.addFilter("rfc822", (x) => new Date(typeof x === "string" ? x + "T12:00:00Z" : x).toUTCString());
+  eleventyConfig.addFilter("eventBlurb", (data) => [data.venue, data.address].filter(Boolean).join(", ") + (data.time ? ", " + data.time : "") + ".");
   eleventyConfig.addGlobalData("today", () => new Date().toISOString().slice(0, 10));
   eleventyConfig.addFilter("photoCount", (albums) => (albums || []).reduce((n, a) => n + ((a.data.photos || []).length), 0).toLocaleString("en-US"));
   eleventyConfig.addGlobalData("buildId", () => Date.now().toString(36));
   const iso = (e) => e.date.toISOString().slice(0, 10);
   eleventyConfig.addCollection("upcoming", (api) => api.getFilteredByTag("event").filter((e) => iso(e) >= new Date().toISOString().slice(0, 10)).sort((a, b) => a.date - b.date));
   eleventyConfig.addCollection("past", (api) => api.getFilteredByTag("event").filter((e) => iso(e) < new Date().toISOString().slice(0, 10)).sort((a, b) => b.date - a.date));
+  eleventyConfig.addCollection("feed", (api) => api.getFilteredByTag("event").sort((a, b) => b.date - a.date).slice(0, 40));
   eleventyConfig.addCollection("albums", (api) => api.getFilteredByTag("album").sort((a, b) => b.date - a.date));
   eleventyConfig.addFilter("iso", iso);
   return { dir: { input: "src", includes: "_includes", output: "_site" } };

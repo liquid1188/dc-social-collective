@@ -49,6 +49,7 @@ collections:
       - { name: image, label: Cover image, widget: image, hint: "The wide event graphic, about 1500 by 750 pixels. It is resized and saved as WebP for you." }
       - { name: tickets, label: Ticket link, required: false, hint: "Paste the RSVPify link. Clear it once the night is over and the page stops asking for tickets." }
       - { name: body, label: Description, widget: markdown, hint: "A few short paragraphs. Leave a blank line between them." }
+      - { name: draft, label: Draft, widget: boolean, default: false, hint: "On keeps the night off the site while you finish it. Turn it off to publish. Nights that arrive from RSVPify start as drafts." }
       - { name: tags, widget: hidden, default: event }
 
   - name: albums
