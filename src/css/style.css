@@ -368,7 +368,10 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 /* Venues and partners */
 /* Each mark sits in a tile of its own so nothing can be cropped, and so a
    heavy logo and a light one read at the same weight in the row. */
-.venues { list-style: none; margin: 2rem 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.venues { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.venues.top { margin-top: 2rem; }
+.venues.top li { width: 232px; height: 112px; padding: 1rem 1.3rem; }
+.venues.top li:not(:has(img)) { font-size: 1.15rem; }
 .venues li { display: flex; align-items: center; justify-content: center; width: 200px; height: 96px; padding: .9rem 1.1rem; background: #fff; border-radius: 12px; box-shadow: 0 10px 24px -20px rgba(7,26,58,.5); font-family: var(--display); font-weight: 700; font-size: 1.02rem; line-height: 1.15; text-align: center; color: var(--ink-2); letter-spacing: -.01em; }
 /* Venue marks keep their own colours on the light band. Only the press strip
    on the dark homepage band is flattened to white, and those are flat
@@ -383,6 +386,7 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .venues li img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; display: block; }
 .venues a { text-decoration: none; color: inherit; }
 .venues li a { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+.venues li.script { font-family: "Kaushan Script", "Fraunces", cursive; font-weight: 400; font-size: 1.3rem; line-height: 1.25; color: var(--ink); }
 .venues a:hover { color: var(--coral-dark); }
 
 /* Pull quotes */

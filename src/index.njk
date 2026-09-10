@@ -162,10 +162,15 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
   <div class="wrap">
     <div class="band-head"><h2>{{ venues.heading }}</h2></div>
     <p class="lede" style="margin-top:-1rem">{{ venues.lede }}</p>
+    <ul class="venues top">
+    {%- for v in venues.items %}{% if loop.index <= 5 %}
+      <li{% if v.font %} class="{{ v.font }}"{% endif %}>{% if v.url %}<a href="{{ v.url }}" rel="noopener">{% endif %}{% if v.logo %}<img src="{{ v.logo }}" alt="{{ v.name }}" loading="lazy">{% else %}{{ v.name }}{% endif %}{% if v.url %}</a>{% endif %}</li>
+    {%- endif %}{% endfor %}
+    </ul>
     <ul class="venues">
-    {%- for v in venues.items %}
-      <li>{% if v.url %}<a href="{{ v.url }}" rel="noopener">{% endif %}{% if v.logo %}<img src="{{ v.logo }}" alt="{{ v.name }}" loading="lazy">{% else %}{{ v.name }}{% endif %}{% if v.url %}</a>{% endif %}</li>
-    {%- endfor %}
+    {%- for v in venues.items %}{% if loop.index > 5 %}
+      <li{% if v.font %} class="{{ v.font }}"{% endif %}>{% if v.url %}<a href="{{ v.url }}" rel="noopener">{% endif %}{% if v.logo %}<img src="{{ v.logo }}" alt="{{ v.name }}" loading="lazy">{% else %}{{ v.name }}{% endif %}{% if v.url %}</a>{% endif %}</li>
+    {%- endif %}{% endfor %}
     </ul>
   </div>
 </section>
