@@ -6,13 +6,20 @@ const folderOf = (data) => data.page.filePathStem.split("/").at(-2);
 
 const day = (v) => (v instanceof Date ? v.toISOString() : String(v || "")).slice(0, 10);
 
+import { existsSync } from "node:fs";
+
 const photo = (value, folder) => {
   const [path, dims] = String(value).split("#");
   const [w, h] = (dims || "").split("x");
   const remote = /^https?:\/\//.test(path);
-  const url = remote ? path : "/albums/" + folder + "/" + path.split("/").pop();
+  const name = path.split("/").pop();
+  const url = remote ? path : "/albums/" + folder + "/" + name;
+  // A grid tile is about 370px wide, so serve a thumb there when one exists and
+  // keep the full file for the click through and the download.
+  const thumbPath = "src/albums/" + folder + "/thumbs/" + name;
+  const localThumb = !remote && existsSync(thumbPath) ? "/albums/" + folder + "/thumbs/" + name : null;
   return {
-    thumb: remote ? url + "?format=1000w" : url,
+    thumb: remote ? url + "?format=1000w" : (localThumb || url),
     full: remote ? url + "?format=2500w" : url,
     name: url.split("/").pop(),
     remote,
