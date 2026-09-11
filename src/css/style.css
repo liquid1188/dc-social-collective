@@ -267,7 +267,8 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 @media (max-width: 1000px) { .ambassadors { grid-template-columns: 1fr; } }
 .albums { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
 .album { display: block; text-decoration: none; color: inherit; }
-.album img { aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; margin-bottom: .7rem; }
+/* Cards crop to 3:2, so bias the crop upward. Centring it decapitates anyone standing in a portrait photo. */
+.album img { aspect-ratio: 3 / 2; object-fit: cover; object-position: center 30%; border-radius: 12px; margin-bottom: .7rem; }
 .album h2 { font-size: 1.3rem; margin: 0 0 .15rem; }
 .album p { margin: 0; color: var(--ink-2); font-size: .95rem; }
 .album:hover h2 { color: var(--coral-dark); }
@@ -476,3 +477,11 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .embedded-form { max-width: 34rem; }
 .embedded-form iframe { width: 100%; border: 0; }
 .signup .embedded-form { max-width: none; }
+
+/* Each recurring night links through to its most recent album. */
+.series-link { display: block; text-decoration: none; color: inherit; }
+.series-link img { transition: transform .25s ease; }
+.series article { overflow: hidden; border-radius: 12px; }
+.series-link:hover img { transform: scale(1.03); }
+.series-link:hover h3 { color: var(--coral-dark); }
+.series-link:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }

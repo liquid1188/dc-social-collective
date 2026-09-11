@@ -67,6 +67,16 @@ export default function (eleventyConfig) {
   eleventyConfig.addCollection("upcoming", (api) => api.getFilteredByTag("event").filter((e) => iso(e) >= new Date().toISOString().slice(0, 10)).sort((a, b) => a.date - b.date));
   eleventyConfig.addCollection("past", (api) => api.getFilteredByTag("event").filter((e) => iso(e) < new Date().toISOString().slice(0, 10)).sort((a, b) => b.date - a.date));
   eleventyConfig.addCollection("feed", (api) => api.getFilteredByTag("event").sort((a, b) => b.date - a.date).slice(0, 40));
+  // The four recurring nights on the homepage link to whichever album is the
+  // most recent for that night, so they never need updating by hand.
+  eleventyConfig.addFilter("latestAlbum", (albums, keywords) => {
+    const words = String(keywords || "").split("|").map((w) => w.trim().toLowerCase()).filter(Boolean);
+    return (albums || []).find((album) => {
+      const title = String(album.data.title || "").toLowerCase();
+      return words.some((word) => title.includes(word));
+    }) || null;
+  });
+
   eleventyConfig.addCollection("albums", (api) => api.getFilteredByTag("album").sort((a, b) => b.date - a.date));
   eleventyConfig.addFilter("iso", iso);
   return { dir: { input: "src", includes: "_includes", output: "_site" } };
