@@ -77,6 +77,14 @@ export default function (eleventyConfig) {
     }) || null;
   });
 
+  eleventyConfig.addFilter("albumsMatching", (albums, keywords) => {
+    const words = String(keywords || "").split("|").map((w) => w.trim().toLowerCase()).filter(Boolean);
+    return (albums || []).filter((album) => {
+      const title = String(album.data.title || "").toLowerCase();
+      return words.some((word) => title.includes(word));
+    });
+  });
+
   eleventyConfig.addCollection("albums", (api) => api.getFilteredByTag("album").sort((a, b) => b.date - a.date));
   eleventyConfig.addFilter("iso", iso);
   return { dir: { input: "src", includes: "_includes", output: "_site" } };

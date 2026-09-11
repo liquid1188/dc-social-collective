@@ -1,0 +1,26 @@
+---
+layout: base.njk
+pagination:
+  data: series
+  size: 1
+  alias: s
+permalink: "/gallery/{{ s.slug }}/"
+eleventyComputed:
+  title: "{{ s.title }} photos"
+  description: "{{ s.lede }}"
+---
+{%- set matches = collections.albums | albumsMatching(s.keywords) %}
+<div class="wrap page-head">
+  <h1>{{ s.title }}</h1>
+  <p class="lede">{{ s.lede }} {{ matches.length }} album{% if matches.length != 1 %}s{% endif %}, newest first. <a href="/gallery/">All photos</a></p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap albums">
+  {%- for a in matches %}
+    <a class="album" href="{{ a.url }}">
+      {% if a.data.coverImage %}<img src="{{ a.data.coverImage }}" alt="" loading="{% if loop.index0 < 6 %}eager{% else %}lazy{% endif %}">{% endif %}
+      <div><h2>{{ a.data.title }}</h2><p>{{ a.data.day | fullDate }}</p></div>
+    </a>
+  {%- endfor %}
+  </div>
+</section>
