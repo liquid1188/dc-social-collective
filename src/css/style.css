@@ -61,7 +61,8 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 
 /* hero */
 .hero { position: relative; min-height: min(92vh, 900px); display: grid; align-items: end; color: #fff; background: var(--navy); isolation: isolate; }
-.hero video.bg, .hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; z-index: -2; }
+.hero video.bg, .hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; z-index: -2; pointer-events: none; }
+.hero video.bg::-webkit-media-controls, .hero video.bg::-webkit-media-controls-start-playback-button, .hero video.bg::-webkit-media-controls-panel { display: none !important; -webkit-appearance: none; opacity: 0; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(7,26,58,.55) 0%, rgba(7,26,58,.15) 35%, rgba(7,26,58,.75) 75%, var(--navy) 100%); }
 .hero .wrap { padding-top: 8.5rem; padding-bottom: 4rem; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, 400px); gap: 4rem; align-items: end; justify-content: space-between; }
 .hero h1 { font-size: clamp(3rem, 6.4vw, 5.6rem); margin-bottom: 1rem; max-width: 14ch; }
