@@ -8,9 +8,9 @@
     "button": "Apply Now"
   },
   "work": {
-    "heading": "Work with us",
-    "body": "We sell out venues. Wineries, barns, hotel ballrooms, marinas, a few hundred young professionals a night, on a weeknight or a Saturday. If you run a venue, a bar, or a restaurant with room to dance and you want a full house, we bring the crowd, the band, the lesson, and the promotion. You bring the room.",
-    "button": "Book DSC"
+    "heading": "Host a DSC night",
+    "body": "We bring hundreds of young professionals out for nights of dancing, live music, and socializing, and we're always looking for great places to host them. We work with wineries, barns, hotel ballrooms, restaurants, bars, marinas, and other venues with enough space for a crowd and a dance floor. DSC handles the event, entertainment, dance lesson, ticketing, and promotion. You provide the space and hospitality. Interested in hosting a DSC night? We'd love to hear from you.",
+    "button": "Host a DSC event"
   },
   "ambassadorCard": {
     "heading": "Become a brand ambassador",
@@ -18,14 +18,14 @@
     "button": "Apply now"
   },
   "music": {
-    "heading": "Play our events",
-    "body": "Live bands and DJs are the center of every night. If you play swing, country, Latin, jazz, or big band, we'd like to hear from you. If you are a DJ and want to book our events, tell us what rooms you fill and where we can hear a set.",
-    "button": "Book your band or DJ set"
+    "heading": "Play at our events",
+    "body": "Live music and great DJs are a big part of what makes our events work. We're always interested in hearing from bands that play swing, country, Latin, jazz, big band, and other music people can dance to. If you're a band or DJ interested in playing a DSC event, send us a little about yourself, where you've played, and a link where we can hear you.",
+    "button": "Play a DSC event"
   },
   "sponsor": {
     "heading": "Sponsor an event",
-    "body": "Our nights put a few hundred young professionals in one room. Sponsors get their name on the night, on the site, and in front of a crowd that goes out, spends, and talks. Venues, restaurants, and local businesses do well here. A business can also underwrite a whole night, or one piece of it like the band, the bar, or the lesson, and have it introduced as theirs from the stage.",
-    "button": "Talk to us"
+    "body": "DSC events bring together hundreds of young professionals for nights built around dancing, live music, and meeting new people. Sponsorship puts your business in front of that audience, both at the event and through our promotion leading up to it. Sponsor the full evening or a specific part of the night, from the band or DJ to the bar or dance lesson. We'll work with you on a partnership that makes sense for your business.",
+    "button": "Become a sponsor"
   },
   "donate": {
     "heading": "Donate",
