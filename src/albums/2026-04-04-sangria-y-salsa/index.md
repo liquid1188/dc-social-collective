@@ -1,7 +1,7 @@
 ---
 title: "Sangria y Salsa"
 date: "2026-04-04"
-cover: "020-a7407637.webp"
+cover: "038-a7407700.webp"
 photos:
   - "001-a7407542.webp#2048x1365"
   - "002-a7407554.webp#1365x2048"
