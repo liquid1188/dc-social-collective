@@ -23,7 +23,7 @@ description: "The people behind DC Social Collective."
       <h2>{{ m.name }}</h2>
       {%- endif %}
       <p class="role">{{ m.role }}</p>
-      <p>{{ m.bio }}</p>
+      <p>{{ m.bio | safe }}</p>
     </article>
   {%- endfor %}
   </div>
