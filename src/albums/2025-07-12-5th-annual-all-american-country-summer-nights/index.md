@@ -1,7 +1,7 @@
 ---
 title: "5th Annual All-American Country Summer Nights"
 date: "2025-07-12"
-cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/a1c655ee-81ba-4c1e-b079-c2a3cf1b8fbf/1W4A7383.jpg"
+cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/360d6682-dbbb-40c4-b74f-b7182953deb6/1W4A7420.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/3428ee66-fabf-422a-afab-77231b7924ab/DSCAACSNWeb-0004.jpg#8192x5464"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/f8ab51b5-4cd7-4c45-994f-21d4e92ba457/DSCAACSNWeb-0005.jpg#8192x5464"

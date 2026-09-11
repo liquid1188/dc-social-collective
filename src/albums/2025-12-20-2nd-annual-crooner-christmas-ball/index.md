@@ -1,7 +1,7 @@
 ---
 title: "2nd Annual Crooner Christmas Ball"
 date: "2025-12-20"
-cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/2b7d3fc3-9930-4fb5-a302-647016b0f97a/DSC05223.jpg"
+cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/1b8c41e4-18d3-45ed-94b8-555a5371d675/DSC06209.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/dd65ad00-5be3-42ce-b522-21aa1d0bbb6f/DSC05220.jpg#5513x8270"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/2b7d3fc3-9930-4fb5-a302-647016b0f97a/DSC05223.jpg#6336x4224"

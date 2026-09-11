@@ -1,7 +1,7 @@
 ---
 title: "2nd Annual Harvest Moon Hoedown"
 date: "2025-10-25"
-cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/c76a490d-6d85-42fd-b13d-0707f8124936/DSCHarvestMoon+-0078.jpg"
+cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/f587a0ab-fd4d-45a0-ac11-248312597d4f/DSCHarvestMoon+-0476.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/0a9ab05a-da7c-44c0-9560-fa943fffd85a/DSCHarvestMoon+-0020.jpg#2668x4000"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/d6759e5a-382b-42de-bc7a-0744187e603f/DSCHarvestMoon+-0024.jpg#2668x4000"
