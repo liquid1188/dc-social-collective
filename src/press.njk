@@ -18,7 +18,8 @@ description: "Articles about DC Social Collective, and how to reach us if you ar
         <a href="{{ a.url }}" rel="noopener"{% if a.image %} class="withpic"{% endif %}>
           {% if a.image %}<img src="{{ a.image }}" alt="" loading="lazy">{% endif %}
           <div>
-          <p class="pub">{{ a.publication }}{% if a.date %} · {{ a.date | fullDate }}{% endif %}</p>
+          {% set plogo = "" %}{% for l in press.logos %}{% if l.name == a.publication %}{% set plogo = l.logo %}{% endif %}{% endfor %}
+          <p class="pub">{% if plogo %}<img class="publogo" src="{{ plogo }}" alt="{{ a.publication }}">{% else %}{{ a.publication }}{% endif %}{% if a.date %}<span class="pubdate">{{ a.date | fullDate }}</span>{% endif %}</p>
           <h3>{{ a.title }}</h3>
           {% if a.summary %}<p class="sum">{{ a.summary }}</p>{% endif %}
           {% if a.byline %}<p class="by">By {{ a.byline }}</p>{% endif %}

@@ -360,7 +360,9 @@ body:not(.home) .site-head { position: static; background: var(--navy); }
 .news.three a.withpic { grid-template-columns: 1fr; gap: 1rem; }
 @media (max-width: 700px) { .news a.withpic { grid-template-columns: 1fr; gap: 1rem; } }
 .news a:hover h3 { color: var(--coral-dark); }
-.news .pub { font-size: .85rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--coral-dark); margin: 0 0 .5rem; }
+.news .pub { font-size: .85rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--coral-dark); margin: 0 0 .6rem; display: flex; align-items: center; flex-wrap: wrap; gap: .35rem .9rem; }
+.news .publogo { height: 26px; width: auto; max-width: 200px; display: block; }
+.news .pubdate { color: var(--ink-2); font-weight: 500; letter-spacing: .03em; }
 .news h3 { font-size: 1.45rem; margin: 0 0 .5rem; }
 .news .sum { font-size: .98rem; margin: 0 0 .5rem; }
 .news .by { font-size: .9rem; color: var(--ink-2); margin: 0 0 .6rem; }
