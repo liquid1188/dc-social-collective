@@ -250,6 +250,13 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .videos video { width: 100%; border-radius: 12px; background: #000; }
 .videos figcaption { margin-top: .6rem; font-size: .95rem; color: rgba(255,255,255,.8); }
 .videos figcaption strong { color: #fff; }
+/* About page: three videos plus the "see all" tile in one row. */
+.videos-3up { grid-template-columns: repeat(4, 1fr); align-items: stretch; }
+.videos-all { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; background: var(--amber); color: var(--navy); border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.15rem; padding: 1.5rem; text-align: center; min-height: 100%; }
+.videos-all .arrow { font-size: 1.6rem; line-height: 1; }
+.videos-all:hover { filter: brightness(1.06); }
+@media (max-width: 900px) { .videos-3up { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .videos-3up { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .hero video.bg { display: none; } }
 
 .two-col img.fill { width: 100%; height: 100%; object-fit: cover; }
