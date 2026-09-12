@@ -181,12 +181,19 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
     <img src="/images/merch-hoodie.jpg" alt="The DSC logo hoodie in green" loading="lazy" width="1000" height="1000">
   </div>
 </section>
-{%- if instagram.embed %}
+{%- if instagram.beholdFeedId or instagram.embed %}
 <section class="band paper" id="instagram">
   <div class="wrap">
     <div class="band-head"><h2>{{ instagram.heading }}</h2><a href="{{ site.instagram }}" rel="noopener">@{{ instagram.handle }}</a></div>
     <p class="lede" style="margin-top:-1rem">{{ instagram.lede }}</p>
-    <div class="ig-feed">{{ instagram.embed | safe }}</div>
+    <div class="ig-feed">
+    {%- if instagram.beholdFeedId %}
+      <behold-widget feed-id="{{ instagram.beholdFeedId }}"></behold-widget>
+      <script type="module" src="https://w.behold.so/widget.js"></script>
+    {%- else %}
+      {{ instagram.embed | safe }}
+    {%- endif %}
+    </div>
   </div>
 </section>
 {%- endif %}
