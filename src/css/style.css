@@ -208,7 +208,6 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 @media (max-width: 860px) { .gallery { columns: 2; } }
 
 .event-page { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 3.5rem; align-items: start; }
-.event-page .facts { position: sticky; top: 1.5rem; }
 .event-page img.cover { border-radius: 14px; }
 .event-page .facts { background: var(--paper); border-radius: 14px; padding: 1.6rem; }
 .event-page .facts dl { margin: 0 0 1.2rem; display: grid; grid-template-columns: auto 1fr; gap: .4rem 1.2rem; }
@@ -518,3 +517,12 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .float-tickets { position: fixed; left: 50%; bottom: max(1rem, env(safe-area-inset-bottom)); transform: translate(-50%, 250%); transition: transform .25s ease; z-index: 70; box-shadow: 0 8px 24px rgba(0,0,0,.28); white-space: nowrap; }
 .float-tickets.show { transform: translate(-50%, 0); }
 @media (prefers-reduced-motion: reduce) { .float-tickets { transition: none; } }
+
+/* Ticket band: a landscape photo sits behind the booking form, keeping its own
+   wide crop, with a scrim over it so the heading and copy stay legible. */
+.band.book-photo { position: relative; background: var(--navy); color: #fff; overflow: hidden; }
+.band.book-photo::before { content: ""; position: absolute; inset: 0; background: url("/images/gallery/02.jpg") center / cover no-repeat; }
+.band.book-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,26,58,.72), rgba(7,26,58,.88)); }
+.band.book-photo > * { position: relative; z-index: 1; }
+.band.book-photo h2 { color: #fff; }
+.band.book-photo p { color: rgba(255,255,255,.88); }
