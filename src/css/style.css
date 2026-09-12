@@ -483,7 +483,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .trio p { margin: .8rem 0 0; font-size: .98rem; color: var(--ink-2); max-width: none; }
 @media (max-width: 860px) { .trio { grid-template-columns: 1fr; } }
 /* a video shot upright keeps its shape instead of being cropped to 16:9 */
-.videos video.portrait { aspect-ratio: 9 / 16; object-fit: contain; background: #000; max-height: 70vh; margin: 0 auto; }
+.videos video.portrait { aspect-ratio: 16 / 9; object-fit: contain; background: #000; }
 
 /* A form embedded from Squarespace, in place of ours */
 .embedded-form { max-width: 34rem; }
