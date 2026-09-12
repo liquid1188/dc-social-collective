@@ -526,3 +526,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .band.book-photo > * { position: relative; z-index: 1; }
 .band.book-photo h2 { color: #fff; }
 .band.book-photo p { color: rgba(255,255,255,.88); }
+
+/* Host page: the venue logos are the proof there, so they run larger. */
+.venues.large { max-width: none; margin-top: 2rem; }
+.venues.large li { height: 150px; padding: 1.4rem 1.6rem; }

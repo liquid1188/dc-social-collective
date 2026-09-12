@@ -1,0 +1,69 @@
+---
+layout: base.njk
+title: Sponsor a DSC night
+permalink: /sponsor/
+description: "Sponsor a DC Social Collective night and reach a few hundred young professionals across the DMV."
+---
+<div class="wrap page-head">
+  <p class="eyebrow">{{ sponsor.eyebrow }}</p>
+  <h1>{{ sponsor.heading }}</h1>
+  <p class="lede">{{ sponsor.lede }}</p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
+      <p>{{ sponsor.intro }}</p>
+      <h2 style="margin-top:2.5rem">{{ sponsor.roomHeading }}</h2>
+      <ul class="ticks">
+      {%- for item in sponsor.room %}
+        <li>{{ item }}</li>
+      {%- endfor %}
+      </ul>
+    </div>
+    <img src="/images/gallery/09.jpg" alt="Hundreds of guests at a DSC night" loading="lazy" width="1700" height="1134" style="border-radius:14px">
+  </div>
+</section>
+<section class="band navy">
+  <div class="wrap">
+    <h2>{{ sponsor.optionsHeading }}</h2>
+    <ul class="ticks">
+    {%- for item in sponsor.options %}
+      <li>{{ item }}</li>
+    {%- endfor %}
+    </ul>
+  </div>
+</section>
+<section class="band paper">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
+      <h2>{{ sponsor.getHeading }}</h2>
+      <ul class="ticks">
+      {%- for item in sponsor.get %}
+        <li>{{ item }}</li>
+      {%- endfor %}
+      </ul>
+    </div>
+    <p class="lede">{{ sponsor.priceNote }}</p>
+  </div>
+</section>
+<section class="band" id="enquire">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
+      <h2>{{ sponsor.formHeading }}</h2>
+      <p>{{ sponsor.formIntro }}</p>
+      <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+        <input type="hidden" name="_subject" value="Sponsorship enquiry">
+        <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
+        <input type="text" name="_honey" style="display:none">
+        <label>Business name <input type="text" name="Business name" required></label>
+        <label>Your name <input type="text" name="Name" required></label>
+        <label>Email <input type="email" name="Email" required></label>
+        <label>Phone <input type="tel" name="Phone"></label>
+        <label>Website or Instagram <input type="text" name="Website or Instagram"></label>
+        <label>What do you have in mind? <textarea name="What they have in mind" rows="6" placeholder="What you sell, who you want to reach, and anything you would like to try on the night." required></textarea></label>
+        <button class="btn" type="submit">{{ sponsor.button }}</button>
+      </form>
+    </div>
+    <p class="lede">{{ sponsor.closing }} <a href="mailto:{{ site.email }}">{{ site.email }}</a>, or call {{ site.phone }}.</p>
+  </div>
+</section>

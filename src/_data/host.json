@@ -1,0 +1,45 @@
+{
+  "eyebrow": "For venues",
+  "heading": "Have the room? We'll fill it.",
+  "lede": "DC Social Collective runs dance nights across DC, Maryland, and Virginia. A typical night brings 200 to 500 people through the door. We bring the music, the lesson, the promotion, and the ticketing. You bring the space and the bar.",
+  "intro": "We have been doing this since 2021, mostly in wineries, barns, and hotel ballrooms. The nights are built around social dancing, which means people arrive early, stay late, and spend the evening on their feet rather than parked at a table. If you have a room that sits empty on a Saturday, this is one way to fill it.",
+  "runHeading": "What the night actually looks like",
+  "run": [
+    "Doors at 7:30, and the room is usually half full within twenty minutes.",
+    "A beginner lesson at 8:00, running about forty-five minutes. It is the most important part of the evening: it gets strangers talking and puts everyone on the floor at the same time.",
+    "A live band or a DJ from roughly 9:00 until close, with our own sound and lighting if the room needs it.",
+    "Last call and load-out on your schedule. We leave the space the way we found it."
+  ],
+  "bringHeading": "What we handle",
+  "bring": [
+    "Booking and paying the band or DJ",
+    "Dance instructors for the opening lesson",
+    "Ticketing, the guest list, and staff at the door",
+    "Promotion to our mailing list and Instagram, plus the event page on this site",
+    "Sound, lighting, and production when the room does not have its own",
+    "Insurance and a point person on site all night"
+  ],
+  "needHeading": "What we need from a space",
+  "need": [
+    "Room for 200 to 500 people, with a floor they can dance on",
+    "A bar, and staff to run it",
+    "Parking, or an easy way in for people coming from the city",
+    "Somewhere in DC, Northern Virginia, or Maryland",
+    "A Friday or Saturday, ideally booked two to three months out"
+  ],
+  "moneyHeading": "How we usually structure it",
+  "moneyIntro": "There is no rate card. What works depends on your room and how your bar does on a normal night, so we would rather talk it through than hand you a number. A few arrangements we have used:",
+  "money": [
+    "You keep the bar, we keep the tickets. The most common one. No rental fee, no risk to you, and the bar does the volume of a very good Saturday.",
+    "A share of ticket sales. If you would rather have guaranteed money than bar upside, we can send a percentage of the door your way.",
+    "A drink package built into the ticket. We include a welcome pour or a featured cocktail in the ticket price and settle with you per head. It raises what each guest spends and gives us something extra to sell.",
+    "A discounted price on a drink for ticket holders. Cheaper per pour, but it moves considerably more of it, and people who come for the deal tend to stay for a second round."
+  ],
+  "moneyClose": "If you are running the numbers, the honest version is this: our crowd is there for four hours, mostly standing, and the bar is the only thing to spend money on. That is where your return comes from.",
+  "logosHeading": "The rooms that already host us",
+  "logosLede": "Wineries, farms, hotels, and halls across the DMV.",
+  "formHeading": "Tell us about your space",
+  "formIntro": "Send us the basics and we will get back to you within a few days. If it looks like a fit, the next step is usually a walkthrough.",
+  "button": "Send it over",
+  "closing": "Questions before you fill anything out? Email us at"
+}

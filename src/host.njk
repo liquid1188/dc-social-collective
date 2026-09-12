@@ -1,0 +1,93 @@
+---
+layout: base.njk
+title: Host a DSC night
+permalink: /host/
+description: "Wineries, farms, hotels, and halls: host a DC Social Collective dance night for 200 to 500 people."
+---
+<div class="wrap page-head">
+  <p class="eyebrow">{{ host.eyebrow }}</p>
+  <h1>{{ host.heading }}</h1>
+  <p class="lede">{{ host.lede }}</p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
+      <p>{{ host.intro }}</p>
+      <h2 style="margin-top:2.5rem">{{ host.runHeading }}</h2>
+      <ul class="ticks">
+      {%- for item in host.run %}
+        <li>{{ item }}</li>
+      {%- endfor %}
+      </ul>
+    </div>
+    <img src="/albums/2026-09-05-september-salsa-night/024.webp" alt="A packed dance floor at The Winery at Bull Run" loading="lazy" width="1600" height="1067" style="border-radius:14px">
+  </div>
+</section>
+<section class="band paper">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
+      <h2>{{ host.bringHeading }}</h2>
+      <ul class="ticks">
+      {%- for item in host.bring %}
+        <li>{{ item }}</li>
+      {%- endfor %}
+      </ul>
+    </div>
+    <div>
+      <h2>{{ host.needHeading }}</h2>
+      <ul class="ticks">
+      {%- for item in host.need %}
+        <li>{{ item }}</li>
+      {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="band navy">
+  <div class="wrap">
+    <h2>{{ host.moneyHeading }}</h2>
+    <p class="lede">{{ host.moneyIntro }}</p>
+    <ul class="ticks">
+    {%- for item in host.money %}
+      <li>{{ item }}</li>
+    {%- endfor %}
+    </ul>
+    <p style="margin-top:1.6rem">{{ host.moneyClose }}</p>
+  </div>
+</section>
+<section class="band venues-band">
+  <div class="wrap">
+    <div class="band-head"><h2>{{ host.logosHeading }}</h2></div>
+    <p class="lede" style="margin-top:-1rem">{{ host.logosLede }}</p>
+    <div class="venues-wrap">
+    <ul class="venues large">
+    {%- for v in venues.items %}
+      <li class="{{ v.font }} {{ v.tone }} {{ v.cls }}" title="{{ v.name }}">{% if v.logo %}<img src="{{ v.logo }}" alt="{{ v.name }}" loading="lazy">{% else %}<span class="vtext">{{ v.name }}</span>{% endif %}<span class="vname">{{ v.name }}</span></li>
+    {%- endfor %}
+    </ul>
+    </div>
+  </div>
+</section>
+<section class="band paper" id="enquire">
+  <div class="wrap two-col" style="align-items:start">
+    <div>
+      <h2>{{ host.formHeading }}</h2>
+      <p>{{ host.formIntro }}</p>
+      <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+        <input type="hidden" name="_subject" value="Venue enquiry: hosting a DSC night">
+        <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
+        <input type="text" name="_honey" style="display:none">
+        <label>Venue name <input type="text" name="Venue name" required></label>
+        <label>Your name <input type="text" name="Name" required></label>
+        <label>Email <input type="email" name="Email" required></label>
+        <label>Phone <input type="tel" name="Phone"></label>
+        <label>Town or city <input type="text" name="Town or city" required></label>
+        <label>Roughly how many people fit? <input type="text" name="Capacity" required></label>
+        <label>Tell us about the space <textarea name="About the space" rows="6" placeholder="The room, the floor, the bar, parking, and anything else worth knowing." required></textarea></label>
+        <label>Dates you have open <textarea name="Dates open" rows="2" placeholder="Or just tell us which months look good."></textarea></label>
+        <button class="btn" type="submit">{{ host.button }}</button>
+      </form>
+    </div>
+    <p class="lede">{{ host.closing }} <a href="mailto:{{ site.email }}">{{ site.email }}</a>, or call {{ site.phone }}.</p>
+  </div>
+</section>
