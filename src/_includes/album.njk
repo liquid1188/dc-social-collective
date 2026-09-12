@@ -26,7 +26,19 @@ layout: base.njk
 // link opens the photo as it did before.
 (function () {
   var gallery = document.querySelector(".gallery");
-  if (!gallery || !window.fetch || !("download" in document.createElement("a"))) return;
+  if (!gallery || !window.fetch) return;
+  // iOS Safari has no download attribute: open the full-size photo in a new
+  // tab, synchronously inside the tap so the popup blocker stays out of the
+  // way. From there a long-press saves the image.
+  if (!("download" in document.createElement("a"))) {
+    gallery.addEventListener("click", function (event) {
+      var chip = event.target.closest && event.target.closest("a.dl");
+      if (!chip) return;
+      event.preventDefault();
+      window.open(chip.getAttribute("href"), "_blank", "noopener");
+    });
+    return;
+  };
   var exts = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "image/gif": "gif", "image/avif": "avif" };
   gallery.addEventListener("click", function (event) {
     var chip = event.target.closest && event.target.closest("a.dl");
