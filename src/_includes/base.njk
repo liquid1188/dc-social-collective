@@ -63,6 +63,28 @@
     <span class="util"><a href="/feed.xml">Events feed</a><a href="/admin/">Sign in</a><a href="https://lickitysplitweb.com">Site by Lickity Split Web Design</a><a class="totop" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="m6 14 6-6 6 6"/></svg></a></span>
   </div>
 </footer>
+<!-- Videos load on demand, so give each poster a play target people can see. -->
+<script>
+(function () {
+  document.querySelectorAll("video[controls][poster]").forEach(function (v) {
+    if (v.dataset.vplay) return;
+    v.dataset.vplay = "1";
+    var host = document.createElement("span");
+    host.className = "vplay";
+    v.parentNode.insertBefore(host, v);
+    host.appendChild(v);
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "vplay-btn";
+    b.setAttribute("aria-label", "Play video");
+    b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+    host.appendChild(b);
+    b.addEventListener("click", function () { v.play(); });
+    v.addEventListener("play", function () { host.classList.add("playing"); });
+    v.addEventListener("pause", function () { host.classList.remove("playing"); });
+  });
+})();
+</script>
 <!-- View desktop version toggle (Lickity Split) -->
 <script>(function(){var K='lsw-desktop',m=document.querySelector('meta[name="viewport"]');if(!m)return;var orig=m.getAttribute('content')||'width=device-width, initial-scale=1',on=sessionStorage.getItem(K)==='1',mobile=window.matchMedia('(max-width: 900px)').matches;if(!mobile&&!on)return;function apply(){m.setAttribute('content',on?'width=1200':orig)}apply();var a=document.createElement('a');a.href='#';a.className='view-desktop';a.textContent=on?'View mobile version':'View desktop version';a.style.cssText='display:block;text-align:center;font:inherit;font-size:.85rem;padding:1rem 1rem 1.25rem;opacity:.7;text-decoration:underline;color:inherit';a.addEventListener('click',function(e){e.preventDefault();on=!on;sessionStorage.setItem(K,on?'1':'0');apply();a.textContent=on?'View mobile version':'View desktop version';window.scrollTo(0,0)});var f=document.querySelector('footer');(f||document.body).appendChild(a)})();</script>
 </body>

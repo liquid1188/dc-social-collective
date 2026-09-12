@@ -530,3 +530,13 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* Host page: the venue logos are the proof there, so they run larger. */
 .venues.large { max-width: none; margin-top: 2rem; }
 .venues.large li { height: 150px; padding: 1.4rem 1.6rem; }
+
+/* Videos are preload="none", so some browsers draw only a thin control bar over
+   the poster and there is no obvious way in. Put a play target in the middle. */
+.vplay { position: relative; display: block; }
+.vplay > video { display: block; width: 100%; }
+.vplay-btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 72px; height: 72px; padding: 0; border: 0; border-radius: 50%; background: rgba(7,26,58,.62); cursor: pointer; display: grid; place-items: center; transition: background .15s, transform .15s; }
+.vplay-btn:hover { background: var(--coral); transform: translate(-50%, -50%) scale(1.06); }
+.vplay-btn svg { width: 28px; height: 28px; margin-left: 4px; fill: #fff; }
+.vplay.playing .vplay-btn { display: none; }
+@media (prefers-reduced-motion: reduce) { .vplay-btn { transition: none; } }
