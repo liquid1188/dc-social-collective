@@ -27,34 +27,53 @@ layout: base.njk
 (function () {
   var gallery = document.querySelector(".gallery");
   if (!gallery || !window.fetch) return;
-  // iOS Safari has no download attribute: open the full-size photo in a new
-  // tab, synchronously inside the tap so the popup blocker stays out of the
-  // way. From there a long-press saves the image.
+  var exts = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "image/gif": "gif", "image/avif": "avif" };
+  function fileNameFor(url, blob) {
+    var base = (url.split("?")[0].split("/").pop() || "photo").replace(/\.[a-z0-9]+$/i, "");
+    return decodeURIComponent(base) + "." + (exts[blob.type] || "jpg");
+  }
+  function fetchBlob(url) {
+    return fetch(url).then(function (response) {
+      if (!response.ok) throw new Error(response.status);
+      return response.blob();
+    });
+  }
+  // iOS Safari has no download attribute, so hand the file to the system
+  // share sheet instead: one tap on the photo or the download icon pops up
+  // Save Image / Save to Files, no long-press needed.
   if (!("download" in document.createElement("a"))) {
     gallery.addEventListener("click", function (event) {
-      var chip = event.target.closest && event.target.closest("a.dl");
-      if (!chip) return;
+      var anchor = event.target.closest && event.target.closest("a");
+      if (!anchor || !gallery.contains(anchor)) return;
       event.preventDefault();
-      window.open(chip.getAttribute("href"), "_blank", "noopener");
+      var url = anchor.getAttribute("href");
+      fetchBlob(url).then(function (blob) {
+        try {
+          var file = new File([blob], fileNameFor(url, blob), { type: blob.type });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            return navigator.share({ files: [file] }).catch(function () {
+              window.open(url, "_blank", "noopener");
+            });
+          }
+        } catch (e) { /* fall through to a new tab */ }
+        window.open(url, "_blank", "noopener");
+      }).catch(function () {
+        window.open(url, "_blank", "noopener");
+      });
     });
     return;
   };
-  var exts = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "image/gif": "gif", "image/avif": "avif" };
   gallery.addEventListener("click", function (event) {
     var chip = event.target.closest && event.target.closest("a.dl");
     if (!chip || chip.dataset.busy) return;
     event.preventDefault();
     var url = chip.getAttribute("href");
-    var base = (url.split("?")[0].split("/").pop() || "photo").replace(/\.[a-z0-9]+$/i, "");
     chip.dataset.busy = "1";
-    fetch(url).then(function (response) {
-      if (!response.ok) throw new Error(response.status);
-      return response.blob();
-    }).then(function (blob) {
+    fetchBlob(url).then(function (blob) {
       var href = URL.createObjectURL(blob);
       var link = document.createElement("a");
       link.href = href;
-      link.download = decodeURIComponent(base) + "." + (exts[blob.type] || "jpg");
+      link.download = fileNameFor(url, blob);
       document.body.appendChild(link);
       link.click();
       link.remove();
