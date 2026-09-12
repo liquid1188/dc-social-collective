@@ -435,8 +435,8 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* With the RSVPify welcome step off, the form comes in around 760px tall.
    RSVPify's own embed uses a 800px floor, and the later steps of the form run
    longer, so this leaves a little slack and lets the frame scroll past it. */
-.booking { width: 100%; height: 860px; border: 0; border-radius: 14px; background: #fff; box-shadow: 0 24px 60px -30px rgba(7,26,58,.65); }
-@media (max-width: 700px) { .booking { height: 1150px; } }
+.booking { width: 100%; height: 720px; border: 0; border-radius: 14px; background: #fff; box-shadow: 0 24px 60px -30px rgba(7,26,58,.65); }
+@media (max-width: 700px) { .booking { height: 1000px; } }
 
 /* As seen in */
 .logos-band { padding: 2rem 0 2.2rem; }
@@ -521,8 +521,8 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* Ticket band: a landscape photo sits behind the booking form, keeping its own
    wide crop, with a scrim over it so the heading and copy stay legible. */
 .band.book-photo { position: relative; background: var(--navy); color: #fff; overflow: hidden; }
-.band.book-photo::before { content: ""; position: absolute; inset: 0; background: url("/images/gallery/02.jpg") center / cover no-repeat; }
-.band.book-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,26,58,.42), rgba(7,26,58,.66)); }
+.band.book-photo::before { content: ""; position: absolute; inset: 0; background: url("/albums/2026-09-05-september-salsa-night/059.webp") center / cover no-repeat; }
+.band.book-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,26,58,.30), rgba(7,26,58,.55)); }
 .band.book-photo > * { position: relative; z-index: 1; }
 .band.book-photo h2 { color: #fff; }
 .band.book-photo p { color: rgba(255,255,255,.88); }
