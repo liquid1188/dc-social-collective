@@ -264,7 +264,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .videos video, .feature { aspect-ratio: 16 / 9; object-fit: cover; }
 .letter { max-width: none; }
 
-.ambassadors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.ambassadors { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.5rem; }
 .amb { display: grid; grid-template-columns: 120px 1fr; gap: 1.2rem; align-items: start; background: var(--cream); border-radius: 14px; padding: 1.4rem; text-decoration: none; color: inherit; }
 .amb img { aspect-ratio: 1; object-fit: cover; border-radius: 12px; }
 .amb h3 { margin: 0 0 .1rem; font-size: 1.3rem; }
