@@ -137,7 +137,7 @@
   "portrait": false
  },
  {
-  "slug": "summernights24",
+  "slug": "american",
   "title": "All-American Summer Nights",
   "where": "Whiffletree Farm, August 2024",
   "credit": "Christopher Saint Clair",
@@ -157,14 +157,6 @@
   "title": "The 2nd Annual St. Joseph's Ball",
   "where": "March 2023",
   "credit": "Todd Levitas, HAIL Productions",
-  "event": "",
-  "portrait": false
- },
- {
-  "slug": "american",
-  "title": "All-American Country Nights",
-  "where": "Whiffletree Farm",
-  "credit": "",
   "event": "",
   "portrait": false
  }
