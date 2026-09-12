@@ -53,7 +53,8 @@
   "where": "Old Farm Winery at Hartland, November 2025",
   "credit": "DWAI Creations",
   "event": "2025-11-08-the-grape-gatsby",
-  "portrait": false
+  "portrait": false,
+  "homeFeature": true
  },
  {
   "slug": "hoedown25",
