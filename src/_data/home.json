@@ -1,15 +1,15 @@
 {
-  "hero": {
-    "headline": "The DMV's biggest nights out for young adults.",
-    "emphasis": "young adults.",
-    "lede": "We build the night around meeting people. Dance lessons to begin the night, a live band, and a few hundred young adults. Come on your own, bring friends, or make it a date night. Plenty of people here have met the person they married.",
-    "primary": "Get tickets",
-    "secondary": "Who we are"
-  },
-  "story": {
-    "heading": "Started for people who moved here and didn't know anyone yet.",
-    "lede": "DC Social Collective launched in 2021, when the pandemic had emptied out the young adult scene. Five years on it is one of the largest young adult communities in the DMV, with about 6,000 people a year coming out, and its nights sell out.",
-    "body": "Most of the people you’ll meet are in their twenties and early thirties. You don’t need a date. The events are open to everyone. Founded by a Catholic who wanted to build real community, DSC now brings together young adults of every background. Come on your own if you want. By the end of the lesson, you’ll have already danced with half a dozen people."
-  },
-  "signupEmbed": ""
+ "hero": {
+  "headline": "The DMV's biggest nights out for young adults.",
+  "emphasis": "young adults.",
+  "lede": "We build the night around meeting people. Dance lessons to begin the night, a live band, and a few hundred young adults. Come on your own, bring friends, or make it a date night. Plenty of people here have met the person they married.",
+  "primary": "Get tickets",
+  "secondary": "Who we are"
+ },
+ "story": {
+  "heading": "The lost art of the evening.",
+  "lede": "An antidote to modern nightlife: big bands, swing dancing, and real friendship across the District’s most iconic spaces.",
+  "body": "DC Social Collective launched in 2021 to reclaim a fractured social scene. Five years later, it draws more than 6,000 young adults a year to sold-out rooms across the DMV.\n\nMost guests are in their twenties and thirties, arriving from every background, profession, and corner of the city. You never need a date or a partner to walk through the door. Come solo, take the beginner lesson, and you will have danced with half a dozen people before the band finishes its first set."
+ },
+ "signupEmbed": ""
 }

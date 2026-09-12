@@ -84,7 +84,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
     <div>
       <h2>{{ home.story.heading }}</h2>
       <p class="lede">{{ home.story.lede }}</p>
-      <p>{{ home.story.body }}</p>
+      {%- for para in home.story.body.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
       <a class="btn" href="/about/">Read our story</a>
     </div>
   </div>
@@ -127,7 +127,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
     {%- for q in quotes.items %}
       <blockquote>
         <p>“{{ q.quote }}”</p>
-        <cite>{{ q.who }}{% if q.role %}, {{ q.role }}{% endif %}{% if q.source %}, in {% if q.url %}<a href="{{ q.url }}" rel="noopener">{{ q.source }}</a>{% else %}{{ q.source }}{% endif %}{% endif %}</cite>
+        <cite>{% if q.url and not q.source %}<a href="{{ q.url }}" rel="noopener">{{ q.who }}</a>{% else %}{{ q.who }}{% endif %}{% if q.role %}, {{ q.role }}{% endif %}{% if q.source %}, in {% if q.url %}<a href="{{ q.url }}" rel="noopener">{{ q.source }}</a>{% else %}{{ q.source }}{% endif %}{% endif %}</cite>
       </blockquote>
     {%- endfor %}
     </div>
