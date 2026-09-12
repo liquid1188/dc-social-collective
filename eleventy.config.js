@@ -62,6 +62,7 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("publications", (items) => [...new Set((items || []).map((i) => (i.publication || "").trim()).filter(Boolean))]);
   eleventyConfig.addFilter("photoCount", (albums) => (albums || []).reduce((n, a) => n + ((a.data.photos || []).length), 0).toLocaleString("en-US"));
+  eleventyConfig.addFilter("landscape", (videos) => (videos || []).filter((v) => !v.portrait));
   eleventyConfig.addGlobalData("buildId", () => Date.now().toString(36));
   const iso = (e) => e.date.toISOString().slice(0, 10);
   eleventyConfig.addCollection("upcoming", (api) => api.getFilteredByTag("event").filter((e) => iso(e) >= new Date().toISOString().slice(0, 10)).sort((a, b) => a.date - b.date));
