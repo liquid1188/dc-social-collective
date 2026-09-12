@@ -1,8 +1,8 @@
 [
  {
-  "slug": "american",
-  "title": "All-American Country Nights",
-  "where": "Whiffletree Farm",
+  "slug": "sizzle",
+  "title": "This is DC Social Collective",
+  "where": "A look at our nights, 2025",
   "credit": "",
   "event": "",
   "portrait": false
@@ -16,11 +16,19 @@
   "portrait": true
  },
  {
-  "slug": "swing",
-  "title": "Swing into Spring",
-  "where": "Whiffletree Farm, April 2025",
-  "credit": "Josh Levitas",
-  "event": "2025-04-26-swing-into-spring",
+  "slug": "gatsby",
+  "title": "The Grape Gatsby",
+  "where": "Old Farm Winery at Hartland, November 2025",
+  "credit": "DWAI Creations",
+  "event": "2025-11-08-the-grape-gatsby",
+  "portrait": false
+ },
+ {
+  "slug": "hoedown25",
+  "title": "The 2nd Annual Harvest Moon Hoedown",
+  "where": "Whiffletree Farm, October 2025",
+  "credit": "DWAI Creations",
+  "event": "2025-10-11-harvest-moon-hoedown",
   "portrait": false
  },
  {
@@ -32,11 +40,11 @@
   "portrait": false
  },
  {
-  "slug": "gatsby",
-  "title": "The Grape Gatsby",
-  "where": "Old Farm Winery at Hartland, November 2025",
-  "credit": "DWAI Creations",
-  "event": "2025-11-08-the-grape-gatsby",
+  "slug": "country25",
+  "title": "The 5th Annual All-American Country Summer Nights",
+  "where": "The Winery at Bull Run, July 2025",
+  "credit": "Saint Clair Media",
+  "event": "2025-07-12-5th-annual-all-american-country-summer-nights",
   "portrait": false
  },
  {
@@ -48,11 +56,83 @@
   "portrait": false
  },
  {
+  "slug": "goldcup25",
+  "title": "Virginia Gold Cup VIP Experience",
+  "where": "Great Meadow, May 2025",
+  "credit": "Chris Byrne and Saint Clair Media",
+  "event": "",
+  "portrait": true
+ },
+ {
+  "slug": "swing",
+  "title": "Swing into Spring",
+  "where": "Whiffletree Farm, April 2025",
+  "credit": "Josh Levitas",
+  "event": "2025-04-26-swing-into-spring",
+  "portrait": false
+ },
+ {
   "slug": "stjoseph",
   "title": "The 4th Annual St. Joseph's Ball",
   "where": "The Catholic University of America, March 2025",
   "credit": "Christopher Saint Clair",
   "event": "2025-03-21-the-4th-annual-st-joseph-s-ball",
+  "portrait": false
+ },
+ {
+  "slug": "valentines25",
+  "title": "Love Never Sinks: A Valentine's Day Ball",
+  "where": "February 2025",
+  "credit": "Christopher Saint Clair",
+  "event": "2025-02-14-love-never-sinks-a-valentine-s-day-ball",
+  "portrait": false
+ },
+ {
+  "slug": "crooner24",
+  "title": "The Crooner Christmas Ball",
+  "where": "Hotel Heron, December 2024",
+  "credit": "Christopher Saint Clair",
+  "event": "2024-12-13-the-crooner-christmas-ball-at-hotel-heron",
+  "portrait": false
+ },
+ {
+  "slug": "harvestmoon24",
+  "title": "Harvest Moon Barn Dance",
+  "where": "Whiffletree Farm, October 2024",
+  "credit": "Christopher Saint Clair",
+  "event": "2024-10-05-harvest-moon-barn-dance-a-festive-autumn-evening-w",
+  "portrait": false
+ },
+ {
+  "slug": "summernights24",
+  "title": "All-American Summer Nights",
+  "where": "Whiffletree Farm, August 2024",
+  "credit": "Christopher Saint Clair",
+  "event": "2024-08-10-all-american-summer-nights-at-whiffletree-farm-liv",
+  "portrait": false
+ },
+ {
+  "slug": "stjoseph24",
+  "title": "The 3rd Annual St. Joseph's Ball",
+  "where": "March 2024",
+  "credit": "Todd Levitas, HAIL Productions",
+  "event": "2024-03-23-3rd-annual-st-joseph-s-ball",
+  "portrait": false
+ },
+ {
+  "slug": "stjoseph23",
+  "title": "The 2nd Annual St. Joseph's Ball",
+  "where": "March 2023",
+  "credit": "Todd Levitas, HAIL Productions",
+  "event": "",
+  "portrait": false
+ },
+ {
+  "slug": "american",
+  "title": "All-American Country Nights",
+  "where": "Whiffletree Farm",
+  "credit": "",
+  "event": "",
   "portrait": false
  }
 ]

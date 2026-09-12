@@ -43,13 +43,14 @@ description: "DC Social Collective is a young adult events company and a communi
   <div class="wrap">
     <div class="band-head"><h2>Watch</h2></div>
     <div class="videos">
-    {%- for v in videos %}
+    {%- for v in videos %}{% if loop.index <= 4 %}
       <figure>
         <video class="{% if v.portrait %}portrait{% endif %}" controls preload="none" poster="/video/{{ v.slug }}.jpg" width="{% if v.portrait %}720" height="1280{% else %}1280" height="720{% endif %}"><source src="/video/{{ v.slug }}.mp4" type="video/mp4"></video>
         <figcaption><strong>{{ v.title }}</strong><br>{{ v.where }}{% if v.credit %}. Video by {{ v.credit }}{% endif %}.</figcaption>
       </figure>
-    {%- endfor %}
+    {%- endif %}{% endfor %}
     </div>
+    <div class="band-foot"><a href="/videos/">All videos</a></div>
   </div>
 </section>
 <section class="band" id="faq">

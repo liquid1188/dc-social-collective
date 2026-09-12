@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: Videos
+permalink: /videos/
+description: "Recap videos from DC Social Collective nights: balls, barn dances, salsa nights, and soirees across DC, Maryland, and Virginia."
+---
+<div class="wrap page-head">
+  <h1>Videos</h1>
+  <p class="lede">Recaps from our nights, newest first. Turn the sound on.</p>
+</div>
+<section class="band navy on-dark" style="padding-top:2rem">
+  <div class="wrap">
+    <div class="videos">
+    {%- for v in videos %}
+      <figure>
+        <video class="{% if v.portrait %}portrait{% endif %}" controls preload="none" poster="/video/{{ v.slug }}.jpg" width="{% if v.portrait %}720" height="1280{% else %}1280" height="720{% endif %}"><source src="/video/{{ v.slug }}.mp4" type="video/mp4"></video>
+        <figcaption><strong>{{ v.title }}</strong><br>{{ v.where }}{% if v.credit %}. Video by {{ v.credit }}{% endif %}.</figcaption>
+      </figure>
+    {%- endfor %}
+    </div>
+  </div>
+</section>
