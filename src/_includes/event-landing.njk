@@ -142,16 +142,41 @@ layout: base.njk
       var button = start && start.querySelector("button");
       if (!button) return;
       var opened = false;
+      var warmed = false;
+      // Open the connection to the ticket host as soon as somebody looks like
+      // they are about to press, so the frame is not starting from a cold DNS
+      // lookup and TLS handshake when they do.
+      function warm() {
+        if (warmed) return;
+        warmed = true;
+        try {
+          var link = document.createElement("link");
+          link.rel = "preconnect";
+          link.href = new URL(button.dataset.src, location.href).origin;
+          link.crossOrigin = "";
+          document.head.appendChild(link);
+        } catch (e) { /* nothing to warm */ }
+      }
+      ["pointerenter", "touchstart", "focus"].forEach(function (ev) {
+        button.addEventListener(ev, warm, { passive: true });
+      });
       function open(behavior) {
         if (opened) return;
         opened = true;
+        var host = document.createElement("div");
+        host.className = "booking-host is-loading";
+        host.innerHTML = '<div class="booking-wait" role="status"><span class="booking-spin" aria-hidden="true"></span><p>Loading tickets\u2026</p></div>';
         var frame = document.createElement("iframe");
         frame.className = "booking";
         frame.src = button.dataset.src;
         frame.title = button.dataset.title;
         frame.setAttribute("allow", "payment");
-        start.replaceWith(frame);
-        frame.scrollIntoView({ block: "start", behavior: behavior });
+        // RSVPify paints nothing for a beat, so keep the placeholder up until
+        // the frame says it has loaded rather than showing a white rectangle.
+        frame.addEventListener("load", function () { host.classList.remove("is-loading"); });
+        host.appendChild(frame);
+        start.replaceWith(host);
+        host.scrollIntoView({ block: "start", behavior: behavior });
       }
       button.addEventListener("click", function () { open("smooth"); });
       // Landing on #book means Get tickets was already pressed somewhere else,

@@ -545,3 +545,14 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
    inside the page and stop it forcing a horizontal scrollbar. */
 .ig-feed { margin-top: 1.6rem; max-width: 100%; overflow-x: hidden; }
 .ig-feed iframe, .ig-feed img, .ig-feed canvas { max-width: 100%; }
+
+/* The ticket frame is third party and paints nothing for a moment. Hold a
+   placeholder over it so the main call to action is never a white void. */
+.booking-host { position: relative; }
+.booking-host.is-loading .booking { opacity: 0; }
+.booking-wait { display: none; }
+.booking-host.is-loading .booking-wait { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: .9rem; background: #fff; border-radius: 14px; color: var(--ink-2); }
+.booking-wait p { margin: 0; font-size: .95rem; }
+.booking-spin { width: 34px; height: 34px; border-radius: 50%; border: 3px solid rgba(7,26,58,.15); border-top-color: var(--coral); animation: booking-spin .8s linear infinite; }
+@keyframes booking-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .booking-spin { animation: none; } }
