@@ -556,3 +556,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .booking-spin { width: 34px; height: 34px; border-radius: 50%; border: 3px solid rgba(7,26,58,.15); border-top-color: var(--coral); animation: booking-spin .8s linear infinite; }
 @keyframes booking-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .booking-spin { animation: none; } }
+
+/* A time range is one thing: let it move to the next line whole rather than
+   breaking between the start and the end time. */
+.nowrap { white-space: nowrap; }

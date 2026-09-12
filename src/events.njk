@@ -16,7 +16,7 @@ description: "Upcoming DC Social Collective events, with tickets, and the archiv
       <article class="poster">
         <a href="{{ e.url }}"><img src="{{ e.data.image }}" alt="" width="1500" height="750" loading="{% if loop.first %}eager{% else %}lazy{% endif %}"></a>
         <div class="body">
-          <p class="when">{{ e | iso | longDate }} · {{ e.data.time }}{% if e.data.end %} to {{ e.data.end }}{% endif %}</p>
+          <p class="when">{{ e | iso | longDate }} · <span class="nowrap">{{ e.data.time }}{% if e.data.end %} to {{ e.data.end }}{% endif %}</span></p>
           {% if e.data.earlyBirdDay and e.data.earlyBirdDay >= today %}<p class="earlybird">Early bird pricing until {{ e.data.earlyBirdDay | fullDate }}</p>{% endif %}
           <h3><a href="{{ e.url }}" style="text-decoration:none">{{ e.data.title }}</a></h3>
           <p class="venue">{{ e.data.venue }}{% if e.data.address %}, {{ e.data.address }}{% endif %}</p>

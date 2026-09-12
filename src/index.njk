@@ -23,7 +23,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       <div class="body">
         <p class="kicker">Next up · {{ nxt | iso | longDate }}</p>
         <h2>{{ nxt.data.title }}</h2>
-        <p class="meta">{{ nxt.data.venue }} · {{ nxt.data.time }}{% if nxt.data.end %} to {{ nxt.data.end }}{% endif %}</p>
+        <p class="meta">{{ nxt.data.venue }} · <span class="nowrap">{{ nxt.data.time }}{% if nxt.data.end %} to {{ nxt.data.end }}{% endif %}</span></p>
         <span class="btn">Get tickets</span>
       </div>
     </a>

@@ -5,7 +5,7 @@ layout: base.njk
 <div class="wrap page-head">
   <p style="margin:0 0 .5rem"><a href="/events/" style="color:var(--coral-dark);text-decoration:none;font-weight:600">All events</a></p>
   <h1>{{ title }}</h1>
-  <p class="lede">{{ page.date | isoDate | truncate(10, true, '') | longDate }}, {{ page.date | isoDate | truncate(4, true, '') }}{% if time %} · {{ time }}{% if end %} to {{ end }}{% endif %}{% endif %} · {{ venue }}</p>
+  <p class="lede">{{ page.date | isoDate | truncate(10, true, '') | longDate }}, {{ page.date | isoDate | truncate(4, true, '') }}{% if time %} · <span class="nowrap">{{ time }}{% if end %} to {{ end }}{% endif %}</span>{% endif %} · {{ venue }}</p>
 </div>
 <section class="band" style="padding-top:1.5rem">
   <div class="wrap event-page">
