@@ -540,3 +540,8 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .vplay-btn svg { width: 28px; height: 28px; margin-left: 4px; fill: #fff; }
 .vplay.playing .vplay-btn { display: none; }
 @media (prefers-reduced-motion: reduce) { .vplay-btn { transition: none; } }
+
+/* Instagram feed: third-party widgets inject their own markup, so just keep it
+   inside the page and stop it forcing a horizontal scrollbar. */
+.ig-feed { margin-top: 1.6rem; max-width: 100%; overflow-x: hidden; }
+.ig-feed iframe, .ig-feed img, .ig-feed canvas { max-width: 100%; }

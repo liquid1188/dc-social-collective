@@ -181,6 +181,15 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
     <img src="/images/merch-hoodie.jpg" alt="The DSC logo hoodie in green" loading="lazy" width="1000" height="1000">
   </div>
 </section>
+{%- if instagram.embed %}
+<section class="band paper" id="instagram">
+  <div class="wrap">
+    <div class="band-head"><h2>{{ instagram.heading }}</h2><a href="{{ site.instagram }}" rel="noopener">@{{ instagram.handle }}</a></div>
+    <p class="lede" style="margin-top:-1rem">{{ instagram.lede }}</p>
+    <div class="ig-feed">{{ instagram.embed | safe }}</div>
+  </div>
+</section>
+{%- endif %}
 <section class="band" id="signup">
   <div class="wrap signup">
     <div>

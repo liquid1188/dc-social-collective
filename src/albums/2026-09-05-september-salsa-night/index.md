@@ -1,5 +1,5 @@
 ---
-title: "September Salsa Night"
+title: "Sangria y Salsa"
 date: "2026-09-05"
 cover: "069.webp"
 photos:
