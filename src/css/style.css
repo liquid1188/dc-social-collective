@@ -521,7 +521,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* Ticket band: a landscape photo sits behind the booking form, keeping its own
    wide crop, with a scrim over it so the heading and copy stay legible. */
 .band.book-photo { position: relative; background: var(--navy); color: #fff; overflow: hidden; }
-.band.book-photo::before { content: ""; position: absolute; inset: 0; background: url("/albums/2026-08-22-all-american-country-nights/249-0256.webp") center / cover no-repeat; }
+.band.book-photo::before { content: ""; position: absolute; inset: 0; background: url("/images/ticket-band.webp") center / cover no-repeat; }
 .band.book-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,26,58,.30), rgba(7,26,58,.55)); }
 .band.book-photo > * { position: relative; z-index: 1; }
 .band.book-photo h2 { color: #fff; }
