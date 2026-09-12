@@ -7,7 +7,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
 <section class="hero on-dark">
   <img class="bg" src="/images/gallery/17.jpg" alt="" width="2500" height="1667" fetchpriority="high">
   <video class="bg" autoplay muted loop playsinline poster="/images/gallery/17.jpg" aria-hidden="true"><source src="/video/hero.mp4" type="video/mp4"></video>
-  <script>(function(){var v=document.querySelector(".hero video.bg");if(!v)return;function tryPlay(){var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){v.style.visibility="hidden";});}v.addEventListener("playing",function(){v.style.visibility="";});tryPlay();var once=function(){tryPlay();window.removeEventListener("touchstart",once);window.removeEventListener("scroll",once);};window.addEventListener("touchstart",once,{passive:true});window.addEventListener("scroll",once,{passive:true});})();</script>
+  <script>(function(){var v=document.querySelector(".hero video.bg");if(!v)return;function tryPlay(){if(!v.paused)return;var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){v.style.visibility="hidden";});}v.addEventListener("playing",function(){v.style.visibility="";});v.addEventListener("canplay",function(){tryPlay();});tryPlay();window.addEventListener("touchstart",tryPlay,{passive:true});window.addEventListener("scroll",tryPlay,{passive:true});document.addEventListener("visibilitychange",function(){if(!document.hidden)tryPlay();});})();</script>
   <div class="wrap">
     <div>
       <h1>{{ home.hero.headline | replace(home.hero.emphasis, "<em>" + home.hero.emphasis + "</em>") | safe }}</h1>
