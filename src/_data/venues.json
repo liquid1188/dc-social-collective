@@ -35,7 +35,8 @@
       "url": "",
       "logo": "/images/venues/hotel-heron.png",
       "font": "",
-      "tone": "darken"
+      "tone": "darken",
+      "cls": "zoom-out"
     },
     {
       "name": "The Alexandrian Hotel",
