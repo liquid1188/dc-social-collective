@@ -190,9 +190,8 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
     {%- if home.signupEmbed %}
       <div class="embedded-form">{{ home.signupEmbed | safe }}</div>
       {%- else %}
-<form action="https://formsubmit.co/{{ site.email }}" method="POST">
-      <input type="hidden" name="_subject" value="New mailing list signup from the website">
-      <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
+<form action="/api/subscribe" method="POST">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
       <input type="text" name="first" placeholder="First name" required aria-label="First name">
       <input type="text" name="last" placeholder="Last name" aria-label="Last name">
       <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
