@@ -1,4 +1,5 @@
 ---
+layout: event-landing.njk
 title: "All-American Country Nights"
 date: 2026-09-26
 time: "7:30 pm"

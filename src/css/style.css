@@ -497,3 +497,19 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .series-link:hover img { transform: scale(1.03); }
 .series-link:hover h3 { color: var(--coral-dark); }
 .series-link:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+
+/* Event landing page (Sept 26 Country Nights): RSVPify-style sections */
+.landing-main .landing-hero { margin: 0 0 2rem; }
+.landing-main .landing-hero img { display: block; width: 100%; max-width: 560px; margin: 0 auto; border-radius: 14px; }
+.landing-main .prose h2 { margin-top: 2.5rem; }
+.landing-main .prose h2:first-child { margin-top: 0; }
+.img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+.img-pair img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; }
+@media (max-width: 560px) { .img-pair { grid-template-columns: 1fr; } .img-pair img { aspect-ratio: 16 / 10; } }
+.presented-by { margin: 2.5rem 0 0; text-align: center; }
+.presented-by img { max-width: 420px; width: 100%; height: auto; }
+/* Floating Get tickets button: slides in once the reader is past the hero,
+   and gets out of the way when the ticket section itself is on screen. */
+.float-tickets { position: fixed; left: 50%; bottom: max(1rem, env(safe-area-inset-bottom)); transform: translate(-50%, 250%); transition: transform .25s ease; z-index: 70; box-shadow: 0 8px 24px rgba(0,0,0,.28); white-space: nowrap; }
+.float-tickets.show { transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { .float-tickets { transition: none; } }

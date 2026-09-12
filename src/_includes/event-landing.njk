@@ -1,0 +1,186 @@
+---
+layout: base.njk
+---
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"{{ title }}","startDate":"{{ page.date | isoDate | truncate(10, true, '') }}","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"{{ venue }}","address":"{{ address }}"},"organizer":{"@type":"Organization","name":"DC Social Collective","url":"{{ site.url }}"},"image":"{{ site.url }}{{ image }}"{% if tickets %},"offers":{"@type":"Offer","url":"{{ tickets }}"}{% endif %}}</script>
+<div class="wrap page-head">
+  <p style="margin:0 0 .5rem"><a href="/events/" style="color:var(--coral-dark);text-decoration:none;font-weight:600">All events</a></p>
+  <h1>{{ title }}</h1>
+  <p class="lede">{{ page.date | isoDate | truncate(10, true, '') | longDate }}, {{ page.date | isoDate | truncate(4, true, '') }}{% if time %} · {{ time }}{% if end %} to {{ end }}{% endif %}{% endif %} · {{ venue }}</p>
+</div>
+<section class="band" style="padding-top:1.5rem">
+  <div class="wrap event-page">
+    <div class="landing-main">
+      <figure class="landing-hero">
+        <img src="/images/events/2026-09-26/flyer.png" alt="All-American Country Nights flyer: Saturday, September 26, 7:30 PM, Whiffletree Farm, Warrenton, Virginia" width="1215" height="1519" fetchpriority="high">
+      </figure>
+
+      <div class="prose">
+        <h2>The Ultimate Fall Country Escape</h2>
+        <p>Country swing, 2-step, line dancing, horseback riding, and open-air dancing under the stars. DC Social Collective is back at one of its most iconic venues — Whiffletree Farm — for a night of welcoming lessons, nonstop dancing, great drinks, and fun people. No age limit for admission.</p>
+      </div>
+
+      <div class="img-pair">
+        <img src="/images/events/2026-09-26/horses.jpg" alt="Horseback riding across the field carrying American flags" width="1600" height="1067" loading="lazy">
+        <img src="/images/events/2026-09-26/dancing-1.jpg" alt="Couples country dancing in a string-lit barn" width="1600" height="1067" loading="lazy">
+      </div>
+
+      <div class="prose">
+        <h2>Event Highlights</h2>
+        <ul>
+          <li>Saturday, September 26, 7:30 PM – late</li>
+          <li>Whiffletree Farm, 8717 Springs Rd, Warrenton, VA</li>
+          {% if earlyBirdDay and earlyBirdDay >= today %}<li>Early-bird pricing: $30 solo, $50 for two — until {{ earlyBirdDay | fullDate }}. After that, prices go up.</li>{% endif %}
+          <li>These barn dance nights consistently draw big crowds and sell out.</li>
+        </ul>
+      </div>
+
+      <div class="prose">
+        <h2>Beginner Country Swing Lesson</h2>
+        <img src="/images/events/2026-09-26/lesson.jpg" alt="Instructors demonstrating country swing under string lights" width="1600" height="1067" loading="lazy" style="border-radius:12px;margin-bottom:1rem">
+        <p>A 45-minute beginner-friendly lesson led by professional instructors. No partner needed, no experience needed — it is built for absolute beginners and it is the most relaxed way to start the night.</p>
+      </div>
+
+      <div class="img-pair">
+        <img src="/images/events/2026-09-26/crowd-hands.png" alt="Crowd dancing with hands up under string lights" width="1600" height="1067" loading="lazy">
+        <img src="/images/events/2026-09-26/line-dance.png" alt="Group mid line dance on the barn floor" width="1600" height="1067" loading="lazy">
+      </div>
+
+      <div class="prose">
+        <h2>Live DJ + Dancing All Night</h2>
+        <img src="/images/events/2026-09-26/dj.png" alt="DJ performing at the turntables" width="1600" height="1067" loading="lazy" style="border-radius:12px;margin-bottom:1rem">
+        <p>After the lesson, the DJ takes over and the floor stays packed till late. Brand-new or experienced, the night is built for jumping in — and horseback riding ($20 per ride) runs through the evening.</p>
+      </div>
+
+      <div class="img-pair">
+        <img src="/images/events/2026-09-26/crowd-lights.png" alt="Crowd dancing in the barn under glowing string lights" width="1600" height="1067" loading="lazy">
+        <img src="/images/events/2026-09-26/dancing-2.jpg" alt="Couple laughing and dancing under red lights with a flag behind them" width="1600" height="1067" loading="lazy">
+      </div>
+
+      <div class="prose">
+        <h2>Drinks + BBQ + Rural Virginia Countryside</h2>
+        <img src="/images/events/2026-09-26/bbq.jpg" alt="Grubbing Hub BBQ food truck at sunset with people in line" width="1600" height="1067" loading="lazy" style="border-radius:12px;margin-bottom:1rem">
+        <p>Bar service (cash and card) and the Grubbing Hub BBQ food truck on site. Step off the floor, take in the countryside, jump back in.</p>
+      </div>
+
+      <div class="img-pair">
+        <img src="/images/events/2026-09-26/campfire.png" alt="Crowd mingling around a campfire with hay bales, an American flag, and the barn at night" width="1600" height="1067" loading="lazy">
+        <img src="/images/events/2026-09-26/barn-smiles.png" alt="Two guests smiling in front of the string-lit barn" width="1600" height="1067" loading="lazy">
+      </div>
+
+      <div class="prose">
+        <h2>Schedule <span style="font-weight:400;font-size:1rem;color:var(--ink-2)">(Subject to Change)</span></h2>
+        <ul>
+          <li><strong>7:30 PM</strong> — Doors open, horseback riding begins</li>
+          <li><strong>8:00 PM</strong> — Beginner country swing lesson</li>
+          <li><strong>8:45 PM</strong> — Live DJ, open dancing, bar opens</li>
+          <li><strong>Late</strong> — The night keeps going</li>
+        </ul>
+      </div>
+
+      <div class="prose">
+        <h2>Why This Event Draws a Crowd</h2>
+        <p>These nights consistently draw hundreds of young professionals from DC, Northern Virginia, and Maryland. Easy to jump in, easy to meet people, hard to leave early.</p>
+        <h2>Dress Code</h2>
+        <p>Country-inspired, comfortable, ready to dance — boots, denim, dresses, flannel, hats all welcome.</p>
+        <p><strong>This event will sell out.</strong> All tickets are non-refundable, but they are transferable to other guests or to future events as credit.</p>
+      </div>
+
+      <div class="img-pair">
+        <img src="/images/events/2026-09-26/entrance.png" alt="Crowd gathering at the Whiffletree Farm entrance with an American flag" width="1600" height="1067" loading="lazy">
+        <img src="/images/events/2026-09-26/recap.jpg" alt="Group photo at a party table with drinks and snacks" width="1600" height="1067" loading="lazy">
+      </div>
+
+      <div class="prose">
+        <h2>Volunteer Opportunities</h2>
+        <p>Want in for free? Email <a href="mailto:info@dcsocialcollective.com">info@dcsocialcollective.com</a> — volunteers get free admission.</p>
+        <h2>Parking &amp; Transportation</h2>
+        <p>Parking is limited and free on site. If you are drinking, rideshare (Uber/Lyft) is strongly encouraged, and carpooling is always a good call.</p>
+      </div>
+
+      <div class="prose">
+        <h2>Questions?</h2>
+        <p>Email <a href="mailto:info@dcsocialcollective.com">info@dcsocialcollective.com</a>.</p>
+        <h2>Photo &amp; Video Consent</h2>
+        <p>Heads up: the night will be photographed and filmed, and DC Social Collective may use that media on social, the website, and in marketing. Coming in means you are okay with that.</p>
+      </div>
+
+      <figure class="presented-by">
+        <img src="/images/events/2026-09-26/presented-by.png" alt="Presented by Whiffletree Farm and DC Social Collective" width="1200" height="630" loading="lazy">
+      </figure>
+    </div>
+
+    <aside class="facts">
+      <dl>
+        <dt>Where</dt><dd>{{ venue }}{% if address %}<br><span style="color:var(--ink-2)">{{ address }}</span>{% endif %}<br><a href="{{ venue | mapUrl(address) }}" style="font-size:.9rem">Open in Maps</a></dd>
+        {% if time %}<dt>When</dt><dd>{{ time }}{% if end %} to {{ end }}{% endif %}</dd>{% endif %}
+        {% if series %}<dt>Series</dt><dd>{{ series }}</dd>{% endif %}
+        {% if earlyBirdDay and earlyBirdDay >= today %}<dt>Early bird</dt><dd>Until {{ earlyBirdDay | fullDate }}</dd>{% endif %}
+      </dl>
+      {% set today_s = today %}
+      {% set d = page.date | isoDate | truncate(10, true, '') %}
+      {% if tickets and d >= today_s %}<a class="btn" href="#book" style="width:100%;text-align:center">Get tickets</a>
+      <a href="{{ { date: d, title: title, venue: venue, address: address, time: time, end: end, url: site.url ~ page.url } | gcalUrl }}" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:.8rem;font-size:.95rem">Add to Google Calendar</a>
+      {% elif d < today_s %}<p style="margin:0;color:var(--ink-2)">This night has happened. <a href="/gallery/">See the photos</a> or <a href="/events/">find the next one</a>.</p>{% endif %}
+    </aside>
+  </div>
+</section>
+{%- if tickets and d >= today_s %}
+<section class="band paper" id="book">
+  <div class="wrap">
+    <h2>Get your tickets</h2>
+    <div class="booking-start">
+      <p>{{ page.date | isoDate | truncate(10, true, '') | longDate }} at {{ venue }}{% if time %}, {{ time }}{% endif %}. Tickets are handled on this page.</p>
+      <button class="btn" type="button" data-src="{{ tickets | embedUrl }}" data-title="Tickets for {{ title }}">Get tickets for this night</button>
+      <noscript><a class="btn" href="{{ tickets }}" target="_blank" rel="noopener">Get tickets</a></noscript>
+    </div>
+    <script>
+    // The form only loads once somebody asks for it, so nobody lands on a
+    // ticket form for a night they have not chosen, and the page does not pull
+    // a third party frame it may never need.
+    (function () {
+      var start = document.currentScript.previousElementSibling;
+      var button = start && start.querySelector("button");
+      if (!button) return;
+      var opened = false;
+      function open(behavior) {
+        if (opened) return;
+        opened = true;
+        var frame = document.createElement("iframe");
+        frame.className = "booking";
+        frame.src = button.dataset.src;
+        frame.title = button.dataset.title;
+        frame.setAttribute("allow", "payment");
+        start.replaceWith(frame);
+        frame.scrollIntoView({ block: "start", behavior: behavior });
+      }
+      button.addEventListener("click", function () { open("smooth"); });
+      // Landing on #book means Get tickets was already pressed somewhere else,
+      // on the events list or in the sidebar, so do not ask for a second press.
+      if (location.hash === "#book") open("auto");
+      window.addEventListener("hashchange", function () {
+        if (location.hash === "#book") open("smooth");
+      });
+    })();
+    </script>
+  </div>
+</section>
+<a class="btn float-tickets" href="#book">Get tickets</a>
+<script>
+(function () {
+  var btn = document.querySelector(".float-tickets");
+  var book = document.getElementById("book");
+  if (!btn) return;
+  function onScroll() {
+    var past = window.scrollY > 600;
+    var bookVisible = false;
+    if (book) {
+      var r = book.getBoundingClientRect();
+      bookVisible = r.top < window.innerHeight && r.bottom > 0;
+    }
+    btn.classList.toggle("show", past && !bookVisible);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+{%- endif %}

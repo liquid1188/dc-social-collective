@@ -13,12 +13,12 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       <h1>{{ home.hero.headline | replace(home.hero.emphasis, "<em>" + home.hero.emphasis + "</em>") | safe }}</h1>
       <p class="lede">{{ home.hero.lede }}</p>
       <div class="hero-actions">
-        <a class="btn" href="{% if nxt and nxt.data.tickets %}{{ nxt.url }}#book{% else %}/events/{% endif %}">{{ home.hero.primary }}</a>
+        <a class="btn" href="{% if nxt %}{{ nxt.url }}{% else %}/events/{% endif %}">{{ home.hero.primary }}</a>
         <a class="btn ghost" href="/about/">{{ home.hero.secondary }}</a>
       </div>
     </div>
     {% if nxt %}
-    <a class="next" href="{{ nxt.url }}{% if nxt.data.tickets %}#book{% endif %}">
+    <a class="next" href="{{ nxt.url }}">
       <img src="{{ nxt.data.image }}" alt="" width="1500" height="750">
       <div class="body">
         <p class="kicker">Next up · {{ nxt | iso | longDate }}</p>
