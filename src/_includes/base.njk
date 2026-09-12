@@ -27,7 +27,7 @@
     <label for="menu" class="menu-btn"><span></span><span></span></label>
     <nav class="nav" aria-label="Main">
       {%- set nxtEv = collections.upcoming[0] %}
-      <a href="{% if nxtEv %}{{ nxtEv.url }}{% else %}/events/{% endif %}"{% if page.url and '/events' in page.url %} aria-current="page"{% endif %}>Events</a>
+      <a href="/events/"{% if page.url and '/events' in page.url %} aria-current="page"{% endif %}>Events</a>
       <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
       <a href="/gallery/"{% if page.url == '/gallery/' %} aria-current="page"{% endif %}>Photos</a>
       <a href="/videos/"{% if page.url == '/videos/' %} aria-current="page"{% endif %}>Videos</a>
