@@ -1,7 +1,7 @@
 ---
 title: "September Salsa Night"
 date: "2026-09-05"
-cover: "178.webp"
+cover: "069.webp"
 photos:
   - "001.webp#1600x2400"
   - "002.webp#1600x2400"
