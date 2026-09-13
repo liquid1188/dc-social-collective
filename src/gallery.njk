@@ -16,7 +16,13 @@ description: "Every DC Social Collective night in photos, since the first picnic
     <div class="ig-feed">
     {%- if instagram.beholdFeedId %}
       <behold-widget feed-id="{{ instagram.beholdFeedId }}"></behold-widget>
-      <script type="module" src="https://w.behold.so/widget.js"></script>
+      <script>
+        (() => {
+          if(window.__bhldScript)return;window.__bhldScript=true;
+          const d=document,s=d.createElement("script");s.type="module";
+          s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
+        })();
+      </script>
     {%- else %}
       {{ instagram.embed | safe }}
     {%- endif %}
