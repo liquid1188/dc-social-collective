@@ -1,17 +1,17 @@
 {
- "hero": {
-  "headline": "The DMV's biggest nights out for young adults.",
-  "emphasis": "young adults.",
-  "lede": "We build the night around meeting people. Dance lessons to begin the night, a live band, and a few hundred young adults. Come on your own, bring friends, or make it a date night. Plenty of people here have met the person they married.",
-  "primary": "Get tickets",
-  "secondary": "Who we are",
-  "video": "/video/hoedown25.mp4",
-  "poster": "/video/hoedown25.jpg"
- },
- "story": {
-  "heading": "The lost art of the evening.",
-  "lede": "An antidote to modern nightlife: big bands, swing dancing, salsa, and real friendship across the District’s most iconic spaces.",
-  "body": "DC Social Collective launched in 2021 to reclaim a fractured social scene. Five years later, it draws more than 6,000 young adults a year to sold-out rooms across the DMV.\n\nMost guests are in their twenties and thirties, arriving from every background, profession, and corner of the city. You never need a date or a partner to walk through the door. Come solo, take the beginner lesson, and you will have danced with half a dozen people before the band finishes its first set."
- },
- "signupEmbed": ""
+  "hero": {
+    "headline": "The DMV's biggest nights out for young adults.",
+    "emphasis": "young adults.",
+    "lede": "We build the night around meeting people. Dance lessons to begin the night, a live band, and a few hundred young adults. Come on your own, bring friends, or make it a date night. Plenty of people here have met the person they married.",
+    "primary": "Get tickets",
+    "secondary": "Who we are",
+    "video": "/video/hero.mp4",
+    "poster": "/video/hero.jpg"
+  },
+  "story": {
+    "heading": "The lost art of the evening.",
+    "lede": "An antidote to modern nightlife: big bands, swing dancing, salsa, and real friendship across the District’s most iconic spaces.",
+    "body": "DC Social Collective launched in 2021 to reclaim a fractured social scene. Five years later, it draws more than 6,000 young adults a year to sold-out rooms across the DMV.\n\nMost guests are in their twenties and thirties, arriving from every background, profession, and corner of the city. You never need a date or a partner to walk through the door. Come solo, take the beginner lesson, and you will have danced with half a dozen people before the band finishes its first set."
+  },
+  "signupEmbed": ""
 }
