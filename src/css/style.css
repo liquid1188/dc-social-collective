@@ -273,9 +273,18 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .feature { width: 100%; border-radius: 14px; background: #000; }
 .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 1.8rem; }
 .videos figure { margin: 0; }
-.video-frame { width: 100%; aspect-ratio: 16 / 9; display: grid; place-items: center; overflow: hidden; border-radius: 12px; background: #000; }
-.video-frame video { width: 100%; height: 100%; object-fit: cover; background: #000; }
-.video-frame.portrait video { width: auto; height: 100%; object-fit: contain; }
+/* Every card is the same 16:9 box. The play-button script wraps the video in a
+   .vplay span, so the box has to size that wrapper, not the video: as a centred
+   grid item it collapsed to the video's intrinsic size and pushed the button
+   (and a vertical reel's controls) outside the clip. Absolute fill fixes both. */
+.video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 12px; background: #000; }
+.video-frame > video,
+.video-frame > .vplay { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.video-frame video { width: 100%; height: 100%; object-fit: cover; background: transparent; }
+/* Reels stay vertical inside the landscape card, over a blurred copy of their
+   own poster so the sides are not two dead black bars. */
+.video-frame.portrait video { width: auto; max-width: 100%; height: 100%; object-fit: contain; }
+.video-frame .video-blur { position: absolute; inset: -8%; background-size: cover; background-position: center; filter: blur(30px) saturate(1.15) brightness(.5); }
 .videos figcaption { margin-top: .6rem; font-size: .95rem; color: rgba(255,255,255,.8); }
 .videos figcaption strong { color: #fff; }
 .videos-head { margin-bottom: 1.2rem; }
