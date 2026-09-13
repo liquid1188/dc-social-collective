@@ -282,8 +282,10 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .video-frame > .vplay { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
 .video-frame video { width: 100%; height: 100%; object-fit: cover; background: transparent; }
 /* Reels stay vertical inside the landscape card, over a blurred copy of their
-   own poster so the sides are not two dead black bars. */
-.video-frame.portrait video { width: auto; max-width: 100%; height: 100%; object-fit: contain; }
+   own poster so the sides are not two dead black bars. The reel's video element
+   still fills the whole card and letterboxes itself with object-fit, so its
+   native control bar spans the card instead of being squeezed into a strip. */
+.video-frame.portrait video { object-fit: contain; }
 .video-frame .video-blur { position: absolute; inset: -8%; background-size: cover; background-position: center; filter: blur(30px) saturate(1.15) brightness(.5); }
 .videos figcaption { margin-top: .6rem; font-size: .95rem; color: rgba(255,255,255,.8); }
 .videos figcaption strong { color: #fff; }
