@@ -10,12 +10,35 @@ description: "Recap videos from DC Social Collective nights: balls, barn dances,
 </div>
 <section class="band navy on-dark" style="padding-top:2rem">
   <div class="wrap">
+    <div class="band-head videos-head">
+      <h2>Reels</h2>
+    </div>
     <div class="videos">
     {%- for v in videos %}
+      {%- if v.portrait %}
       <figure>
-        <video class="{% if v.portrait %}portrait{% endif %}" controls preload="none" poster="/video/{{ v.slug }}.jpg" width="{% if v.portrait %}720" height="1280{% else %}1280" height="720{% endif %}"><source src="/video/{{ v.slug }}.mp4" type="video/mp4"></video>
+        <div class="video-frame portrait">
+          <video controls preload="none" poster="/video/{{ v.slug }}.jpg" width="720" height="1280"><source src="/video/{{ v.slug }}.mp4" type="video/mp4"></video>
+        </div>
         <figcaption><strong>{{ v.title }}</strong><br>{{ v.where }}{% if v.credit %}. Video by {{ v.credit }}{% endif %}.</figcaption>
       </figure>
+      {%- endif %}
+    {%- endfor %}
+    </div>
+
+    <div class="band-head videos-head section-gap">
+      <h2>Recap Videos</h2>
+    </div>
+    <div class="videos">
+    {%- for v in videos %}
+      {%- if not v.portrait %}
+      <figure>
+        <div class="video-frame">
+          <video controls preload="none" poster="/video/{{ v.slug }}.jpg" width="1280" height="720"><source src="/video/{{ v.slug }}.mp4" type="video/mp4"></video>
+        </div>
+        <figcaption><strong>{{ v.title }}</strong><br>{{ v.where }}{% if v.credit %}. Video by {{ v.credit }}{% endif %}.</figcaption>
+      </figure>
+      {%- endif %}
     {%- endfor %}
     </div>
   </div>

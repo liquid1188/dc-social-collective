@@ -271,9 +271,13 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .feature { width: 100%; border-radius: 14px; background: #000; }
 .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 1.8rem; }
 .videos figure { margin: 0; }
-.videos video { width: 100%; border-radius: 12px; background: #000; }
+.video-frame { width: 100%; aspect-ratio: 16 / 9; display: grid; place-items: center; overflow: hidden; border-radius: 12px; background: #000; }
+.video-frame video { width: 100%; height: 100%; object-fit: cover; background: #000; }
+.video-frame.portrait video { width: auto; height: 100%; object-fit: contain; }
 .videos figcaption { margin-top: .6rem; font-size: .95rem; color: rgba(255,255,255,.8); }
 .videos figcaption strong { color: #fff; }
+.videos-head { margin-bottom: 1.2rem; }
+.videos-head.section-gap { margin-top: clamp(2.5rem, 5vw, 4rem); }
 /* About page: three videos in one row, button underneath. */
 .videos-3up { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .videos-3up { grid-template-columns: 1fr; max-width: 560px; } }
@@ -288,7 +292,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .faq details:last-child { border-bottom: 0; }
 .faq details:nth-last-child(-n+2) { border-bottom: 1px solid rgba(18,32,58,.15); }
 @media (max-width: 860px) { .faq { grid-template-columns: 1fr; } .faq details:nth-last-child(2) { border-bottom: 0; } }
-.videos video, .feature { aspect-ratio: 16 / 9; object-fit: cover; }
+.feature { aspect-ratio: 16 / 9; object-fit: cover; }
 .letter { max-width: none; }
 
 .ambassadors { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.5rem; }
@@ -512,7 +516,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .trio p { margin: .8rem 0 0; font-size: .98rem; color: var(--ink-2); max-width: none; }
 @media (max-width: 860px) { .trio { grid-template-columns: 1fr; } }
 /* a video shot upright keeps its shape instead of being cropped to 16:9 */
-.videos video.portrait, .feature.portrait { aspect-ratio: 9 / 16; object-fit: contain; background: #000; }
+.feature.portrait { aspect-ratio: 9 / 16; object-fit: contain; background: #000; }
 
 /* A form embedded from Squarespace, in place of ours */
 .embedded-form { max-width: 34rem; }
