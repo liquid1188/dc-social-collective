@@ -1,0 +1,37 @@
+---
+layout: base.njk
+title: Merch
+permalink: /merch/
+description: "DC Social Collective hoodies, tees, hats, totes and more, printed to order."
+---
+<div class="wrap page-head">
+  <p class="eyebrow">{{ merch.eyebrow }}</p>
+  <h1>{{ merch.heading }}</h1>
+  <p class="lede">{{ merch.lede }}</p>
+  <p class="merch-intro">{{ merch.intro }}</p>
+</div>
+{%- for g in merch.groups %}
+<section class="band{% if loop.first %}{% else %} paper{% endif %}"{% if loop.first %} style="padding-top:1.5rem"{% endif %}>
+  <div class="wrap">
+    <div class="band-head"><h2>{{ g.title }}</h2></div>
+    <div class="merch-grid">
+    {%- for p in g.items %}
+      {#- Checkout lives on the printer's site, so every card is an outbound
+          link. The nav itself stays on dcsocialcollective.com. #}
+      <a class="merch-item" href="{{ p.url }}" target="_blank" rel="noopener">
+        <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" width="900" height="900">
+        <h3>{{ p.name }}</h3>
+        <p class="merch-kind">{{ p.kind }}</p>
+        <p class="merch-buy"><span class="merch-price">{{ p.price }}</span><span class="merch-cta">{{ merch.button }}</span></p>
+      </a>
+    {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endfor %}
+<section class="band navy">
+  <div class="wrap">
+    <p class="lede">{{ merch.note }}</p>
+    <p style="margin-top:1.4rem"><a class="btn" href="{{ site.merch }}" target="_blank" rel="noopener">{{ merch.storeLabel }}</a></p>
+  </div>
+</section>

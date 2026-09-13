@@ -327,6 +327,21 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* A quiet count, on the photos page header and under each album card. */
 .tally { margin: .2rem 0 0; color: var(--ink-2); font-size: .88rem; letter-spacing: .01em; }
 .page-head .tally { font-size: .95rem; margin-top: .6rem; }
+/* Merch. The catalogue lives here so the nav never sends anyone offsite; only
+   the card itself does, because checkout is the printer's. */
+.merch-intro { max-width: 62ch; margin-top: 1rem; color: var(--ink-2); }
+.merch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.6rem; }
+.merch-item { display: block; text-decoration: none; color: inherit; }
+.merch-item img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; background: #fff; margin-bottom: .8rem; }
+.merch-item h3 { font-size: 1.12rem; margin: 0 0 .1rem; }
+.merch-kind { margin: 0; color: var(--ink-2); font-size: .9rem; }
+.merch-buy { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin: .55rem 0 0; }
+.merch-price { font-weight: 600; }
+.merch-cta { font-size: .88rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--coral-dark); }
+.merch-item:hover h3 { color: var(--coral-dark); }
+.merch-item:hover .merch-cta { text-decoration: underline; }
+.paper .merch-item img { background: #fff; }
+
 .gallery img { width: 100%; }
 .band.dusk-merch { background: var(--navy); color: #fff; }
 .band.dusk-merch p { color: rgba(255,255,255,.85); }

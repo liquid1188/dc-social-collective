@@ -1,0 +1,98 @@
+{
+  "eyebrow": "Wear it out",
+  "heading": "Merch",
+  "lede": "Hoodies, hats, totes, and a couple of things nobody asked for.",
+  "intro": "Everything here is printed to order by our print partner, so sizes, colours, and payment are handled on their page. Orders usually turn up inside a couple of weeks, and returns go through them too.",
+  "note": "Prices are set by the printer and include the printing. Anything we make on a sale goes straight back into the next night.",
+  "button": "Buy",
+  "storeLabel": "Browse the full store",
+  "groups": [
+    {
+      "title": "Wear",
+      "items": [
+        {
+          "name": "DSC Logo Hoodie",
+          "kind": "Unisex classic pullover hoodie",
+          "price": "$41.99",
+          "image": "/images/merch/logo-hoodie.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/dsc-logo-hoodie?product=212"
+        },
+        {
+          "name": "DSC Logo Tee",
+          "kind": "Heavy tee",
+          "price": "$44.99",
+          "image": "/images/merch/logo-tee.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/new-dsc-logo-tee?product=2256"
+        },
+        {
+          "name": "DSC Logo Pullover",
+          "kind": "Unisex crewneck sweatshirt",
+          "price": "$38.99",
+          "image": "/images/merch/logo-pullover.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/dsc-logo-pullover?product=2214"
+        },
+        {
+          "name": "DSC Dad Hat",
+          "kind": "Distressed dad hat",
+          "price": "$32.99",
+          "image": "/images/merch/dad-hat.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/dsc-dad-hat-2023?product=2171"
+        },
+        {
+          "name": "DSC Logo Trucker Hat",
+          "kind": "Trucker hat",
+          "price": "$31.99",
+          "image": "/images/merch/logo-trucker-hat.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/dsc-logo-trucker-hat?product=2150"
+        },
+        {
+          "name": "DSC Logo Cap",
+          "kind": "Pom pom knit cap",
+          "price": "$31.99",
+          "image": "/images/merch/logo-cap.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/get-dsc-logo-cap?product=2169"
+        }
+      ]
+    },
+    {
+      "title": "Everything else",
+      "items": [
+        {
+          "name": "DSC Weekender Tote",
+          "kind": "Weekender tote",
+          "price": "$38.99",
+          "image": "/images/merch/weekender-tote.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/dsc-weekender-tote?product=2128"
+        },
+        {
+          "name": "DSC Water Bottle",
+          "kind": "32oz stainless steel",
+          "price": "$32.99",
+          "image": "/images/merch/32oz-stainless-water-bottle.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/dsc-32oz-stainless-water-bottl?product=2101"
+        },
+        {
+          "name": "DSC Pickleball Paddles",
+          "kind": "Set of two, with balls",
+          "price": "$66.99",
+          "image": "/images/merch/pickleball-paddles-set.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/dsc-pickleball-paddles-set?product=2208"
+        },
+        {
+          "name": "DSC Desk Mat",
+          "kind": "Desk mat",
+          "price": "$30.99",
+          "image": "/images/merch/desk-matt.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/dsc-desk-matt?product=1959"
+        },
+        {
+          "name": "DSC AirPods Case",
+          "kind": "AirPods case, Gen I and II",
+          "price": "$23.99",
+          "image": "/images/merch/airpods-case-gen-i-ii.webp",
+          "url": "https://dc-social-collective.creator-spring.com/listing/dsc-airpods-case-gen-i-ii?product=1749"
+        }
+      ]
+    }
+  ]
+}
