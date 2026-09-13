@@ -10,6 +10,10 @@ series: "Country Nights"
 image: "/images/events/2026-09-26-all-american-country-nights.jpg"
 earlyBird: "2026-09-12"
 tickets: "https://dsccountrynightssep26.rsvpify.com/"
+promoVideo: "/video/whiffletree-promo.mp4"
+promoPoster: "/video/whiffletree-promo.jpg"
+promoHeading: "Get a feel for Whiffletree Farm"
+promoText: "A quick look at the sunset, the countryside, and the energy around an All-American Country Night before you grab tickets."
 tags: event
 ---
 Country swing, 2-step, line dancing, horseback riding, and open-air dancing under the stars set against the rolling countryside of Whiffletree Farm in Warrenton, VA.

@@ -52,6 +52,14 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .nav a:not(.btn):hover { border-bottom-color: rgba(255,255,255,.5); }
 .nav .btn { color: #fff; }
 .menu-toggle, .menu-btn { display: none; }
+.ticket-picker { width: min(92vw, 560px); border: 0; border-radius: 14px; padding: clamp(1.4rem, 4vw, 2rem); background: var(--paper); color: var(--ink); box-shadow: 0 24px 70px rgba(7,26,58,.35); }
+.ticket-picker::backdrop { background: rgba(7,26,58,.58); }
+.ticket-picker h2 { margin-bottom: 1rem; }
+.modal-close { position: absolute; top: .8rem; right: .9rem; width: 36px; height: 36px; border: 0; border-radius: 50%; background: rgba(7,26,58,.08); color: var(--ink); font-size: 1.5rem; line-height: 1; }
+.ticket-options { display: grid; gap: .75rem; }
+.ticket-options a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem; border-radius: 10px; background: #fff; color: inherit; text-decoration: none; box-shadow: 0 12px 30px -24px rgba(7,26,58,.45); }
+.ticket-options a:hover strong { color: var(--coral-dark); }
+.ticket-options small { display: block; margin-top: .2rem; color: var(--ink-2); font-size: .9rem; }
 @media (max-width: 860px) {
   .menu-btn { display: flex; flex-direction: column; gap: 7px; width: 44px; height: 44px; align-items: center; justify-content: center; cursor: pointer; }
   .menu-btn span { display: block; width: 26px; height: 2px; background: #fff; }
@@ -173,8 +181,17 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .signup input { min-width: 0; width: 100%; font: inherit; padding: .9rem 1rem; border-radius: 8px; border: 1px solid rgba(18,32,58,.25); background: #fff; }
 .signup input[type=email] { grid-column: 1 / -1; }
 .signup button { grid-column: 1 / -1; font: inherit; }
+.signup-bar { position: fixed; left: 50%; bottom: max(1rem, env(safe-area-inset-bottom)); z-index: 80; transform: translate(-50%, calc(100% + 2rem)); width: min(720px, calc(100vw - 2rem)); display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding: 1rem 1rem 1rem 1.2rem; border-radius: 14px; background: var(--navy); color: #fff; box-shadow: 0 20px 60px rgba(7,26,58,.32); transition: transform .25s ease; }
+.signup-bar.show { transform: translate(-50%, 0); }
+.signup-bar strong, .signup-bar span { display: block; }
+.signup-bar span { color: rgba(255,255,255,.75); font-size: .92rem; }
+.signup-bar form { display: flex; gap: .55rem; align-items: center; }
+.signup-bar input[type=email] { min-width: 180px; width: min(34vw, 260px); font: inherit; padding: .7rem .8rem; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; background: #fff; color: var(--ink); }
+.signup-bar .btn { white-space: nowrap; }
+.signup-bar-close { position: absolute; top: -.65rem; right: -.65rem; width: 30px; height: 30px; border: 0; border-radius: 50%; background: var(--paper); color: var(--ink); box-shadow: 0 10px 24px -16px #000; font-size: 1.2rem; line-height: 1; }
 @media (max-width: 860px) { .signup { grid-template-columns: 1fr; } }
-@media (max-width: 480px) { .signup form { grid-template-columns: 1fr; } .hero h1 { font-size: 2.9rem; } .hero .lede { font-size: 1.05rem; } .events .date { font-size: 1.25rem; } .band-head { flex-direction: column; gap: .4rem; align-items: flex-start; } }
+@media (max-width: 620px) { .signup-bar { grid-template-columns: 1fr; align-items: stretch; } .signup-bar form { display: grid; grid-template-columns: 1fr auto; } .signup-bar input[type=email] { width: 100%; min-width: 0; } }
+@media (max-width: 480px) { .signup form { grid-template-columns: 1fr; } .signup-bar form { grid-template-columns: 1fr; } .hero h1 { font-size: 2.9rem; } .hero .lede { font-size: 1.05rem; } .events .date { font-size: 1.25rem; } .band-head { flex-direction: column; gap: .4rem; align-items: flex-start; } }
 
 /* sponsors */
 .sponsors { display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap; }
@@ -214,6 +231,11 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .event-page .facts dt { color: var(--ink-2); }
 .event-page .facts dd { margin: 0; }
 @media (max-width: 860px) { .event-page { grid-template-columns: 1fr; gap: 1.5rem; } .event-page .facts { position: static; order: -1; } }
+.event-promo { padding: 1.5rem 0 0; }
+.event-promo-card { display: grid; grid-template-columns: minmax(220px, 360px) minmax(0, 1fr); gap: clamp(1.4rem, 4vw, 3rem); align-items: center; background: var(--paper); border-radius: 14px; padding: clamp(1rem, 3vw, 2rem); box-shadow: 0 18px 40px -24px rgba(7,26,58,.45); }
+.event-promo-card .feature.portrait { width: min(100%, 360px); justify-self: center; max-height: min(72vh, 680px); }
+.event-promo-card .lede { margin-bottom: 1.1rem; }
+@media (max-width: 760px) { .event-promo-card { grid-template-columns: 1fr; } .event-promo-card .feature.portrait { max-height: 620px; } }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
 /* Four abreast on a desktop, so the row cannot break into three and one. */
@@ -487,7 +509,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .trio p { margin: .8rem 0 0; font-size: .98rem; color: var(--ink-2); max-width: none; }
 @media (max-width: 860px) { .trio { grid-template-columns: 1fr; } }
 /* a video shot upright keeps its shape instead of being cropped to 16:9 */
-.videos video.portrait { aspect-ratio: 16 / 9; object-fit: contain; background: #000; }
+.videos video.portrait, .feature.portrait { aspect-ratio: 9 / 16; object-fit: contain; background: #000; }
 
 /* A form embedded from Squarespace, in place of ours */
 .embedded-form { max-width: 34rem; }

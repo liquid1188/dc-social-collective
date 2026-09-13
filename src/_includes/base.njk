@@ -35,7 +35,7 @@
       <a href="/press/"{% if page.url == '/press/' %} aria-current="page"{% endif %}>Press</a>
       <a href="/get-involved/"{% if page.url == '/get-involved/' %} aria-current="page"{% endif %}>Get involved</a>
       <a href="{{ site.merch }}">Merch</a>
-      <a class="btn small" href="{% if nxtEv %}{{ nxtEv.url }}#book{% else %}/events/{% endif %}">Tickets</a>
+      <a class="btn small ticket-picker-open" href="{% if nxtEv %}{{ nxtEv.url }}{% else %}/events/{% endif %}">Tickets</a>
     </nav>
   </div>
 </header>
@@ -48,7 +48,7 @@
       <img class="fmark" src="/images/logo.png" alt="" width="600" height="600" loading="lazy"><p class="foot-brand">DC Social Collective</p>
       
       <p class="foot-tag">Premier social events for young adults in DC, Maryland, and Virginia. Over {{ site.attendees }} annual attendees and climbing.</p>
-      <div class="foot-ctas"><a class="btn" href="/events/">Get tickets</a><a class="btn ghost" href="/#signup">Join the list</a></div>
+      <div class="foot-ctas"><a class="btn ticket-picker-open" href="/events/">Get tickets</a><a class="btn ghost" href="/#signup">Join the list</a></div>
     </div>
     <div class="fcol"><h3>Come along</h3><a href="/events/">Upcoming events</a><a href="/events/#past">Past events</a><a href="/gallery/">Photos</a><a href="/videos/">Videos</a><a href="/press/">In the news</a><a href="/about/#faq">Questions</a><a href="/about/">About DSC</a><a href="/team/">The team</a><a href="{{ site.merch }}">Shop merch</a></div><div class="fcol"><h3>More</h3><a href="/get-involved/">Get involved</a><a href="/get-involved/#work">Work with us</a><a href="/volunteer/">Volunteer</a><a href="/brand-ambassador/">Become an ambassador</a><a href="/live-music/">Play our events</a><a href="/host/">Host a night</a><a href="/sponsor/">Sponsor an event</a><a href="/donate/">Donate</a></div>
     <div class="fcol fcontact">
@@ -63,6 +63,71 @@
     <span class="util"><a href="/feed.xml">Events feed</a><a href="/admin/">Sign in</a><a href="https://lickitysplitweb.com">Site by Lickity Split Web Design</a><a class="totop" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="m6 14 6-6 6 6"/></svg></a></span>
   </div>
 </footer>
+{% if collections.upcoming.length %}
+<dialog class="ticket-picker" id="ticket-picker" aria-labelledby="ticket-picker-title">
+  <form method="dialog">
+    <button class="modal-close" value="close" aria-label="Close ticket chooser" type="submit">&times;</button>
+  </form>
+  <p class="eyebrow">Get tickets</p>
+  <h2 id="ticket-picker-title">Choose your night</h2>
+  <div class="ticket-options">
+    {%- for e in collections.upcoming %}
+    <a href="{{ e.url }}">
+      <span>
+        <strong>{{ e.data.title }}</strong>
+        <small>{{ e | iso | longDate }} · {{ e.data.venue }}</small>
+      </span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+    {%- endfor %}
+  </div>
+</dialog>
+{% endif %}
+<div class="signup-bar" id="signup-bar" role="region" aria-label="Email signup">
+  <button class="signup-bar-close" type="button" aria-label="Close email signup">&times;</button>
+  <div>
+    <strong>Get the next date before it sells out.</strong>
+    <span>One email when a night is announced. No noise.</span>
+  </div>
+  {%- if home.signupEmbed %}
+  <a class="btn small" href="/#signup">Join the list</a>
+  {%- else %}
+  <form action="/api/subscribe" method="POST">
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+    <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
+    <button class="btn small" type="submit">Join</button>
+  </form>
+  {%- endif %}
+</div>
+<script>
+(function () {
+  var picker = document.getElementById("ticket-picker");
+  if (picker && typeof picker.showModal === "function") {
+    document.querySelectorAll(".ticket-picker-open").forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        picker.showModal();
+      });
+    });
+    picker.addEventListener("click", function (event) {
+      if (event.target === picker) picker.close();
+    });
+  }
+
+  var bar = document.getElementById("signup-bar");
+  if (!bar) return;
+  var key = "dcsc-signup-bar-closed";
+  try {
+    if (localStorage.getItem(key) === "1") return;
+  } catch (e) { /* localStorage may be unavailable */ }
+  window.setTimeout(function () { bar.classList.add("show"); }, 4500);
+  var close = bar.querySelector(".signup-bar-close");
+  if (close) close.addEventListener("click", function () {
+    bar.classList.remove("show");
+    try { localStorage.setItem(key, "1"); } catch (e) { /* localStorage may be unavailable */ }
+  });
+})();
+</script>
 <!-- Videos load on demand, so give each poster a play target people can see. -->
 <script>
 (function () {

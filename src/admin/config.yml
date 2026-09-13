@@ -92,6 +92,8 @@ collections:
               - { name: lede, label: Paragraph under the headline, widget: text }
               - { name: primary, label: Main button }
               - { name: secondary, label: Second button }
+              - { name: video, label: Background video, widget: file, required: false, media_folder: /src/video, public_folder: /video, hint: "Use a wide MP4. 1920 by 1080 looks best." }
+              - { name: poster, label: Background video fallback image, widget: image, required: false, media_folder: /src/video, public_folder: /video, hint: "Shown before the video plays, and when someone prefers reduced motion." }
           - name: story
             label: Our story block
             widget: object
@@ -395,3 +397,13 @@ collections:
           - { name: attendees, label: Annual attendees as shown (e.g. 6,000), hint: "Used in the footer and in the About copy." }
           - { name: url, widget: hidden }
           - { name: setupMode, widget: hidden }
+      - name: instagram
+        label: Instagram feed
+        file: src/_data/instagram.json
+        description: "Controls the live Instagram block on the homepage and Photos page. Use either a Behold feed ID or a full embed code."
+        fields:
+          - { name: heading, label: Heading }
+          - { name: lede, label: Short paragraph, widget: text }
+          - { name: handle, label: Instagram handle, hint: "Do not include the @ symbol." }
+          - { name: beholdFeedId, label: Behold feed ID, required: false, hint: "Recommended. Paste only the feed ID from Behold." }
+          - { name: embed, label: Embed code, widget: text, required: false, hint: "Optional fallback if you are not using Behold." }
