@@ -238,7 +238,9 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .event-promo-inline { padding: 0 0 2rem; }
 .event-promo-inline .event-promo-card { grid-template-columns: minmax(170px, 260px) minmax(0, 1fr); gap: clamp(1.2rem, 3vw, 2rem); }
 .event-promo-inline .event-promo-card .feature.portrait { width: min(100%, 240px); max-height: 440px; }
-@media (max-width: 760px) { .event-promo-card { grid-template-columns: 1fr; } .event-promo-card .feature.portrait { max-height: 620px; } }
+/* Stack on a phone. The inline variant sets its own columns above, so it has to be
+   named here too or its two-column rule wins on specificity and squeezes the text. */
+@media (max-width: 760px) { .event-promo-card, .event-promo-inline .event-promo-card { grid-template-columns: 1fr; } .event-promo-card .feature.portrait { max-height: 620px; } .event-promo-inline .event-promo-card .feature.portrait { width: min(100%, 300px); max-height: 480px; } }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
 /* Four abreast on a desktop, so the row cannot break into three and one. */
@@ -311,6 +313,9 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .album h2 { font-size: 1.3rem; margin: 0 0 .15rem; }
 .album p { margin: 0; color: var(--ink-2); font-size: .95rem; }
 .album:hover h2 { color: var(--coral-dark); }
+/* A quiet count, on the photos page header and under each album card. */
+.tally { margin: .2rem 0 0; color: var(--ink-2); font-size: .88rem; letter-spacing: .01em; }
+.page-head .tally { font-size: .95rem; margin-top: .6rem; }
 .gallery img { width: 100%; }
 .band.dusk-merch { background: var(--navy); color: #fff; }
 .band.dusk-merch p { color: rgba(255,255,255,.85); }
