@@ -7,27 +7,26 @@ layout: base.njk
   <h1>{{ title }}</h1>
   <p class="lede">{{ page.date | isoDate | truncate(10, true, '') | longDate }}, {{ page.date | isoDate | truncate(4, true, '') }}{% if time %} · <span class="nowrap">{{ time }}{% if end %} to {{ end }}{% endif %}</span>{% endif %} · {{ venue }}</p>
 </div>
-{% if promoVideo %}
-<section class="event-promo">
-  <div class="wrap">
-    <div class="event-promo-card">
-      <video class="feature portrait" controls preload="none" poster="{{ promoPoster }}" width="720" height="1280"><source src="{{ promoVideo }}" type="video/mp4"></video>
-      <div>
-        <p class="eyebrow">{{ venue }}</p>
-        <h2>{{ promoHeading or "See the night before you go" }}</h2>
-        {% if promoText %}<p class="lede">{{ promoText }}</p>{% endif %}
-        {% if tickets %}<a class="btn" href="#book">Get tickets</a>{% endif %}
-      </div>
-    </div>
-  </div>
-</section>
-{% endif %}
 <section class="band" style="padding-top:1.5rem">
   <div class="wrap event-page">
     <div class="landing-main">
       <figure class="landing-hero">
         <img src="/images/events/2026-09-26/flyer.png" alt="All-American Country Nights flyer: Saturday, September 26, 7:30 PM, Whiffletree Farm, Warrenton, Virginia" width="1215" height="1519" fetchpriority="high">
       </figure>
+
+      {% if promoVideo %}
+      <div class="event-promo event-promo-inline">
+        <div class="event-promo-card">
+          <video class="feature portrait" controls preload="none" poster="{{ promoPoster }}" width="720" height="1280"><source src="{{ promoVideo }}" type="video/mp4"></video>
+          <div>
+            <p class="eyebrow">{{ venue }}</p>
+            <h2>{{ promoHeading or "See the night before you go" }}</h2>
+            {% if promoText %}<p class="lede">{{ promoText }}</p>{% endif %}
+            {% if tickets %}<a class="btn" href="#book">Get tickets</a>{% endif %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
 
       <div class="prose">
         <h2>The Ultimate Fall Country Escape</h2>
