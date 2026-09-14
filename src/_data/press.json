@@ -10,22 +10,26 @@
     {
       "name": "The Washington Post",
       "logo": "/images/press/logos/washington-post.svg",
-      "url": "https://www.washingtonpost.com/style/power/2025/10/28/maga-dating-scene-washington/"
+      "url": "https://www.washingtonpost.com/style/power/2025/10/28/maga-dating-scene-washington/",
+      "h": 40
     },
     {
       "name": "National Catholic Register",
       "logo": "/images/press/logos/ncregister.svg",
-      "url": "https://www.ncregister.com/features/dc-social-collective-builds-young-adult-community"
+      "url": "https://www.ncregister.com/features/dc-social-collective-builds-young-adult-community",
+      "h": 50
     },
     {
       "name": "EWTN",
       "logo": "/images/press/logos/ewtn.svg",
-      "url": "https://ewtn.co.uk/article-faith-through-friendship-how-dc-social-collective-is-building-young-adult-community-in-the-nations-capital/"
+      "url": "https://ewtn.co.uk/article-faith-through-friendship-how-dc-social-collective-is-building-young-adult-community-in-the-nations-capital/",
+      "h": 47
     },
     {
       "name": "RSVPify",
       "logo": "/images/press/logos/rsvpify.svg",
-      "url": "https://rsvpify.com/case-studies/dc-social/"
+      "url": "https://rsvpify.com/case-studies/dc-social/",
+      "h": 42
     }
   ],
   "items": [
@@ -49,9 +53,9 @@
     },
     {
       "title": "'Faith Through Friendship': How DC Social Collective Is Building Young-Adult Community in the Nation's Capital",
-      "publication": "National Catholic Register",
+      "publication": "EWTN",
       "date": "2025-07-05",
-      "url": "https://www.ncregister.com/features/dc-social-collective-builds-young-adult-community",
+      "url": "https://ewtn.co.uk/article-faith-through-friendship-how-dc-social-collective-is-building-young-adult-community-in-the-nations-capital/",
       "image": "/images/press/faith-through-friendship.jpg",
       "byline": "Andrew Likoudis",
       "summary": "A feature on how a pandemic-era idea grew into a community of more than 4,000 young adults across DC, Maryland, and Virginia."
