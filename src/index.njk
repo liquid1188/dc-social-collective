@@ -183,6 +183,27 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
     <img src="/images/merch-hoodie.jpg" alt="The DSC logo hoodie in green" loading="lazy" width="1000" height="1000">
   </div>
 </section>
+{%- if partners.items | length %}
+{#- The logo is a black wordmark on transparency, so this band stays on paper:
+    on the navy it all but disappears. #}
+<section class="band paper partner-band">
+  <div class="wrap partner">
+    <div>
+      <p class="eyebrow">Who we work with</p>
+      <h2>{{ partners.heading }}</h2>
+      <p class="lede">{{ partners.lede }}</p>
+    </div>
+    <div class="partner-logos">
+    {%- for p in partners.items %}
+      <a class="partner-logo" href="{{ p.url }}" target="_blank" rel="noopener">
+        <img src="{{ p.logo }}" alt="{{ p.name }}" loading="lazy" width="900" height="48">
+        <span>{{ p.role }} &middot; {{ partners.linkLabel }} &rarr;</span>
+      </a>
+    {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
 <section class="band" id="signup">
   <div class="wrap signup">
     <div>

@@ -327,6 +327,19 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* A quiet count, on the photos page header and under each album card. */
 .tally { margin: .2rem 0 0; color: var(--ink-2); font-size: .88rem; letter-spacing: .01em; }
 .page-head .tally { font-size: .95rem; margin-top: .6rem; }
+/* Red Line Rentals: the people whose PA is in the room every night. Their
+   wordmark is black on transparency, so it needs a light band, and it is wide
+   and short (roughly 19:1) — it wants width, not a logo tile. */
+.partner-band { padding-block: clamp(2.4rem, 5vw, 3.6rem); }
+.partner { display: grid; grid-template-columns: 1fr minmax(280px, 42%); gap: clamp(1.6rem, 4vw, 3.5rem); align-items: center; }
+.partner h2 { margin-bottom: .5rem; }
+.partner .lede { margin: 0; }
+.partner-logo { display: block; text-decoration: none; color: inherit; }
+.partner-logo img { width: 100%; height: auto; }
+.partner-logo span { display: block; margin-top: .9rem; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--ink-2); transition: color .2s; }
+.partner-logo:hover span { color: var(--coral-dark); }
+@media (max-width: 760px) { .partner { grid-template-columns: 1fr; } }
+
 /* Merch. The catalogue lives here so the nav never sends anyone offsite; only
    the card itself does, because checkout is the printer's. */
 .merch-intro { max-width: 62ch; margin-top: 1rem; color: var(--ink-2); }
