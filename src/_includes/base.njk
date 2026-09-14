@@ -146,9 +146,23 @@
     b.setAttribute("aria-label", "Play video");
     b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
     host.appendChild(b);
+    // One play target, not two. The native control bar carries its own play
+    // triangle, so on a poster it sat alongside this button and small cards
+    // ended up with two. Controls stay off until the video has actually been
+    // started, and the button does not come back on pause: from then on the
+    // native bar is the control. Removed in script, so with JS off the
+    // attribute in the markup still gives a working player.
+    v.removeAttribute("controls");
     b.addEventListener("click", function () { v.play(); });
-    v.addEventListener("play", function () { host.classList.add("playing"); });
-    v.addEventListener("pause", function () { host.classList.remove("playing"); });
+    // The whole poster starts it, not just the 72px circle — the promo cards
+    // are only 240px wide and the button is a small part of them.
+    host.addEventListener("click", function () {
+      if (!host.classList.contains("playing")) v.play();
+    });
+    v.addEventListener("play", function () {
+      host.classList.add("playing");
+      v.setAttribute("controls", "");
+    });
   });
 })();
 </script>

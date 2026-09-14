@@ -8,6 +8,7 @@ address: "8717 Springs Road Warrenton, VA, 20186"
 series: "Country Nights"
 image: "/images/events/2024-08-10-all-american-summer-nights-at-whiffletree-farm-liv.jpg"
 tickets: "https://dscsummernights2024.rsvpify.com"
+album: "2024-07-27-4th-annual-all-american-summer-nights-at-whiffletree-farm"
 tags: event
 ---
 Date: Saturday, August 10, 2024 Location: Whiffletree Farm, Warrenton, VA Address: 8717 Springs Rd, Warrenton, VA 20186 Time: 7 PM - Midnight

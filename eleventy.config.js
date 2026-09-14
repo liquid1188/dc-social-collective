@@ -89,6 +89,22 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("albums", (api) => api.getFilteredByTag("album").sort((a, b) => b.date - a.date));
+
+  // A past night should link to its own gallery, not to the whole archive.
+  // Matched on the exact date and nothing looser: the nights sit a week or two
+  // apart, so a fuzzy window would happily send someone from the Harvest Moon
+  // Hoedown to a Sangria y Salsa. An event whose album is filed under a
+  // different date can name it outright with `album:` in its front matter,
+  // either as the album's URL or its folder name.
+  eleventyConfig.addFilter("albumForEvent", (albums, opts) => {
+    const { date, album } = opts || {};
+    const list = albums || [];
+    if (album) {
+      return list.find((a) => a.url === album || a.fileSlug === album || a.url === "/photos/" + album + "/") || null;
+    }
+    if (!date) return null;
+    return list.find((a) => (a.data.day || iso(a)) === date) || null;
+  });
   eleventyConfig.addFilter("iso", iso);
   return { dir: { input: "src", includes: "_includes", output: "_site" } };
 }

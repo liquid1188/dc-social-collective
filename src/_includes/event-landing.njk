@@ -134,7 +134,7 @@ layout: base.njk
       {% set d = page.date | isoDate | truncate(10, true, '') %}
       {% if tickets and d >= today_s %}<a class="btn" href="#book" style="width:100%;text-align:center">Get tickets</a>
       <a href="{{ { date: d, title: title, venue: venue, address: address, time: time, end: end, url: site.url ~ page.url } | gcalUrl }}" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:.8rem;font-size:.95rem">Add to Google Calendar</a>
-      {% elif d < today_s %}<p style="margin:0;color:var(--ink-2)">This night has happened. <a href="/gallery/">See the photos</a> or <a href="/events/">find the next one</a>.</p>{% endif %}
+      {% elif d < today_s %}{% set alb = collections.albums | albumForEvent({ date: d, album: album }) %}<p style="margin:0;color:var(--ink-2)">This night has happened. {% if alb %}<a href="{{ alb.url }}">See the photos from this night</a>{% else %}<a href="/gallery/">See the photos</a>{% endif %} or <a href="/events/">find the next one</a>.</p>{% endif %}
     </aside>
   </div>
 </section>

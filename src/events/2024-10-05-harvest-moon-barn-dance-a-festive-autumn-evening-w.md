@@ -8,6 +8,7 @@ address: "8717 Springs Road Warrenton, VA, 20186"
 series: "Country Nights"
 image: "/images/events/2024-10-05-harvest-moon-barn-dance-a-festive-autumn-evening-w.jpg"
 tickets: "https://dsc-harvestmoondance2024.rsvpify.com"
+album: "2024-10-26-harvest-moon-barn-dance-at-whiffletree-farm"
 tags: event
 ---
 Date: Saturday, October 5th Time: 7:00 PM - 12:00 AM (live music from 8:30 PM - 10:30 PM) Location: Whiffletree Farm, 8717 Springs Road, Warrenton, VA

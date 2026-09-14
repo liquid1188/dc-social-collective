@@ -8,6 +8,7 @@ address: "George Washington Memorial Parkway Arlington, VA, 22202"
 series: "Soirees and mixers"
 image: "/images/events/2024-08-16-marina-mixer-with-live-music-by-jacob-deforge.jpg"
 tickets: "https://dscmarinamixerjuly2024.rsvpify.com/"
+album: "2024-07-24-dsc-marina-mixer-august-2024"
 tags: event
 ---
 Location: Columbia Island Marina, George Washington Memorial Pkwy, Arlington, VA, 22202, United States Time: 7:00 - 10:00 PM (Jacob DeForge will perform from 7:30 PM - 8:30 PM)
