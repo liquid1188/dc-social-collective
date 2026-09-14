@@ -49,7 +49,7 @@ description: "Articles about DC Social Collective, and how to reach us if you ar
         <p class="eyebrow">{{ press.pressStripHeading }}</p>
         <ul>
         {%- for l in press.logos %}
-          <li>{% if l.url %}<a href="{{ l.url }}" rel="noopener">{% endif %}{% if l.logo %}<img src="{{ l.logo }}" alt="{{ l.name }}" loading="lazy">{% else %}{{ l.name }}{% endif %}{% if l.url %}</a>{% endif %}</li>
+          <li>{% if l.url %}<a href="{{ l.url }}" rel="noopener">{% endif %}{% if l.logo %}<img src="{{ l.logo }}" alt="{{ l.name }}" loading="lazy"{% if l.hp %} style="height:{{ l.hp }}px"{% endif %}>{% else %}{{ l.name }}{% endif %}{% if l.url %}</a>{% endif %}</li>
         {%- endfor %}
         </ul>
       </div>
