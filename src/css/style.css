@@ -442,11 +442,11 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 @media (max-width: 700px) { .news a.withpic { grid-template-columns: 1fr; gap: 1rem; } }
 .news a:hover h3 { color: var(--coral-dark); }
 .news .pub { font-size: .85rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--coral-dark); margin: 0 0 .6rem; display: flex; align-items: center; flex-wrap: wrap; gap: .35rem .9rem; }
-/* Every publication mark gets the same box (130 by 32) and sits inside it, so a
-   wide wordmark and a stacked lockup carry the same visual weight, and the date
-   lines up beside them at one size. */
-.news a img.publogo, .news .publogo { width: 130px; height: 32px; max-width: 130px; aspect-ratio: auto; object-fit: contain; object-position: left center; border-radius: 0; flex: none; display: block; }
-.news .pub { min-height: 32px; }
+/* Each publication mark gets its own height (hc in press.json) so a wide
+   wordmark and a stacked lockup read at the same visual weight, and the date
+   sits beside them in one line. */
+.news a img.publogo, .news .publogo { height: 28px; width: auto; max-width: 220px; aspect-ratio: auto; object-fit: contain; border-radius: 0; flex: none; display: block; }
+.news .pub { min-height: 34px; }
 .news .pubdate { color: var(--ink-2); font-weight: 500; letter-spacing: .03em; }
 .news h3 { font-size: 1.45rem; margin: 0 0 .5rem; }
 .news .sum { font-size: .98rem; margin: 0 0 .5rem; }

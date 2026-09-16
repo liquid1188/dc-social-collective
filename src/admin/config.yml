@@ -370,6 +370,7 @@ collections:
               - { name: name, label: Publication }
               - { name: logo, label: Logo, widget: image, required: false, hint: "Optional. The strip is dark, so a white or light version of the logo works best. The name is used when there is no logo." }
               - { name: url, label: Link to the article, required: false }
+              - { name: hc, label: Logo height on article cards, widget: number, required: false, hint: "Pixels, usually 24 to 34. Make a wide wordmark smaller and a stacked logo bigger so they look the same weight." }
           - name: items
             label: Articles
             widget: list

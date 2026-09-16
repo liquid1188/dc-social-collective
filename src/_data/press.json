@@ -12,28 +12,32 @@
       "logo": "/images/press/logos/washington-post.svg",
       "url": "https://www.washingtonpost.com/style/power/2025/10/28/maga-dating-scene-washington/",
       "h": 40,
-      "hp": 54
+      "hp": 54,
+      "hc": 24
     },
     {
       "name": "National Catholic Register",
       "logo": "/images/press/logos/ncregister.svg",
       "url": "https://www.ncregister.com/features/dc-social-collective-builds-young-adult-community",
       "h": 54,
-      "hp": 54
+      "hp": 54,
+      "hc": 34
     },
     {
       "name": "EWTN",
       "logo": "/images/press/logos/ewtn.svg",
       "url": "https://ewtn.co.uk/article-faith-through-friendship-how-dc-social-collective-is-building-young-adult-community-in-the-nations-capital/",
       "h": 52,
-      "hp": 54
+      "hp": 54,
+      "hc": 32
     },
     {
       "name": "RSVPify",
       "logo": "/images/press/logos/rsvpify.svg",
       "url": "https://rsvpify.com/case-studies/dc-social/",
       "h": 42,
-      "hp": 46
+      "hp": 46,
+      "hc": 30
     }
   ],
   "items": [
