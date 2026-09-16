@@ -5,6 +5,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("md", (t) => mdlib.render(t || ""));
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images", "src/video": "video", "src/_redirects": "_redirects" });
+  // Browsers, search results, and bookmark tools ask for these at the site root
+  // no matter what the page says, so keep copies there too.
+  eleventyConfig.addPassthroughCopy({ "src/images/favicon.ico": "favicon.ico", "src/images/apple-touch-icon.png": "apple-touch-icon.png" });
   // Photos uploaded to an album folder ship next to the album page.
   eleventyConfig.addPassthroughCopy("src/albums/**/*.{jpg,jpeg,png,webp,gif,avif}");
   // "Add to calendar" hands the night straight to Google Calendar, already
