@@ -124,7 +124,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       <a href="/gallery/"><img src="/images/gallery/14.jpg" alt="A dance under stage fog" loading="lazy"></a>
       <a href="/gallery/"><img src="/images/gallery/11.jpg" alt="Country dancing" loading="lazy"></a>
     </div>
-    <div class="band-foot"><a href="/gallery/">All photos</a></div>
+    <div class="band-foot split"><p class="share-note">{{ instagram.share | replace("@" + instagram.handle, '<a href="' + site.instagram + '" rel="noopener">@' + instagram.handle + '</a>') | safe }}</p><a href="/gallery/">All photos</a></div>
     <div class="quotes">
     {%- for q in quotes.items %}
       <blockquote>

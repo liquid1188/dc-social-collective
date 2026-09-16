@@ -405,5 +405,6 @@ collections:
           - { name: heading, label: Heading }
           - { name: lede, label: Short paragraph, widget: text }
           - { name: handle, label: Instagram handle, hint: "Do not include the @ symbol." }
+          - { name: share, label: Tag and collaborate line, widget: text, hint: "Shown on the homepage photo section, the Photos page, and every album. Asks guests to tag and add DSC as a collaborator." }
           - { name: beholdFeedId, label: Behold feed ID, required: false, hint: "Recommended. Paste only the feed ID from Behold." }
           - { name: embed, label: Embed code, widget: text, required: false, hint: "Optional fallback if you are not using Behold." }

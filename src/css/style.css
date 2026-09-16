@@ -327,6 +327,11 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* A quiet count, on the photos page header and under each album card. */
 .tally { margin: .2rem 0 0; color: var(--ink-2); font-size: .88rem; letter-spacing: .01em; }
 .page-head .tally { font-size: .95rem; margin-top: .6rem; }
+.share-note { margin: 1rem 0 0; max-width: 40rem; font-size: 1rem; color: var(--ink-2); }
+.share-note a { color: var(--coral-dark); font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; }
+.share-note a:hover { border-bottom-color: currentColor; }
+.band.navy .share-note { color: rgba(255,255,255,.85); }
+.band.navy .share-note a { color: var(--amber); }
 /* Red Line Rentals: the people whose PA is in the room every night. Their
    wordmark is black on transparency, so it needs a light band, and it is wide
    and short (roughly 19:1) — it wants width, not a logo tile. */

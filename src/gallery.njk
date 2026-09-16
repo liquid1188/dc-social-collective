@@ -8,6 +8,7 @@ description: "Every DC Social Collective night in photos, since the first picnic
   <h1>Photos</h1>
   <p class="lede">Every night since the first picnic in 2021, newest first.</p>
   <p class="tally">{{ collections.albums | length }} galleries &middot; {{ collections.albums | photoCount }} photos</p>
+  <p class="share-note">{{ instagram.share | replace("@" + instagram.handle, '<a href="' + site.instagram + '" rel="noopener">@' + instagram.handle + '</a>') | safe }}</p>
 </div>
 {%- if instagram.beholdFeedId or instagram.embed %}
 <section class="band paper" id="instagram" style="padding-top:1.5rem">
