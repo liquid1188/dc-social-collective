@@ -36,6 +36,7 @@ details{margin-top:2rem;color:var(--ink2)}summary{cursor:pointer}
 
 <details><summary>What this does, and what to expect</summary><p>Photos are put into the album in the order you picked them (usually the photographer's numbering). Each original is kept untouched. The web copy is 2560 pixels on the long side, which is sharper than any phone or laptop screen, so pages load fast and the download button still hands people the full file.</p><p>Uploading a full night takes a few minutes on wifi, longer on cellular. Leave this page open until it says it is done. The album shows on the site about two minutes after that. If you need to rename it or reorder the photos afterward, open it under Photo albums in the editor.</p><p>Visitors can download photos one at a time, never the whole album as one file. Videos over about 90 MB are sent in pieces, so a big 4K file is fine. Videos appear on the Videos page, newest first.</p></details>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js" defer></script>
 <script>
 const OWNER="liquid1188",REPO="dc-social-collective",BRANCH="main",API="https://api.github.com";
 const WEB_EDGE=2560,WEB_Q=.9,THUMB_EDGE=600,THUMB_Q=.8,PART=50*1024*1024;
@@ -56,7 +57,7 @@ hook($("#pdrop"),$("#photos"),photoFiles,$("#pcount"),"photos");hook($("#vdrop")
 const slug=s=>s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,60);
 const safe=s=>s.normalize("NFKD").replace(/[^A-Za-z0-9._-]+/g,"-");
 const b64=blob=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(",")[1]);r.onerror=rej;r.readAsDataURL(blob)});
-async function decode(file){try{return await createImageBitmap(file)}catch(e){const url=URL.createObjectURL(file);try{const img=new Image();await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=url});return img}finally{URL.revokeObjectURL(url)}}}
+async function decode(file){if(/\.hei[cf]$/i.test(file.name)||/heic|heif/i.test(file.type)){try{return await createImageBitmap(file)}catch(e){if(window.heic2any){const jpg=await heic2any({blob:file,toType:"image/jpeg",quality:.95});return createImageBitmap(Array.isArray(jpg)?jpg[0]:jpg)}}}try{return await createImageBitmap(file)}catch(e){const url=URL.createObjectURL(file);try{const img=new Image();await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=url});return img}finally{URL.revokeObjectURL(url)}}}
 async function resize(src,edge,q){const w=src.width||src.naturalWidth,h=src.height||src.naturalHeight;const s=Math.min(1,edge/Math.max(w,h));const cw=Math.round(w*s),ch=Math.round(h*s);const c=document.createElement("canvas");c.width=cw;c.height=ch;c.getContext("2d").drawImage(src,0,0,cw,ch);const blob=await new Promise(r=>c.toBlob(r,"image/webp",q));return{blob,w:cw,h:ch}}
 async function put(tok,key,blob,type){const r=await fetch("/api/files?key="+encodeURIComponent(key),{method:"PUT",headers:{Authorization:"Bearer "+tok,"Content-Type":type||blob.type||"application/octet-stream"},body:blob});if(!r.ok)throw new Error((await r.json().catch(()=>({}))).error||"Upload failed for "+key);return r.json()}
 async function putBig(tok,key,file,onPart){const h={Authorization:"Bearer "+tok,"Content-Type":file.type||"application/octet-stream"};const q=k=>"/api/files?key="+encodeURIComponent(key)+"&"+k;
@@ -88,7 +89,7 @@ $("#go").addEventListener("click",async()=>{
         p.entry=`${p.base}.webp#${web.w}x${web.h}`;
         tree.push({path:`src/albums/${folder}/${p.base}.webp`,mode:"100644",type:"blob",sha:await blobSha(tok,await b64(web.blob),"base64")});
         tree.push({path:`src/albums/${folder}/thumbs/${p.base}.webp`,mode:"100644",type:"blob",sha:await blobSha(tok,await b64(th.blob),"base64")});
-      }catch(e){add("Could not make a web copy of "+p.f.name+" (this browser can't open that format). The original is saved; open the album in the editor and add a JPEG of it to show it on the page.")}tick()});
+      }catch(e){add("Could not make a web copy of "+p.f.name+". The original is saved; open the album in the editor and add a JPEG of it to show it on the page.")}tick()});
     }
     const videos=[];
     for(const f of videoFiles){
