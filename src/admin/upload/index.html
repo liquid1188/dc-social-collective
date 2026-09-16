@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Upload a night · DC Social Collective</title>
+<style>
+:root{--ink:#1c1b18;--ink2:#5d5a52;--rule:#ddd7cb;--paper:#f7f4ee;--acc:#1b3a5c;--ok:#2f6f3e;--warn:#9a3b2f}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--paper)}
+.wrap{max-width:820px;margin:0 auto;padding:2rem 1.2rem 4rem}h1{font-size:1.6rem;margin:0 0 .3rem}.lede{color:var(--ink2);margin:0 0 1.6rem}
+.bar{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-bottom:1.4rem}a.btn,button{font:inherit;padding:.6rem 1rem;border:1px solid var(--acc);background:var(--acc);color:#fff;border-radius:4px;cursor:pointer;text-decoration:none}
+button.ghost{background:transparent;color:var(--acc)}button[disabled]{opacity:.5;cursor:default}
+label{display:block;font-weight:600;margin:1.2rem 0 .3rem}input[type=text],input[type=date]{font:inherit;width:100%;padding:.55rem .7rem;border:1px solid var(--rule);border-radius:4px;background:#fff}
+.hint{color:var(--ink2);font-size:.9rem;margin:.25rem 0 0}
+.drop{margin-top:.3rem;border:2px dashed var(--rule);border-radius:6px;background:#fff;padding:1.6rem 1rem;text-align:center;color:var(--ink2);cursor:pointer}.drop.over{border-color:var(--acc);background:#eef2f7}.drop strong{color:var(--ink)}
+.drop input{display:none}.count{margin-top:.5rem;font-weight:600;color:var(--ink)}
+.note{padding:.9rem 1rem;border:1px solid var(--rule);background:#fff;margin:1.4rem 0 0;border-radius:4px}.note.ok{border-color:#9bb59b;background:#eef5ee}.note.err{border-color:#c9a1a1;background:#f7ecec}
+progress{width:100%;height:12px;margin-top:.6rem}.log{font-size:.9rem;color:var(--ink2);margin-top:.5rem;white-space:pre-line}
+details{margin-top:2rem;color:var(--ink2)}summary{cursor:pointer}
+.row{display:flex;gap:1rem}.row>div{flex:1}@media(max-width:600px){.row{display:block}}
+</style></head><body><div class="wrap">
+<h1>Upload a night</h1>
+<p class="lede">Drop the photographer's original files here. One upload does all of it: the originals are kept at full size on DSC's file server, a fast web copy of each photo goes on the album page, and the album appears on the Photos page with a full-size download button on every photo.</p>
+<div class="bar"><a class="btn" href="/admin/">Back to the editor</a><a class="btn ghost" style="background:transparent;color:var(--acc)" href="/admin/#/collections/albums">Photo albums</a></div>
+
+<div class="row"><div><label for="title">Name of the night</label><input type="text" id="title" placeholder="Sangria y Salsa at Bull Run"></div>
+<div><label for="date">Date of the night</label><input type="date" id="date"></div></div>
+
+<label>Photos</label>
+<div class="drop" id="pdrop"><input type="file" id="photos" multiple accept="image/*,.heic,.HEIC"><strong>Drop the photos here</strong> or tap to choose them<div class="hint">JPEG, PNG, HEIC, any size. The whole night at once is fine.</div><div class="count" id="pcount"></div></div>
+
+<label>Video (optional)</label>
+<div class="drop" id="vdrop"><input type="file" id="videos" multiple accept="video/mp4,video/quicktime,.mp4,.mov"><strong>Drop the recap or reels here</strong> or tap to choose them<div class="hint">MP4 or MOV at full quality, 4K is fine. A poster frame is taken from the video for you.</div><div class="count" id="vcount"></div></div>
+<label for="credit">Photo and video credit (optional)</label><input type="text" id="credit" placeholder="Meghan Marie Photography">
+
+<div class="bar" style="margin-top:1.6rem"><button id="go">Upload the night</button><span class="hint" id="status"></span></div>
+<progress id="prog" value="0" max="100" hidden></progress>
+<div class="note" id="note" hidden></div>
+<div class="log" id="log"></div>
+
+<details><summary>What this does, and what to expect</summary><p>Photos are put into the album in the order you picked them (usually the photographer's numbering). Each original is kept untouched. The web copy is 2560 pixels on the long side, which is sharper than any phone or laptop screen, so pages load fast and the download button still hands people the full file.</p><p>Uploading a full night takes a few minutes on wifi, longer on cellular. Leave this page open until it says it is done. The album shows on the site about two minutes after that. If you need to rename it or reorder the photos afterward, open it under Photo albums in the editor.</p><p>Videos over about 90 MB are sent in pieces, so a big 4K file is fine. Videos appear on the Videos page, newest first.</p></details>
+</div>
+<script>
+const OWNER="liquid1188",REPO="dc-social-collective",BRANCH="main",API="https://api.github.com";
+const WEB_EDGE=2560,WEB_Q=.9,THUMB_EDGE=600,THUMB_Q=.8,PART=50*1024*1024;
+const $=s=>document.querySelector(s);const note=$("#note"),log=$("#log"),prog=$("#prog"),status=$("#status");
+let photoFiles=[],videoFiles=[];
+function say(t,k){note.textContent=t;note.className="note "+(k||"");note.hidden=false}
+function add(t){log.textContent+=t+"\n"}
+function token(){try{const u=JSON.parse(localStorage.getItem("sveltia-cms.user")||"null");if(u&&u.token)return u.token}catch(e){}return localStorage.getItem("site-history-token")||""}
+function askToken(){let t=token();if(!t){t=prompt("Paste your editor access token (it stays in this browser):")||"";if(t)localStorage.setItem("site-history-token",t.trim())}return t.trim()}
+function hook(drop,input,list,count,label){
+  drop.addEventListener("click",()=>input.click());
+  input.addEventListener("change",()=>{list.length=0;list.push(...input.files);count.textContent=list.length?list.length+" "+label+" chosen":""});
+  ["dragenter","dragover"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("over")}));
+  ["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("over")}));
+  drop.addEventListener("drop",e=>{const fs=[...e.dataTransfer.files].filter(f=>input.accept.split(",").some(a=>a.startsWith(".")?f.name.toLowerCase().endsWith(a.toLowerCase()):a.endsWith("/*")?f.type.startsWith(a.slice(0,-1)):f.type===a));list.length=0;list.push(...fs);count.textContent=list.length?list.length+" "+label+" chosen":""});
+}
+hook($("#pdrop"),$("#photos"),photoFiles,$("#pcount"),"photos");hook($("#vdrop"),$("#videos"),videoFiles,$("#vcount"),"videos");
+const slug=s=>s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,60);
+const safe=s=>s.normalize("NFKD").replace(/[^A-Za-z0-9._-]+/g,"-");
+const b64=blob=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(",")[1]);r.onerror=rej;r.readAsDataURL(blob)});
+async function decode(file){try{return await createImageBitmap(file)}catch(e){const url=URL.createObjectURL(file);try{const img=new Image();await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=url});return img}finally{URL.revokeObjectURL(url)}}}
+async function resize(src,edge,q){const w=src.width||src.naturalWidth,h=src.height||src.naturalHeight;const s=Math.min(1,edge/Math.max(w,h));const cw=Math.round(w*s),ch=Math.round(h*s);const c=document.createElement("canvas");c.width=cw;c.height=ch;c.getContext("2d").drawImage(src,0,0,cw,ch);const blob=await new Promise(r=>c.toBlob(r,"image/webp",q));return{blob,w:cw,h:ch}}
+async function put(tok,key,blob,type){const r=await fetch("/api/files?key="+encodeURIComponent(key),{method:"PUT",headers:{Authorization:"Bearer "+tok,"Content-Type":type||blob.type||"application/octet-stream"},body:blob});if(!r.ok)throw new Error((await r.json().catch(()=>({}))).error||"Upload failed for "+key);return r.json()}
+async function putBig(tok,key,file,onPart){const h={Authorization:"Bearer "+tok,"Content-Type":file.type||"application/octet-stream"};const q=k=>"/api/files?key="+encodeURIComponent(key)+"&"+k;
+  const {uploadId}=await (await fetch(q("action=create"),{method:"POST",headers:h})).json();if(!uploadId)throw new Error("Could not start the video upload");
+  const parts=[];try{for(let i=0,n=1;i<file.size;i+=PART,n++){const r=await fetch(q("action=part&uploadId="+uploadId+"&part="+n),{method:"PUT",headers:h,body:file.slice(i,i+PART)});if(!r.ok)throw new Error("A piece of the video failed to upload");parts.push(await r.json());onPart&&onPart(Math.min(i+PART,file.size)/file.size)}
+  const done=await fetch(q("action=complete&uploadId="+uploadId),{method:"POST",headers:h,body:JSON.stringify({parts})});if(!done.ok)throw new Error("Could not finish the video upload")}
+  catch(e){await fetch(q("action=abort&uploadId="+uploadId),{method:"POST",headers:h}).catch(()=>{});throw e}}
+async function poster(file){const url=URL.createObjectURL(file);try{const v=document.createElement("video");v.muted=true;v.playsInline=true;v.src=url;await new Promise((res,rej)=>{v.onloadedmetadata=res;v.onerror=rej});v.currentTime=Math.min(1.5,v.duration/2);await new Promise(res=>{v.onseeked=res});const c=document.createElement("canvas");const s=Math.min(1,1920/Math.max(v.videoWidth,v.videoHeight));c.width=Math.round(v.videoWidth*s);c.height=Math.round(v.videoHeight*s);c.getContext("2d").drawImage(v,0,0,c.width,c.height);const blob=await new Promise(r=>c.toBlob(r,"image/jpeg",.85));return{blob,portrait:v.videoHeight>v.videoWidth}}finally{URL.revokeObjectURL(url)}}
+async function gh(tok,path,opt={}){const r=await fetch(API+path,{...opt,headers:{Authorization:"Bearer "+tok,Accept:"application/vnd.github+json","Content-Type":"application/json",...(opt.headers||{})}});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.message||"GitHub request failed");return j}
+async function blobSha(tok,content,encoding){const j=await gh(tok,`/repos/${OWNER}/${REPO}/git/blobs`,{method:"POST",body:JSON.stringify({content,encoding})});return j.sha}
+async function pool(items,n,fn){let i=0;const out=[];await Promise.all(Array.from({length:n},async()=>{while(i<items.length){const k=i++;out[k]=await fn(items[k],k)}}));return out}
+
+$("#go").addEventListener("click",async()=>{
+  const title=$("#title").value.trim(),date=$("#date").value,credit=$("#credit").value.trim();
+  if(!title||!date)return say("Give the night a name and a date first.","err");
+  if(!photoFiles.length&&!videoFiles.length)return say("Choose some photos or a video.","err");
+  const tok=askToken();if(!tok)return say("No access token, nothing uploaded.","err");
+  const btn=$("#go");btn.disabled=true;note.hidden=true;log.textContent="";prog.hidden=false;prog.value=0;
+  const folder=date+"-"+slug(title);const tree=[];let step=0;const total=photoFiles.length*2+videoFiles.length*2+2;const tick=()=>{prog.value=Math.round(100*(++step)/total)};
+  try{
+    status.textContent="Checking your sign-in…";
+    await gh(tok,`/repos/${OWNER}/${REPO}`);
+    const photos=[];
+    if(photoFiles.length){
+      status.textContent="Uploading originals…";
+      await pool(photoFiles,4,async(f,i)=>{const base=String(i+1).padStart(3,"0")+"-"+safe(f.name.replace(/\.[^.]+$/,""));const ext=(f.name.match(/\.[^.]+$/)||[".jpg"])[0].toLowerCase();await put(tok,`originals/${folder}/${base}${ext}`,f,f.type||"image/jpeg");photos[i]={base,f};tick()});
+      status.textContent="Making web copies…";
+      await pool(photos,2,async(p)=>{try{const img=await decode(p.f);const web=await resize(img,WEB_EDGE,WEB_Q),th=await resize(img,THUMB_EDGE,THUMB_Q);img.close&&img.close();
+        p.entry=`${p.base}.webp#${web.w}x${web.h}`;
+        tree.push({path:`src/albums/${folder}/${p.base}.webp`,mode:"100644",type:"blob",sha:await blobSha(tok,await b64(web.blob),"base64")});
+        tree.push({path:`src/albums/${folder}/thumbs/${p.base}.webp`,mode:"100644",type:"blob",sha:await blobSha(tok,await b64(th.blob),"base64")});
+      }catch(e){add("Could not make a web copy of "+p.f.name+" (this browser can't open that format). The original is saved; open the album in the editor and add a JPEG of it to show it on the page.")}tick()});
+    }
+    const videos=[];
+    for(const f of videoFiles){
+      const vslug=slug(f.name.replace(/\.[^.]+$/,""))||("video-"+Date.now());const key=`video/${date}-${vslug}.mp4`;
+      status.textContent="Uploading "+f.name+"…";
+      if(f.size>90*1024*1024)await putBig(tok,key,f,p=>{status.textContent=`Uploading ${f.name}… ${Math.round(p*100)}%`});else await put(tok,key,f,f.type||"video/mp4");tick();
+      let portrait=false;try{const p=await poster(f);portrait=p.portrait;tree.push({path:`src/video/${date}-${vslug}.jpg`,mode:"100644",type:"blob",sha:await blobSha(tok,await b64(p.blob),"base64")})}catch(e){add("Could not take a poster frame from "+f.name+"; you can add one under Team and videos in the editor.")}
+      videos.push({slug:`${date}-${vslug}`,title:title,where:new Date(date+"T12:00:00").toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"}),credit:credit,event:"",portrait});tick();
+    }
+    status.textContent="Saving the album…";
+    const ref=await gh(tok,`/repos/${OWNER}/${REPO}/git/ref/heads/${BRANCH}`);const head=ref.object.sha;
+    const base=await gh(tok,`/repos/${OWNER}/${REPO}/git/commits/${head}`);
+    if(photos.length){const ok=photos.filter(p=>p.entry);const fm=["---",`title: ${JSON.stringify(title)}`,`date: ${JSON.stringify(date)}`,`cover: ${JSON.stringify(ok[0]?ok[0].base+".webp":"")}`,"photos:",...ok.map(p=>`  - ${JSON.stringify(p.entry)}`),`credit: ${JSON.stringify(credit)}`,`originals: true`,`source: ${JSON.stringify("upload page")}`,"---",""].join("\n");
+      tree.push({path:`src/albums/${folder}/index.md`,mode:"100644",type:"blob",sha:await blobSha(tok,fm,"utf-8")})}
+    if(videos.length){const cur=await gh(tok,`/repos/${OWNER}/${REPO}/contents/src/_data/videos.json?ref=${BRANCH}`);const list=JSON.parse(atob(cur.content.replace(/\n/g,"")));const next=JSON.stringify([...videos,...list],null,2)+"\n";
+      tree.push({path:"src/_data/videos.json",mode:"100644",type:"blob",sha:await blobSha(tok,next,"utf-8")})}
+    tick();
+    const newTree=await gh(tok,`/repos/${OWNER}/${REPO}/git/trees`,{method:"POST",body:JSON.stringify({base_tree:base.tree.sha,tree})});
+    const commit=await gh(tok,`/repos/${OWNER}/${REPO}/git/commits`,{method:"POST",body:JSON.stringify({message:`Add ${title} (${date}) from the upload page`,tree:newTree.sha,parents:[head]})});
+    await gh(tok,`/repos/${OWNER}/${REPO}/git/refs/heads/${BRANCH}`,{method:"PATCH",body:JSON.stringify({sha:commit.sha,force:false})});
+    tick();prog.value=100;status.textContent="";
+    say(`Done. ${photos.filter(p=>p.entry).length} photos${videos.length?` and ${videos.length} video${videos.length>1?"s":""}`:""} uploaded. The night appears on the site in about two minutes at /photos/${folder}/.`,"ok");
+    photoFiles.length=0;videoFiles.length=0;$("#pcount").textContent="";$("#vcount").textContent="";
+  }catch(e){say("Something went wrong: "+e.message+(/Bad credentials|401|Not signed in/.test(e.message)?" Your token was not accepted; clear it and sign in to the editor again.":" Nothing was published; you can run the upload again and it will pick up where it left off."),"err");if(/Bad credentials|401/.test(e.message))localStorage.removeItem("site-history-token")}
+  finally{btn.disabled=false;status.textContent=""}
+});
+</script></body></html>

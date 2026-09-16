@@ -23,6 +23,9 @@ const photo = (value, folder, filesBase) => {
     // With a files host set (the R2 bucket), the click through and the download
     // use our own copy instead of Squarespace, so nothing breaks when it is cancelled.
     full: filesBase && remote ? filesBase + "/albums/" + folder + "/" + name : (remote ? url + "?format=2500w" : url),
+    // The download button on a photo uploaded through the editor goes through
+    // /api/original/, which hands over the full-size original when one exists.
+    download: remote ? (filesBase ? filesBase + "/albums/" + folder + "/" + name : url + "?format=2500w") : "/api/original/" + folder + "/" + name,
     name: url.split("/").pop(),
     remote,
     w,

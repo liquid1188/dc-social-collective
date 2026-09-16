@@ -14,7 +14,7 @@ details{margin-top:2rem;color:var(--ink2)}summary{cursor:pointer}code{background
 </style></head><body><div class="wrap">
 <h1>Site history</h1>
 <p class="lede">Every change to the site is saved here. Pick any earlier version and restore it. Restoring makes a new entry, so nothing is lost and you can undo the undo the same way.</p>
-<div class="bar"><a class="btn" href="/admin/">Back to the editor</a><button class="ghost" id="reload">Refresh</button><span class="meta" id="status"></span></div>
+<div class="bar"><a class="btn" href="/admin/">Back to the editor</a><a class="btn" href="/admin/upload/">Upload a night</a><button class="ghost" id="reload">Refresh</button><span class="meta" id="status"></span></div>
 <div class="note" id="note" hidden></div>
 <ol id="list"><li class="meta">Loading…</li></ol>
 <details><summary>What this does</summary><p>Each row is one saved change, newest first. <strong>Restore</strong> puts the whole site back to how it was right after that change, as a new saved version. It rebuilds within about two minutes. If you restore too far, restore the newer one again. Nothing is ever deleted from this list.</p><p>Restoring asks for the same access token you use to sign in to the editor. It is kept in this browser only.</p></details>
