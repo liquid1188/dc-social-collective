@@ -4,7 +4,7 @@ layout: base.njk
 <div class="wrap page-head">
   <p style="margin:0 0 .5rem"><a href="/gallery/" style="color:var(--coral-dark);text-decoration:none;font-weight:600">All albums</a></p>
   <h1>{{ title }}</h1>
-  <p class="lede">{{ day | longDate }}, {{ day | year }} · {{ images.length }} photos</p>
+  <p class="lede">{% if venue %}{{ venue }} · {% endif %}{{ day | longDate }}, {{ day | year }} · {{ images.length }} photos</p>
   <p class="share-note">{{ instagram.share | replace("@" + instagram.handle, '<a href="' + site.instagram + '" rel="noopener">@' + instagram.handle + '</a>') | safe }}</p>
   {%- if credit %}<p class="tally">Photos by {{ credit }}</p>{% endif %}
 </div>

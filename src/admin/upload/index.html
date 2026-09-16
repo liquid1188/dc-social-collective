@@ -27,7 +27,7 @@ details{margin-top:2rem;color:var(--ink2)}summary{cursor:pointer}
 
 <label>Video (optional)</label>
 <div class="drop" id="vdrop"><input type="file" id="videos" multiple accept="video/mp4,video/quicktime,.mp4,.mov"><strong>Drop the recap or reels here</strong> or tap to choose them<div class="hint">MP4 or MOV at full quality, 4K is fine. A poster frame is taken from the video for you.</div><div class="count" id="vcount"></div></div>
-<label for="credit">Photo and video credit (optional)</label><input type="text" id="credit" placeholder="Meghan Marie Photography">
+<div class="row"><div><label for="venue">Venue (optional)</label><input type="text" id="venue" placeholder="The Winery at Bull Run"></div><div><label for="credit">Photo and video credit (optional)</label><input type="text" id="credit" placeholder="Meghan Marie Photography"></div></div>
 
 <div class="bar" style="margin-top:1.6rem"><button id="go">Upload the night</button><span class="hint" id="status"></span></div>
 <progress id="prog" value="0" max="100" hidden></progress>
@@ -71,7 +71,7 @@ async function blobSha(tok,content,encoding){const j=await gh(tok,`/repos/${OWNE
 async function pool(items,n,fn){let i=0;const out=[];await Promise.all(Array.from({length:n},async()=>{while(i<items.length){const k=i++;out[k]=await fn(items[k],k)}}));return out}
 
 $("#go").addEventListener("click",async()=>{
-  const title=$("#title").value.trim(),date=$("#date").value,credit=$("#credit").value.trim();
+  const title=$("#title").value.trim(),date=$("#date").value,credit=$("#credit").value.trim(),venue=$("#venue").value.trim();
   if(!title||!date)return say("Give the night a name and a date first.","err");
   if(!photoFiles.length&&!videoFiles.length)return say("Choose some photos or a video.","err");
   const tok=askToken();if(!tok)return say("No access token, nothing uploaded.","err");
@@ -97,12 +97,12 @@ $("#go").addEventListener("click",async()=>{
       status.textContent="Uploading "+f.name+"…";
       if(f.size>90*1024*1024)await putBig(tok,key,f,p=>{status.textContent=`Uploading ${f.name}… ${Math.round(p*100)}%`});else await put(tok,key,f,f.type||"video/mp4");tick();
       let portrait=false;try{const p=await poster(f);portrait=p.portrait;tree.push({path:`src/video/${date}-${vslug}.jpg`,mode:"100644",type:"blob",sha:await blobSha(tok,await b64(p.blob),"base64")})}catch(e){add("Could not take a poster frame from "+f.name+"; you can add one under Team and videos in the editor.")}
-      videos.push({slug:`${date}-${vslug}`,title:title,where:new Date(date+"T12:00:00").toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"}),credit:credit,event:"",portrait});tick();
+      videos.push({slug:`${date}-${vslug}`,title:title,where:(venue?venue+", ":"")+new Date(date+"T12:00:00").toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"}),credit:credit,event:"",portrait});tick();
     }
     status.textContent="Saving the album…";
     const ref=await gh(tok,`/repos/${OWNER}/${REPO}/git/ref/heads/${BRANCH}`);const head=ref.object.sha;
     const base=await gh(tok,`/repos/${OWNER}/${REPO}/git/commits/${head}`);
-    if(photos.length){const ok=photos.filter(p=>p.entry);const fm=["---",`title: ${JSON.stringify(title)}`,`date: ${JSON.stringify(date)}`,`cover: ${JSON.stringify(ok[0]?ok[0].base+".webp":"")}`,"photos:",...ok.map(p=>`  - ${JSON.stringify(p.entry)}`),`credit: ${JSON.stringify(credit)}`,`originals: true`,`source: ${JSON.stringify("upload page")}`,"---",""].join("\n");
+    if(photos.length){const ok=photos.filter(p=>p.entry);const fm=["---",`title: ${JSON.stringify(title)}`,`date: ${JSON.stringify(date)}`,`venue: ${JSON.stringify(venue)}`,`cover: ${JSON.stringify(ok[0]?ok[0].base+".webp":"")}`,"photos:",...ok.map(p=>`  - ${JSON.stringify(p.entry)}`),`credit: ${JSON.stringify(credit)}`,`originals: true`,`source: ${JSON.stringify("upload page")}`,"---",""].join("\n");
       tree.push({path:`src/albums/${folder}/index.md`,mode:"100644",type:"blob",sha:await blobSha(tok,fm,"utf-8")})}
     if(videos.length){const cur=await gh(tok,`/repos/${OWNER}/${REPO}/contents/src/_data/videos.json?ref=${BRANCH}`);const list=JSON.parse(atob(cur.content.replace(/\n/g,"")));const next=JSON.stringify([...videos,...list],null,2)+"\n";
       tree.push({path:"src/_data/videos.json",mode:"100644",type:"blob",sha:await blobSha(tok,next,"utf-8")})}

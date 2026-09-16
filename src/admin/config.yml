@@ -70,6 +70,7 @@ collections:
     fields:
       - { name: title, label: Album name, hint: "The name of the night, for example Sangria y Salsa." }
       - { name: date, label: Date of the night, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", default: "{{now}}", hint: "The album folder is named after this date, so set it before you save." }
+      - { name: venue, label: Venue, required: false, hint: "Optional subtitle, for example The Winery at Bull Run. Shown under the album name and on the Photos page." }
       - { name: photos, label: Photos, widget: image, multiple: true, hint: "Drop the whole night in here at once. Drag a photo to move it. The first one is used on the Photos page unless you set a cover below." }
       - { name: cover, label: Cover photo, widget: image, required: false, hint: "Optional. The one photo shown on the Photos page. Leave it empty to use the first photo." }
       - { name: credit, label: Photo credit, required: false, hint: "Optional. Shown under the album name, for example Meghan Marie Photography." }
