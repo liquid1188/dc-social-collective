@@ -32,7 +32,9 @@ export default {
   layout: "album.njk",
   tags: "album",
   eleventyComputed: {
-    permalink: (data) => "/photos/" + folderOf(data) + "/",
+    // A draft album has no page and stays off the Photos page until Draft is turned off.
+    permalink: (data) => (data.draft ? false : "/photos/" + folderOf(data) + "/"),
+    eleventyExcludeFromCollections: (data) => Boolean(data.draft),
     day: (data) => day(data.date),
     images: (data) => (data.photos || []).map((p) => photo(p, folderOf(data))),
     coverImage: (data) => {
