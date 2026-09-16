@@ -508,7 +508,7 @@ collections:
       - name: videos
         label: Videos
         file: src/_data/videos.json
-        description: "Newest at the top. Upload the MP4 and a poster frame for each video. Files up to 200 MB are accepted, but anything over about 60 MB will play slowly on phones, so export at 1080p."
+        description: "Newest at the top. Upload a poster frame for each video. For the video file itself, send the full-size export to Andrew and he will put it on the files server at full quality, or upload it here if it is under 100 MB."
         media_folder: /src/video
         public_folder: /video
         fields:

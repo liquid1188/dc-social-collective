@@ -18,7 +18,8 @@ description: "Recap videos from DC Social Collective nights: balls, barn dances,
         {#- Reels are shot vertical. They sit in the same 16:9 card as everything
             else, letterboxed over a blurred copy of their own poster. #}
         <div class="video-frame{% if v.portrait %} portrait{% endif %}">
-          {%- set vsrc = v.file or ("/video/" + v.slug + ".mp4") %}
+          {#- Videos are served from the files host (R2) so they can be full size without living in the repo #}
+          {%- set vsrc = v.file or (site.filesBase + "/video/" + v.slug + ".mp4") %}
           {%- set vposter = v.poster or ("/video/" + v.slug + ".jpg") %}
           {%- if v.portrait %}<span class="video-blur" style="background-image:url('{{ vposter }}')" aria-hidden="true"></span>{% endif %}
           <video controls playsinline preload="none" poster="{{ vposter }}" width="{{ vw }}" height="{{ vh }}"><source src="{{ vsrc }}" type="video/mp4"></video>
