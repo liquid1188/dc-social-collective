@@ -442,6 +442,16 @@ collections:
   - name: shop
     label: Merch and partners
     files:
+      - name: donate
+        label: Donate page
+        file: src/_data/donate.json
+        fields:
+          - { name: heading, label: Heading }
+          - { name: lede, label: Line under the heading, widget: text }
+          - { name: body, label: Paragraph, widget: text }
+          - { name: button, label: Button }
+          - { name: note, label: Small print under the button, widget: text }
+          - { name: thanks, label: Closing line }
       - name: merch
         label: Merch page
         file: src/_data/merch.json
@@ -552,6 +562,7 @@ collections:
           - { name: instagram, label: Instagram link }
           - { name: facebook, label: Facebook group link }
           - { name: merch, label: Merch store link }
+          - { name: donate, label: Donate link, hint: "Where the Donate button sends people. This is the Squarespace donation checkout, which takes the card and sends the money to the same account as before." }
           - { name: ga4, label: Google Analytics Measurement ID, required: false, hint: "Looks like G-XXXXXXXXXX. Leave blank to turn analytics off." }
           - { name: attendees, label: Annual attendees as shown (e.g. 6,000), hint: "Used in the footer and in the About copy." }
           - { name: filesBase, widget: hidden, required: false }

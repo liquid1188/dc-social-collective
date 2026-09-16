@@ -5,12 +5,17 @@ permalink: /donate/
 description: "Support DC Social Collective."
 ---
 <div class="wrap page-head">
-  <h1>Support the work</h1>
-  <p class="lede">Ticket sales cover the nights. Gifts cover everything between them: the free lessons, the outreach, the new venues we try. Thank you.</p>
+  <h1>{{ donate.heading }}</h1>
+  <p class="lede">{{ donate.lede }}</p>
 </div>
 <section class="band" style="padding-top:1.5rem">
   <div class="wrap two-col">
-    <div><p>Our donation page is on its way. In the meantime, write to <a href="mailto:{{ site.email }}">{{ site.email }}</a> and we'll send you the details.</p></div>
+    <div>
+      <p>{{ donate.body }}</p>
+      <p style="margin:1.4rem 0 .8rem"><a class="btn" href="{{ site.donate }}" target="_blank" rel="noopener">{{ donate.button }}</a></p>
+      <p class="tally">{{ donate.note }}</p>
+      <p>{{ donate.thanks }}</p>
+    </div>
     <img src="/images/gallery/18.jpg" alt="Friends at a summer soiree" loading="lazy">
   </div>
 </section>
