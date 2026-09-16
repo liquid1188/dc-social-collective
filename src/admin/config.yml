@@ -161,6 +161,45 @@ collections:
               - { name: role, label: Title }
           - { name: sideCaption, label: Photo caption beside the letter, widget: text }
 
+      - name: series
+        label: Homepage series cards
+        file: src/_data/series.json
+        description: "The four cards under Our nights on the homepage, and the matching Photos series pages. Add or remove a card with the plus and trash icons."
+        media_folder: /src/images/gallery
+        public_folder: /images/gallery
+        fields:
+          - name: cards
+            label: Cards
+            widget: list
+            label_singular: card
+            summary: "{{fields.title}}"
+            root: true
+            fields:
+              - { name: slug, label: Web address, hint: "Lowercase, no spaces, for example sangria-y-salsa. It becomes /gallery/sangria-y-salsa/. Changing it changes the link." }
+              - { name: title, label: Title }
+              - { name: image, label: Photo, widget: image }
+              - { name: blurb, label: Paragraph on the homepage card, widget: text }
+              - { name: lede, label: Line on the Photos series page, widget: text }
+              - { name: keywords, label: Words that match albums, hint: "Separate with a vertical bar. Any album whose name contains one of these lands on this series page." }
+      - name: mosaic
+        label: Homepage photo mosaic
+        file: src/_data/gallery.json
+        description: "The photo grid on the homepage. Add, remove, or drag to reorder."
+        media_folder: /src/images/gallery
+        public_folder: /images/gallery
+        fields:
+          - name: photos
+            label: Photos
+            widget: list
+            label_singular: photo
+            summary: "{{fields.alt}}"
+            root: true
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: Short description, hint: "What is in the picture. Read aloud by screen readers." }
+              - { name: w, label: Width in pixels, widget: number, required: false }
+              - { name: h, label: Height in pixels, widget: number, required: false }
+
   - name: involved
     label: Get involved pages
     description: "Every word on the four pages people land on when they want to work with DSC. The email address and phone number come from Site settings, so change them there once and they change everywhere."
@@ -340,6 +379,110 @@ collections:
           - { name: contactName, label: Second contact name, required: false, hint: "Optional. A person reporters can write to directly." }
           - { name: contactRole, label: Second contact role, required: false, hint: "Optional. For example, reporter, for anything editorial." }
           - { name: contactEmail, label: Second contact email, required: false, hint: "Optional. Leave empty and this line disappears." }
+
+  - name: business
+    label: Venue and sponsor pages
+    description: "The Host a night page and the Sponsor page. Each list here is a set of bullet points on the page. Use the plus to add a point and the trash icon to remove one. Drag to reorder."
+    files:
+      - name: host
+        label: Host a night page
+        file: src/_data/host.json
+        fields:
+          - { name: eyebrow, label: Small line above the heading }
+          - { name: heading, label: Heading }
+          - { name: lede, label: Line under the heading, widget: text }
+          - { name: intro, label: Opening paragraph, widget: text }
+          - { name: runHeading, label: Heading for how the night runs }
+          - { name: run, label: How the night runs, widget: list, hint: "One point per line." }
+          - { name: bringHeading, label: Heading for what DSC handles }
+          - { name: bring, label: What DSC handles, widget: list }
+          - { name: needHeading, label: Heading for what a space needs }
+          - { name: need, label: What a space needs, widget: list }
+          - { name: moneyHeading, label: Heading for the money section }
+          - { name: moneyIntro, label: Money section opening, widget: text }
+          - { name: money, label: How it is usually structured, widget: list }
+          - { name: moneyClose, label: Money section closing, widget: text }
+          - { name: logosHeading, label: Heading above the venue logos }
+          - { name: logosLede, label: Line under that heading, widget: text, hint: "The logos themselves come from the Venues page under Pages." }
+          - { name: formHeading, label: Form heading }
+          - { name: formIntro, label: Line above the form, widget: text }
+          - { name: button, label: Form button }
+          - { name: closing, label: Closing line, widget: text, hint: "The email address is added automatically after it." }
+      - name: sponsor
+        label: Sponsor page
+        file: src/_data/sponsor.json
+        fields:
+          - { name: eyebrow, label: Small line above the heading }
+          - { name: heading, label: Heading }
+          - { name: lede, label: Line under the heading, widget: text }
+          - { name: intro, label: Opening paragraph, widget: text }
+          - { name: roomHeading, label: Heading for who is in the room }
+          - { name: room, label: Who is in the room, widget: list }
+          - { name: optionsHeading, label: Heading for what can be sponsored }
+          - { name: options, label: What can be sponsored, widget: list }
+          - { name: getHeading, label: Heading for what comes with it }
+          - { name: get, label: What comes with it, widget: list }
+          - { name: priceNote, label: Pricing note, widget: text }
+          - { name: formHeading, label: Form heading }
+          - { name: formIntro, label: Line above the form, widget: text }
+          - { name: button, label: Form button }
+          - { name: closing, label: Closing line, widget: text, hint: "The email address is added automatically after it." }
+
+  - name: shop
+    label: Merch and partners
+    files:
+      - name: merch
+        label: Merch page
+        file: src/_data/merch.json
+        description: "Add or remove products with the plus and trash icons. Each product needs the link to its listing on the print store."
+        media_folder: /src/images/merch
+        public_folder: /images/merch
+        fields:
+          - { name: eyebrow, label: Small line above the heading }
+          - { name: heading, label: Heading }
+          - { name: lede, label: Line under the heading, widget: text }
+          - { name: intro, label: Opening paragraph, widget: text }
+          - { name: note, label: Note about pricing, widget: text }
+          - { name: button, label: Button on each product }
+          - { name: storeLabel, label: Link to the full store }
+          - name: groups
+            label: Product groups
+            widget: list
+            label_singular: group
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Group name, hint: "For example Wear or Carry." }
+              - name: items
+                label: Products
+                widget: list
+                label_singular: product
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: name, label: Product name }
+                  - { name: kind, label: What it is, hint: "For example Unisex classic pullover hoodie." }
+                  - { name: price, label: Price, hint: "Write it with the dollar sign, for example $41.99." }
+                  - { name: image, label: Photo, widget: image }
+                  - { name: url, label: Link to the listing }
+      - name: partners
+        label: Partners
+        file: src/_data/partners.json
+        description: "The partner band on the homepage. Remove every partner and the band disappears."
+        media_folder: /src/images/partners
+        public_folder: /images/partners
+        fields:
+          - { name: heading, label: Heading }
+          - { name: lede, label: Paragraph, widget: text }
+          - { name: linkLabel, label: Link text }
+          - name: items
+            label: Partners
+            widget: list
+            label_singular: partner
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: Name }
+              - { name: logo, label: Logo, widget: image }
+              - { name: url, label: Link }
+              - { name: role, label: What they do, hint: "For example Live sound." }
 
   - name: people
     label: Team and videos

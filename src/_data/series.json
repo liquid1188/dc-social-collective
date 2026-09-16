@@ -1,6 +1,34 @@
 [
-  {"slug":"country","title":"All-American Country Nights","keywords":"country|barn dance|hoedown|bluegrass|summer nights","lede":"Country swing, two-step, and line dancing at Whiffletree Farm, Bull Run, and Old Farm Winery."},
-  {"slug":"sangria-y-salsa","title":"Sangria y Salsa","keywords":"sangria|salsa|latin","lede":"Salsa and bachata nights at The Winery at Bull Run."},
-  {"slug":"galas","title":"Galas, holidays, and special nights","keywords":"ball|gatsby|gala|gold cup|christmas|80's night|rom","lede":"Black tie, live big bands, and the nights we only do once."},
-  {"slug":"soirees","title":"Soirees and summer nights","keywords":"soir|marina|luau|picnic|jazz|swing|disco","lede":"Lawn parties, marina nights, and jazz in hotel courtyards."}
+  {
+    "slug": "country",
+    "title": "All-American Country Nights",
+    "keywords": "country|barn dance|hoedown|bluegrass|summer nights",
+    "lede": "Country swing, two-step, and line dancing at Whiffletree Farm, Bull Run, and Old Farm Winery.",
+    "image": "/images/gallery/12.jpg",
+    "blurb": "Country swing, two-step, line dancing, BBQ, and wine, in the barn at Whiffletree Farm in Warrenton or on the grounds at Bull Run. A 45-minute lesson opens every night, so everyone starts out on the floor together."
+  },
+  {
+    "slug": "sangria-y-salsa",
+    "title": "Sangria y Salsa",
+    "keywords": "sangria|salsa|latin",
+    "lede": "Salsa and bachata nights at The Winery at Bull Run.",
+    "image": "/images/gallery/26.jpg",
+    "blurb": "The DMV's largest Latin dance series. Salsa and bachata, live Latin music, sangria, and the whole vineyard at The Winery at Bull Run."
+  },
+  {
+    "slug": "galas",
+    "title": "Galas, holidays, and special nights",
+    "keywords": "ball|gatsby|gala|gold cup|christmas|80's night|rom",
+    "lede": "Black tie, live big bands, and the nights we only do once.",
+    "image": "/images/gallery/27.jpg",
+    "blurb": "Black tie, a live big band, and a few hundred people who dressed for it. The Crooner Christmas Ball at Hotel Heron, St. Joseph's Ball at Catholic University, and The Grape Gatsby at Old Farm Winery. Holiday nights land here too, along with the one-offs we only do once."
+  },
+  {
+    "slug": "soirees",
+    "title": "Soirees and summer nights",
+    "keywords": "soir|marina|luau|picnic|jazz|swing|disco",
+    "lede": "Lawn parties, marina nights, and jazz in hotel courtyards.",
+    "image": "/images/gallery/25.jpg",
+    "blurb": "Strawberries on the lawn at President Lincoln's Cottage, live jazz in a hotel courtyard in Old Town Alexandria, disco on the docks at Columbia Island Marina."
+  }
 ]
