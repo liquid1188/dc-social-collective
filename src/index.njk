@@ -71,7 +71,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
   </div>
 </section>
 
-{%- set fv = videos | selectattr("slug", "equalto", home.feature.video) | first %}
+{%- set fv = false %}{%- for v in videos %}{%- if v.slug == home.feature.video %}{%- set fv = v %}{%- endif %}{%- endfor %}
 {%- if fv %}
 <section class="band navy on-dark">
   <div class="wrap">
