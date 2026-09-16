@@ -96,6 +96,13 @@ collections:
               - { name: secondary, label: Second button }
               - { name: video, label: Background video, widget: file, required: false, media_folder: /src/video, public_folder: /video, hint: "Use a wide MP4. 1920 by 1080 looks best." }
               - { name: poster, label: Background video fallback image, widget: image, required: false, media_folder: /src/video, public_folder: /video, hint: "Shown before the video plays, and when someone prefers reduced motion." }
+          - name: feature
+            label: Featured video
+            widget: object
+            fields:
+              - { name: heading, label: Heading }
+              - { name: video, label: Which video, widget: relation, collection: people, file: videos, value_field: "items.*.slug", display_fields: ["items.*.title"], search_fields: ["items.*.title", "items.*.where"], hint: "Pick any video from the Videos page." }
+              - { name: caption, label: Caption under the video, widget: text }
           - name: story
             label: Our story block
             widget: object
@@ -509,7 +516,7 @@ collections:
       - name: videos
         label: Videos
         file: src/_data/videos.json
-        description: "Newest at the top. Upload a poster frame for each video. For the video file itself, send the full-size export to Andrew and he will put it on the files server at full quality, or upload it here if it is under 100 MB."
+        description: "Every video on the Videos page, newest at the top. New videos come in through Upload a night at /admin/upload/, which stores the file at full quality. Here you can retitle, reorder, swap the poster frame, or remove one. Drag to reorder."
         media_folder: /src/video
         public_folder: /video
         fields:
@@ -520,7 +527,7 @@ collections:
             summary: "{{fields.title}} · {{fields.where}}"
             fields:
               - { name: title, label: Title }
-              - { name: file, label: Video file, widget: file, required: false, accept: "video/mp4,video/quicktime", hint: "Upload the MP4. Keep it 1080p." }
+              - { name: file, widget: hidden, required: false }
               - { name: poster, label: Poster frame, widget: image, required: false, hint: "The still shown before the video plays. A screenshot of a good moment works." }
               - { name: slug, widget: hidden, required: false }
               - { name: where, label: Venue and date }
