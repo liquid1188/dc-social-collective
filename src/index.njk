@@ -194,8 +194,10 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
   <div class="wrap partner">
     <div>
       <p class="eyebrow">Who we work with</p>
-      <h2>{{ partners.heading }}</h2>
-      <p class="lede">{{ partners.lede }}</p>
+      {%- set h = partners.heading %}{%- for p in partners.items %}{%- set h = h | replace(p.name, '<a href="' + p.url + '" target="_blank" rel="noopener">' + p.name + '</a>') %}{%- endfor %}
+      <h2>{{ h | safe }}</h2>
+      {%- set l = partners.lede %}{%- for p in partners.items %}{%- set l = l | replace(p.name, '<a href="' + p.url + '" target="_blank" rel="noopener">' + p.name + '</a>') %}{%- endfor %}
+      <p class="lede">{{ l | safe }}</p>
     </div>
     <div class="partner-logos">
     {%- for p in partners.items %}

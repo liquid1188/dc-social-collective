@@ -643,3 +643,6 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* A time range is one thing: let it move to the next line whole rather than
    breaking between the start and the end time. */
 .nowrap { white-space: nowrap; }
+
+.partner h2 a, .partner .lede a { color: inherit; text-decoration: underline; text-decoration-color: var(--coral-dark); text-underline-offset: .15em; }
+.partner h2 a:hover, .partner .lede a:hover { color: var(--coral-dark); }
