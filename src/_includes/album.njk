@@ -7,9 +7,6 @@ layout: base.njk
   <p class="lede">{{ day | longDate }}, {{ day | year }} · {{ images.length }} photos</p>
   <p class="share-note">{{ instagram.share | replace("@" + instagram.handle, '<a href="' + site.instagram + '" rel="noopener">@' + instagram.handle + '</a>') | safe }}</p>
   {%- if credit %}<p class="tally">Photos by {{ credit }}</p>{% endif %}
-  {%- if downloadUrl %}
-  <p style="margin-top:1.2rem"><a class="btn" href="{{ downloadUrl }}" rel="noopener">Download the originals</a></p>
-  {%- endif %}
 </div>
 <section class="band" style="padding-top:1.5rem">
   <div class="wrap gallery">
