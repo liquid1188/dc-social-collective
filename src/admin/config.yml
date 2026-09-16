@@ -9,22 +9,22 @@ site_url: https://www.dcsocialcollective.com
 media_folder: src/images/events
 public_folder: /images/events
 
-# Every picture you upload, anywhere in this editor, is shrunk to 2048 pixels on
-# its longest side and saved as WebP before it leaves your browser. Files larger
-# than 25 MB are refused.
+# Every picture you upload, anywhere in this editor, is shrunk to 2560 pixels on
+# its longest side and saved as WebP before it leaves your browser. JPEG, PNG,
+# HEIC, and WebP are all accepted. Files larger than 200 MB are refused.
 media_libraries:
   all:
     transformations:
       raster_image:
         format: webp
-        quality: 85
-        width: 2048
-        height: 2048
+        quality: 90
+        width: 2560
+        height: 2560
       svg:
         optimize: true
   default:
     config:
-      max_file_size: 26214400
+      max_file_size: 209715200
       slugify_filename: true
 
 collections:
@@ -507,7 +507,9 @@ collections:
       - name: videos
         label: Videos
         file: src/_data/videos.json
-        description: "Each video needs two files uploaded to the video folder by Andrew: slug.mp4 and slug.jpg (the poster frame)."
+        description: "Newest at the top. Upload the MP4 and a poster frame for each video. Files up to 200 MB are accepted, but anything over about 60 MB will play slowly on phones, so export at 1080p."
+        media_folder: /src/video
+        public_folder: /video
         fields:
           - name: items
             label: Videos
@@ -515,8 +517,10 @@ collections:
             root: true
             summary: "{{fields.title}} · {{fields.where}}"
             fields:
-              - { name: slug, label: File name (without .mp4) }
               - { name: title, label: Title }
+              - { name: file, label: Video file, widget: file, required: false, accept: "video/mp4,video/quicktime", hint: "Upload the MP4. Keep it 1080p." }
+              - { name: poster, label: Poster frame, widget: image, required: false, hint: "The still shown before the video plays. A screenshot of a good moment works." }
+              - { name: slug, widget: hidden, required: false }
               - { name: where, label: Venue and date }
               - { name: credit, label: Video credit, required: false }
               - { name: event, label: Event slug it belongs to, required: false }

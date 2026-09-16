@@ -18,8 +18,10 @@ description: "Recap videos from DC Social Collective nights: balls, barn dances,
         {#- Reels are shot vertical. They sit in the same 16:9 card as everything
             else, letterboxed over a blurred copy of their own poster. #}
         <div class="video-frame{% if v.portrait %} portrait{% endif %}">
-          {%- if v.portrait %}<span class="video-blur" style="background-image:url('/video/{{ v.slug }}.jpg')" aria-hidden="true"></span>{% endif %}
-          <video controls playsinline preload="none" poster="/video/{{ v.slug }}.jpg" width="{{ vw }}" height="{{ vh }}"><source src="/video/{{ v.slug }}.mp4" type="video/mp4"></video>
+          {%- set vsrc = v.file or ("/video/" + v.slug + ".mp4") %}
+          {%- set vposter = v.poster or ("/video/" + v.slug + ".jpg") %}
+          {%- if v.portrait %}<span class="video-blur" style="background-image:url('{{ vposter }}')" aria-hidden="true"></span>{% endif %}
+          <video controls playsinline preload="none" poster="{{ vposter }}" width="{{ vw }}" height="{{ vh }}"><source src="{{ vsrc }}" type="video/mp4"></video>
         </div>
         <figcaption><strong>{{ v.title }}</strong><br>{{ v.where }}{% if v.credit %}. Video by {{ v.credit }}{% endif %}.</figcaption>
       </figure>
