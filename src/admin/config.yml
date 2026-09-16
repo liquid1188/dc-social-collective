@@ -544,6 +544,7 @@ collections:
           - { name: merch, label: Merch store link }
           - { name: ga4, label: Google Analytics Measurement ID, required: false, hint: "Looks like G-XXXXXXXXXX. Leave blank to turn analytics off." }
           - { name: attendees, label: Annual attendees as shown (e.g. 6,000), hint: "Used in the footer and in the About copy." }
+          - { name: filesBase, widget: hidden, required: false }
           - { name: url, widget: hidden }
           - { name: setupMode, widget: hidden }
       - name: instagram

@@ -8,7 +8,7 @@ const day = (v) => (v instanceof Date ? v.toISOString() : String(v || "")).slice
 
 import { existsSync } from "node:fs";
 
-const photo = (value, folder) => {
+const photo = (value, folder, filesBase) => {
   const [path, dims] = String(value).split("#");
   const [w, h] = (dims || "").split("x");
   const remote = /^https?:\/\//.test(path);
@@ -20,7 +20,9 @@ const photo = (value, folder) => {
   const localThumb = !remote && existsSync(thumbPath) ? "/albums/" + folder + "/thumbs/" + name : null;
   return {
     thumb: remote ? url + "?format=1000w" : (localThumb || url),
-    full: remote ? url + "?format=2500w" : url,
+    // With a files host set (the R2 bucket), the click through and the download
+    // use our own copy instead of Squarespace, so nothing breaks when it is cancelled.
+    full: filesBase && remote ? filesBase + "/albums/" + folder + "/" + name : (remote ? url + "?format=2500w" : url),
     name: url.split("/").pop(),
     remote,
     w,
@@ -36,7 +38,7 @@ export default {
     permalink: (data) => (data.draft ? false : "/photos/" + folderOf(data) + "/"),
     eleventyExcludeFromCollections: (data) => Boolean(data.draft),
     day: (data) => day(data.date),
-    images: (data) => (data.photos || []).map((p) => photo(p, folderOf(data))),
+    images: (data) => (data.photos || []).map((p) => photo(p, folderOf(data), (data.site && data.site.filesBase) || "")),
     coverImage: (data) => {
       const source = data.cover || (data.photos || [])[0];
       return source ? photo(source, folderOf(data)).thumb : "";
