@@ -120,7 +120,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
 
 <section class="band navy on-dark">
   <div class="wrap">
-    <div class="band-head"><h2>From the dance floor</h2></div>
+    <div class="band-head share-head"><h2>From the dance floor</h2><a class="share-card" href="{{ site.instagram }}" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.1"/></svg><span>{{ instagram.share | replace("@" + instagram.handle, '<span class="handle" data-href="' + site.instagram + '" rel="noopener">@' + instagram.handle + '</a>') | safe }}</span></a></div>
     <div class="mosaic">
       <a href="/gallery/"><img src="/images/gallery/04.jpg" alt="A packed dance floor at The Winery at Bull Run" loading="lazy"></a>
       <a href="/gallery/"><img src="/images/gallery/07.jpg" alt="Guests in 1920s dress" loading="lazy"></a>
@@ -128,7 +128,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       <a href="/gallery/"><img src="/images/gallery/14.jpg" alt="A dance under stage fog" loading="lazy"></a>
       <a href="/gallery/"><img src="/images/gallery/11.jpg" alt="Country dancing" loading="lazy"></a>
     </div>
-    <div class="band-foot split"><p class="share-note">{{ instagram.share | replace("@" + instagram.handle, '<a href="' + site.instagram + '" rel="noopener">@' + instagram.handle + '</a>') | safe }}</p><a href="/gallery/">All photos</a></div>
+    <div class="band-foot"><a href="/gallery/">All photos</a></div>
     <div class="quotes">
     {%- for q in quotes.items %}
       <blockquote>
