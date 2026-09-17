@@ -5,7 +5,7 @@ so the per-photo download button hands over the full file. Photos that are not i
 the album any more are skipped, never re-added.
 Usage: attach_originals.py <album-folder> <google-photos-link | local dir> [more links]
 """
-import os, re, sys, io, json, pathlib, subprocess, tempfile, mimetypes, concurrent.futures as cf
+import os, re, sys, io, json, pathlib, subprocess, tempfile, mimetypes, signal, concurrent.futures as cf
 import urllib.request, boto3, imagehash
 from PIL import Image
 from botocore.config import Config
@@ -24,7 +24,7 @@ UA = {"User-Agent": "Mozilla/5.0"}
 def gp_urls(link):
     html = urllib.request.urlopen(urllib.request.Request(link, headers=UA)).read().decode("utf-8", "ignore")
     return sorted(set(re.findall(r"https://lh3\.googleusercontent\.com/pw/[A-Za-z0-9_-]+", html)))
-work = pathlib.Path(tempfile.mkdtemp(prefix="orig-"))
+work = pathlib.Path(os.environ.get("ORIG_DIR", "/home/claude/orig")) / album; work.mkdir(parents=True, exist_ok=True)
 files = []
 for src in sources:
     if os.path.isdir(src):
@@ -36,9 +36,9 @@ for src in sources:
             with urllib.request.urlopen(req, timeout=120) as r:
                 cd = r.headers.get("Content-Disposition", ""); m = re.search(r'filename="?([^";]+)', cd)
                 name = m.group(1) if m else u.rsplit("/", 1)[1] + ".jpg"
-                dest = work / name
-                if dest.exists(): dest = work / (dest.stem + "-" + u[-6:] + dest.suffix)
-                dest.write_bytes(r.read()); return dest
+                dest = work / (pathlib.Path(name).stem + "-" + u[-8:] + pathlib.Path(name).suffix)
+                if dest.exists() and dest.stat().st_size > 0: return dest
+                tmp = dest.with_suffix(dest.suffix + ".part"); tmp.write_bytes(r.read()); tmp.rename(dest); return dest
         with cf.ThreadPoolExecutor(6) as ex: files += list(ex.map(fetch, urls))
 print(len(files), "originals downloaded", flush=True)
 # match by content
@@ -60,4 +60,4 @@ def put(item):
 with cf.ThreadPoolExecutor(8) as ex: keys = list(ex.map(put, matched.items()))
 print("uploaded", len(keys), flush=True)
 json.dump({"matched": {w: f.name for w, f in matched.items()}, "unmatched": unmatched}, open(f"/home/claude/orig-{album}.json", "w"), indent=1)
-subprocess.run(["rm", "-rf", str(work)])
+
