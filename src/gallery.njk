@@ -8,7 +8,7 @@ description: "Every DC Social Collective night in photos, since the first picnic
   <h1>Photos</h1>
   <p class="lede">Every night since the first picnic in 2021, newest first.</p>
   <p class="tally">{{ collections.albums | length }} galleries &middot; {{ collections.albums | photoCount }} photos</p>
-  <p class="share-note">{{ instagram.share | replace("@" + instagram.handle, '<a href="' + site.instagram + '" rel="noopener">@' + instagram.handle + '</a>') | safe }}</p>
+  <a class="share-card light" href="{{ site.instagram }}" rel="noopener"><svg class="ig-mark" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFDC80"/><stop offset=".25" stop-color="#F77737"/><stop offset=".5" stop-color="#E1306C"/><stop offset=".75" stop-color="#C13584"/><stop offset="1" stop-color="#5851DB"/></linearGradient></defs><path fill="none" stroke="url(#igg)" stroke-width="1.7" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="url(#igg)" stroke-width="1.7"/><circle cx="17.5" cy="6.5" r="1.1" fill="url(#igg)"/></svg><span>{{ instagram.share | replace("@" + instagram.handle, '<b class="handle">@' + instagram.handle + '</b>') | safe }}</span></a>
 </div>
 {%- if instagram.beholdFeedId or instagram.embed %}
 <section class="band paper" id="instagram" style="padding-top:1.5rem">

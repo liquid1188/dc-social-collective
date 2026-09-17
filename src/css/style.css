@@ -654,8 +654,11 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* Homepage photo band: the tag-and-collaborate ask sits top right as a card with a big Instagram mark */
 .share-head { align-items: flex-start; gap: 2rem; }
 .share-card { display: flex; align-items: center; gap: 1rem; max-width: 30rem; padding: .9rem 1.1rem; border: 1px solid rgba(255,255,255,.22); border-radius: 12px; color: #fff; text-decoration: none; background: rgba(255,255,255,.06); }
-.share-card svg { width: 56px; height: 56px; flex: none; color: var(--amber); }
+.share-card svg { width: 56px; height: 56px; flex: none; }
 .share-card span { font-size: .95rem; line-height: 1.45; color: rgba(255,255,255,.88); }
-.share-card .handle { color: var(--amber); font-weight: 600; }
+.share-card .handle { color: #E1306C; font-weight: 600; }
 .share-card:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.4); }
 @media (max-width: 760px) { .share-head { flex-direction: column; } .share-card { max-width: none; } }
+.share-card.light { margin: 1rem 0 0; color: var(--ink); border-color: var(--rule); background: #fff; }
+.share-card.light span { color: var(--ink-2); }
+.share-card.light:hover { background: #fff; border-color: #E1306C; }
