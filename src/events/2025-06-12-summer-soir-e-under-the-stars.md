@@ -8,7 +8,7 @@ address: "480 King Street Alexandria, VA, 22314"
 series: "Soirees and mixers"
 image: "/images/events/2025-06-12-summer-soir-e-under-the-stars.jpg"
 tickets: "https://dscsummersoiree2025.rsvpify.com/"
-video: "/video/soiree.mp4"
+video: "https://files.dcsocialcollective.com/video/soiree.mp4"
 videoPoster: "/video/soiree.jpg"
 videoCredit: "Saint Clair Media"
 tags: event
