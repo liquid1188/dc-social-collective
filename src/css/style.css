@@ -532,7 +532,17 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
    height or they collapse to nothing. max-width keeps the wide ones in line. */
 /* Base size; press.json overrides max-height per logo so the aspect ratios
    stop deciding how big each one looks. */
-.logos li img { height: 40px; max-width: 200px; width: auto; object-fit: contain; display: block; }
+.logos li img { height: var(--h, 40px); max-width: 200px; width: auto; object-fit: contain; display: block; }
+/* Phones: four tiles in a row, each logo scaled to fit, never a stack. */
+@media (max-width: 700px) {
+  .logos { flex-wrap: nowrap; gap: .5rem; }
+  .logos li { flex: 1 1 0; min-width: 0; height: 56px; padding: .4rem .5rem; border-radius: 8px; }
+  .logos li img { height: calc(var(--h, 40px) * .62); max-width: 100%; }
+}
+@media (max-width: 400px) {
+  .logos li { height: 50px; padding: .35rem .4rem; }
+  .logos li img { height: calc(var(--h, 40px) * .54); }
+}
 .logos a { color: inherit; text-decoration: none; }
 .logos a:hover { color: var(--amber); }
 

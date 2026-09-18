@@ -38,7 +38,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
     <p class="eyebrow">{{ press.logosHeading }}</p>
     <ul class="logos">
     {%- for l in press.logos %}
-      <li>{% if l.url %}<a href="{{ l.url }}" rel="noopener">{% endif %}{% if l.logo %}<img src="{{ l.logo }}" alt="{{ l.name }}" loading="lazy"{% if l.h %} style="height:{{ l.h }}px"{% endif %}>{% else %}{{ l.name }}{% endif %}{% if l.url %}</a>{% endif %}</li>
+      <li>{% if l.url %}<a href="{{ l.url }}" rel="noopener">{% endif %}{% if l.logo %}<img src="{{ l.logo }}" alt="{{ l.name }}" loading="lazy"{% if l.h %} style="--h:{{ l.h }}px"{% endif %}>{% else %}{{ l.name }}{% endif %}{% if l.url %}</a>{% endif %}</li>
     {%- endfor %}
     </ul>
   </div>
