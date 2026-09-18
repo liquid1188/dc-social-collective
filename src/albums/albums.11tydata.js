@@ -8,6 +8,18 @@ const day = (v) => (v instanceof Date ? v.toISOString() : String(v || "")).slice
 
 import { existsSync } from "node:fs";
 
+// The mirror wrote the Squarespace albums into R2 under the filename exactly as
+// it appeared in the CDN URL, still percent encoded, so the real object key for
+// "Crooner (1).jpg" is the literal text "Crooner+%281%29.jpg". Asking for that
+// text over HTTP decodes it back to "Crooner (1).jpg" and misses, so the percent
+// has to be escaped again here.
+const r2Name = (name) => name.replace(/%/g, "%25");
+
+// Thumb basename for a mirrored photo. scripts/build_mirror_thumbs.py applies
+// the same rule when it writes them, so the two always agree. Keep them in step.
+const safeName = (name) =>
+  (decodeURIComponent(name.replace(/\+/g, " ")).replace(/\.[^.]*$/, "").replace(/[^A-Za-z0-9._-]+/g, "-").replace(/^-+|-+$/g, "") || "photo") + ".webp";
+
 const photo = (value, folder, filesBase) => {
   const [path, dims] = String(value).split("#");
   const [w, h] = (dims || "").split("x");
@@ -18,15 +30,21 @@ const photo = (value, folder, filesBase) => {
   // keep the full file for the click through and the download.
   const thumbPath = "src/albums/" + folder + "/thumbs/" + name;
   const localThumb = !remote && existsSync(thumbPath) ? "/albums/" + folder + "/thumbs/" + name : null;
+  // Mirrored albums read their thumb from our bucket too, so no part of the page
+  // depends on Squarespace still being up.
+  const remoteThumb = filesBase
+    ? filesBase + "/albums/" + folder + "/thumbs/" + safeName(name)
+    : url + "?format=1000w";
   return {
-    thumb: remote ? url + "?format=1000w" : (localThumb || url),
+    thumb: remote ? remoteThumb : (localThumb || url),
     // With a files host set (the R2 bucket), the click through and the download
     // use our own copy instead of Squarespace, so nothing breaks when it is cancelled.
-    full: filesBase && remote ? filesBase + "/albums/" + folder + "/" + name : (remote ? url + "?format=2500w" : url),
+    full: filesBase && remote ? filesBase + "/albums/" + folder + "/" + r2Name(name) : (remote ? url + "?format=2500w" : url),
     // The download button on a photo uploaded through the editor goes through
     // /api/original/, which hands over the full-size original when one exists.
-    download: remote ? (filesBase ? filesBase + "/albums/" + folder + "/" + name : url + "?format=2500w") : "/api/original/" + folder + "/" + name,
-    name: url.split("/").pop(),
+    download: remote ? (filesBase ? filesBase + "/albums/" + folder + "/" + r2Name(name) : url + "?format=2500w") : "/api/original/" + folder + "/" + name,
+    // Squarespace wrote spaces as "+", so undo that for the saved filename.
+    name: remote ? decodeURIComponent(name.replace(/\+/g, " ")) : name,
     remote,
     w,
     h
@@ -44,7 +62,7 @@ export default {
     images: (data) => (data.photos || []).map((p) => photo(p, folderOf(data), (data.site && data.site.filesBase) || "")),
     coverImage: (data) => {
       const source = data.cover || (data.photos || [])[0];
-      return source ? photo(source, folderOf(data)).thumb : "";
+      return source ? photo(source, folderOf(data), (data.site && data.site.filesBase) || "").thumb : "";
     },
     description: (data) => "Photos from " + (data.title || "a DC Social Collective night") + ", a DC Social Collective night."
   }
