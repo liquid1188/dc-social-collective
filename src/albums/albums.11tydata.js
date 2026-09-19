@@ -8,12 +8,14 @@ const day = (v) => (v instanceof Date ? v.toISOString() : String(v || "")).slice
 
 import { existsSync } from "node:fs";
 
-// The mirror wrote the Squarespace albums into R2 under the filename exactly as
-// it appeared in the CDN URL, still percent encoded, so the real object key for
-// "Crooner (1).jpg" is the literal text "Crooner+%281%29.jpg". Asking for that
-// text over HTTP decodes it back to "Crooner (1).jpg" and misses, so the percent
-// has to be escaped again here.
-const r2Name = (name) => name.replace(/%/g, "%25");
+// The mirror originally wrote the Squarespace albums into R2 under the filename
+// exactly as it appeared in the CDN URL, still percent encoded. On Sept 19, 2026
+// every such object was copied to a clean key, so "Crooner+%281%29.jpg" now lives
+// at "Crooner-1.jpg". The rule is the same one safeName uses for thumbs, with the
+// original extension kept, so the two always agree.
+const r2Name = (name) =>
+  (decodeURIComponent(name.replace(/\+/g, " ")).replace(/\.[^.]*$/, "").replace(/[^A-Za-z0-9._-]+/g, "-").replace(/^-+|-+$/g, "") || "photo") +
+  (name.match(/\.[^.]*$/) || [""])[0].toLowerCase();
 
 // Thumb basename for a mirrored photo. scripts/build_mirror_thumbs.py applies
 // the same rule when it writes them, so the two always agree. Keep them in step.

@@ -69,9 +69,7 @@ photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/d7595aa7-fc4f-4939-b487-75f26d5982b9/SummerPicnic-NobleSoul-MeghanMariePhotography-0277.jpg#4908x3272"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/f16a7b91-fa01-4cdd-8a60-151aecb5765e/SummerPicnic-NobleSoul-MeghanMariePhotography-0264.jpg#5760x3840"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/1e275f79-15e3-42d9-8766-e14fef5c5a92/SummerPicnic-NobleSoul-MeghanMariePhotography-0265.jpg#5760x3840"
-  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/49d99011-5127-43be-af3a-124c19fc9c39/SummerPicnic-NobleSoul-MeghanMariePhotography-0272.jpg#5760x3840"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/9ce548d8-d21a-43bc-99b3-c678b28fd167/SummerPicnic-NobleSoul-MeghanMariePhotography-0274.jpg#2615x3923"
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/ad9bee53-ce15-49f1-bfba-203715b7a544/SummerPicnic-NobleSoul-MeghanMariePhotography-0276.jpg#4912x3275"
-  - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/99d3298b-4847-4195-a502-b72d2b5e7e83/SummerPicnic-NobleSoul-MeghanMariePhotography-0277.jpg#4908x3272"
 source: "https://www.dcsocialcollective.com/gallery/project-one-dxld3"
 ---
