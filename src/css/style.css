@@ -91,13 +91,12 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
   .hero { min-height: auto; }
   .hero .wrap { grid-template-columns: 1fr; padding-top: 7rem; }
 }
-/* Phones: the hero is tall and narrow, so a 16:9 video on object-fit cover is a
-   3x crop of arms and heads. Show the whole frame instead, sitting under the nav
-   at its natural 16:9 height, with the blurred poster filling the rest. */
+/* Phones: the hero is tall and narrow, so a 16:9 video on object-fit cover is
+   a 3x crop. Let the video fill only the top of the hero and fade into the
+   navy below it; the zoom drops by a third and it stays a background. */
 @media (max-width: 640px) {
-  .hero img.bg { filter: blur(28px) brightness(.55); transform: scale(1.15); }
-  .hero video.bg { object-fit: contain; object-position: center 5.5rem; }
-  .hero .wrap { padding-top: calc(5.5rem + 56.25vw + 1.5rem); }
+  .hero video.bg, .hero img.bg { height: 125vw; object-position: center 40%; -webkit-mask-image: linear-gradient(#000 60%, transparent 100%); mask-image: linear-gradient(#000 60%, transparent 100%); }
+}
   .next { justify-self: stretch; max-width: none; }
 }
 
