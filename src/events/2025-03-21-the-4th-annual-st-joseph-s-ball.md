@@ -8,7 +8,7 @@ address: "597-599 Michigan Avenue Northeast Washington, DC, 20064"
 series: "Balls and galas"
 image: "/images/events/2025-03-21-the-4th-annual-st-joseph-s-ball.jpg"
 tickets: "https://stjosephsball2025.rsvpify.com/"
-video: "/video/stjoseph.mp4"
+video: "https://files.dcsocialcollective.com/video/stjoseph-4k.mp4"
 videoPoster: "/video/stjoseph.jpg"
 videoCredit: "Christopher Saint Clair"
 tags: event

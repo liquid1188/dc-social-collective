@@ -8,7 +8,7 @@ address: "8717 Springs Road Warrenton, VA, 20186"
 series: "Special events"
 image: "/images/events/2025-04-26-swing-into-spring.jpg"
 tickets: "https://dscswingintospring2025.rsvpify.com/"
-video: "/video/swing.mp4"
+video: "https://files.dcsocialcollective.com/video/swing-4k.mp4"
 videoPoster: "/video/swing.jpg"
 videoCredit: "Josh Levitas"
 tags: event

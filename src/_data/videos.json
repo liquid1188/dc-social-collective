@@ -5,7 +5,16 @@
   "where": "A look at our nights, 2026",
   "credit": "",
   "event": "",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/dc-collective-2026-1080.mp4"
+ },
+ {
+  "slug": "music-video-2026",
+  "title": "DC Social Collective 2026 Music Video",
+  "where": "A look at our nights, 2026",
+  "credit": "",
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/music-video-2026-1080.mp4"
  },
  {
   "slug": "country-nights-26-recap",
@@ -13,7 +22,8 @@
   "where": "August 22, 2026",
   "credit": "",
   "event": "",
-  "portrait": true
+  "portrait": true,
+  "file": "https://files.dcsocialcollective.com/video/country-nights-26-recap-4k.mp4"
  },
  {
   "slug": "country-nights-26-reel-1",
@@ -21,7 +31,8 @@
   "where": "August 22, 2026",
   "credit": "",
   "event": "",
-  "portrait": true
+  "portrait": true,
+  "file": "https://files.dcsocialcollective.com/video/country-nights-26-reel-1-4k.mp4"
  },
  {
   "slug": "country-nights-26-reel-2",
@@ -29,7 +40,8 @@
   "where": "August 22, 2026",
   "credit": "",
   "event": "",
-  "portrait": true
+  "portrait": true,
+  "file": "https://files.dcsocialcollective.com/video/country-nights-26-reel-2-4k.mp4"
  },
  {
   "slug": "country-nights-26-reel-3",
@@ -37,7 +49,8 @@
   "where": "August 22, 2026",
   "credit": "",
   "event": "",
-  "portrait": true
+  "portrait": true,
+  "file": "https://files.dcsocialcollective.com/video/country-nights-26-reel-3-4k.mp4"
  },
  {
   "slug": "sizzle",
@@ -45,7 +58,8 @@
   "where": "A look at our nights, 2026",
   "credit": "",
   "event": "",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/sizzle-1080.mp4"
  },
  {
   "slug": "christmas",
@@ -62,7 +76,8 @@
   "credit": "DWAI Creations",
   "event": "2025-11-08-the-grape-gatsby",
   "portrait": false,
-  "homeFeature": true
+  "homeFeature": true,
+  "file": "https://files.dcsocialcollective.com/video/gatsby-4k.mp4"
  },
  {
   "slug": "hoedown25",
@@ -70,7 +85,8 @@
   "where": "Whiffletree Farm, October 2025",
   "credit": "DWAI Creations",
   "event": "2025-10-11-harvest-moon-hoedown",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/hoedown25-1080.mp4"
  },
  {
   "slug": "strawberry",
@@ -78,7 +94,8 @@
   "where": "President Lincoln's Cottage, August 2025",
   "credit": "Saint Clair Media",
   "event": "2025-08-09-strawberry-soir-e-at-president-lincoln-s-cottage",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/strawberry-4k.mp4"
  },
  {
   "slug": "country25",
@@ -86,7 +103,8 @@
   "where": "The Winery at Bull Run, July 2025",
   "credit": "Saint Clair Media",
   "event": "2025-07-12-5th-annual-all-american-country-summer-nights",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/country25-4k.mp4"
  },
  {
   "slug": "soiree",
@@ -111,7 +129,8 @@
   "where": "Whiffletree Farm, April 2025",
   "credit": "Josh Levitas",
   "event": "2025-04-26-swing-into-spring",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/swing-4k.mp4"
  },
  {
   "slug": "stjoseph",
@@ -119,7 +138,8 @@
   "where": "The Catholic University of America, March 2025",
   "credit": "Christopher Saint Clair",
   "event": "2025-03-21-the-4th-annual-st-joseph-s-ball",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/stjoseph-4k.mp4"
  },
  {
   "slug": "valentines25",
@@ -127,7 +147,8 @@
   "where": "February 2025",
   "credit": "Christopher Saint Clair",
   "event": "2025-02-14-love-never-sinks-a-valentine-s-day-ball",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/valentines25-4k.mp4"
  },
  {
   "slug": "crooner24",
@@ -135,7 +156,8 @@
   "where": "Hotel Heron, December 2024",
   "credit": "Christopher Saint Clair",
   "event": "2024-12-13-the-crooner-christmas-ball-at-hotel-heron",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/crooner24-4k.mp4"
  },
  {
   "slug": "harvestmoon24",
@@ -143,7 +165,8 @@
   "where": "Whiffletree Farm, October 2024",
   "credit": "Christopher Saint Clair",
   "event": "2024-10-05-harvest-moon-barn-dance-a-festive-autumn-evening-w",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/harvestmoon24-4k.mp4"
  },
  {
   "slug": "american",
@@ -151,7 +174,8 @@
   "where": "Whiffletree Farm, August 2024",
   "credit": "Christopher Saint Clair",
   "event": "2024-08-10-all-american-summer-nights-at-whiffletree-farm-liv",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/american-4k.mp4"
  },
  {
   "slug": "stjoseph24",
@@ -159,7 +183,8 @@
   "where": "March 2024",
   "credit": "Todd Levitas, HAIL Productions",
   "event": "2024-03-23-3rd-annual-st-joseph-s-ball",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/stjoseph24-4k.mp4"
  },
  {
   "slug": "stjoseph23",
@@ -167,6 +192,7 @@
   "where": "March 2023",
   "credit": "Todd Levitas, HAIL Productions",
   "event": "",
-  "portrait": false
+  "portrait": false,
+  "file": "https://files.dcsocialcollective.com/video/stjoseph23-4k.mp4"
  }
 ]
