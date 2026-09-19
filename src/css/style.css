@@ -90,14 +90,13 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 @media (max-width: 860px) {
   .hero { min-height: auto; }
   .hero .wrap { grid-template-columns: 1fr; padding-top: 7rem; }
+  .next { justify-self: stretch; max-width: none; }
 }
 /* Phones: the hero is tall and narrow, so a 16:9 video on object-fit cover is
    a 3x crop. Let the video fill only the top of the hero and fade into the
    navy below it; the zoom drops by a third and it stays a background. */
 @media (max-width: 640px) {
   .hero video.bg, .hero img.bg { height: 125vw; object-position: center 40%; -webkit-mask-image: linear-gradient(#000 60%, transparent 100%); mask-image: linear-gradient(#000 60%, transparent 100%); }
-}
-  .next { justify-self: stretch; max-width: none; }
 }
 
 /* sections */
