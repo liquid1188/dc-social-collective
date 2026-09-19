@@ -90,6 +90,14 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 @media (max-width: 860px) {
   .hero { min-height: auto; }
   .hero .wrap { grid-template-columns: 1fr; padding-top: 7rem; }
+}
+/* Phones: the hero is tall and narrow, so a 16:9 video on object-fit cover is a
+   3x crop of arms and heads. Show the whole frame instead, sitting under the nav
+   at its natural 16:9 height, with the blurred poster filling the rest. */
+@media (max-width: 640px) {
+  .hero img.bg { filter: blur(28px) brightness(.55); transform: scale(1.15); }
+  .hero video.bg { object-fit: contain; object-position: center 5.5rem; }
+  .hero .wrap { padding-top: calc(5.5rem + 56.25vw + 1.5rem); }
   .next { justify-self: stretch; max-width: none; }
 }
 
