@@ -44,8 +44,14 @@ description: "DC Social Collective is a young adult events company and a communi
     <div class="band-head"><h2>Watch</h2></div>
     <div class="videos videos-3up">
     {%- for v in videos | bySlugs(about.watch) %}
+      {#- Same source as the Videos page: the hi-res file in R2 (v.file), never a repo copy #}
+      {%- set vsrc = v.file or (site.filesBase + "/video/" + v.slug + ".mp4") %}
+      {%- set vposter = v.poster or ("/video/" + v.slug + ".jpg") %}
       <figure>
-        <video class="{% if v.portrait %}portrait{% endif %}" controls preload="none" poster="/video/{{ v.slug }}.jpg" width="{% if v.portrait %}720" height="1280{% else %}1280" height="720{% endif %}"><source src="/video/{{ v.slug }}.mp4" type="video/mp4"></video>
+        <div class="video-frame{% if v.portrait %} portrait{% endif %}">
+          {%- if v.portrait %}<span class="video-blur" style="background-image:url('{{ vposter }}')" aria-hidden="true"></span>{% endif %}
+          <video controls playsinline preload="none" poster="{{ vposter }}" width="{{ 720 if v.portrait else 1280 }}" height="{{ 1280 if v.portrait else 720 }}"><source src="{{ vsrc }}" type="video/mp4"></video>
+        </div>
         <figcaption><strong>{{ v.title }}</strong></figcaption>
       </figure>
     {%- endfor %}
