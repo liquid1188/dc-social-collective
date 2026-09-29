@@ -15,7 +15,7 @@ tickets: https://dsccountrynightsoct24.rsvpify.com/
 promoVideo: https://files.dcsocialcollective.com/video/country-nights-sep26-recap-4k.mp4
 promoPoster: /video/country-nights-sep26-recap.jpg
 promoHeading: See the last Country Night
-promoText: A minute from All-American Country Nights at Whiffletree Farm on September 26. October 24 is the next one.
+promoText: "A taste of All-American Country Nights at Whiffletree Farm on September 26. We’re back October 24. Come dance with us."
 earlyBirdPrice: $30 solo, $50 for two
 highlights:
 - These barn dance nights consistently draw big crowds and sell out.
