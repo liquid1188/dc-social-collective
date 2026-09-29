@@ -8,6 +8,8 @@ venue: Whiffletree Farm
 address: 8717 Springs Road Warrenton, VA, 20186
 series: Country Nights
 image: /images/events/2026-10-24-all-american-country-nights.jpg
+flyer: /images/events/2026-10-24/flyer.png
+flyerAlt: "All-American Country Nights flyer: Saturday, October 24, 7:30 PM to late, Whiffletree Farm, Warrenton, Virginia"
 earlyBird: 2026-10-12
 tickets: https://dsccountrynightsoct24.rsvpify.com/
 promoVideo: https://files.dcsocialcollective.com/video/country-nights-sep26-recap-4k.mp4
