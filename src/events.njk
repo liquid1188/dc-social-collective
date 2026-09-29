@@ -13,8 +13,8 @@ description: "Upcoming DC Social Collective events, with tickets, and the archiv
     {%- if collections.upcoming.length %}
     <div class="posters">
     {%- for e in collections.upcoming %}
-      <article class="poster">
-        <a href="{{ e.url }}"><img src="{{ e.data.image }}" alt="" width="1500" height="750" loading="{% if loop.first %}eager{% else %}lazy{% endif %}"></a>
+      <article class="poster{% if e.data.imagePortrait %} portrait{% endif %}">
+        <a href="{{ e.url }}"><img src="{{ e.data.image }}" alt="" width="{{ e.data.imageW }}" height="{{ e.data.imageH }}" loading="{% if loop.first %}eager{% else %}lazy{% endif %}"></a>
         <div class="body">
           <p class="when">{{ e | iso | longDate }} · <span class="nowrap">{{ e.data.time }}{% if e.data.end %} to {{ e.data.end }}{% endif %}</span></p>
           {% if e.data.earlyBirdDay and e.data.earlyBirdDay >= today %}<p class="earlybird">Early bird pricing until {{ e.data.earlyBirdDay | fullDate }}</p>{% endif %}
@@ -41,7 +41,7 @@ description: "Upcoming DC Social Collective events, with tickets, and the archiv
     {%- for e in collections.past %}
       <li><a href="{{ e.url }}">
         <span class="date">{{ e | iso | shortDate }}<small>{{ e | iso | year }}</small></span>
-        {% if e.data.image %}<img class="thumb" src="{{ e.data.image }}" alt="" loading="lazy" width="1500" height="750">{% else %}<span class="thumb"></span>{% endif %}
+        {% if e.data.image %}<img class="thumb{% if e.data.imagePortrait %} portrait{% endif %}" src="{{ e.data.image }}" alt="" loading="lazy" width="{{ e.data.imageW }}" height="{{ e.data.imageH }}">{% else %}<span class="thumb"></span>{% endif %}
         <span><h3>{{ e.data.title }}</h3><p class="venue">{{ e.data.venue }}</p></span>
       </a></li>
     {%- endfor %}

@@ -46,7 +46,7 @@ collections:
       - { name: venue, label: Venue, hint: "The place, for example Whiffletree Farm." }
       - { name: address, label: Address, required: false, hint: "Optional. Street, city, state, and zip. This is what the Open in Maps link uses." }
       - { name: series, label: Series, widget: select, options: ["Sangria y Salsa", "Country Nights", "Balls and galas", "Soirees and mixers", "Special events"], default: "Special events", hint: "Which kind of night this is. It groups the event with the others like it." }
-      - { name: image, label: Cover image, widget: image, hint: "The wide event graphic, about 1500 by 750 pixels. It is resized and saved as WebP for you." }
+      - { name: image, label: Cover image, widget: image, hint: "The event graphic. A wide banner (about 1500 by 750) or a tall flyer both work; a tall one gets a taller card so nothing is cropped." }
       - { name: earlyBird, label: Early bird pricing ends, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Optional. Set the same date you set in RSVPify. The early bird line shows on the site until that day and then disappears on its own, so nobody has to remember to take it down. Leave it empty and no line shows." }
       - { name: tickets, label: Ticket link, required: false, hint: "Paste the RSVPify link. The booking form on the event page comes from this link, so people never leave the site. Clear it once the night is over and both the form and the button go away." }
       - { name: body, label: Description, widget: markdown, hint: "A few short paragraphs. Leave a blank line between them." }

@@ -20,8 +20,8 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       </div>
     </div>
     {% if nxt %}
-    <a class="next" href="{{ nxt.url }}">
-      <img src="{{ nxt.data.image }}" alt="" width="1500" height="750">
+    <a class="next{% if nxt.data.imagePortrait %} portrait{% endif %}" href="{{ nxt.url }}">
+      <img src="{{ nxt.data.image }}" alt="" width="{{ nxt.data.imageW }}" height="{{ nxt.data.imageH }}">
       <div class="body">
         <p class="kicker">Next up · {{ nxt | iso | longDate }}</p>
         <h2>{{ nxt.data.title }}</h2>
@@ -51,7 +51,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
     {%- for e in collections.upcoming %}
       <li><a href="{{ e.url }}">
         <span class="date">{{ e | iso | shortDate }}<small>{{ e | iso | weekday }} · {{ e.data.time }}</small></span>
-        <img class="thumb" src="{{ e.data.image }}" alt="" loading="lazy" width="1500" height="750">
+        <img class="thumb{% if e.data.imagePortrait %} portrait{% endif %}" src="{{ e.data.image }}" alt="" loading="lazy" width="{{ e.data.imageW }}" height="{{ e.data.imageH }}">
         <span><h3>{{ e.data.title }}</h3><p class="venue">{{ e.data.venue }}</p></span>
       </a></li>
     {%- endfor %}

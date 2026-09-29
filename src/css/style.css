@@ -678,3 +678,16 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .share-card.light { margin: 1rem 0 0; color: var(--ink); border-color: var(--rule); background: #fff; }
 .share-card.light span { color: var(--ink-2); }
 .share-card.light:hover { background: #fff; border-color: #E1306C; }
+
+/* Tall event covers (a portrait flyer) show whole, in a taller card, never cropped */
+.next.portrait img, .poster.portrait img { aspect-ratio: auto; height: auto; object-fit: contain; }
+.events .thumb.portrait { aspect-ratio: auto; height: auto; width: 110px; object-fit: contain; }
+img.cover.portrait { width: auto; max-width: 100%; max-height: 80vh; margin-inline: auto; display: block; }
+.poster.portrait > a { display: block; }
+.poster.portrait img { width: 100%; display: block; }
+/* A lone tall flyer on the Events page sits beside its details instead of filling the width */
+@media (min-width: 760px) {
+  .poster.portrait:only-child { flex-direction: row; align-items: stretch; }
+  .poster.portrait:only-child > a { flex: 0 0 min(440px, 45%); }
+  .poster.portrait:only-child .body { justify-content: center; padding: 2rem 2.4rem; }
+}
