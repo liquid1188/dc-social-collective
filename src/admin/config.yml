@@ -31,7 +31,7 @@ collections:
   - name: events
     label: Events
     label_singular: Event
-    description: "Press Add to announce a night. When the date passes it moves to Past nights on its own."
+    description: "Press Add to announce a night. Coming back to a venue you have used before? Open that night, pick Duplicate from the menu, then change the date, the ticket link, the early bird date, and the cover image, and turn off Draft. Everything else carries over, including the photo and video consent notice. When the date passes it moves to Past nights on its own."
     folder: src/events
     create: true
     slug: "{{fields.date}}-{{slug}}"
@@ -50,6 +50,25 @@ collections:
       - { name: earlyBird, label: Early bird pricing ends, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Optional. Set the same date you set in RSVPify. The early bird line shows on the site until that day and then disappears on its own, so nobody has to remember to take it down. Leave it empty and no line shows." }
       - { name: tickets, label: Ticket link, required: false, hint: "Paste the RSVPify link. The booking form on the event page comes from this link, so people never leave the site. Clear it once the night is over and both the form and the button go away." }
       - { name: body, label: Description, widget: markdown, hint: "A few short paragraphs. Leave a blank line between them." }
+      - { name: layout, label: Page style, widget: select, required: false, default: "event.njk", options: [{ label: "Simple page", value: "event.njk" }, { label: "Full landing page (flyer, video, sections, schedule)", value: "event-landing.njk" }], hint: "Full landing page uses everything under Landing page below. Duplicating a night that already uses it keeps it." }
+      - { name: earlyBirdPrice, label: Early bird price, required: false, hint: "Shown next to the early bird date, for example $30 solo, $50 for two." }
+      - { name: consent, label: Show the photo and video consent notice, widget: boolean, default: true, hint: "Keep this on. The wording lives in Site settings." }
+      - name: flyer
+        label: "Landing page: flyer"
+        widget: image
+        required: false
+        hint: "The tall event flyer shown at the top of a full landing page."
+      - { name: flyerAlt, label: "Landing page: what the flyer says", required: false, hint: "For people who cannot see it, for example the name, date, time, and place on the flyer." }
+      - { name: promoVideo, label: "Landing page: video", widget: file, required: false, media_folder: /src/video, public_folder: /video, hint: "A tall phone video (MP4). To swap it, upload the new one here and save." }
+      - { name: promoPoster, label: "Landing page: video cover frame", widget: image, required: false, media_folder: /src/video, public_folder: /video }
+      - { name: promoHeading, label: "Landing page: video heading", required: false }
+      - { name: promoText, label: "Landing page: video caption", widget: text, required: false }
+      - { name: highlights, label: "Landing page: extra highlights", widget: list, required: false, hint: "The date, place, and early bird line are filled in for you. Add anything else here." }
+      - { name: sections, label: "Landing page: sections before the schedule", widget: list, required: false, summary: "{{fields.heading}}", fields: [{ name: heading, label: Heading }, { name: image, label: Photo above the text, widget: image, required: false }, { name: imageAlt, label: What that photo shows, required: false }, { name: text, label: Text, widget: markdown }, { name: photos, label: Two photos under this section, widget: list, required: false, max: 2, fields: [{ name: src, label: Photo, widget: image }, { name: alt, label: What the photo shows, hint: "A short description for people who cannot see it." }] }] }
+      - { name: schedule, label: "Landing page: schedule", widget: list, required: false, summary: "{{fields.time}} {{fields.what}}", fields: [{ name: time, label: Time }, { name: what, label: What happens }] }
+      - { name: after, label: "Landing page: sections after the schedule", widget: list, required: false, summary: "{{fields.heading}}", fields: [{ name: heading, label: Heading }, { name: image, label: Photo above the text, widget: image, required: false }, { name: imageAlt, label: What that photo shows, required: false }, { name: text, label: Text, widget: markdown }, { name: photos, label: Two photos under this section, widget: list, required: false, max: 2, fields: [{ name: src, label: Photo, widget: image }, { name: alt, label: What the photo shows, hint: "A short description for people who cannot see it." }] }] }
+      - { name: presentedBy, label: "Landing page: presented by graphic", widget: image, required: false }
+      - { name: presentedByAlt, label: "Landing page: what that graphic says", required: false }
       - { name: draft, label: Draft, widget: boolean, default: false, hint: "On keeps the night off the site while you finish it. Turn it off to publish. Nights that arrive from RSVPify start as drafts." }
       - { name: tags, widget: hidden, default: event }
 
@@ -559,6 +578,8 @@ collections:
           - { name: short, label: Short name }
           - { name: tagline, label: Tagline, widget: text }
           - { name: email, label: Email, hint: "Every form on the site sends to this address, and every email link on the site uses it." }
+          - { name: consentHeading, label: Consent notice heading, required: false }
+          - { name: consentNotice, label: Photo and video consent notice, widget: markdown, hint: "Shown at the bottom of every event page. This is the legal wording, so change it only if the wording itself changes." }
           - { name: phone, label: Phone }
           - { name: instagram, label: Instagram link }
           - { name: facebook, label: Facebook group link }

@@ -1,21 +1,19 @@
 ---
 layout: event-landing.njk
 title: All-American Country Nights
-date: 2026-09-26
+date: 2026-10-24
 time: 7:30 pm
 end: 11 pm
 venue: Whiffletree Farm
 address: 8717 Springs Road Warrenton, VA, 20186
 series: Country Nights
-image: /images/events/2026-09-26-all-american-country-nights.jpg
-earlyBird: 2026-09-12
-tickets: https://dsccountrynightssep26.rsvpify.com/
+image: ''
+earlyBird: 2026-10-12
+tickets: https://dsccountrynightsoct24.rsvpify.com/
 promoVideo: /video/whiffletree-promo.mp4
 promoPoster: /video/whiffletree-promo.jpg
 promoHeading: Get a feel for Whiffletree Farm
 promoText: A quick look at the sunset, the countryside, and the energy around an All-American Country Night before you grab tickets.
-flyer: /images/events/2026-09-26/flyer.png
-flyerAlt: 'All-American Country Nights flyer: Saturday, September 26, 7:30 PM, Whiffletree Farm, Warrenton, Virginia'
 earlyBirdPrice: $30 solo, $50 for two
 highlights:
 - These barn dance nights consistently draw big crowds and sell out.
@@ -84,6 +82,7 @@ presentedBy: /images/events/2026-09-26/presented-by.png
 presentedByAlt: Presented by Whiffletree Farm and DC Social Collective
 consent: true
 tags: event
+draft: true
 ---
 Country swing, 2-step, line dancing, horseback riding, and open-air dancing under the stars set against the rolling countryside of Whiffletree Farm in Warrenton, VA.
 

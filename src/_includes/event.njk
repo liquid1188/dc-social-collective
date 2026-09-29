@@ -13,6 +13,7 @@ layout: base.njk
       {% if video %}<video class="cover" controls preload="none" poster="{{ videoPoster or image }}" width="1280" height="720"><source src="{{ video }}" type="video/mp4"></video>{% if videoCredit %}<p style="font-size:.9rem;color:var(--ink-2);margin:.5rem 0 0">Video by {{ videoCredit }}.</p>{% endif %}
       {% elif image %}<img class="cover" src="{{ image }}" alt="" width="1500" height="750">{% endif %}
       <div class="prose" style="margin-top:1.5rem">{{ content | safe }}</div>
+      {% include "consent.njk" %}
     </div>
     <aside class="facts">
       <dl>

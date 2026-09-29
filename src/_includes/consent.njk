@@ -1,0 +1,6 @@
+{%- if consent !== false and site.consentNotice %}
+      <div class="prose consent-notice">
+        <h2>{{ site.consentHeading or "Photo & Video Consent Notice" }}</h2>
+        {{ site.consentNotice | md | safe }}
+      </div>
+{%- endif %}

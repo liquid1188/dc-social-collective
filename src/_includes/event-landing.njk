@@ -10,117 +10,73 @@ layout: base.njk
 <section class="band" style="padding-top:1.5rem">
   <div class="wrap event-page">
     <div class="landing-main">
+      {%- macro pair(photos) %}{% if photos and photos.length %}
+      <div class="img-pair">{% for ph in photos %}
+        <img src="{{ ph.src }}" alt="{{ ph.alt }}" width="1600" height="1067" loading="lazy">{% endfor %}
+      </div>{% endif %}{% endmacro %}
+      {%- macro block(s) %}
+      <div class="prose">
+        {% if s.heading %}<h2>{{ s.heading }}</h2>{% endif %}
+        {% if s.image %}<img src="{{ s.image }}" alt="{{ s.imageAlt }}" width="1600" height="1067" loading="lazy" style="border-radius:12px;margin-bottom:1rem">{% endif %}
+        {{ s.text | md | safe }}
+      </div>
+      {{ pair(s.photos) }}{% endmacro %}
+      {% set dISO = page.date | isoDate | truncate(10, true, '') %}
+      {% if flyer %}
       <figure class="landing-hero">
-        <img src="/images/events/2026-09-26/flyer.png" alt="All-American Country Nights flyer: Saturday, September 26, 7:30 PM, Whiffletree Farm, Warrenton, Virginia" width="1215" height="1519" fetchpriority="high">
+        <img src="{{ flyer }}" alt="{{ flyerAlt or (title ~ ' flyer') }}" width="1215" height="1519" fetchpriority="high">
       </figure>
+      {% endif %}
 
       {% if promoVideo %}
       <div class="event-promo event-promo-inline">
         <div class="event-promo-card">
-          <video class="feature portrait" controls preload="none" poster="{{ promoPoster }}" width="720" height="1280"><source src="{{ promoVideo }}" type="video/mp4"></video>
+          <video class="feature portrait" controls preload="none"{% if promoPoster %} poster="{{ promoPoster }}"{% endif %} width="720" height="1280"><source src="{{ promoVideo }}" type="video/mp4"></video>
           <div>
             <p class="eyebrow">{{ venue }}</p>
             <h2>{{ promoHeading or "See the night before you go" }}</h2>
             {% if promoText %}<p class="lede">{{ promoText }}</p>{% endif %}
-            {% if tickets %}<a class="btn" href="#book">Get tickets</a>{% endif %}
+            {% if tickets and dISO >= today %}<a class="btn" href="#book">Get tickets</a>{% endif %}
           </div>
         </div>
       </div>
       {% endif %}
 
-      <div class="prose">
-        <h2>The Ultimate Fall Country Escape</h2>
-        <p>Country swing, 2-step, line dancing, horseback riding, and open-air dancing under the stars. DC Social Collective is back at one of its most iconic venues — Whiffletree Farm — for a night of welcoming lessons, nonstop dancing, great drinks, and fun people. No age limit for admission.</p>
-      </div>
-
-      <div class="img-pair">
-        <img src="/images/events/2026-09-26/horses.jpg" alt="Horseback riding across the field carrying American flags" width="1600" height="1067" loading="lazy">
-        <img src="/images/events/2026-09-26/dancing-1.jpg" alt="Couples country dancing in a string-lit barn" width="1600" height="1067" loading="lazy">
-      </div>
-
+      {% set before = sections or [] %}
+      {% for s in before %}{% if loop.first %}{{ block(s) }}
       <div class="prose">
         <h2>Event Highlights</h2>
         <ul>
-          <li>Saturday, September 26, 7:30 PM – late</li>
-          <li>Whiffletree Farm, 8717 Springs Rd, Warrenton, VA</li>
-          {% if earlyBirdDay and earlyBirdDay >= today %}<li>Early-bird pricing: $30 solo, $50 for two — until {{ earlyBirdDay | fullDate }}. After that, prices go up.</li>{% endif %}
-          <li>These barn dance nights consistently draw big crowds and sell out.</li>
+          <li>{{ dISO | longDate }}{% if time %}, {{ time }}{% if end %} to {{ end }}{% else %} to late{% endif %}{% endif %}</li>
+          <li>{{ venue }}{% if address %}, {{ address }}{% endif %}</li>
+          {% if earlyBirdDay and earlyBirdDay >= today %}<li>Early-bird pricing{% if earlyBirdPrice %}: {{ earlyBirdPrice }}{% endif %}, until {{ earlyBirdDay | fullDate }}. After that, prices go up.</li>{% endif %}
+          {% for h in highlights or [] %}<li>{{ h }}</li>{% endfor %}
         </ul>
       </div>
+      {% else %}{{ block(s) }}{% endif %}{% endfor %}
 
-      <div class="prose">
-        <h2>Beginner Country Swing Lesson</h2>
-        <img src="/images/events/2026-09-26/lesson.jpg" alt="Instructors demonstrating country swing under string lights" width="1600" height="1067" loading="lazy" style="border-radius:12px;margin-bottom:1rem">
-        <p>A 45-minute beginner-friendly lesson led by professional instructors. No partner needed, no experience needed — it is built for absolute beginners and it is the most relaxed way to start the night.</p>
-      </div>
-
-      <div class="img-pair">
-        <img src="/images/events/2026-09-26/crowd-hands.png" alt="Crowd dancing with hands up under string lights" width="1600" height="1067" loading="lazy">
-        <img src="/images/events/2026-09-26/line-dance.png" alt="Group mid line dance on the barn floor" width="1600" height="1067" loading="lazy">
-      </div>
-
-      <div class="prose">
-        <h2>Live DJ + Dancing All Night</h2>
-        <img src="/images/events/2026-09-26/dj.png" alt="DJ performing at the turntables" width="1600" height="1067" loading="lazy" style="border-radius:12px;margin-bottom:1rem">
-        <p>After the lesson, the DJ takes over and the floor stays packed till late. Brand-new or experienced, the night is built for jumping in — and horseback riding ($20 per ride) runs through the evening.</p>
-      </div>
-
-      <div class="img-pair">
-        <img src="/images/events/2026-09-26/crowd-lights.png" alt="Crowd dancing in the barn under glowing string lights" width="1600" height="1067" loading="lazy">
-        <img src="/images/events/2026-09-26/dancing-2.jpg" alt="Couple laughing and dancing under red lights with a flag behind them" width="1600" height="1067" loading="lazy">
-      </div>
-
-      <div class="prose">
-        <h2>Drinks + BBQ + Rural Virginia Countryside</h2>
-        <img src="/images/events/2026-09-26/bbq.jpg" alt="Grubbing Hub BBQ food truck at sunset with people in line" width="1600" height="1067" loading="lazy" style="border-radius:12px;margin-bottom:1rem">
-        <p>Bar service (cash and card) and the Grubbing Hub BBQ food truck on site. Step off the floor, take in the countryside, jump back in.</p>
-      </div>
-
-      <div class="img-pair">
-        <img src="/images/events/2026-09-26/campfire.png" alt="Crowd mingling around a campfire with hay bales, an American flag, and the barn at night" width="1600" height="1067" loading="lazy">
-        <img src="/images/events/2026-09-26/barn-smiles.png" alt="Two guests smiling in front of the string-lit barn" width="1600" height="1067" loading="lazy">
-      </div>
-
+      {% if schedule and schedule.length %}
       <div class="prose">
         <h2>Schedule <span style="font-weight:400;font-size:1rem;color:var(--ink-2)">(Subject to Change)</span></h2>
-        <ul>
-          <li><strong>7:30 PM</strong> — Doors open, horseback riding begins</li>
-          <li><strong>8:00 PM</strong> — Beginner country swing lesson</li>
-          <li><strong>8:45 PM</strong> — Live DJ, open dancing, bar opens</li>
-          <li><strong>Late</strong> — The night keeps going</li>
+        <ul>{% for row in schedule %}
+          <li><strong>{{ row.time }}</strong> — {{ row.what }}</li>{% endfor %}
         </ul>
       </div>
+      {% endif %}
 
-      <div class="prose">
-        <h2>Why This Event Draws a Crowd</h2>
-        <p>These nights consistently draw hundreds of young professionals from DC, Northern Virginia, and Maryland. Easy to jump in, easy to meet people, hard to leave early.</p>
-        <h2>Dress Code</h2>
-        <p>Country-inspired, comfortable, ready to dance — boots, denim, dresses, flannel, hats all welcome.</p>
-        <p><strong>This event will sell out.</strong> All tickets are non-refundable, but they are transferable to other guests or to future events as credit.</p>
-      </div>
-
-      <div class="img-pair">
-        <img src="/images/events/2026-09-26/entrance.png" alt="Crowd gathering at the Whiffletree Farm entrance with an American flag" width="1600" height="1067" loading="lazy">
-        <img src="/images/events/2026-09-26/recap.jpg" alt="Group photo at a party table with drinks and snacks" width="1600" height="1067" loading="lazy">
-      </div>
-
-      <div class="prose">
-        <h2>Volunteer Opportunities</h2>
-        <p>Want in for free? Email <a href="mailto:info@dcsocialcollective.com">info@dcsocialcollective.com</a> — volunteers get free admission.</p>
-        <h2>Parking &amp; Transportation</h2>
-        <p>Parking is limited and free on site. If you are drinking, rideshare (Uber/Lyft) is strongly encouraged, and carpooling is always a good call.</p>
-      </div>
+      {% for s in after or [] %}{{ block(s) }}{% endfor %}
 
       <div class="prose">
         <h2>Questions?</h2>
-        <p>Email <a href="mailto:info@dcsocialcollective.com">info@dcsocialcollective.com</a>.</p>
-        <h2>Photo &amp; Video Consent</h2>
-        <p>Heads up: the night will be photographed and filmed, and DC Social Collective may use that media on social, the website, and in marketing. Coming in means you are okay with that.</p>
+        <p>Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
       </div>
+      {% include "consent.njk" %}
 
+      {% if presentedBy %}
       <figure class="presented-by">
-        <img src="/images/events/2026-09-26/presented-by.png" alt="Presented by Whiffletree Farm and DC Social Collective" width="1200" height="630" loading="lazy">
+        <img src="{{ presentedBy }}" alt="{{ presentedByAlt or 'Presented by' }}" width="1200" height="630" loading="lazy">
       </figure>
+      {% endif %}
     </div>
 
     <aside class="facts">
