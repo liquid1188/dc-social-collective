@@ -10,7 +10,7 @@ series: Country Nights
 image: /images/events/2026-10-24/flyer.png
 flyer: /images/events/2026-10-24/flyer.png
 flyerAlt: 'All-American Country Nights flyer: Saturday, October 24, 7:30 PM to late, Whiffletree Farm, Warrenton, Virginia'
-earlyBird: 2026-10-10
+earlyBird: 2026-10-12
 tickets: https://dsccountrynightsoct24.rsvpify.com/
 promoVideo: https://files.dcsocialcollective.com/video/country-nights-sep26-recap-4k.mp4
 promoPoster: /video/country-nights-sep26-recap.jpg
@@ -20,7 +20,7 @@ earlyBirdPrice: $30 solo, $50 for two
 highlightsBlock: false
 sections:
 - heading: The Ultimate Fall Country Escape
-  text: 'Early bird tickets until October 10!
+  text: 'Early bird tickets until October 12!
 
 
     Country swing, 2-step, line dancing, horseback riding, and open-air dancing under the stars set against the rolling countryside of Whiffletree Farm in Warrenton, VA.
@@ -39,7 +39,7 @@ sections:
   - src: /images/events/2026-09-26/dancing-1.jpg
     alt: Couples country dancing in a string-lit barn
 - heading: Event Highlights
-  text: "Saturday, October 24 | 7:30 PM – Late  \nWhiffletree Farm  \n8717 Springs Rd, Warrenton, VA\n\nEarly bird tickets are live now at $30 per person or $50 for two, and prices will increase October 10. These barn dance nights consistently draw large crowds and WILL SELL OUT, so we recommend locking in your spot early.\n\nWhether you’re coming solo, bringing a date, or showing up with friends, expect a packed dance floor, amazing fall weather, and a night that feels both effortless and electric under the stars in rural Virginia."
+  text: "Saturday, October 24 | 7:30 PM – Late  \nWhiffletree Farm  \n8717 Springs Rd, Warrenton, VA\n\nEarly bird tickets are live now at $30 per person or $50 for two, and prices will increase October 12. These barn dance nights consistently draw large crowds and WILL SELL OUT, so we recommend locking in your spot early.\n\nWhether you’re coming solo, bringing a date, or showing up with friends, expect a packed dance floor, amazing fall weather, and a night that feels both effortless and electric under the stars in rural Virginia."
 - heading: Beginner Country Swing Lesson
   image: /images/events/2026-09-26/lesson.jpg
   imageAlt: Instructors demonstrating country swing under string lights
