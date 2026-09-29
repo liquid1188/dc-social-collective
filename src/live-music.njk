@@ -16,10 +16,11 @@ description: "Bands and DJs, play a DC Social Collective night. Swing, country, 
       {%- if livemusic.formEmbed %}
       <div class="embedded-form">{{ livemusic.formEmbed | safe }}</div>
       {%- else %}
-<form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
-        <input type="hidden" name="_subject" value="Live music form">
-        <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
-        <input type="text" name="_honey" style="display:none">
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="{{ site.web3formsKey }}">
+        <input type="hidden" name="subject" value="Live music form">
+        <input type="hidden" name="redirect" value="{{ site.url }}/thanks/">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <label>Name <input type="text" name="name" required></label>
         <label>Email <input type="email" name="email" required></label>
         <label>Message <textarea name="message" rows="6" required></textarea></label>

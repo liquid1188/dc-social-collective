@@ -38,17 +38,18 @@ description: "Apply to join the DC Social Collective ambassador team."
     {%- if ambassador.formEmbed %}
       <div class="embedded-form">{{ ambassador.formEmbed | safe }}</div>
       {%- else %}
-<form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_subject" value="Brand ambassador application">
-      <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
-      <input type="text" name="_honey" style="display:none">
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="{{ site.web3formsKey }}">
+      <input type="hidden" name="subject" value="Brand ambassador application">
+      <input type="hidden" name="redirect" value="{{ site.url }}/thanks/">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <label>Name <input type="text" name="name" required></label>
       <label>Email <input type="email" name="email" required></label>
       <label>Phone <input type="tel" name="phone" required></label>
       <label>What interests you in becoming one of our brand ambassadors? <textarea name="What interests you in becoming one of our brand ambassadors" rows="6" required></textarea></label>
       <label>Social media URLs (Instagram, TikTok, Facebook, and so on) <textarea name="Social media URLs" rows="3" required></textarea></label>
-      <label>Upload resume (optional) <input type="file" name="attachment" accept=".pdf,.doc,.docx,image/*"></label>
-      <label>Upload cover letter (optional) <input type="file" name="attachment" accept=".pdf,.doc,.docx,image/*"></label>
+      <label>Link to your resume (optional) <input type="url" name="resume_link" placeholder="Google Drive, Dropbox, or LinkedIn link"></label>
+      <label>Link to your cover letter (optional) <input type="url" name="cover_letter_link" placeholder="Google Drive or Dropbox link"></label>
       <button class="btn" type="submit">{{ ambassador.button }}</button>
     </form>
       {%- endif %}

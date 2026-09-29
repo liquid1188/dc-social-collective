@@ -51,10 +51,11 @@ description: "Sponsor a DC Social Collective night and reach a few hundred young
     <div>
       <h2>{{ sponsor.formHeading }}</h2>
       <p>{{ sponsor.formIntro }}</p>
-      <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
-        <input type="hidden" name="_subject" value="Sponsorship enquiry">
-        <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
-        <input type="text" name="_honey" style="display:none">
+      <form class="form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="{{ site.web3formsKey }}">
+        <input type="hidden" name="subject" value="Sponsorship enquiry">
+        <input type="hidden" name="redirect" value="{{ site.url }}/thanks/">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <label>Business name <input type="text" name="Business name" required></label>
         <label>Your name <input type="text" name="Name" required></label>
         <label>Email <input type="email" name="Email" required></label>

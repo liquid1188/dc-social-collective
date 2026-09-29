@@ -73,10 +73,11 @@ description: "Wineries, farms, hotels, and halls: host a DC Social Collective da
     <div>
       <h2>{{ host.formHeading }}</h2>
       <p>{{ host.formIntro }}</p>
-      <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
-        <input type="hidden" name="_subject" value="Venue enquiry: hosting a DSC night">
-        <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
-        <input type="text" name="_honey" style="display:none">
+      <form class="form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="{{ site.web3formsKey }}">
+        <input type="hidden" name="subject" value="Venue enquiry: hosting a DSC night">
+        <input type="hidden" name="redirect" value="{{ site.url }}/thanks/">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <label>Venue name <input type="text" name="Venue name" required></label>
         <label>Your name <input type="text" name="Name" required></label>
         <label>Email <input type="email" name="Email" required></label>

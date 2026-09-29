@@ -16,10 +16,11 @@ description: "Volunteer with DC Social Collective. No professional experience ne
       {%- if volunteer.formEmbed %}
       <div class="embedded-form">{{ volunteer.formEmbed | safe }}</div>
       {%- else %}
-<form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
-        <input type="hidden" name="_subject" value="Volunteer form">
-        <input type="hidden" name="_next" value="{{ site.url }}/thanks/">
-        <input type="text" name="_honey" style="display:none">
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="{{ site.web3formsKey }}">
+        <input type="hidden" name="subject" value="Volunteer form">
+        <input type="hidden" name="redirect" value="{{ site.url }}/thanks/">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <label>Name <input type="text" name="name" required></label>
         <label>Email <input type="email" name="email" required></label>
         <label>Phone <input type="tel" name="phone" required></label>
