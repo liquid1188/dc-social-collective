@@ -52,6 +52,7 @@ collections:
       - { name: body, label: Description, widget: markdown, hint: "A few short paragraphs. Leave a blank line between them." }
       - { name: layout, label: Page style, widget: select, required: false, default: "event.njk", options: [{ label: "Simple page", value: "event.njk" }, { label: "Full landing page (flyer, video, sections, schedule)", value: "event-landing.njk" }, { label: "Sept 26, 2026 page (kept as it was)", value: "event-landing-2026-09-26.njk" }], hint: "Full landing page uses everything under Landing page below. Duplicating a night that already uses it keeps it." }
       - { name: earlyBirdPrice, label: Early bird price, required: false, hint: "Shown next to the early bird date, for example $30 solo, $50 for two." }
+      - { name: highlightsBlock, label: "Landing page: build the Event Highlights list for me", widget: boolean, default: true, hint: "On adds a list with the date, place, and early bird price after the first section. Turn it off when you write your own Event Highlights section." }
       - { name: consent, label: Show the photo and video consent notice, widget: boolean, default: true, hint: "Keep this on. The wording lives in Site settings." }
       - name: flyer
         label: "Landing page: flyer"

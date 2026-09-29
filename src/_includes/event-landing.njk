@@ -43,7 +43,7 @@ layout: base.njk
       {% endif %}
 
       {% set before = sections or [] %}
-      {% for s in before %}{% if loop.first %}{{ block(s) }}
+      {% for s in before %}{% if loop.first and highlightsBlock !== false %}{{ block(s) }}
       <div class="prose">
         <h2>Event Highlights</h2>
         <ul>
@@ -59,7 +59,7 @@ layout: base.njk
       <div class="prose">
         <h2>Schedule <span style="font-weight:400;font-size:1rem;color:var(--ink-2)">(Subject to Change)</span></h2>
         <ul>{% for row in schedule %}
-          <li><strong>{{ row.time }}</strong> — {{ row.what }}</li>{% endfor %}
+          <li><strong>{{ row.time }}</strong> – {{ row.what }}</li>{% endfor %}
         </ul>
       </div>
       {% endif %}
@@ -68,7 +68,7 @@ layout: base.njk
 
       <div class="prose">
         <h2>Questions?</h2>
-        <p>Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+        <p>Email us at <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
       </div>
       {% include "consent.njk" %}
 
