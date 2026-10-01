@@ -1,6 +1,7 @@
 ---
 title: "Luau 2021"
 date: "2021-08-01"
+credit: "Meghan Marie Photography"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/b0291634-fd4e-44d0-9c22-5ba6036b034a/DSCLuau-8.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/41f9676e-9046-4564-969d-7bd151a591d4/DSCLuau-3.jpg#3840x5760"

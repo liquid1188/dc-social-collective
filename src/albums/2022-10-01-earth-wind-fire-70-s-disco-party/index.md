@@ -1,6 +1,7 @@
 ---
 title: "Earth Wind & Fire 70's Disco Party"
 date: "2022-10-01"
+credit: "Meghan Marie Photography"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/724836f4-e8b4-4dfd-8b2c-b91a6998a1fc/DSC70s-0002.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/db282c6a-1eca-4417-8409-03a1fecea029/DSC70s-0001.jpg#1276x1914"

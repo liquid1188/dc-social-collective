@@ -1,6 +1,7 @@
 ---
 title: "80's Night"
 date: "2023-02-01"
+credit: "Meghan Marie Photography"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/ffe5875d-8e8d-4fa7-9781-41c6f6b9eaf9/80s2.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/ffe5875d-8e8d-4fa7-9781-41c6f6b9eaf9/80s2.jpg#5132x3421"

@@ -1,6 +1,7 @@
 ---
 title: "Valentine's Jazz Mixer"
 date: "2023-02-11"
+credit: "Meghan Marie Photography"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/83fa121b-7e47-41a7-b9c7-6dbe8340f207/uglysweater-0964.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/83fa121b-7e47-41a7-b9c7-6dbe8340f207/uglysweater-0964.jpg#5236x3491"
