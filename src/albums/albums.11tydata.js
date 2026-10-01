@@ -66,6 +66,21 @@ export default {
       const source = data.cover || (data.photos || [])[0];
       return source ? photo(source, folderOf(data), (data.site && data.site.filesBase) || "").thumb : "";
     },
+    // The Photos page card is about 370px wide and crops to 3:2, so a portrait
+    // thumb is only 400px across there and goes soft on phones and Retina
+    // screens. Offer the full web copy too and let the browser pick by screen.
+    coverSrcset: (data) => {
+      let source = data.cover || (data.photos || [])[0];
+      if (!source) return "";
+      // The cover field is usually a bare file name; borrow its size from the photo list.
+      if (!String(source).includes("#")) source = (data.photos || []).find((x) => String(x).split("#")[0] === source) || source;
+      const p = photo(source, folderOf(data), (data.site && data.site.filesBase) || "");
+      const w = Number(p.w), h = Number(p.h);
+      if (!w || !h || p.thumb === p.full) return "";
+      const edge = p.remote ? 1000 : 600;
+      const tw = Math.round(edge * w / Math.max(w, h));
+      return p.thumb + " " + tw + "w, " + p.full + " " + w + "w";
+    },
     description: (data) => "Photos from " + (data.title || "a DC Social Collective night") + ", a DC Social Collective night."
   }
 };
