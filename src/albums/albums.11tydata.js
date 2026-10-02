@@ -76,7 +76,10 @@ export default {
       if (!String(source).includes("#")) source = (data.photos || []).find((x) => String(x).split("#")[0] === source) || source;
       const p = photo(source, folderOf(data), (data.site && data.site.filesBase) || "");
       const w = Number(p.w), h = Number(p.h);
-      if (!w || !h || p.thumb === p.full) return "";
+      // Imported albums: the size after the # is Squarespace's original, not the
+      // copy we serve, so a width descriptor built from it shrinks the cover on
+      // phones. Their 1000px thumbs are already sharp enough for the card.
+      if (!w || !h || p.remote || p.thumb === p.full) return "";
       const edge = p.remote ? 1000 : 600;
       const tw = Math.round(edge * w / Math.max(w, h));
       return p.thumb + " " + tw + "w, " + p.full + " " + w + "w";
