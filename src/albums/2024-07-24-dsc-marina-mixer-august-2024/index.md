@@ -1,6 +1,8 @@
 ---
-title: "Marina Mixer - August 2024"
-date: "2024-07-24"
+title: "Marina Mixer"
+date: "2024-08-16"
+credits:
+  - name: "Chris Byrne"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/c7bd13d6-a44e-405e-8ce8-36dab6941537/image00001.jpeg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/c7bd13d6-a44e-405e-8ce8-36dab6941537/image00001.jpeg#5184x3456"

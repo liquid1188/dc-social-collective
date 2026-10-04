@@ -1,6 +1,8 @@
 ---
-title: "Marina Mixer - September 2024"
+title: "Marina Mixer"
 date: "2024-09-13"
+credits:
+  - name: "Ashley Melton Media"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/7efafa98-890b-4a00-bdc9-cd91d43611c5/Photo+Sep+13+2024%2C+7+46+23+AM.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/7efafa98-890b-4a00-bdc9-cd91d43611c5/Photo+Sep+13+2024%2C+7+46+23+AM.jpg#3830x3301"

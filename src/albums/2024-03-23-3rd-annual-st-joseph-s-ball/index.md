@@ -1,6 +1,9 @@
 ---
 title: "3rd Annual St. Joseph's Ball"
 date: "2024-03-23"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/069f46ba-4baa-4bed-a0fe-2764c92d5a72/IMG_0394.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/069f46ba-4baa-4bed-a0fe-2764c92d5a72/IMG_0394.jpg#8192x5464"

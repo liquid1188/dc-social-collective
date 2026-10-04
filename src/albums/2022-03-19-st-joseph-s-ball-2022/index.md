@@ -1,6 +1,9 @@
 ---
 title: "St. Joseph's Ball 2022"
 date: "2022-03-19"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/31a47aea-1bcb-4a96-9e12-5cca10ee9863/IMG_0659.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/b52c47f8-dedf-4b5b-b7ad-fd22f8ec329a/IMG_0608.jpg#3333x5000"

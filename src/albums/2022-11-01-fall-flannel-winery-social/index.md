@@ -1,6 +1,9 @@
 ---
 title: "Fall Flannel Winery Social"
 date: "2022-11-01"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/b8aaf409-8826-488e-bdd3-0e85e3240dfc/IMG_7238.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/f65884c3-29f4-48dc-8638-b713ec7c27f1/IMG_7207.jpg#3335x5000"

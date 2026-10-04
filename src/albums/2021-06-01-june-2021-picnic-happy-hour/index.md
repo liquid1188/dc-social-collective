@@ -1,7 +1,9 @@
 ---
-title: "June 2021 Picnic Happy Hour"
+title: "Picnic Happy Hour"
 date: "2021-06-01"
-credit: "Meghan Marie Photography"
+credits:
+  - name: "Meghan Marie Photography"
+    url: "https://www.instagram.com/megslens/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/1524e02e-0e2b-4c5d-ba08-8caa68b7c7ee/SummerPicnic-NobleSoul-MeghanMariePhotography-0050.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/301189ca-cfc0-4d82-a2cd-d10d21fae016/SummerPicnic-NobleSoul-MeghanMariePhotography-0045.jpg#3840x5760"

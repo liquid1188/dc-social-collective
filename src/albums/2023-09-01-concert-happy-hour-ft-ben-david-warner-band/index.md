@@ -1,6 +1,8 @@
 ---
 title: "Concert & Happy Hour ft. Ben-David Warner Band"
 date: "2023-09-01"
+credits:
+  - name: "Todd Levitas"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/3fd5825e-f953-4267-9ebe-6487fc988b86/image00001.jpeg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/3fd5825e-f953-4267-9ebe-6487fc988b86/image00001.jpeg#1440x959"

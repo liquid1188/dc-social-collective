@@ -1,6 +1,10 @@
 ---
 title: "2nd Annual Harvest Moon Hoedown"
 date: "2025-10-11"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
+  - name: "Ashley Melton Media"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/57ae4d95-4b05-48ab-a2b0-383434fc9774/IMG_8040.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/0a9ab05a-da7c-44c0-9560-fa943fffd85a/DSCHarvestMoon+-0020.jpg#2668x4000"

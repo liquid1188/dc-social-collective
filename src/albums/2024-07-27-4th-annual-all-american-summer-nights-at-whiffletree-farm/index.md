@@ -1,6 +1,9 @@
 ---
 title: "4th Annual All American Summer Nights at Whiffletree Farm"
 date: "2024-08-10"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/dff2464b-0bed-4090-a1fd-2573cbac228e/DSCSummer24-0002.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/dff2464b-0bed-4090-a1fd-2573cbac228e/DSCSummer24-0002.jpg#8192x5464"

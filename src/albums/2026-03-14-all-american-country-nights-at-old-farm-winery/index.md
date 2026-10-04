@@ -1,6 +1,9 @@
 ---
 title: "All-American Country Nights at Old Farm Winery"
 date: "2026-03-14"
+credits:
+  - name: "Christian Sacra"
+    url: "https://www.instagram.com/christiansphotosnsuch/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/28295467-d111-4bbd-b924-b72e5226094f/CTZ_3390.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/28295467-d111-4bbd-b924-b72e5226094f/CTZ_3390.jpg#4898x3265"

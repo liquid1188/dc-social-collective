@@ -1,6 +1,9 @@
 ---
 title: "All-American Country Nights"
 date: "2026-01-17"
+credits:
+  - name: "Christian Sacra"
+    url: "https://www.instagram.com/christiansphotosnsuch/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/38bc399a-51d2-4012-9ecc-d39229a72eb4/A7404683.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/38bc399a-51d2-4012-9ecc-d39229a72eb4/A7404683.jpg#7008x4672"

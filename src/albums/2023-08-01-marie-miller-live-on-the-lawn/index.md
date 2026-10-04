@@ -1,6 +1,9 @@
 ---
 title: "Marie Miller: Live on the Lawn"
 date: "2023-08-01"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/30840dc6-3efc-4ff5-88df-9d2c9c4b7d51/IMG_5419.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/390f06d2-3c99-431b-8b45-cda4abb9c727/IMG_5418.jpg#3335x5000"

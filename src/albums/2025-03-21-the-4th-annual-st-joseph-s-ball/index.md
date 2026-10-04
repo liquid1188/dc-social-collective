@@ -1,6 +1,9 @@
 ---
 title: "The 4th Annual St. Joseph's Ball"
 date: "2025-03-21"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/7e4b411b-2b1d-42b0-ab10-84f8c5bdd8dd/STJB25-1189.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/7e4b411b-2b1d-42b0-ab10-84f8c5bdd8dd/STJB25-1189.jpg#7972x5317"

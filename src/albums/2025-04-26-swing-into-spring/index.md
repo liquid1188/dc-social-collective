@@ -1,6 +1,9 @@
 ---
 title: "Swing into Spring!"
 date: "2025-04-26"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/356f28e4-07b5-4190-96ad-0a80504c056b/DSCSTS-0007.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/356f28e4-07b5-4190-96ad-0a80504c056b/DSCSTS-0007.jpg#8192x5464"

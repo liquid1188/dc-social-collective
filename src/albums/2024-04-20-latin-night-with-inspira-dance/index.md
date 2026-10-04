@@ -1,6 +1,9 @@
 ---
 title: "Latin Night with Inspira Dance"
 date: "2024-04-20"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/dc2fd1c9-3a83-41f6-a706-52125e43d918/IMG_0003.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/dc2fd1c9-3a83-41f6-a706-52125e43d918/IMG_0003.jpg#8192x5464"

@@ -1,6 +1,9 @@
 ---
 title: "2nd Annual Crooner Christmas Ball"
 date: "2025-12-20"
+credits:
+  - name: "Christian Sacra"
+    url: "https://www.instagram.com/christiansphotosnsuch/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/1b8c41e4-18d3-45ed-94b8-555a5371d675/DSC06209.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/dd65ad00-5be3-42ce-b522-21aa1d0bbb6f/DSC05220.jpg#5513x8270"

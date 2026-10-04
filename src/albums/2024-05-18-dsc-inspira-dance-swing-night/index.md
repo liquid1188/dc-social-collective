@@ -1,6 +1,9 @@
 ---
 title: "& Inspira Dance Swing Night"
 date: "2024-05-18"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/e262fedf-41fd-4429-b108-4034422081f4/IMG_0402-2.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/e262fedf-41fd-4429-b108-4034422081f4/IMG_0402-2.jpg#1080x720"

@@ -1,6 +1,9 @@
 ---
 title: "Sangria y Salsa"
 date: "2025-10-04"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/902ed50f-43e0-44d5-b7d2-d1afe59d4de3/DSCSangria-0248.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/544b7e40-0c63-4b30-a32f-3d9b10537578/DSCSangria-0028.jpg#4000x2668"

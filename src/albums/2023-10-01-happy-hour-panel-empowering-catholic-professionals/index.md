@@ -1,7 +1,9 @@
 ---
 title: "Happy Hour & Panel: Empowering Catholic Professionals"
 date: "2023-10-01"
-credit: "Meghan Marie Photography"
+credits:
+  - name: "Meghan Marie Photography"
+    url: "https://www.instagram.com/megslens/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/93c70a0e-9502-4723-aa29-b34d750973b5/DSCBarBao-4707.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/93c70a0e-9502-4723-aa29-b34d750973b5/DSCBarBao-4707.jpg#5760x3840"

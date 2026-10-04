@@ -1,6 +1,9 @@
 ---
 title: "All-American Country Nights at Whiffletree Farm"
 date: "2026-05-09"
+credits:
+  - name: "Christian Sacra"
+    url: "https://www.instagram.com/christiansphotosnsuch/"
 cover: "075-0075.webp"
 photos:
   - "001-0006.webp#1365x2048"

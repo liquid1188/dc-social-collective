@@ -1,6 +1,9 @@
 ---
 title: "3rd Annual Country Summer Nights"
 date: "2023-08-01"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/8ea9edd4-206b-4bb6-bc6b-a47ad5b8bc10/CountryNightsweb-2.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/8ea9edd4-206b-4bb6-bc6b-a47ad5b8bc10/CountryNightsweb-2.jpg#1080x720"

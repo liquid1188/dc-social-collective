@@ -1,6 +1,10 @@
 ---
 title: "5th Annual All-American Country Summer Nights"
 date: "2025-07-12"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
+  - name: "Ashley Melton Media"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/360d6682-dbbb-40c4-b74f-b7182953deb6/1W4A7420.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/3428ee66-fabf-422a-afab-77231b7924ab/DSCAACSNWeb-0004.jpg#8192x5464"

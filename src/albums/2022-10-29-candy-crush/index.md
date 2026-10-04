@@ -1,6 +1,9 @@
 ---
 title: "Candy Crush"
 date: "2022-10-29"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/d1dfd23d-be39-433a-98ea-963f0dcbe416/DCSC_CandyCrush-1.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/d1dfd23d-be39-433a-98ea-963f0dcbe416/DCSC_CandyCrush-1.jpg#1200x800"

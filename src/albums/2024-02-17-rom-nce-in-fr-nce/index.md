@@ -1,6 +1,9 @@
 ---
 title: "Rom\u00e4nce In Fr\u00e4nce"
 date: "2024-02-17"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/1e779162-e021-4852-92a5-6c0f950f470b/ValentineMixer-2.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/1e779162-e021-4852-92a5-6c0f950f470b/ValentineMixer-2.jpg#1080x720"

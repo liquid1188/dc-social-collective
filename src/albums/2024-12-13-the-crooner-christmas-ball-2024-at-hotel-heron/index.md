@@ -1,6 +1,8 @@
 ---
 title: "The Crooner Christmas Ball 2024 at Hotel Heron"
 date: "2024-12-13"
+credits:
+  - name: "Ashley Melton Media"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/d512d5af-2460-4a9f-b1af-2fde0c874f6f/Crooner+%281%29.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/d512d5af-2460-4a9f-b1af-2fde0c874f6f/Crooner+%281%29.jpg#4096x2445"

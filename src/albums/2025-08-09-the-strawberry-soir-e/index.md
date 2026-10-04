@@ -1,6 +1,9 @@
 ---
 title: "The Strawberry Soir\u00e9e"
 date: "2025-08-09"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/3cfc22d1-0a0e-4e72-8937-38dc500c1b7d/DSCStrawberry-3485.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/3cfc22d1-0a0e-4e72-8937-38dc500c1b7d/DSCStrawberry-3485.jpg#4000x2668"

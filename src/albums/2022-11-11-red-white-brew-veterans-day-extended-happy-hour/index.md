@@ -1,6 +1,9 @@
 ---
 title: "Red, White & Brew Veterans Day Extended Happy Hour"
 date: "2022-11-11"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/33c13425-e9c0-4515-acc2-53ae726483d7/DCSBarBao-3.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/61d5f72d-2491-412a-885f-2809123ea02c/DCSBarBao-2.jpg#3335x5000"

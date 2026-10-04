@@ -1,6 +1,9 @@
 ---
 title: "All-American Country Nights at Bull Run"
 date: "2026-06-06"
+credits:
+  - name: "Christian Sacra"
+    url: "https://www.instagram.com/christiansphotosnsuch/"
 cover: "107-0111.webp"
 photos:
   - "001-0009.webp#1365x2048"

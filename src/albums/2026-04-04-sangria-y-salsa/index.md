@@ -1,6 +1,9 @@
 ---
 title: "Sangria y Salsa"
 date: "2026-04-04"
+credits:
+  - name: "Christian Sacra"
+    url: "https://www.instagram.com/christiansphotosnsuch/"
 cover: "038-a7407700.webp"
 photos:
   - "001-a7407542.webp#2048x1365"

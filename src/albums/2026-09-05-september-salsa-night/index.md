@@ -1,6 +1,8 @@
 ---
 title: "Sangria y Salsa"
 date: "2026-09-05"
+credits:
+  - name: "Bernadette Christie Photography"
 cover: "069.webp"
 photos:
   - "001.webp#1600x2400"

@@ -1,6 +1,9 @@
 ---
 title: "Love Never Sinks: A Valentine's Day Ball"
 date: "2025-02-14"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/9e556bb5-cd61-484c-8e1f-54cb42636f31/DSC-LNS-0005.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/9e556bb5-cd61-484c-8e1f-54cb42636f31/DSC-LNS-0005.jpg#8192x5464"

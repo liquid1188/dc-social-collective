@@ -1,6 +1,9 @@
 ---
 title: "Summer Picnic - Celebrating 2 Years"
 date: "2023-06-01"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/e2aefcf0-3c49-4ba4-ba81-68d88fb9da38/Bar+Bao+Chris+2-20.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/748a9a6b-4ba5-4493-92cd-b3b0745ca5bf/Bar+Bao+Chris+2-2.jpg#1667x2500"

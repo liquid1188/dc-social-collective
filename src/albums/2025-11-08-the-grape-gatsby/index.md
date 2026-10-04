@@ -1,6 +1,9 @@
 ---
 title: "The Grape Gatsby"
 date: "2025-11-08"
+credits:
+  - name: "Christian Sacra"
+    url: "https://www.instagram.com/christiansphotosnsuch/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/c45ca7c5-5093-4217-bca1-39f50b44fcd7/DSC00018.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/c45ca7c5-5093-4217-bca1-39f50b44fcd7/DSC00018.jpg#9504x6336"

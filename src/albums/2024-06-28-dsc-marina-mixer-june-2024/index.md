@@ -1,6 +1,9 @@
 ---
-title: "Marina Mixer - June 2024"
+title: "Marina Mixer"
 date: "2024-06-28"
+credits:
+  - name: "Edwin Salazar"
+    url: "https://www.instagram.com/mindofedwin/"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/fd9fd47e-eec6-481c-bf08-7bf1c3a2a59a/DCSC.Marina-0011.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/b9d71355-f3d3-4155-9d07-468539224c5d/DCSC.Marina-0004.jpg#5464x8192"
