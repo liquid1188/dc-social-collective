@@ -208,6 +208,8 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .page-head { padding-top: clamp(2.5rem, 5vw, 4rem); padding-bottom: 1rem; }
 .page-head h1 { margin-bottom: .4rem; }
 .page-head .lede { margin: 0; }
+/* A second lede line sits just clear of the first instead of running on. */
+.page-head .lede + .lede { margin-top: .45rem; }
 .prose { max-width: 68ch; }
 .prose h2 { font-size: 1.9rem; margin-top: 2.5rem; }
 .letter { background: var(--paper); border-radius: 14px; padding: clamp(1.5rem, 4vw, 3rem); max-width: 60ch; }
