@@ -40,16 +40,16 @@ description: "Videos from DC Social Collective nights: balls, barn dances, salsa
   <div class="wrap">
     {%- if recaps.length %}
     <h2 class="videos-head">Full videos</h2>
-    <div class="collapsible" data-show="6">
+    <div class="collapsible" data-show="9">
       <div class="videos" data-items>
       {%- for v in recaps %}{{ card(v, false) }}{% endfor %}
       </div>
-      {%- if recaps.length > 6 %}<p class="see-more"><button type="button" class="btn ghost small">See more videos</button></p>{% endif %}
+      {%- if recaps.length > 9 %}<p class="see-more"><button type="button" class="btn ghost small">See more videos</button></p>{% endif %}
     </div>
     {%- endif %}
     {%- if shorts.length %}
     <h2 class="videos-head{% if recaps.length %} section-gap{% endif %}">Shorts</h2>
-    <div class="collapsible" data-show="2">
+    <div class="collapsible" data-show-clips="12">
       {%- for g in groups %}
       {%- set label = [] %}{% for e in collections.event %}{% if g.date and (e | iso) == g.date and not label.length %}{% if label.push(e.data.title) %}{% endif %}{% endif %}{% endfor %}
       <div class="short-group" data-item>
@@ -59,7 +59,7 @@ description: "Videos from DC Social Collective nights: balls, barn dances, salsa
         </div>
       </div>
       {%- endfor %}
-      {%- if groups.length > 2 %}<p class="see-more"><button type="button" class="btn ghost small">See more shorts</button></p>{% endif %}
+      {%- if shorts.length > 12 %}<p class="see-more"><button type="button" class="btn ghost small">See more shorts</button></p>{% endif %}
     </div>
     {%- endif %}
   </div>
@@ -68,11 +68,26 @@ description: "Videos from DC Social Collective nights: balls, barn dances, salsa
 document.querySelectorAll('.collapsible').forEach(function (box) {
   var btn = box.querySelector('.see-more button');
   if (!btn) return;
-  var n = +box.dataset.show;
-  var items = box.querySelectorAll('[data-item], [data-items] > figure');
-  items.forEach(function (f, i) { if (i >= n) f.hidden = true; });
+  var hidden = [];
+  var budget = +box.dataset.showClips;
+  if (budget) {
+    // Shorts: the budget counts clips, not nights. Nights fill it in order,
+    // and the night that runs past it keeps only the clips that still fit.
+    box.querySelectorAll('[data-item]').forEach(function (group) {
+      var shown = 0;
+      group.querySelectorAll('figure').forEach(function (f) {
+        if (budget > 0) { budget--; shown++; } else { f.hidden = true; hidden.push(f); }
+      });
+      if (!shown) { group.hidden = true; hidden.push(group); }
+    });
+  } else {
+    var n = +box.dataset.show;
+    box.querySelectorAll('[data-item], [data-items] > figure').forEach(function (f, i) {
+      if (i >= n) { f.hidden = true; hidden.push(f); }
+    });
+  }
   btn.addEventListener('click', function () {
-    items.forEach(function (f) { f.hidden = false; });
+    hidden.forEach(function (f) { f.hidden = false; });
     btn.parentNode.remove();
   });
 });
