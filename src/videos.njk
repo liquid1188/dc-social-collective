@@ -4,29 +4,57 @@ title: Videos
 permalink: /videos/
 description: "Recap videos from DC Social Collective nights: balls, barn dances, salsa nights, and soirees across DC, Maryland, and Virginia."
 ---
+{#- Vertical reels go in Shorts as true 9:16 cards; landscape recaps keep the
+    16:9 grid. Each section shows its first few and hides the rest behind a
+    See more button. Without JavaScript everything shows. #}
+{%- macro card(v) %}
+  {%- set vsrc = v.file or (site.filesBase + "/video/" + v.slug + ".mp4") %}
+  {%- set vposter = v.poster or ("/video/" + v.slug + ".jpg") %}
+  <figure>
+    <div class="video-frame{% if v.portrait %} short{% endif %}">
+      <video controls playsinline preload="none" poster="{{ vposter }}" width="{{ 720 if v.portrait else 1280 }}" height="{{ 1280 if v.portrait else 720 }}"><source src="{{ vsrc }}" type="video/mp4"></video>
+    </div>
+    <figcaption><strong>{{ v.title }}</strong><br>{{ v.where }}{% if v.credit %}. Video by {{ v.credit }}{% endif %}.</figcaption>
+  </figure>
+{%- endmacro %}
+{%- set shorts = [] %}{% set recaps = [] %}
+{%- for v in videos %}{% if v.portrait %}{% if shorts.push(v) %}{% endif %}{% else %}{% if recaps.push(v) %}{% endif %}{% endif %}{% endfor %}
 <div class="wrap page-head">
   <h1>Videos</h1>
   <p class="lede">Recaps and reels from our nights, newest first. Turn the sound on.</p>
 </div>
 <section class="band navy on-dark" style="padding-top:2rem">
   <div class="wrap">
-    <div class="videos">
-    {%- for v in videos %}
-      {%- set vw = 720 if v.portrait else 1280 %}
-      {%- set vh = 1280 if v.portrait else 720 %}
-      <figure>
-        {#- Reels are shot vertical. They sit in the same 16:9 card as everything
-            else, letterboxed over a blurred copy of their own poster. #}
-        <div class="video-frame{% if v.portrait %} portrait{% endif %}">
-          {#- Videos are served from the files host (R2) so they can be full size without living in the repo #}
-          {%- set vsrc = v.file or (site.filesBase + "/video/" + v.slug + ".mp4") %}
-          {%- set vposter = v.poster or ("/video/" + v.slug + ".jpg") %}
-          {%- if v.portrait %}<span class="video-blur" style="background-image:url('{{ vposter }}')" aria-hidden="true"></span>{% endif %}
-          <video controls playsinline preload="none" poster="{{ vposter }}" width="{{ vw }}" height="{{ vh }}"><source src="{{ vsrc }}" type="video/mp4"></video>
-        </div>
-        <figcaption><strong>{{ v.title }}</strong><br>{{ v.where }}{% if v.credit %}. Video by {{ v.credit }}{% endif %}.</figcaption>
-      </figure>
-    {%- endfor %}
+    {%- if shorts.length %}
+    <h2 class="videos-head">Shorts</h2>
+    <div class="collapsible" data-show="8">
+      <div class="videos shorts">
+      {%- for v in shorts %}{{ card(v) }}{% endfor %}
+      </div>
+      {%- if shorts.length > 8 %}<p class="see-more"><button type="button" class="btn ghost small">See more shorts</button></p>{% endif %}
     </div>
+    {%- endif %}
+    {%- if recaps.length %}
+    <h2 class="videos-head{% if shorts.length %} section-gap{% endif %}">Recaps</h2>
+    <div class="collapsible" data-show="6">
+      <div class="videos">
+      {%- for v in recaps %}{{ card(v) }}{% endfor %}
+      </div>
+      {%- if recaps.length > 6 %}<p class="see-more"><button type="button" class="btn ghost small">See more recaps</button></p>{% endif %}
+    </div>
+    {%- endif %}
   </div>
 </section>
+<script>
+document.querySelectorAll('.collapsible').forEach(function (box) {
+  var btn = box.querySelector('.see-more button');
+  if (!btn) return;
+  var n = +box.dataset.show;
+  var items = box.querySelectorAll('.videos > figure');
+  items.forEach(function (f, i) { if (i >= n) f.hidden = true; });
+  btn.addEventListener('click', function () {
+    items.forEach(function (f) { f.hidden = false; });
+    btn.parentNode.remove();
+  });
+});
+</script>

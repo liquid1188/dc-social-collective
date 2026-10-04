@@ -296,6 +296,11 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .videos figcaption { margin-top: .6rem; font-size: .95rem; color: rgba(255,255,255,.8); }
 .videos figcaption strong { color: #fff; }
 .videos-head { margin-bottom: 1.2rem; }
+/* Shorts: vertical reels in their own 9:16 cards, several to a row. */
+.videos.shorts { grid-template-columns: repeat(auto-fill, minmax(min(200px, 45%), 1fr)); gap: 1.2rem; }
+.video-frame.short { aspect-ratio: 9 / 16; }
+.videos figure[hidden] { display: none; }
+.see-more { text-align: center; margin: 1.8rem 0 0; }
 .videos-head.section-gap { margin-top: clamp(2.5rem, 5vw, 4rem); }
 /* About page: three videos in one row, button underneath. */
 .videos-3up { grid-template-columns: repeat(3, 1fr); }
