@@ -301,6 +301,10 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .video-frame.short { aspect-ratio: 9 / 16; }
 .video-frame.short video { object-fit: contain; }
 .videos figure[hidden] { display: none; }
+.short-group + .short-group { margin-top: 2.2rem; }
+.short-group[hidden] { display: none; }
+.short-head { font-size: 1.15rem; color: #fff; margin: 0 0 .9rem; }
+.short-head span { display: block; font-size: .9rem; font-weight: 400; color: rgba(255,255,255,.7); margin-top: .2rem; }
 .see-more { text-align: center; margin: 1.8rem 0 0; }
 .videos-head.section-gap { margin-top: clamp(2.5rem, 5vw, 4rem); }
 /* About page: three videos in one row, button underneath. */

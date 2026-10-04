@@ -17,17 +17,21 @@ description: "Videos from DC Social Collective nights: balls, barn dances, salsa
       {%- if (v.portrait and not inShorts) or (inShorts and not v.portrait) %}<span class="video-blur" style="background-image:url('{{ vposter }}')" aria-hidden="true"></span>{% endif %}
       <video controls playsinline preload="none" poster="{{ vposter }}" width="{{ 720 if v.portrait else 1280 }}" height="{{ 1280 if v.portrait else 720 }}"><source src="{{ vsrc }}" type="video/mp4"></video>
     </div>
-    <figcaption><strong>{{ v.title }}</strong><br>{{ v.where }}{% if v.credit %}. Video by {{ v.credit }}{% endif %}.</figcaption>
+    <figcaption><strong>{{ v.title }}</strong>{% if not inShorts %}<br>{{ v.where }}{% endif %}{% if v.credit %}{% if inShorts %}<br>Video by {{ v.credit }}{% else %}. Video by {{ v.credit }}{% endif %}{% endif %}{% if not inShorts %}.{% endif %}</figcaption>
   </figure>
 {%- endmacro %}
 {#- Order is by date, newest first; compilations with no single night (date
     left empty) lead. Then length decides the section: under 60 seconds is a
-    Short, anything longer is a Full video. Orientation plays no part. #}
+    Short, anything longer is a Full video. Orientation plays no part. A
+    video's "section" (full or short) overrides the length rule. Shorts are
+    grouped by night under a small heading. #}
 {%- set SHORT = 60 %}
 {%- set shorts = [] %}{% set recaps = [] %}
 {%- set undated = [] %}{% set dated = [] %}
 {%- for v in videos %}{% if v.date %}{% if dated.push(v) %}{% endif %}{% else %}{% if undated.push(v) %}{% endif %}{% endif %}{% endfor %}
-{%- for v in undated.concat(dated | sort(true, false, "date")) %}{% if v.seconds and v.seconds < SHORT %}{% if shorts.push(v) %}{% endif %}{% else %}{% if recaps.push(v) %}{% endif %}{% endif %}{% endfor %}
+{%- for v in undated.concat(dated | sort(true, false, "date")) %}{% if v.section == "short" or (v.section != "full" and v.seconds and v.seconds < SHORT) %}{% if shorts.push(v) %}{% endif %}{% else %}{% if recaps.push(v) %}{% endif %}{% endif %}{% endfor %}
+{%- set groups = [] %}
+{%- for v in shorts %}{% set g = groups[groups.length - 1] %}{% if g and g.date == v.date %}{% if g.items.push(v) %}{% endif %}{% else %}{% if groups.push({ date: v.date, items: [v] }) %}{% endif %}{% endif %}{% endfor %}
 <div class="wrap page-head">
   <h1>Videos</h1>
   <p class="lede">Full videos and shorts from our nights, newest first. Turn the sound on.</p>
@@ -37,7 +41,7 @@ description: "Videos from DC Social Collective nights: balls, barn dances, salsa
     {%- if recaps.length %}
     <h2 class="videos-head">Full videos</h2>
     <div class="collapsible" data-show="6">
-      <div class="videos">
+      <div class="videos" data-items>
       {%- for v in recaps %}{{ card(v, false) }}{% endfor %}
       </div>
       {%- if recaps.length > 6 %}<p class="see-more"><button type="button" class="btn ghost small">See more videos</button></p>{% endif %}
@@ -45,11 +49,17 @@ description: "Videos from DC Social Collective nights: balls, barn dances, salsa
     {%- endif %}
     {%- if shorts.length %}
     <h2 class="videos-head{% if recaps.length %} section-gap{% endif %}">Shorts</h2>
-    <div class="collapsible" data-show="8">
-      <div class="videos shorts">
-      {%- for v in shorts %}{{ card(v, true) }}{% endfor %}
+    <div class="collapsible" data-show="2">
+      {%- for g in groups %}
+      {%- set label = [] %}{% for e in collections.event %}{% if g.date and (e | iso) == g.date and not label.length %}{% if label.push(e.data.title) %}{% endif %}{% endif %}{% endfor %}
+      <div class="short-group" data-item>
+        <h3 class="short-head">{{ label[0] or g.items[0].title }}{% if g.date %} <span>{{ g.date | fullDate }}</span>{% endif %}</h3>
+        <div class="videos shorts">
+        {%- for v in g.items %}{{ card(v, true) }}{% endfor %}
+        </div>
       </div>
-      {%- if shorts.length > 8 %}<p class="see-more"><button type="button" class="btn ghost small">See more shorts</button></p>{% endif %}
+      {%- endfor %}
+      {%- if groups.length > 2 %}<p class="see-more"><button type="button" class="btn ghost small">See more shorts</button></p>{% endif %}
     </div>
     {%- endif %}
   </div>
@@ -59,7 +69,7 @@ document.querySelectorAll('.collapsible').forEach(function (box) {
   var btn = box.querySelector('.see-more button');
   if (!btn) return;
   var n = +box.dataset.show;
-  var items = box.querySelectorAll('.videos > figure');
+  var items = box.querySelectorAll('[data-item], [data-items] > figure');
   items.forEach(function (f, i) { if (i >= n) f.hidden = true; });
   btn.addEventListener('click', function () {
     items.forEach(function (f) { f.hidden = false; });
