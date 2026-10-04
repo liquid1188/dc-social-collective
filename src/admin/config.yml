@@ -563,6 +563,8 @@ collections:
               - { name: poster, label: Poster frame, widget: image, required: false, hint: "The still shown before the video plays. A screenshot of a good moment works." }
               - { name: slug, widget: hidden, required: false }
               - { name: where, label: Venue and date }
+              - { name: date, label: Date of the night, widget: datetime, type: date, required: false, hint: "Sets the order on the Videos page, newest first. Leave empty for a highlight reel that covers many nights; those lead the page." }
+              - { name: seconds, label: Length in seconds, widget: number, value_type: int, required: false, hint: "Under 60 goes in Shorts, 60 or more in Recaps. The upload page fills this in." }
               - { name: credit, label: Video credit, required: false }
               - { name: event, label: Event slug it belongs to, required: false }
               - { name: portrait, label: Filmed upright on a phone, widget: boolean, default: false, hint: "Turn this on for a tall video so the grid shows all of it instead of cropping the sides." }

@@ -299,6 +299,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* Shorts: vertical reels in their own 9:16 cards, several to a row. */
 .videos.shorts { grid-template-columns: repeat(auto-fill, minmax(min(200px, 45%), 1fr)); gap: 1.2rem; }
 .video-frame.short { aspect-ratio: 9 / 16; }
+.video-frame.short video { object-fit: contain; }
 .videos figure[hidden] { display: none; }
 .see-more { text-align: center; margin: 1.8rem 0 0; }
 .videos-head.section-gap { margin-top: clamp(2.5rem, 5vw, 4rem); }

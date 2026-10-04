@@ -4,24 +4,33 @@ title: Videos
 permalink: /videos/
 description: "Recap videos from DC Social Collective nights: balls, barn dances, salsa nights, and soirees across DC, Maryland, and Virginia."
 ---
-{#- Vertical reels go in Shorts as true 9:16 cards; landscape recaps keep the
-    16:9 grid. Each section shows its first few and hides the rest behind a
-    See more button. Without JavaScript everything shows. #}
-{%- macro card(v) %}
+{#- Each section shows its first few and hides the rest behind a See more
+    button. Without JavaScript everything shows. Upright videos get a 9:16
+    card wherever they land. #}
+{%- macro card(v, inShorts) %}
   {%- set vsrc = v.file or (site.filesBase + "/video/" + v.slug + ".mp4") %}
   {%- set vposter = v.poster or ("/video/" + v.slug + ".jpg") %}
   <figure>
-    <div class="video-frame{% if v.portrait %} short{% endif %}">
+    {#- Shorts are 9:16 cards, Recaps 16:9. A video whose shape does not match
+        its card sits over a blurred copy of its own poster. #}
+    <div class="video-frame{% if inShorts %} short{% elif v.portrait %} portrait{% endif %}">
+      {%- if (v.portrait and not inShorts) or (inShorts and not v.portrait) %}<span class="video-blur" style="background-image:url('{{ vposter }}')" aria-hidden="true"></span>{% endif %}
       <video controls playsinline preload="none" poster="{{ vposter }}" width="{{ 720 if v.portrait else 1280 }}" height="{{ 1280 if v.portrait else 720 }}"><source src="{{ vsrc }}" type="video/mp4"></video>
     </div>
     <figcaption><strong>{{ v.title }}</strong><br>{{ v.where }}{% if v.credit %}. Video by {{ v.credit }}{% endif %}.</figcaption>
   </figure>
 {%- endmacro %}
+{#- Order is by date, newest first; compilations with no single night (date
+    left empty) lead. Then length decides the section: under 60 seconds is a
+    Short, anything longer is a Recap. Orientation plays no part. #}
+{%- set SHORT = 60 %}
 {%- set shorts = [] %}{% set recaps = [] %}
-{%- for v in videos %}{% if v.portrait %}{% if shorts.push(v) %}{% endif %}{% else %}{% if recaps.push(v) %}{% endif %}{% endif %}{% endfor %}
+{%- set undated = [] %}{% set dated = [] %}
+{%- for v in videos %}{% if v.date %}{% if dated.push(v) %}{% endif %}{% else %}{% if undated.push(v) %}{% endif %}{% endif %}{% endfor %}
+{%- for v in undated.concat(dated | sort(true, false, "date")) %}{% if v.seconds and v.seconds < SHORT %}{% if shorts.push(v) %}{% endif %}{% else %}{% if recaps.push(v) %}{% endif %}{% endif %}{% endfor %}
 <div class="wrap page-head">
   <h1>Videos</h1>
-  <p class="lede">Recaps and reels from our nights, newest first. Turn the sound on.</p>
+  <p class="lede">Shorts and recaps from our nights, newest first. Turn the sound on.</p>
 </div>
 <section class="band navy on-dark" style="padding-top:2rem">
   <div class="wrap">
@@ -29,7 +38,7 @@ description: "Recap videos from DC Social Collective nights: balls, barn dances,
     <h2 class="videos-head">Shorts</h2>
     <div class="collapsible" data-show="8">
       <div class="videos shorts">
-      {%- for v in shorts %}{{ card(v) }}{% endfor %}
+      {%- for v in shorts %}{{ card(v, true) }}{% endfor %}
       </div>
       {%- if shorts.length > 8 %}<p class="see-more"><button type="button" class="btn ghost small">See more shorts</button></p>{% endif %}
     </div>
@@ -38,7 +47,7 @@ description: "Recap videos from DC Social Collective nights: balls, barn dances,
     <h2 class="videos-head{% if shorts.length %} section-gap{% endif %}">Recaps</h2>
     <div class="collapsible" data-show="6">
       <div class="videos">
-      {%- for v in recaps %}{{ card(v) }}{% endfor %}
+      {%- for v in recaps %}{{ card(v, false) }}{% endfor %}
       </div>
       {%- if recaps.length > 6 %}<p class="see-more"><button type="button" class="btn ghost small">See more recaps</button></p>{% endif %}
     </div>
