@@ -1,6 +1,6 @@
 ---
 title: "4th Annual All American Summer Nights at Whiffletree Farm"
-date: "2024-07-27"
+date: "2024-08-10"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/dff2464b-0bed-4090-a1fd-2573cbac228e/DSCSummer24-0002.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/dff2464b-0bed-4090-a1fd-2573cbac228e/DSCSummer24-0002.jpg#8192x5464"

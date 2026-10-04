@@ -1,6 +1,6 @@
 ---
 title: "Harvest Moon Barn Dance at Whiffletree Farm"
-date: "2024-10-26"
+date: "2024-10-05"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/fdcf8421-dc76-4c1e-8082-f82f22f70920/IMG_0002.jpg"
 photos:
   - "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/fdcf8421-dc76-4c1e-8082-f82f22f70920/IMG_0002.jpg#8192x5464"
