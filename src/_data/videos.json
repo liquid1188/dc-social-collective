@@ -138,7 +138,8 @@
   "seconds": 50,
   "credit": "",
   "event": "",
-  "portrait": true
+  "portrait": true,
+  "section": "full"
  },
  {
   "slug": "gatsby",
@@ -204,7 +205,8 @@
   "seconds": 49,
   "credit": "Chris Byrne and Saint Clair Media",
   "event": "",
-  "portrait": true
+  "portrait": true,
+  "section": "full"
  },
  {
   "slug": "swing",
