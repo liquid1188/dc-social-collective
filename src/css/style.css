@@ -90,9 +90,11 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* Card plus the next event's promo video under the flyer */
 .next-col { justify-self: end; width: 100%; max-width: 420px; display: grid; gap: 1rem; }
 .next-col .next { justify-self: stretch; max-width: none; }
-.next-video { display: block; aspect-ratio: 9 / 16; height: min(46vh, 520px); width: auto; max-width: 100%; justify-self: center; object-fit: cover; background: #000; border-radius: 14px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+/* The play-button script wraps the video in a .vplay span; that wrapper is the grid item, so size it */
+.next-col > .vplay:has(.next-video), .next-col > .next-video { --vh: min(62vh, 640px); justify-self: center; width: calc(var(--vh) * 9 / 16); max-width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+.next-video { display: block; width: 100%; height: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #000; border-radius: 14px; }
 @media (min-width: 861px) { .hero .wrap:has(.next-video) > div:first-child { align-self: start; padding-top: 3rem; } }
-@media (max-width: 860px) { .next-video { width: 100%; height: auto; max-height: none; } }
+@media (max-width: 860px) { .next-col > .vplay:has(.next-video), .next-col > .next-video { width: min(100%, 420px); } }
 @media (max-width: 860px) {
   .hero { min-height: auto; }
   .hero .wrap { grid-template-columns: 1fr; padding-top: 7rem; }
