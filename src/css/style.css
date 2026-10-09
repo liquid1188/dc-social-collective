@@ -87,10 +87,16 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .next h2 { font-size: 1.7rem; margin: 0 0 .3rem; }
 .next .meta { color: var(--ink-2); margin: 0 0 1rem; font-size: .98rem; }
 .next .btn { width: 100%; text-align: center; }
+/* Card plus the next event's promo video under the flyer */
+.next-col { justify-self: end; width: 100%; max-width: 420px; display: grid; gap: 1rem; }
+.next-col .next { justify-self: stretch; max-width: none; }
+.next-video { display: block; aspect-ratio: 9 / 16; height: min(46vh, 520px); width: auto; max-width: 100%; justify-self: center; object-fit: cover; background: #000; border-radius: 14px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+@media (min-width: 861px) { .hero .wrap:has(.next-video) > div:first-child { align-self: start; padding-top: 3rem; } }
+@media (max-width: 860px) { .next-video { width: 100%; height: auto; max-height: none; } }
 @media (max-width: 860px) {
   .hero { min-height: auto; }
   .hero .wrap { grid-template-columns: 1fr; padding-top: 7rem; }
-  .next { justify-self: stretch; max-width: none; }
+  .next, .next-col { justify-self: stretch; max-width: none; }
 }
 /* Phones: the hero is tall and narrow, so a 16:9 video on object-fit cover is
    a 3x crop. Let the video fill only the top of the hero and fade into the

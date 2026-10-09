@@ -20,6 +20,7 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
       </div>
     </div>
     {% if nxt %}
+    <div class="next-col">
     <a class="next{% if nxt.data.imagePortrait %} portrait{% endif %}" href="{{ nxt.url }}">
       <img src="{{ nxt.data.image }}" alt="" width="{{ nxt.data.imageW }}" height="{{ nxt.data.imageH }}">
       <div class="body">
@@ -29,6 +30,10 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
         <span class="btn">Get tickets</span>
       </div>
     </a>
+    {%- if nxt.data.promoOnHome and nxt.data.promoVideo %}
+    <video class="next-video" controls playsinline preload="none"{% if nxt.data.promoPoster %} poster="{{ nxt.data.promoPoster }}"{% endif %} width="720" height="1280"><source src="{{ nxt.data.promoVideo }}" type="video/mp4"></video>
+    {%- endif %}
+    </div>
     {% endif %}
   </div>
 </section>

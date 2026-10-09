@@ -12,10 +12,11 @@ flyer: /images/events/2026-10-24/flyer.png
 flyerAlt: 'All-American Country Nights flyer: Saturday, October 24, 7:30 PM to late, Whiffletree Farm, Warrenton, Virginia'
 earlyBird: 2026-10-10
 tickets: https://dsccountrynightsoct24.rsvpify.com/
-promoVideo: https://files.dcsocialcollective.com/video/country-nights-sep26-recap-4k.mp4
-promoPoster: /video/country-nights-sep26-recap.jpg
-promoHeading: See the last Country Night
-promoText: A taste of All-American Country Nights at Whiffletree Farm on September 26. We’re back October 24. Come dance with us.
+promoVideo: https://files.dcsocialcollective.com/video/country-nights-oct24-promo-4k.mp4
+promoPoster: /video/country-nights-oct24-promo.jpg
+promoHeading: Country Nights is back October 24
+promoText: Dancing, music, and string lights in the barn at Whiffletree Farm. Saturday, October 24. Come dance with us.
+promoOnHome: true
 earlyBirdPrice: $30 solo, $50 for two
 highlightsBlock: false
 sections:
