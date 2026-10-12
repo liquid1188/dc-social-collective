@@ -645,11 +645,11 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 @media (min-width: 761px) { .event-promo-wide .event-promo-card { grid-template-columns: minmax(200px, min(300px, 21vw)) minmax(0, 1fr); } .event-promo-wide .event-promo-card .feature.portrait { max-height: min(540px, 66vh); } }
 .event-promo-wide .event-promo-card h2 { font-size: clamp(1.8rem, 2.8vw, 2.5rem); }
 .landing-band { padding-top: clamp(2.5rem, 5vw, 4rem); }
-.landing-body { max-width: calc(1000px + 2 * var(--gutter)); }
-.landing-body .prose { max-width: 72ch; margin-left: auto; margin-right: auto; }
-.landing-body .prose > img { display: block; margin-left: auto; margin-right: auto; }
+.landing-body { max-width: calc(760px + 2 * var(--gutter)); }
+.landing-body .prose { max-width: none; }
+.landing-body .prose > img { display: block; width: 100%; }
 .landing-body .img-pair { margin: 2rem 0 2.5rem; }
-.landing-body .presented-by { margin: 2.5rem auto 0; max-width: 72ch; }
+.landing-body .presented-by { margin: 2.5rem 0 0; }
 .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
 .img-pair img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; }
 @media (max-width: 560px) { .img-pair { grid-template-columns: 1fr; } .img-pair img { aspect-ratio: 16 / 10; } }
