@@ -30,10 +30,10 @@ description: "Swing, salsa, country nights, and black-tie balls for young adults
         <span class="btn">Get tickets</span>
       </div>
     </a>
-    {%- if nxt.data.promoOnHome and nxt.data.promoVideo %}
-    <video class="next-video" controls playsinline preload="none"{% if nxt.data.promoPoster %} poster="{{ nxt.data.promoPoster }}"{% endif %} width="720" height="1280"><source src="{{ nxt.data.promoVideo }}" type="video/mp4"></video>
-    {%- endif %}
     </div>
+    {%- if nxt.data.promoOnHome and nxt.data.promoVideo %}
+    <div class="hero-reel"><video class="next-video" controls playsinline preload="none"{% if nxt.data.promoPoster %} poster="{{ nxt.data.promoPoster }}"{% endif %} width="720" height="1280"><source src="{{ nxt.data.promoVideo }}" type="video/mp4"></video></div>
+    {%- endif %}
     {% endif %}
   </div>
 </section>

@@ -91,10 +91,12 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .next-col { justify-self: end; width: 100%; max-width: 420px; display: grid; gap: 1rem; }
 .next-col .next { justify-self: stretch; max-width: none; }
 /* The play-button script wraps the video in a .vplay span; that wrapper is the grid item, so size it */
-.next-col > .vplay:has(.next-video), .next-col > .next-video { --vh: min(62vh, 640px); justify-self: center; width: calc(var(--vh) * 9 / 16); max-width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+/* The next night's reel sits on its own row under the hero, centred and large */
+.hero-reel { grid-column: 1 / -1; justify-self: center; width: min(100%, calc(min(84vh, 860px) * 9 / 16)); margin-top: 1rem; }
+.hero-reel > .vplay, .hero-reel > .next-video { width: 100%; aspect-ratio: 9 / 16; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
 .next-video { display: block; width: 100%; height: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #000; border-radius: 14px; }
-@media (min-width: 861px) { .hero .wrap:has(.next-video) > div:first-child { align-self: start; padding-top: 3rem; } }
-@media (max-width: 860px) { .next-col > .vplay:has(.next-video), .next-col > .next-video { width: min(100%, 420px); } }
+@media (min-width: 861px) { .hero .wrap:has(.next-video) > div:first-child { align-self: center; } }
+@media (max-width: 860px) { .hero-reel { width: min(100%, 420px); margin-top: 0; } }
 @media (max-width: 860px) {
   .hero { min-height: auto; }
   .hero .wrap { grid-template-columns: 1fr; padding-top: 7rem; }
@@ -261,7 +263,9 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
 /* Four abreast on a desktop, so the row cannot break into three and one. */
 .cards.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-@media (max-width: 1000px) { .cards.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Four text cards in a row run very tall at the normal page width, so the row gets more room on wide screens and drops to two across sooner. */
+.wrap.cards.four { max-width: 1460px; gap: 1.25rem; }
+@media (max-width: 1180px) { .cards.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .cards.four { grid-template-columns: 1fr; } }
 .card { background: var(--paper); border-radius: 14px; padding: 1.6rem; display: flex; flex-direction: column; }
 .card h2 { font-size: 1.6rem; margin-bottom: .4rem; }

@@ -1,6 +1,7 @@
 ---
 title: "Sangria y Salsa"
 date: 2025-09-06
+album: "2025-10-04-sangria-y-salsa"
 time: "7:30 pm"
 end: "11 pm"
 venue: "The Winery at Bull Run"
