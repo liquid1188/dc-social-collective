@@ -1,6 +1,7 @@
 ---
 title: "Sangria y Salsa"
-date: "2025-10-04"
+urlSlug: "2025-09-06-sangria-y-salsa"
+date: "2025-09-06"
 credits:
   - name: "Edwin Salazar"
     url: "https://www.instagram.com/mindofedwin/"

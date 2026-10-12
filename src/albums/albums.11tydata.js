@@ -58,7 +58,9 @@ export default {
   tags: "album",
   eleventyComputed: {
     // A draft album has no page and stays off the Photos page until Draft is turned off.
-    permalink: (data) => (data.draft ? false : "/photos/" + folderOf(data) + "/"),
+    // urlSlug lets an album's address differ from its folder (the folder also keys its files in R2,
+    // so a mis-dated album gets the right address without moving any files).
+    permalink: (data) => (data.draft ? false : "/photos/" + (data.urlSlug || folderOf(data)) + "/"),
     eleventyExcludeFromCollections: (data) => Boolean(data.draft),
     day: (data) => day(data.date),
     images: (data) => (data.photos || []).map((p) => photo(p, folderOf(data), (data.site && data.site.filesBase) || "")),

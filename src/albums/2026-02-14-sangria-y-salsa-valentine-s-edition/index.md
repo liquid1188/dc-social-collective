@@ -1,6 +1,7 @@
 ---
-title: "Sangria y Salsa - Valentine's Edition"
-date: "2026-02-14"
+title: "Sangria y Salsa"
+urlSlug: "2026-04-04-sangria-y-salsa"
+date: "2026-04-04"
 credits:
   - name: "Ashley Melton Media"
 cover: "https://images.squarespace-cdn.com/content/v1/60fec02c182d15129d5a22d4/f4fc84e4-2448-4a27-a36e-b73b504da317/1W4A6479.jpg"

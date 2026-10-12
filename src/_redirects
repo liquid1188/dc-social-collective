@@ -2,3 +2,6 @@
 # without this the site would answer on the bare domain as well as on www
 # and search engines would see two copies. www is the canonical address.
 https://dcsocialcollective.com/* https://www.dcsocialcollective.com/:splat 301
+
+# Album dated wrong on import; it is the Sept 6, 2025 Sangria y Salsa
+/photos/2025-10-04-sangria-y-salsa/ /photos/2025-09-06-sangria-y-salsa/ 301
