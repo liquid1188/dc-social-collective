@@ -27,9 +27,27 @@ layout: base.njk
         <img src="{{ flyer }}" alt="{{ flyerAlt or (title ~ ' flyer') }}" width="1215" height="1519" fetchpriority="high">
       </figure>
       {% endif %}
+    </div>
 
-      {% if promoVideo %}
-      <div class="event-promo event-promo-inline">
+    <aside class="facts">
+      <dl>
+        <dt>Where</dt><dd>{{ venue }}{% if address %}<br><span style="color:var(--ink-2)">{{ address }}</span>{% endif %}<br><a href="{{ venue | mapUrl(address) }}" style="font-size:.9rem">Open in Maps</a></dd>
+        {% if time %}<dt>When</dt><dd>{{ time }}{% if end %} to {{ end }}{% endif %}</dd>{% endif %}
+        {% if series %}<dt>Series</dt><dd>{{ series }}</dd>{% endif %}
+        {% if earlyBirdDay and earlyBirdDay >= today %}<dt data-until="{{ earlyBirdDay }}">Early bird</dt><dd data-until="{{ earlyBirdDay }}">Until {{ earlyBirdDay | fullDate }}{% if earlyBirdTime %} at {{ earlyBirdTime }}{% endif %}</dd>{% endif %}
+      </dl>
+      {% set today_s = today %}
+      {% set d = page.date | isoDate | truncate(10, true, '') %}
+      {% if tickets and d >= today_s %}<a class="btn" href="#book" style="width:100%;text-align:center">Get tickets</a>
+      <a href="{{ { date: d, title: title, venue: venue, address: address, time: time, end: end, url: site.url ~ page.url } | gcalUrl }}" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:.8rem;font-size:.95rem">Add to Google Calendar</a>
+      {% elif d < today_s %}{% set alb = collections.albums | albumForEvent({ date: d, album: album }) %}<p style="margin:0;color:var(--ink-2)">This night has happened. {% if alb %}<a href="{{ alb.url }}">See the photos from this night</a> or <a href="/events/">find the next one</a>{% else %}<a href="/events/">Find the next one</a>{% endif %}.</p>{% endif %}
+    </aside>
+  </div>
+</section>
+{% if promoVideo %}
+<section class="band promo-band">
+  <div class="wrap">
+      <div class="event-promo event-promo-wide">
         <div class="event-promo-card">
           <video class="feature portrait" controls preload="none"{% if promoPoster %} poster="{{ promoPoster }}"{% endif %} width="720" height="1280"><source src="{{ promoVideo }}" type="video/mp4"></video>
           <div>
@@ -40,7 +58,12 @@ layout: base.njk
           </div>
         </div>
       </div>
-      {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<section class="band landing-band">
+  <div class="wrap landing-body">
 
       {% set before = sections or [] %}
       {% for s in before %}{% if loop.first and highlightsBlock !== false %}{{ block(s) }}
@@ -77,21 +100,6 @@ layout: base.njk
         <img src="{{ presentedBy }}" alt="{{ presentedByAlt or 'Presented by' }}" width="1200" height="630" loading="lazy">
       </figure>
       {% endif %}
-    </div>
-
-    <aside class="facts">
-      <dl>
-        <dt>Where</dt><dd>{{ venue }}{% if address %}<br><span style="color:var(--ink-2)">{{ address }}</span>{% endif %}<br><a href="{{ venue | mapUrl(address) }}" style="font-size:.9rem">Open in Maps</a></dd>
-        {% if time %}<dt>When</dt><dd>{{ time }}{% if end %} to {{ end }}{% endif %}</dd>{% endif %}
-        {% if series %}<dt>Series</dt><dd>{{ series }}</dd>{% endif %}
-        {% if earlyBirdDay and earlyBirdDay >= today %}<dt data-until="{{ earlyBirdDay }}">Early bird</dt><dd data-until="{{ earlyBirdDay }}">Until {{ earlyBirdDay | fullDate }}{% if earlyBirdTime %} at {{ earlyBirdTime }}{% endif %}</dd>{% endif %}
-      </dl>
-      {% set today_s = today %}
-      {% set d = page.date | isoDate | truncate(10, true, '') %}
-      {% if tickets and d >= today_s %}<a class="btn" href="#book" style="width:100%;text-align:center">Get tickets</a>
-      <a href="{{ { date: d, title: title, venue: venue, address: address, time: time, end: end, url: site.url ~ page.url } | gcalUrl }}" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:.8rem;font-size:.95rem">Add to Google Calendar</a>
-      {% elif d < today_s %}{% set alb = collections.albums | albumForEvent({ date: d, album: album }) %}<p style="margin:0;color:var(--ink-2)">This night has happened. {% if alb %}<a href="{{ alb.url }}">See the photos from this night</a> or <a href="/events/">find the next one</a>{% else %}<a href="/events/">Find the next one</a>{% endif %}.</p>{% endif %}
-    </aside>
   </div>
 </section>
 {%- if tickets and d >= today_s %}

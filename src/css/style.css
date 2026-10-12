@@ -631,9 +631,23 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* Event landing page (Sept 26 Country Nights): RSVPify-style sections */
 .landing-main .landing-hero { margin: 0 0 2rem; }
 .landing-main .landing-hero img { display: block; width: 100%; max-width: 560px; margin: 0 auto; border-radius: 14px; }
-@media (min-width: 861px) { .landing-main .landing-hero img { margin-left: clamp(0rem, 3vw, 2.5rem); margin-right: auto; } }
-.landing-main .prose h2 { margin-top: 2.5rem; }
-.landing-main .prose h2:first-child { margin-top: 0; }
+
+.landing-body .prose h2 { margin-top: 2.5rem; }
+.landing-body .prose h2:first-child { margin-top: 0; }
+/* Event landing pages: flyer and facts share the top row, the promo reel gets its own
+   centred band, and the write-up below runs as one centred column across the page. */
+.landing-main .landing-hero { margin: 0; }
+.landing-main .landing-hero img { max-width: 620px; }
+.promo-band { padding-top: 0; padding-bottom: 0; }
+.event-promo-wide { padding: 0; max-width: 1080px; margin: 0 auto; }
+@media (min-width: 761px) { .event-promo-wide .event-promo-card { grid-template-columns: minmax(240px, 380px) minmax(0, 1fr); } }
+.event-promo-wide .event-promo-card h2 { font-size: clamp(2rem, 3.4vw, 3rem); }
+.landing-band { padding-top: clamp(2.5rem, 5vw, 4rem); }
+.landing-body { max-width: calc(1000px + 2 * var(--gutter)); }
+.landing-body .prose { max-width: 72ch; margin-left: auto; margin-right: auto; }
+.landing-body .prose > img { display: block; margin-left: auto; margin-right: auto; }
+.landing-body .img-pair { margin: 2rem 0 2.5rem; }
+.landing-body .presented-by { margin: 2.5rem auto 0; max-width: 72ch; }
 .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
 .img-pair img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; }
 @media (max-width: 560px) { .img-pair { grid-template-columns: 1fr; } .img-pair img { aspect-ratio: 16 / 10; } }
