@@ -637,11 +637,13 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* Event landing pages: flyer and facts share the top row, the promo reel gets its own
    centred band, and the write-up below runs as one centred column across the page. */
 .landing-main .landing-hero { margin: 0; }
-.landing-main .landing-hero img { max-width: 620px; }
+.landing-main .landing-hero img { max-width: 500px; }
+@media (min-width: 861px) { .landing-main .landing-hero img { max-width: min(500px, 34vw); } }
 .promo-band { padding-top: 0; padding-bottom: 0; }
-.event-promo-wide { padding: 0; max-width: 1080px; margin: 0 auto; }
-@media (min-width: 761px) { .event-promo-wide .event-promo-card { grid-template-columns: minmax(240px, 380px) minmax(0, 1fr); } }
-.event-promo-wide .event-promo-card h2 { font-size: clamp(2rem, 3.4vw, 3rem); }
+.event-promo-wide { padding: 0; max-width: 860px; margin: 0 auto; }
+@media (min-width: 861px) { .event-promo-wide { max-width: max(640px, min(860px, 60vw)); } }
+@media (min-width: 761px) { .event-promo-wide .event-promo-card { grid-template-columns: minmax(200px, min(300px, 21vw)) minmax(0, 1fr); } .event-promo-wide .event-promo-card .feature.portrait { max-height: min(540px, 66vh); } }
+.event-promo-wide .event-promo-card h2 { font-size: clamp(1.8rem, 2.8vw, 2.5rem); }
 .landing-band { padding-top: clamp(2.5rem, 5vw, 4rem); }
 .landing-body { max-width: calc(1000px + 2 * var(--gutter)); }
 .landing-body .prose { max-width: 72ch; margin-left: auto; margin-right: auto; }
