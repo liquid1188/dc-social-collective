@@ -646,7 +646,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .event-promo-wide .event-promo-card h2 { font-size: clamp(1.8rem, 2.8vw, 2.5rem); }
 .landing-band { padding-top: clamp(2.5rem, 5vw, 4rem); }
 .landing-body { max-width: calc(760px + 2 * var(--gutter)); }
-.landing-body .prose { max-width: none; }
+.landing-body .prose, .landing-body .prose p, .landing-body .prose ul, .landing-body .prose ol { max-width: none; }
 .landing-body .prose > img { display: block; width: 100%; }
 .landing-body .img-pair { margin: 2rem 0 2.5rem; }
 .landing-body .presented-by { margin: 2.5rem 0 0; }
