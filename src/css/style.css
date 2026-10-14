@@ -654,7 +654,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .img-pair img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; }
 @media (max-width: 560px) { .img-pair { grid-template-columns: 1fr; } .img-pair img { aspect-ratio: 16 / 10; } }
 .presented-by { margin: 2.5rem 0 0; text-align: center; }
-.presented-by img { max-width: 420px; width: 100%; height: auto; }
+.presented-by img { max-width: 420px; width: 100%; height: auto; margin-inline: auto; }
 /* Floating Get tickets button: slides in once the reader is past the hero,
    and gets out of the way when the ticket section itself is on screen. */
 .float-tickets { position: fixed; left: 50%; bottom: max(1rem, env(safe-area-inset-bottom)); transform: translate(-50%, 250%); transition: transform .25s ease; z-index: 70; box-shadow: 0 8px 24px rgba(0,0,0,.28); white-space: nowrap; }
