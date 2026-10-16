@@ -105,9 +105,20 @@ layout: base.njk
 {%- if tickets and d >= today_s %}
 <section class="band book-photo" id="book">
   <div class="wrap">
-    <h2>Get your tickets</h2>
+    <h2>{{ book.heading if book and book.heading else "Get your tickets" }}</h2>
     <div class="booking-start">
+      {%- if book and book.text %}
+      <div class="booking-copy">{{ book.text | md | safe }}</div>
+      {%- else %}
       <p>{{ page.date | isoDate | truncate(10, true, '') | longDate }} at {{ venue }}{% if time %}, {{ time }}{% endif %}. Tickets are handled on this page.</p>
+      {%- endif %}
+      {%- if book and book.options and book.options.length %}
+      <p class="booking-options-head"><strong>{{ book.optionsHeading or "Purchase Tickets" }}</strong></p>
+      <ul class="booking-options">{% for o in book.options %}
+        <li><span>{{ o.name }}</span><strong>{{ o.price }}</strong></li>{% endfor %}
+      </ul>
+      {%- if book.note %}<p class="booking-note">{{ book.note }}</p>{% endif %}
+      {%- endif %}
       <button class="btn" type="button" data-src="{{ tickets | embedUrl }}" data-title="Tickets for {{ title }}">Get tickets for this night</button>
       <noscript><a class="btn" href="{{ tickets }}" target="_blank" rel="noopener">Get tickets</a></noscript>
     </div>

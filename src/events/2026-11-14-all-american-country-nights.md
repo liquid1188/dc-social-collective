@@ -140,6 +140,16 @@ after:
 
 
     All tickets are non-refundable.'
+book:
+  heading: Lock in now.
+  text: "Come solo or grab your +1 and go **double**—just don’t wait.\n\n**Tickets will sell out for this event. Early bird pricing ends November 1!**\n\nGrab yours now before prices jump and the dance floor fills up."
+  optionsHeading: Purchase Tickets
+  options:
+  - name: Solo (Early Bird)
+    price: $30.00
+  - name: Double (Early Bird)
+    price: $50.00
+  note: Enjoy a discount by bringing a partner or date!
 presentedBy: /images/events/2026-11-14/presented-by.jpg
 presentedByAlt: Presented by DC Social Collective and Blue Valley Vineyard & Winery
 consent: true
