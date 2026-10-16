@@ -68,6 +68,8 @@ after:
     Email [info@dcsocialcollective.com](mailto:info@dcsocialcollective.com). Volunteers receive free admission.'
 - heading: Transportation
   text: 'If you plan to drink, rideshare with Uber or Lyft is strongly encouraged. Carpooling is recommended.'
+presentedBy: /images/events/2026-11-14/presented-by.png
+presentedByAlt: Presented by DC Social Collective and Blue Valley Vineyard & Winery
 consent: true
 tags: event
 draft: false
