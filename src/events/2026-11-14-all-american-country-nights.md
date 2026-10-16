@@ -7,8 +7,8 @@ end: 11:30 pm
 venue: Blue Valley Vineyard & Winery
 address: 5535 Blue Valley Way, Delaplane, VA 20144
 series: Country Nights
-image: /images/events/2026-11-14/flyer.jpg
-flyer: /images/events/2026-11-14/flyer.jpg
+image: /images/events/2026-11-14/flyer-v2.jpg
+flyer: /images/events/2026-11-14/flyer-v2.jpg
 flyerAlt: 'All-American Country Nights flyer: Saturday, November 14, 7:30 to 11:30 PM, Blue Valley Vineyard & Winery, Delaplane, Virginia'
 earlyBird: 2026-10-31
 earlyBirdTime: 11:59 pm
