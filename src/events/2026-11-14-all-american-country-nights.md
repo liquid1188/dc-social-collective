@@ -62,7 +62,7 @@ sections:
   text: 'Food and drink available all night, including:
 
 
-    **Grubbing Hub BBQ** serving fan-favorite BBQ and American classics.
+    **Grubbing Hard BBQ** serving fan-favorite BBQ and American classics.
 
 
     Wine available for purchase from Blue Valley
