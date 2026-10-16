@@ -652,6 +652,8 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 .landing-body .presented-by { margin: 2.5rem 0 0; }
 .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
 .img-pair img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; }
+/* A lone photo, or the odd one out at the end of a group, spans the full width. */
+.img-pair img:last-child:nth-child(odd) { grid-column: 1 / -1; }
 @media (max-width: 560px) { .img-pair { grid-template-columns: 1fr; } .img-pair img { aspect-ratio: 16 / 10; } }
 .presented-by { margin: 2.5rem 0 0; text-align: center; }
 .presented-by img { max-width: 420px; width: 100%; height: auto; margin-inline: auto; }
