@@ -14,6 +14,11 @@ earlyBird: 2026-10-31
 earlyBirdTime: 11:59 pm
 earlyBirdPrice: $30 per person or $50 for two
 tickets: https://dsccountrynightsnov14.rsvpify.com/
+promoVideo: https://files.dcsocialcollective.com/video/country-nights-nov14-promo-4k.mp4
+promoPoster: /video/country-nights-nov14-promo.jpg
+promoHeading: Country Nights at Blue Valley, November 14
+promoText: A first look at Blue Valley Vineyard & Winery before we fill it with country swing, 2-step, and line dancing. Saturday, November 14.
+promoOnHome: true
 highlightsBlock: false
 sections:
 - heading: Bimonthly Country Dance Series
