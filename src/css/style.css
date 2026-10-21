@@ -700,6 +700,7 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
    placeholder over it so the main call to action is never a white void. */
 .booking-host { position: relative; max-width: 760px; margin-inline: auto; }
 .booking-host.is-loading .booking { opacity: 0; }
+.booking-out { margin: .6rem 0 0; text-align: center; font-size: .9rem; color: var(--ink-2); }
 .booking-wait { display: none; }
 .booking-host.is-loading .booking-wait { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: .9rem; background: #fff; border-radius: 14px; color: var(--ink-2); }
 .booking-wait p { margin: 0; font-size: .95rem; }

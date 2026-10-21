@@ -119,7 +119,7 @@ layout: base.njk
       </ul>
       {%- if book.note %}<p class="booking-note">{{ book.note }}</p>{% endif %}
       {%- endif %}
-      <button class="btn" type="button" data-src="{{ tickets | embedUrl }}" data-title="Tickets for {{ title }}">Get tickets for this night</button>
+      <button class="btn" type="button" data-src="{{ tickets | embedUrl }}" data-direct="{{ tickets }}" data-title="Tickets for {{ title }}">Get tickets for this night</button>
       <noscript><a class="btn" href="{{ tickets }}" target="_blank" rel="noopener">Get tickets</a></noscript>
     </div>
     <script>
@@ -149,8 +149,15 @@ layout: base.njk
       ["pointerenter", "touchstart", "focus"].forEach(function (ev) {
         button.addEventListener(ev, warm, { passive: true });
       });
+      // Instagram, Facebook, TikTok and similar apps open links in their own
+      // browser, which blocks cookies inside a frame from another site. The
+      // ticket form loses its session between steps there and shows "Sorry,
+      // your session has expired", so those visitors go straight to the
+      // ticket page instead of the embedded form.
+      var inApp = /Instagram|FBAN|FBAV|FB_IAB|FBIOS|TikTok|musical_ly|Snapchat|LinkedInApp|Twitter|Line\//i.test(navigator.userAgent || "");
       function open(behavior) {
         if (opened) return;
+        if (inApp) { location.assign(button.dataset.direct); return; }
         opened = true;
         var host = document.createElement("div");
         host.className = "booking-host is-loading";
@@ -164,6 +171,10 @@ layout: base.njk
         // the frame says it has loaded rather than showing a white rectangle.
         frame.addEventListener("load", function () { host.classList.remove("is-loading"); });
         host.appendChild(frame);
+        var out = document.createElement("p");
+        out.className = "booking-out";
+        out.innerHTML = 'Form not working? <a href="' + button.dataset.direct + '" target="_blank" rel="noopener">Open tickets in a new tab</a>';
+        host.appendChild(out);
         start.replaceWith(host);
         host.scrollIntoView({ block: "start", behavior: behavior });
       }
