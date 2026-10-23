@@ -4,18 +4,33 @@ title: Donate
 permalink: /donate/
 description: "Support DC Social Collective."
 ---
-<div class="wrap page-head">
-  <h1>{{ donate.heading }}</h1>
-  <p class="lede">{{ donate.lede }}</p>
-</div>
-<section class="band" style="padding-top:1.5rem">
+<section class="give-hero">
+  <img class="bg" src="{{ donate.heroImage }}" alt="" fetchpriority="high">
+  <div class="wrap">
+    <p class="eyebrow">{{ donate.eyebrow }}</p>
+    <h1>{{ donate.heading }}</h1>
+    <p class="lede">{{ donate.lede }}</p>
+    <p class="give-actions"><a class="btn" href="{{ site.donate }}" target="_blank" rel="noopener">{{ donate.button }}</a></p>
+  </div>
+</section>
+<section class="band give-uses">
+  <div class="wrap">
+    <h2>{{ donate.usesHeading }}</h2>
+    <ul>
+    {%- for u in donate.uses %}
+      <li><img src="{{ u.image }}" alt="" loading="lazy"><span>{{ u.title }}</span></li>
+    {%- endfor %}
+    </ul>
+  </div>
+</section>
+<section class="band navy give-close">
   <div class="wrap two-col">
+    <img src="{{ donate.image }}" alt="Friends at a summer soiree" loading="lazy">
     <div>
-      <p>{{ donate.body }}</p>
-      <p style="margin:1.4rem 0 .8rem"><a class="btn" href="{{ site.donate }}" target="_blank" rel="noopener">{{ donate.button }}</a></p>
-      <p class="tally">{{ donate.note }}</p>
-      <p>{{ donate.thanks }}</p>
+      <p class="give-body">{{ donate.body }}</p>
+      <p class="give-actions"><a class="btn" href="{{ site.donate }}" target="_blank" rel="noopener">{{ donate.button }}</a></p>
+      <p class="give-note">{{ donate.note }}</p>
+      <p class="give-thanks">{{ donate.thanks }}</p>
     </div>
-    <img src="/images/gallery/18.jpg" alt="Friends at a summer soiree" loading="lazy">
   </div>
 </section>

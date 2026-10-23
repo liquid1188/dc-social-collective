@@ -742,3 +742,28 @@ img.cover.portrait { width: auto; max-width: 100%; max-height: 80vh; margin-inli
 
 /* Homepage "These sell out fast" line stays on one line wherever it fits */
 @media (min-width: 860px) { .sellout { max-width: none; white-space: nowrap; } }
+
+/* donate page */
+.give-hero { position: relative; min-height: min(70vh, 640px); display: grid; align-items: end; color: #fff; background: var(--navy); isolation: isolate; }
+.give-hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; z-index: -2; }
+.give-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(7,26,58,.55) 0%, rgba(7,26,58,0) 60%), linear-gradient(180deg, rgba(7,26,58,.35) 0%, rgba(7,26,58,.45) 40%, rgba(7,26,58,.92) 100%); }
+.give-hero .wrap { width: 100%; padding-top: 6rem; padding-bottom: clamp(2.5rem, 5vw, 4rem); }
+.give-hero .eyebrow { color: var(--amber); }
+.give-hero h1 { margin-bottom: .8rem; }
+.give-hero .lede { color: rgba(255,255,255,.9); max-width: 36rem; }
+.give-actions { margin: 1.6rem 0 0; }
+.give-actions .btn { font-size: 1.1rem; padding: 1.05rem 2.4rem; box-shadow: 0 10px 28px rgba(240,78,73,.35); }
+.give-uses h2 { text-align: center; margin-bottom: 2rem; }
+.give-uses ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+.give-uses li { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--navy); }
+.give-uses li img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.give-uses li:hover img { transform: scale(1.04); }
+.give-uses li::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(7,26,58,.85)); }
+.give-uses li span { position: absolute; left: 1.3rem; right: 1.3rem; bottom: 1.1rem; z-index: 1; color: #fff; font-family: var(--display); font-weight: 700; font-size: clamp(1.4rem, 2.2vw, 1.9rem); line-height: 1.1; }
+.give-uses li span::before { content: ""; display: block; width: 2.2rem; height: 3px; background: var(--coral); margin-bottom: .7rem; border-radius: 2px; }
+.give-close .two-col { align-items: center; }
+.give-close img { border-radius: 14px; }
+.give-body { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.5; }
+.band.navy .give-note { font-size: .92rem; color: rgba(255,255,255,.65); margin-top: 1rem; max-width: 30rem; }
+.band.navy .give-thanks { font-family: var(--display); font-style: italic; font-size: 2rem; color: var(--amber); margin: 1.4rem 0 0; }
+@media (max-width: 760px) { .give-uses ul { grid-template-columns: 1fr; } .give-uses li { aspect-ratio: 16 / 10; } }

@@ -4,5 +4,23 @@
   "body": "Support our growing community and our mission to bring young adults together on the dance floor. Every gift goes straight back into the next night.",
   "button": "Donate",
   "note": "Gifts are processed securely through our donation page. You can give any amount, once or as often as you like.",
-  "thanks": "Thank you."
+  "thanks": "Thank you.",
+  "eyebrow": "Donate",
+  "heroImage": "/images/gallery/04.jpg",
+  "usesHeading": "Your gift covers",
+  "uses": [
+    {
+      "title": "Free lessons",
+      "image": "/images/gallery/16.jpg"
+    },
+    {
+      "title": "Outreach",
+      "image": "/images/gallery/19.jpg"
+    },
+    {
+      "title": "New venues",
+      "image": "/images/gallery/12.jpg"
+    }
+  ],
+  "image": "/images/gallery/18.jpg"
 }

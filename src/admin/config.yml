@@ -468,9 +468,19 @@ collections:
         label: Donate page
         file: src/_data/donate.json
         fields:
+          - { name: eyebrow, label: Small line above the heading }
           - { name: heading, label: Heading }
           - { name: lede, label: Line under the heading, widget: text }
+          - { name: heroImage, label: Top photo, widget: image, media_folder: /src/images/gallery, public_folder: /images/gallery }
+          - { name: usesHeading, label: Heading over the three photos }
+          - name: uses
+            label: What gifts cover
+            widget: list
+            fields:
+              - { name: title, label: Label }
+              - { name: image, label: Photo, widget: image, media_folder: /src/images/gallery, public_folder: /images/gallery }
           - { name: body, label: Paragraph, widget: text }
+          - { name: image, label: Photo beside the paragraph, widget: image, media_folder: /src/images/gallery, public_folder: /images/gallery }
           - { name: button, label: Button }
           - { name: note, label: Small print under the button, widget: text }
           - { name: thanks, label: Closing line }
