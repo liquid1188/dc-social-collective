@@ -40,7 +40,7 @@ sections:
 
     Early bird tickets are live now at **$30 per person** or **$50 for two**. Prices increase to **$40 per person** starting **November 14**. This is one of our most popular nights at the winery and **WILL SELL OUT**, so we strongly recommend securing tickets early.
 
-    Whether you’re coming solo, bringing a date, or rolling in with friends, expect packed dance floors, flowing sangria, great food, and a Valentine’s night that feels vibrant, social, and effortless.
+    Whether you’re coming solo, bringing a date, or rolling in with friends, expect packed dance floors, flowing sangria, great food, and a night that feels vibrant, social, and effortless.
   photos:
   - src: /images/events/2026-11-28/yellow-dress.jpg
     alt: A woman in a yellow dress dancing in the middle of a lively crowd
@@ -67,7 +67,7 @@ sections:
   text: |-
     **+ DJ Nick Griffin**
 
-    Enjoy live Latin music throughout the night with Max Rosado & the 7th St. Band, performing salsa, bachata, and cumbia upstairs in the Main Tasting Room. Downstairs in the Barrel Room, DJ Anthony Powell keeps the party going with nonstop, DJ-led open dancing.
+    Enjoy live Latin music throughout the night with Max Rosado & the 7th St. Band, performing salsa, bachata, and cumbia upstairs in the Main Tasting Room. Downstairs in the Barrel Room, DJ Nick Griffin keeps the party going with nonstop, DJ-led open dancing.
 
     Expect a seamless mix of live rhythms and DJ energy that keeps the dance floor moving all night long.
   photos:
