@@ -167,9 +167,9 @@ book:
   optionsHeading: Purchase Tickets
   options:
   - name: Solo
-    price: $40.00
+    price: $30.00
   - name: Two to Tango
-    price: $70.00
+    price: $50.00
   note: Enjoy a discount by bringing your partner or friend!
 presentedBy: /images/events/2026-11-28/presented-by.jpg
 presentedByAlt: Presented by DC Social Collective and The Winery at Bull Run
