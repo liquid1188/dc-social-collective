@@ -1,5 +1,4 @@
 {%- set digits = m.phone | replace(" ", "") | replace("(", "") | replace(")", "") | replace("-", "") -%}
-{%- set nxt = collections.upcoming[0] -%}
 <!doctype html>
 <html lang="en">
 <head>
@@ -76,11 +75,16 @@
     <a href="{{ m.facebook }}" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.5-1.5h1.5V5.1c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8V11H8v3h2.6v7z"/></svg>Facebook</a>
     {%- endif %}
   </nav>
+  {%- if collections.upcoming.length %}
+  <h2>Upcoming events</h2>
+  <nav class="links" aria-label="Upcoming events">
+  {%- for e in collections.upcoming | head(3) %}
+    <a class="main next" href="{{ e.url }}">{{ e.data.title }}<small>{{ e | iso | longDate }}{% if e.data.venue %} · {{ e.data.venue }}{% endif %}</small></a>
+  {%- endfor %}
+  </nav>
+  {%- endif %}
   <h2>DC Social Collective</h2>
   <nav class="links" aria-label="DC Social Collective">
-    {%- if nxt %}
-    <a class="main next" href="{{ nxt.url }}">Next event: {{ nxt.data.title }}<small>{{ nxt | iso | longDate }}{% if nxt.data.venue %} · {{ nxt.data.venue }}{% endif %}</small></a>
-    {%- endif %}
     <a href="{{ site.instagram }}" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/></svg>@dcsocialcollective</a>
     {%- if site.facebookPage %}
     <a href="{{ site.facebookPage }}" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.5-1.5h1.5V5.1c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8V11H8v3h2.6v7z"/></svg>DSC on Facebook</a>

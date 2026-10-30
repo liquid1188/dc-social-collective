@@ -4,6 +4,7 @@ import { buildOgCards } from "./scripts/og-cards.js";
 import { buildCardImages } from "./scripts/card-images.js";
 const mdlib = markdownIt({ html: true, typographer: true });
 export default function (eleventyConfig) {
+  eleventyConfig.addFilter("head", (a, n) => (a || []).slice(0, n));
   eleventyConfig.addFilter("md", (t) => mdlib.render(t || ""));
   eleventyConfig.addPlugin(HtmlBasePlugin);
   // Link-preview cards for shared links, rebuilt on every deploy.
