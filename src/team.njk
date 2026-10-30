@@ -12,20 +12,18 @@ description: "The people behind DC Social Collective."
   <div class="wrap team">
   {%- for m in team %}
     <article>
-      {%- if m.instagram %}
-      <a class="headshot" href="{{ m.instagram }}" rel="noopener" title="{{ m.name }} on Instagram">
+      {%- set card = ("/links/" ~ m.slug ~ "/") if m.slug else m.instagram %}
+      {%- if card %}
+      <a class="headshot" href="{{ card }}"{% if not m.slug %} rel="noopener"{% endif %} title="{{ 'Contact ' ~ m.name if m.slug else m.name ~ ' on Instagram' }}">
         <img src="{{ m.photo }}" alt="{{ m.name }}" width="1000" height="1000" loading="lazy">
-        <span class="ig" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/></svg></span>
+        <span class="ig" aria-hidden="true">{% if m.slug %}<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>{% else %}<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/></svg>{% endif %}</span>
       </a>
-      <h2><a href="{{ m.instagram }}" rel="noopener">{{ m.name }}</a></h2>
+      <h2><a href="{{ card }}"{% if not m.slug %} rel="noopener"{% endif %}>{{ m.name }}</a></h2>
       {%- else %}
       <img src="{{ m.photo }}" alt="{{ m.name }}" width="1000" height="1000" loading="lazy">
       <h2>{{ m.name }}</h2>
       {%- endif %}
       <p class="role">{{ m.role }}</p>
-      {%- if m.slug or m.instagram or m.facebook %}
-      <p class="tsoc">{% if m.slug %}<a class="all" href="/links/{{ m.slug }}/">Contact &amp; links</a>{% endif %}{% if m.instagram %}<a href="{{ m.instagram }}" rel="noopener">Instagram</a>{% endif %}{% if m.facebook %}<a href="{{ m.facebook }}" rel="noopener">Facebook</a>{% endif %}</p>
-      {%- endif %}
       <p>{{ m.bio | safe }}</p>
     </article>
   {%- endfor %}

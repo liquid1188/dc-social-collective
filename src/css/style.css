@@ -767,8 +767,3 @@ img.cover.portrait { width: auto; max-width: 100%; max-height: 80vh; margin-inli
 .band.navy .give-note { font-size: .92rem; color: rgba(255,255,255,.65); margin-top: 1rem; max-width: 30rem; }
 .band.navy .give-thanks { font-family: var(--display); font-style: italic; font-size: 2rem; color: var(--amber); margin: 1.4rem 0 0; }
 @media (max-width: 760px) { .give-uses ul { grid-template-columns: 1fr; } .give-uses li { aspect-ratio: 16 / 10; } }
-.team .tsoc { display: flex; gap: 1rem; margin: -.3rem 0 .6rem; font-size: .92rem; font-weight: 600; }
-.team .tsoc a { color: var(--ink-2); text-decoration: none; border-bottom: 2px solid transparent; }
-.team .tsoc a:hover { color: var(--coral-dark); border-bottom-color: currentColor; }
-.team .tsoc { flex-wrap: wrap; row-gap: .3rem; }
-.team .tsoc a.all { color: var(--coral-dark); }
