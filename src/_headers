@@ -4,3 +4,6 @@
 /links/*/contact.vcf
   Content-Type: text/vcard; charset=utf-8
   Content-Disposition: attachment
+
+/images/team/card/*
+  Cache-Control: public, max-age=86400
