@@ -557,6 +557,10 @@ collections:
               - { name: photo, label: Photo, widget: image }
               - { name: bio, label: Bio, widget: text }
               - { name: instagram, label: Instagram link, required: false, hint: "Optional. Their photo and name become a link to it. Paste the plain profile link, without the tracking bits after the question mark." }
+              - { name: email, label: "Business card page: email", required: false, hint: "Shown on their card page at /links/ (the page their business card QR code opens). Not shown on the Team page." }
+              - { name: phone, label: "Business card page: phone", required: false, hint: "Write it like (571) 383-5995." }
+              - { name: facebook, label: "Business card page: Facebook link", required: false, hint: "Optional. Their personal Facebook profile link. Leave empty and no Facebook button shows." }
+              - { name: slug, widget: hidden, required: false }
       - name: videos
         label: Videos
         file: src/_data/videos.json
@@ -599,6 +603,7 @@ collections:
           - { name: phone, label: Phone }
           - { name: instagram, label: Instagram link }
           - { name: facebook, label: Facebook group link }
+          - { name: facebookPage, label: Facebook page link, required: false, hint: "The DSC Facebook page (not the group). Shown on the team business card pages at /links/." }
           - { name: merch, label: Merch store link }
           - { name: donate, label: Donate link, hint: "Where the Donate button sends people. This is the Squarespace donation checkout, which takes the card and sends the money to the same account as before." }
           - { name: ga4, label: Google Analytics Measurement ID, required: false, hint: "Looks like G-XXXXXXXXXX. Leave blank to turn analytics off." }

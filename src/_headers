@@ -1,0 +1,6 @@
+/links/*
+  X-Robots-Tag: noindex, nofollow
+
+/links/*/contact.vcf
+  Content-Type: text/vcard; charset=utf-8
+  Content-Disposition: attachment

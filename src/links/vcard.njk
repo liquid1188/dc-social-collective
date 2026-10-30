@@ -1,0 +1,14 @@
+{%- set parts = m.name.split(" ") -%}
+{%- set digits = m.phone | replace(" ", "") | replace("(", "") | replace(")", "") | replace("-", "") -%}
+BEGIN:VCARD
+VERSION:3.0
+N:{{ parts | last }};{{ parts | first }};;;
+FN:{{ m.name }}
+ORG:DC Social Collective
+TITLE:{{ m.role }}
+{% if m.email %}EMAIL;TYPE=INTERNET:{{ m.email }}
+{% endif %}{% if m.phone %}TEL;TYPE=CELL:+1{{ digits }}
+{% endif %}URL:{{ site.url }}/links/{{ m.slug }}/
+{% if m.instagram %}X-SOCIALPROFILE;TYPE=instagram:{{ m.instagram }}
+{% endif %}{% if m.facebook %}X-SOCIALPROFILE;TYPE=facebook:{{ m.facebook }}
+{% endif %}END:VCARD

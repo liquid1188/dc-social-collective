@@ -7,7 +7,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
   // Link-preview cards for shared links, rebuilt on every deploy.
   eleventyConfig.on("eleventy.after", async ({ dir }) => { try { await buildOgCards(dir.output); } catch (e) { console.warn("[og]", e.message); } });
-  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images", "src/video": "video", "src/_redirects": "_redirects", "src/og": "og" });
+  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images", "src/video": "video", "src/_redirects": "_redirects", "src/_headers": "_headers", "src/og": "og" });
   // Browsers, search results, and bookmark tools ask for these at the site root
   // no matter what the page says, so keep copies there too.
   eleventyConfig.addPassthroughCopy({ "src/images/favicon.ico": "favicon.ico", "src/images/apple-touch-icon.png": "apple-touch-icon.png" });
