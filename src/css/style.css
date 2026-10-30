@@ -770,3 +770,5 @@ img.cover.portrait { width: auto; max-width: 100%; max-height: 80vh; margin-inli
 .team .tsoc { display: flex; gap: 1rem; margin: -.3rem 0 .6rem; font-size: .92rem; font-weight: 600; }
 .team .tsoc a { color: var(--ink-2); text-decoration: none; border-bottom: 2px solid transparent; }
 .team .tsoc a:hover { color: var(--coral-dark); border-bottom-color: currentColor; }
+.team .tsoc { flex-wrap: wrap; row-gap: .3rem; }
+.team .tsoc a.all { color: var(--coral-dark); }

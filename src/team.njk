@@ -23,8 +23,8 @@ description: "The people behind DC Social Collective."
       <h2>{{ m.name }}</h2>
       {%- endif %}
       <p class="role">{{ m.role }}</p>
-      {%- if m.instagram or m.facebook %}
-      <p class="tsoc">{% if m.instagram %}<a href="{{ m.instagram }}" rel="noopener">Instagram</a>{% endif %}{% if m.facebook %}<a href="{{ m.facebook }}" rel="noopener">Facebook</a>{% endif %}</p>
+      {%- if m.slug or m.instagram or m.facebook %}
+      <p class="tsoc">{% if m.slug %}<a class="all" href="/links/{{ m.slug }}/">Contact &amp; links</a>{% endif %}{% if m.instagram %}<a href="{{ m.instagram }}" rel="noopener">Instagram</a>{% endif %}{% if m.facebook %}<a href="{{ m.facebook }}" rel="noopener">Facebook</a>{% endif %}</p>
       {%- endif %}
       <p>{{ m.bio | safe }}</p>
     </article>
