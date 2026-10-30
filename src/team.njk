@@ -24,6 +24,9 @@ description: "The people behind DC Social Collective."
       <h2>{{ m.name }}</h2>
       {%- endif %}
       <p class="role">{{ m.role }}</p>
+      {%- if m.slug %}
+      <p class="tcontact"><a class="btn small" href="/links/{{ m.slug }}/">Contact {{ m.name.split(" ")[0] }}</a></p>
+      {%- endif %}
       <p>{{ m.bio | safe }}</p>
     </article>
   {%- endfor %}
