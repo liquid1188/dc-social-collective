@@ -1,7 +1,6 @@
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import markdownIt from "markdown-it";
 import { buildOgCards } from "./scripts/og-cards.js";
-import { buildCardImages } from "./scripts/card-images.js";
 const mdlib = markdownIt({ html: true, typographer: true });
 export default function (eleventyConfig) {
   eleventyConfig.addFilter("head", (a, n) => (a || []).slice(0, n));
@@ -9,7 +8,6 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
   // Link-preview cards for shared links, rebuilt on every deploy.
   eleventyConfig.on("eleventy.after", async ({ dir }) => { try { await buildOgCards(dir.output); } catch (e) { console.warn("[og]", e.message); } });
-  eleventyConfig.on("eleventy.after", async ({ dir }) => { try { await buildCardImages(dir.output); } catch (e) { console.warn("[card images]", e.message); } });
   eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/admin": "admin", "src/images": "images", "src/video": "video", "src/_redirects": "_redirects", "src/_headers": "_headers", "src/og": "og" });
   // Browsers, search results, and bookmark tools ask for these at the site root
   // no matter what the page says, so keep copies there too.
