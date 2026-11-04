@@ -3,7 +3,7 @@ title: "All-American Country Nights"
 date: "2026-10-24"
 credits:
   - name: "Siena Marie Photography"
-    url: "https://sienamariephotography.pixieset.com/"
+    url: "https://sienamariephotography.com/"
 venue: "Whiffletree Farm"
 cover: "028-8P7A9309.webp"
 photos:
