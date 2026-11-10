@@ -22,8 +22,27 @@ def phash(p):
 webhash = {w: phash(adir / w) for w in web}
 UA = {"User-Agent": "Mozilla/5.0"}
 def gp_urls(link):
-    html = urllib.request.urlopen(urllib.request.Request(link, headers=UA)).read().decode("utf-8", "ignore")
-    return sorted(set(re.findall(r"https://lh3\.googleusercontent\.com/pw/[A-Za-z0-9_-]+", html)))
+    """Every photo in a Google Photos shared album. The page itself only carries the
+    first 300; the rest come from Google's paging call, which we follow to the end.
+    (Nov 2026: reading only the page left 141 of 442 August photos off the site.)"""
+    import urllib.parse
+    def fetch(url, data=None):
+        cmd = ["curl", "-sSL", "-A", "Mozilla/5.0"]
+        if data: cmd += ["-H", "Content-Type: application/x-www-form-urlencoded;charset=UTF-8", "--data", data]
+        return subprocess.run(cmd + [url], capture_output=True, text=True).stdout
+    s = fetch(link)
+    i = s.find("key: 'ds:1'"); i = s.find("data:", i) + 5; j = s.find(", sideChannel", i); d = json.loads(s[i:j])
+    aid = d[3][0]; key = re.search(r"key=([A-Za-z0-9_-]+)", s).group(1)
+    urls = [it[1][0] for it in d[1]]; tok = d[2]
+    while tok:
+        req = json.dumps([[["snAcKc", json.dumps([aid, tok, None, key]), None, "generic"]]])
+        t = fetch("https://photos.google.com/_/PhotosUi/data/batchexecute?rpcids=snAcKc&rt=c", urllib.parse.urlencode({"f.req": req}))
+        for line in t.split("\n"):
+            if '"snAcKc"' in line:
+                inner = json.loads(json.loads(line)[0][2]); urls += [it[1][0] for it in inner[1]]; tok = inner[2]; break
+        else:
+            raise SystemExit("Could not read every page of " + link + "; refusing to build a partial album.")
+    return list(dict.fromkeys(urls))
 work = pathlib.Path(os.environ.get("ORIG_DIR", "/home/claude/orig")) / album; work.mkdir(parents=True, exist_ok=True)
 files = []
 for src in sources:
