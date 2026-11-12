@@ -24,66 +24,62 @@ layout: base.njk
   </div>
 </section>
 <script>
-// A plain download attribute is ignored across domains, and the imported albums
-// still sit on the Squarespace CDN. That CDN sends access-control-allow-origin,
-// so fetch the file and hand the browser a blob instead. If anything fails, the
-// link opens the photo as it did before.
+// Download button on each photo.
+// iPhone and iPad: fetch the photo, then open the share sheet so "Save Image"
+// puts it straight into Photos (a plain download lands in Files instead).
+// Safari only allows the share sheet right after a tap, and a full-size original
+// can take a few seconds to arrive, so if the moment has passed the button turns
+// green and one more tap saves it.
+// Everywhere else: the link downloads the file directly (the server marks it
+// as an attachment), so no script is needed.
 (function () {
   var gallery = document.querySelector(".gallery");
   if (!gallery || !window.fetch) return;
-  var exts = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "image/gif": "gif", "image/avif": "avif" };
-  function fileNameFor(url, blob) {
-    var base = (url.split("?")[0].split("/").pop() || "photo").replace(/\.[a-z0-9]+$/i, "");
-    return decodeURIComponent(base) + "." + (exts[blob.type] || "jpg");
+  var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (!ios || !navigator.canShare || !window.File) return;
+  var exts = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "image/gif": "gif", "image/heic": "heic" };
+  var ready = new WeakMap();
+  var toastTimer;
+  function toast(text) {
+    var el = document.querySelector(".dl-toast");
+    if (!el) { el = document.createElement("div"); el.className = "dl-toast"; el.setAttribute("role", "status"); document.body.appendChild(el); }
+    el.textContent = text;
+    el.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.hidden = true; }, 3500);
   }
-  function fetchBlob(url) {
-    return fetch(url).then(function (response) {
-      if (!response.ok) throw new Error(response.status);
-      return response.blob();
+  function nameFor(chip, blob) {
+    var base = (chip.getAttribute("download") || chip.getAttribute("href").split("?")[0].split("/").pop() || "photo").replace(/\.[a-z0-9]+$/i, "");
+    return base + "." + (exts[blob.type] || "jpg");
+  }
+  function share(chip, file) {
+    return navigator.share({ files: [file] }).then(function () {
+      ready.delete(chip); delete chip.dataset.ready;
+    }, function (err) {
+      if (err && err.name === "AbortError") return; // they closed the sheet
+      ready.set(chip, file); chip.dataset.ready = "1";
+      toast("Photo ready. Tap the green button to save it.");
     });
   }
-  // iOS Safari has no download attribute, so hand the file to the system
-  // share sheet instead: one tap on the photo or the download icon pops up
-  // Save Image / Save to Files, no long-press needed.
-  if (!("download" in document.createElement("a"))) {
-    gallery.addEventListener("click", function (event) {
-      var anchor = event.target.closest && event.target.closest("a");
-      if (!anchor || !gallery.contains(anchor)) return;
-      event.preventDefault();
-      var url = anchor.getAttribute("href");
-      fetchBlob(url).then(function (blob) {
-        try {
-          var file = new File([blob], fileNameFor(url, blob), { type: blob.type });
-          if (navigator.canShare && navigator.canShare({ files: [file] })) {
-            return navigator.share({ files: [file] }).catch(function () {
-              window.open(url, "_blank", "noopener");
-            });
-          }
-        } catch (e) { /* fall through to a new tab */ }
-        window.open(url, "_blank", "noopener");
-      }).catch(function () {
-        window.open(url, "_blank", "noopener");
-      });
-    });
-    return;
-  };
   gallery.addEventListener("click", function (event) {
     var chip = event.target.closest && event.target.closest("a.dl");
-    if (!chip || chip.dataset.busy) return;
+    if (!chip) return;
     event.preventDefault();
-    var url = chip.getAttribute("href");
+    var cached = ready.get(chip);
+    if (cached) { share(chip, cached); return; }
+    if (chip.dataset.busy) return;
     chip.dataset.busy = "1";
-    fetchBlob(url).then(function (blob) {
-      var href = URL.createObjectURL(blob);
-      var link = document.createElement("a");
-      link.href = href;
-      link.download = fileNameFor(url, blob);
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      setTimeout(function () { URL.revokeObjectURL(href); }, 2000);
+    toast("Getting the full-size photo\u2026");
+    var url = chip.getAttribute("href");
+    fetch(url).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.blob();
+    }).then(function (blob) {
+      var file = new File([blob], nameFor(chip, blob), { type: blob.type || "image/jpeg" });
+      if (!navigator.canShare({ files: [file] })) throw new Error("no share");
+      return share(chip, file);
     }).catch(function () {
-      window.open(url, "_blank", "noopener");
+      window.location.href = url;
     }).then(function () {
       delete chip.dataset.busy;
     });

@@ -44,7 +44,9 @@ const photo = (value, folder, filesBase) => {
     full: filesBase && remote ? filesBase + "/albums/" + folder + "/" + r2Name(name) : (remote ? url + "?format=2500w" : url),
     // The download button on a photo uploaded through the editor goes through
     // /api/original/, which hands over the full-size original when one exists.
-    download: remote ? (filesBase ? filesBase + "/albums/" + folder + "/" + r2Name(name) : url + "?format=2500w") : "/api/original/" + folder + "/" + name,
+    // Mirrored albums go through /api/photo/ so the file comes from our own
+    // address (a cross-site link can't be saved directly or shared on iPhone).
+    download: remote ? (filesBase ? "/api/photo/" + folder + "/" + r2Name(name) : url + "?format=2500w") : "/api/original/" + folder + "/" + name,
     // Squarespace wrote spaces as "+", so undo that for the saved filename.
     name: remote ? decodeURIComponent(name.replace(/\+/g, " ")) : name,
     remote,

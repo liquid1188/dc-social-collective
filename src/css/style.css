@@ -489,9 +489,17 @@ body:not(.home) .site-head { position: relative; background: var(--navy); }
 /* Download a photo */
 .gallery .dl { position: absolute; right: .55rem; bottom: .55rem; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: rgba(7,26,58,.72); color: #fff; opacity: 0; transition: opacity .15s, background .15s; }
 .gallery .dl svg { width: 20px; height: 20px; }
-.gallery .dl:hover { background: var(--coral); }
-.gallery figure:hover .dl, .gallery .dl:focus-visible { opacity: 1; }
+.gallery .dl:focus-visible { opacity: 1; }
+/* Hover effects only where there is a real mouse. On a phone, a :hover rule that
+   changes the button makes Safari spend the first tap on the hover state, so the
+   button needed two taps. */
+@media (hover: hover) {
+  .gallery .dl:hover { background: var(--coral); }
+  .gallery figure:hover .dl { opacity: 1; }
+}
 @media (hover: none) { .gallery .dl { opacity: .92; } }
+.gallery .dl[data-ready] { opacity: 1; background: #1f8f4e; }
+.dl-toast { position: fixed; left: 50%; bottom: 1.2rem; transform: translateX(-50%); z-index: 60; max-width: calc(100% - 2rem); padding: .7rem 1.1rem; border-radius: 999px; background: rgba(7,26,58,.94); color: #fff; font-size: .95rem; line-height: 1.3; text-align: center; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
 
 /* Venues and partners */
 /* Each mark sits in a tile of its own so nothing can be cropped, and so a
