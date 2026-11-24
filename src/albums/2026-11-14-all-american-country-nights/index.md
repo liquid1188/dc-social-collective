@@ -5,7 +5,7 @@ credits:
   - name: "Christian Sacra"
     url: "https://www.instagram.com/christiansphotosnsuch/"
 venue: "Blue Valley Vineyard & Winery"
-cover: "029-DSC02355.webp"
+cover: "119-DSC02837.webp"
 photos:
   - "001-A7409590.webp#1707x2560"
   - "002-A7409596.webp#1707x2560"
